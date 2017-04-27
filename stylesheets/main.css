@@ -1,0 +1,149 @@
+header{
+	position:relative;
+	overflow: auto;
+}
+
+/*.main{
+	overflow: auto
+}*/
+article{
+	padding:7px;
+	margin-left: 200px;
+}
+
+.sidebar{
+	position:fixed;
+}
+
+aside{
+	width: 20%;
+	float:left;
+
+}
+
+article{
+	width: 50%;
+	float: left;
+}
+nav{
+	text-align: center;
+}
+ nav li{
+	display:inline-block;
+	text-decoration: none;
+ }
+
+nav a::after {
+	content:"||";
+}
+
+a {
+	color:black;
+}
+
+a:visited{
+	color:green;
+}
+
+
+a:active{
+	color: red;
+}
+
+h1{
+	color:blue;
+	text-shadow: red;
+	font-size: 1em;
+	text-align: center;
+	font-family: "Comic Sans MS", "Courier New", Verdana, serif;
+	padding: 7px;
+	margin: 3px;
+	background: red;
+
+}
+
+h2{
+	font-size: 1em;
+	color:black;
+	text-decoration: underline;
+	padding: 3px;
+}
+
+h3{
+	font-size: 1em;
+	color:black;
+	text-align: center;
+	padding:3px; 
+}	
+
+
+table{
+ 	border: 1px solid black;
+ 	text-align: left;
+	font-family: "Comic Sans MS", "Courier New", Verdana, serif;
+}
+
+th{
+	color:black;
+ 	text-decoration: underline;
+}
+
+	 
+.full{
+	overflow: auto;
+}
+.logo1{
+	width: 251px;
+	height:188px;
+	overflow: hidden;
+	background-image: url(../image/vers-recycleur.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	float:left;
+}
+
+.titre{
+	float:left;
+	width: 70%;
+}
+
+
+.info{
+		font-size: 1em;
+		font-style: normal;
+		text-decoration: underline;
+		font-family: "Courier New", "Comic Sans MS", Verdana, serif;
+		text-align: center;
+		padding: 7px;
+	}
+.form{
+	border:3px black solid;
+	border-radius: 20px;
+	margin:7px;
+}
+
+.choix{
+	font-size: :0.7em;
+	text-decoration: none;
+	font-family: Verdana, serif, "Courier New", "Comic Sans MS";
+}
+
+ .yes{
+ 	color:green;
+ }
+
+ .no{
+ 	color:red;
+ }
+
+ .important{
+ 	text-shadow: blue;
+ 	border: 3px solid red;
+ 	border-radius: 20px;
+ 	margin: 3px;
+ }
+	
+.effect:hover{
+	background: black;
+	box-shadow: black;
+}
