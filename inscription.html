@@ -19,8 +19,6 @@
 			<div class="titre">
 				<h1> PUMP my outdoor aeras </h1>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 				</p>
 			</div>
 
@@ -29,15 +27,15 @@
 			<ul>
 				
 				<li>
-					<a href="Home.html#accueil">ACCUEIL </a>
+					<a href="Accueil.html#accueil">ACCUEIL </a>
 				</li>
 
 				<li>
-					<a href="Home.html#jardinerie">JARDINERIE</a>
+					<a href="Accueil.html#jardinerie">JARDINERIE</a>
 				</li>
 
 				<li>
-					<a href="Home.html#lombricompost">LOMBRICOMPOST</a>
+					<a href="Accueil.html#lombricompost">LOMBRICOMPOST</a>
 				</li>
 				
 				<li>
@@ -45,7 +43,7 @@
 				</li>
 				
 				<li>
-					<a href="Home.html#contact">NOUS CONTACTER</a>
+					<a href="Contact.html">NOUS CONTACTER</a>
 				</li>
 			</ul>
 		</nav>
@@ -59,7 +57,7 @@
 			</ul>
 
 			<ul class="section_conect">
-				<a href="Home.html#conexion"><h3>CONNECTION
+				<a href="Home.html"><h3>CONNEXION 
 				</h3></a>
 			</ul>
 			
@@ -69,15 +67,15 @@
 				</li>
 
 				<li class="li_border">
-					<a href="Home.html#Subtrat">Subtrat </a>
+					<a href="Accueil.html#Subtrat">Subtrat </a>
 				</li>
 
 				<li class="li_border"">
-					<a href="Home.html#Irrigation">Irrigation </a>
+					<a href="Accueil.html#Irrigation">Irrigation </a>
 				</li>
 
 				<li class="li_border"">
-					<a href="Home.html#Condition">Condition climatique </a>
+					<a href="Accueil.html#Condition">Condition climatique </a>
 				</li>
 			</ul>
 			
@@ -88,19 +86,19 @@
 				</li>
 
 				<li class="li_border">
-					<a href="Home.html#lombric">lombric </a>
+					<a href="Accueil.html#lombric">lombric </a>
 				</li >
 
 				<li class="li_border">
-					<a href="Home.html#aliment">Alimentation </a>
+					<a href="Accueil.html#aliment">Alimentation </a>
 				</li>
 
 				<li class="li_border">
-					<a href="Home.html#tableau">tableaux des aliments </a>
+					<a href="Accueil.html#tableau">tableaux des aliments </a>
 				</li>
 					<ul>
 						<li class="li_li_border">
-							<a href="Home.html#Fruits">Fruits et Légumes </a>
+							<a href="Accueil.html#Fruits">Fruits et Légumes </a>
 						</li>
 					</ul>	
 			</ul>
@@ -140,15 +138,7 @@
 					<img src="image/Composteur_type.png">
 				</div>	
 			<p class="aside-info"> Lombricomposteur utile et pratique pour célibataire ou famille </p>
-		</div>
-					
-		<div class="aside">
-			<h3>NOUS CONTACTER</h3>
-			<p class="aside-info">FuriousCrew company</br>23 avenue de la gare,</br>73012 PARIS</p>
-			<t>01.66.66.66.66</t>
-			<e>pas.ke@live.com</e>
-
-		</div>	
+		</div>		
 	</aside>
 
 	<form>
@@ -159,56 +149,86 @@
 		</div>
 		<div class="form">
 			<label for="firstname"><span class="form_info">Prénom :</span></label>
-			<input type="text" id="firstname" name="prenom" value="Veuillez inscrir votre Prénom" placeholder="Kevin">
+			<input type="text" id="firstname" name="prenom" class="form_tape" value="Veuillez inscrir votre Prénom" placeholder="Kevin">
 			<label for="name"><span class="form_info">NOM :</span></label>
-			<input type="text" id="name" name="nom" value="Veuillez inscrire votre nom" placeholder="Pascal">		
+			<input type="text" id="name" name="nom" class="form_tape" value="Veuillez inscrire votre nom" placeholder="Pascal">		
 		</div>
 		<div class="form">
 			<label for="Nickname"><span class="form_info">Pseudo :</span></label>
-			<input type="text" id="Nickname" name="pseudo" value="Veuillez inscrir votre pseudo" placeholder="Kevin">
+			<input type="text" id="Nickname" name="pseudo" class="form_tape" value="Veuillez inscrir votre pseudo" placeholder="Kevin">
 		</div>
 		<div class="form">
 			<label for="email"><span class="form_info">Email :</span></label>
-			<input type="text" id="email" name="Mail" value="Veuillez inscrire votre Email" placeholder="...@gmail.com">
+			<input type="text" id="email" name="Mail" class="form_tape" value="Veuillez inscrire votre Email" placeholder="...@gmail.com">
 		</div>
 		<div class="form">
-			<label for="logement1" for="logement2" for="logementX"><span class="form_info">Logement :</span></label>
-			<input type="checkbox" id="logement1" name="appartement" value="appart" checked><span class="form_info" class="form_choix">Appartement</span>	
-			<input type="checkbox" id="logement2" name="Maison" value="maison"><span class="form_info" class="form_choix">Maison</span>	
-			<input type="checkbox" id="logementX" name="Secret" value="je ne dis pas"><span class="form_info" class="form_choix">le garder secret</span>		
+			<label for="logement1" for="logement2" for="logementX"><span class="form_info">Logement :</span></br></label>
+			<input type="checkbox" id="logement1" name="appartement" class="form_tape_small" value="appart" checked><span class="form_info">Appartement</span></br>	
+			<input type="checkbox" id="logement2" name="Maison" class="form_tape_small" value="maison"><span class="form_info">Maison</span></br>	
+			<input type="checkbox" id="logementX" name="Secret" class="form_tape_small" value="je ne dis pas"><span class="form_info">le garder secret</span></br>		
 		</div>
 		
 		<div class="form">
-			<label for="exterieur1" for="exterieur2"><span class="form_info">Type d'espace exterieur :</span></label>
-			<input type="checkbox" id="exterieur1" name="terrasse" value="terrasse" checked><span class="form_info" class="form_choix">Terasse?</span>	
-			<input type="checkbox" id="exterieur2" name="jardin" value="jardin"><span class="form_info" class="form_choix">Jardin?</span>
-			<input type="checkbox" id="exterieurX" name="Secret" value="je ne dis pas"><span class="form_info" class="form_choix">le garder secret</span>		
+			<label for="exterieur1" for="exterieur2"><span class="form_info">Type d'espace exterieur :</span></br></label>
+			<input type="checkbox" id="exterieur1" name="terrasse" class="form_tape_small" value="terrasse" checked><span class="form_info">Terasse</span></br>	
+			<input type="checkbox" id="exterieur2" name="jardin" class="form_tape_small" value="jardin"><span class="form_info">Jardin</span></br>
+			<input type="checkbox" id="exterieurX" name="Secret" class="form_tape_small" value="je ne dis pas"><span class="form_info">le garder secret</span></br>		
 		</div>
 
 		<div class="form">
 			<label for="numeros"><span class="form_info">Numero :</span></label>
-			<input type="numeros" id="numeros" name="numeros" value="Numeros" >
-			<label for="complement"><span class="form_info"> type :</span> </label>
-			<select id="complement" size="1">
+			<input type="numeros" id="numeros" name="numeros" value="Numeros" ></br>
+			<label for="num_comp"><span class="form_info"> type :</span> </label>
+			<select id="num_comp" size="1">
 				<option value="">	</option>
 				<option value="Bis">Bis	</option>
 				<option value="Ter">Ter	</option>
 			</select>
 			</br>
 			<label for="roadname"> <span class="form_info"> Nom de la rue :</span></label>
-			<input type="text" id="roadname" name="nom_de_rue"></br>
-			<label for="compement"><span class="form_info">Complément :</span></label>
-			<span class="complement"><textarea> </textarea></span></br>
+			<input type="text" id="roadname" class="form_tape" name="nom_de_rue"></br>
+			<label for="adres_complement"><span class="form_info">Complément :</span></label>
+			<textarea id=adres_complement class="form_tape"> </textarea></br>
 			<label for="postcode"><span class="form_info"> Code postal :</span></label>
-			<input type="text" id="postcode" name="Code_postal">
+			<input type="text" id="postcode" class="form_tape_small" name="Code_postal">
 			<label for="ville"> <span class="form_info">Ville :</span></label>
-			<input type="text" id="ville" name="ville">
+			<input type="text" id="ville" class="form_tape_small" name="ville">
 		</div>
 
-		<textarea> Taper votre texte </textarea> </br>	
+		<div class="form">
+			<label for="yourself"><span class="form_info">A propos de vous :</span></label>
+			<textarea id="yourself" class="form_tape"> Court déscriptif </textarea> </br>
+		</div>
+				
 		<input type="submit" name="Valider" value="Envoyer">	
+		
 		</form>
 	</main>
-	
+	<footer>
+		<ul>
+			<li>
+			<p class="aside.info">FuriousCrew company</br>
+			23 avenue de la gare,</br>
+			73012 PARIS</br></p>
+			</li>>
+
+			<li>
+				<p class="aside.info">01.66.66.66.66</br>
+				pas.ke@live.com</p>
+			</li>
+
+			<li>
+				<a href="">twitter</a>
+			</li>
+
+			<li>
+				<a href="">Facebook</a>
+			</li>
+
+			<li>
+				<a href="">Linkedln</a>
+			</li>
+		</ul>	
+	</footer>
 </body>
 </html>			

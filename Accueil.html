@@ -43,15 +43,24 @@
 				</li>
 				
 				<li>
-					<a href="Contact.html">NOUS CONTACTER</a>
+					<a href="contact.html">NOUS CONTACTER</a>
 				</li>
 			</ul>
-		</nav>
+		</nav>	
 	</header>
 
 	<main>
 		<section>
-						
+			<ul class="section_inscrit">
+				<a href="inscription.html"><h3>INSCRIPTION
+				</h3></a>
+			</ul>
+
+			<ul class="section_conect">
+				<a href="Home.html"><h3>CONNEXION  
+				</h3></a>
+			</ul>
+			
 			<ul class="section_jardin">
 				<li>
 					<h3>JARDINERIE</h3>
@@ -123,19 +132,24 @@
 		</section>
 
 		<aside>
-			<div class="aside_image">
-				<h3>GWADA</h3>
-				<div class="aside_profil_image">
-					<img src="image/tortue_profil.jpg">
-				</div>
-				<div class="aside_profil_panier">
-					<a href""><span class="aside-info">PANIER</span></a>	
+			<div class="aside">
+				<h3 id="conexion">INSCRIPTION/CONNEXION</h3>
+				
+				<p>Envie de participer au forum afin de partager vos experiences</p>
+				<div>
+					<label for="Nickname"><span class="form_info">Pseudo :</span></label>
+					<input type="text" id="Nickname" name="pseudo" class="form_tape" value="Veuillez inscrir votre pseudo" placeholder="Gwada"></br>
+					<label for="email"><span class="form_info">Email :</span></label>
+					<input type="text" id="email" name="Mail" class="form_tape" value="Veuillez inscrire votre Email" placeholder="...@gmail.com">
 				</div>
 				<div class="button">
-					<a href="Home.html"> 
-						<button type="button">DECONNEXION</button>
-					</a>
-				</div>		
+				<a href="inscription.html"> 
+					<button type="button">INSCRIPTION</button>
+				</a>
+				<a href="Connecter.html"> 
+					<button type="button">CONNEXION</button>
+				</a>	
+				</div>	
 			</div>
 
 			<div class="aside_image">
@@ -144,7 +158,17 @@
 						<img src="image/Composteur_type.png">
 					</div>	
 				<p class="aside-info"> Lombricomposteur utile et pratique pour célibataire ou famille </p>
-			</div>	
+			</div>
+						
+			<!-- <div class="aside">
+				<h3>NOUS CONTACTER</h3>
+				<p class="aside.info">FuriousCrew company</br>
+				23 avenue de la gare,</br>
+				73012 PARIS</br>
+				<img src="icon/telephone.png" />01.66.66.66.66</br>
+				<img src="icon/email.jpg" />pas.ke@live.com</p>
+
+			</div> -->	
 		</aside>
 		
 		<article>
@@ -311,8 +335,8 @@
 					</tr>
 				</tbody>	
 			</table>						
-		</article>
-	</main>	
+		</article>	
+	</main>
 	<footer>
 		<ul>
 			<li>
@@ -325,7 +349,7 @@
 				<p class="aside.info">01.66.66.66.66</br>
 				pas.ke@live.com</p>
 			</li>
-
+	
 			<li>
 				<a href="">twitter</a>
 			</li>
@@ -338,7 +362,7 @@
 				<a href="">Linkedln</a>
 			</li>
 		</ul>	
-	</footer>
+	</footer>	
 </body>
 
 </html>	

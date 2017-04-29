@@ -5,9 +5,7 @@ body{
 	margin-right: auto;
 	font-size:1em;*/
 }
-main{
-	overflow:auto;
-}
+
 
 header{
 	width:100%;
@@ -24,27 +22,27 @@ ul{
 	padding:3px;
 }
 
-nav li{
+ nav li{
 	display:inline-block;
-	margin:25px 0px 0px 0px;;
+	margin:25px 0px 0px 0px;
 	background:brown;
 	width:19%
  }
 
-footer li{
+ footer li{
  	display:inline-block;
 	margin:0px 0px 0px 0px;
 	background:brown;
 	width:18%
  }
 
-footer ul{
+ footer ul{
  	background-image: url(../image/vers_compost.gif);
 	background-repeat: repeat;
 	background-size: contain;
  }
 
-footer{
+ footer{
  	background:brown;
  }
 
@@ -52,6 +50,7 @@ a {
 	color:black;
 	text-decoration: none;
 }
+
 
 a:visited{
 	color:pink;
@@ -64,40 +63,6 @@ a:active{
 a:hover{
 	background: black;
 	box-shadow: red;
-}
-
-
-main{
-	width: 100%;
-	position:relative;
-}
-
-section{
-	position:fixed;
-	width: 20%;
-	left:8px;
-}
-
-article, form{
-	float: right;
-	width: 50%;
-	margin-right: 83px;
-	}
-
-aside{
-	float: right;
-	width: 20%;
-}
-
-input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
 }
 
 
@@ -142,17 +107,7 @@ p{
 	margin: 3px 3px auto; 
 }
 
-table{
- 	border: 1px solid black;
- 	text-align: left;
-	font-family: "Comic Sans MS", "Courier New", Verdana, serif;
-}
 
-th{
-	color:black;
- 	text-decoration: underline;
-}
-	 
 .full{
 	width: 100%;
 	overflow: auto;
@@ -218,25 +173,6 @@ th{
 	border-radius: 10px;
 }
 
-.table_yes{
- 	color:green;
- }
-
- .table_no{
- 	color:red;
- }
-
-.aside_image{
-	overflow: hidden;
-	background: grey;
- 	border:7px black solid;
- 	border-radius: 30px;
- 	padding:7px;
- 	margin-top:23px;
- 	margin-left: auto;
-	margin-right: auto;
-}
-
 .aside_saison_image{
 	width: 90%;
 	margin: 0 auto;
@@ -252,26 +188,6 @@ th{
 	margin: 0 auto;
 }
 
-.aside_profil_image img {
-	max-width:100%;
-	width:100%;
-}
-
-.aside_profil_panier{
-	margin:23px auto;
-	text-align: center
-}
-.aside{
-	overflow: auto;
- 	background: grey;
- 	border:7px black solid;
- 	border-radius: 30px;
- 	padding:7px;
- 	margin-top:23px;
- 	margin-left: auto;
-	margin-right: auto;
-}
-
 .aside-info{
 	font-size: 2rem;
 	color:black;
@@ -282,13 +198,6 @@ th{
 .button{
 	text-align: center;
 	margin-top:7px;
-}
-
-.form{
-	border:3px black solid;
-	border-radius: 20px;
-	margin: 23px auto;
-	padding:7px;
 }
 
 .form_info{
@@ -334,4 +243,3 @@ th{
  .important::before{
 
  }
-	

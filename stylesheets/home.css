@@ -1,0 +1,31 @@
+main{
+	overflow: auto;
+}
+section{
+	width: 20%;
+	float: left; 
+}
+
+aside{
+	width: 50%;
+	float: right;
+	margin: 90px 30px 90px 30px;
+	border-radius: 30px;
+}
+
+.aside{
+ 	background: grey;
+ 	border:7px black solid;
+ 	border-radius: 30px;
+ 	padding:7px;
+}
+
+.aside_image{
+	background: grey;
+ 	border:7px black solid;
+ 	border-radius: 30px;
+ 	padding:7px;
+ 	width: 20%;
+ 	float: right;
+ 	margin-left: 20px;
+}
