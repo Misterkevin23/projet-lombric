@@ -1,10 +1,14 @@
 main{
 	overflow: auto;
 }
+
 section{
 	width: 20%;
 	float: left;
-	margin-top: 23px; 
+	margin-top: 23px;
+	box-shadow: 0px 7px 20px 7px #680100;
+	border-radius: 30px;
+	background: #680100;
 }
 
 aside{
@@ -19,6 +23,7 @@ aside{
  	border:7px black solid;
  	border-radius: 30px;
  	padding:7px;
+ 	box-shadow: 0px 7px 20px 7px #680100;
 }
 
 .aside_image{
@@ -29,5 +34,6 @@ aside{
  	width: 20%;
  	float: right;
  	margin-left: 20px;
- 	margin-top: 23px; 
+ 	margin-top: 23px;
+ 	box-shadow: 0px 7px 20px 7px #680100; 
 }

@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'salsa';
-    src: url('police/Salsa-Regular.ttf');
+    src: url('../police/Salsa-Regular.ttf');
 }
 
 
@@ -156,6 +156,15 @@ p{
 	text-decoration: overline;
 	text-transform: capitalize;
 	text-shadow: 3px 2px red;
+}
+
+.puce_deroulante::before{
+	content:"+";
+	font-size: 0.7em;
+	border:1px black solid;
+	background: white;
+	border-radius: 30px;
+	font-weight: bolder;
 }
 
 .important{
