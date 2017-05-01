@@ -4,7 +4,6 @@
 	<title>PUMP my outdoor aeras</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="stylesheets/normalize.css">
-	<link rel="stylesheet" type="text/css" href="../stylesheets/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
 </head>
 
@@ -18,7 +17,7 @@
 			
 			<div class="titre">
 				<h1> PUMP my outdoor aeras </h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				<p class="slogan">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				</p>
 			</div>
 
@@ -39,7 +38,7 @@
 				</li>
 				
 				<li>
-					<a href="">NOS PRODUITS</a>
+					<a href="Shop.html">NOS PRODUITS</a>
 				</li>
 				
 				<li>
@@ -66,15 +65,15 @@
 					<h3>JARDINERIE</h3>
 				</li>
 
-				<li class="li_border">
+				<li class="section_li_border">
 					<a href="Accueil.html#Subtrat">Subtrat </a>
 				</li>
 
-				<li class="li_border"">
+				<li class="section_li_border"">
 					<a href="Accueil.html#Irrigation">Irrigation </a>
 				</li>
 
-				<li class="li_border"">
+				<li class="section_li_border"">
 					<a href="Accueil.html#Condition">Condition climatique </a>
 				</li>
 			</ul>
@@ -85,19 +84,19 @@
 					<h3>LOMBRI-COMPOST</h3>
 				</li>
 
-				<li class="li_border">
+				<li class="section_li_border">
 					<a href="Accueil.html#lombric">lombric </a>
 				</li >
 
-				<li class="li_border">
+				<li class="section_li_border">
 					<a href="Accueil.html#aliment">Alimentation </a>
 				</li>
 
-				<li class="li_border">
+				<li class="section_li_border">
 					<a href="Accueil.html#tableau">tableaux des aliments </a>
 				</li>
 					<ul>
-						<li class="li_li_border">
+						<li class="section_li_li_border">
 							<a href="Accueil.html#Fruits">Fruits et Légumes </a>
 						</li>
 					</ul>	
@@ -106,26 +105,26 @@
 			
 			<ul class="section_produit">
 				<li>
-					<a href="">NOS PRODUITS</a>
+					<a href="Shop.html"><h3>NOS PRODUITS</h3></a>
 				</li>
 
-				<li class="li_border">
-					<a href="">lombri-</br>composteur </a>
+				<li class="section_li_border">
+					<a href="Shop_lombricomposteur_standard_page_1.html">lombri-</br>composteur </a>
 				</li>
 
-				<li class="li_border">
-					<a href="">jardinière </a>
+				<li class="section_li_border">
+					<a href="Shop_Jardiniere_en_bois_page_1.html">jardinière </a>
 				</li>
 
-				<li class="li_border">
+				<li class="section_li_border">
 					<a href="">terreau </a>
 				</li>
 
-				<li class="li_border">
+				<li class="section_li_border">
 					<a href="">lombricompost </a>
-				</li class="li_border">
+				</li class="section_li_border">
 
-				<li class="li_border">
+				<li class="section_li_border">
 					<a href="">système d'irrigation </a>
 				</li>
 			</ul>
@@ -133,23 +132,23 @@
 
 		<aside>
 			<div class="aside">
-				<h3 id="conexion">INSCRIPTION/CONNEXION</h3>
+				<h3>INSCRIPTION/CONNEXION</h3>
 				
 				<p>Envie de participer au forum afin de partager vos experiences</p>
-				<div>
-					<label for="Nickname"><span class="form_info">Pseudo :</span></label>
+				<form method="post" action="traitement.php">
+					<label for="Nickname"><span class="form_info">Pseudo/Email :</span></label>
 					<input type="text" id="Nickname" name="pseudo" class="form_tape" value="Veuillez inscrir votre pseudo" placeholder="Gwada"></br>
-					<label for="email"><span class="form_info">Email :</span></label>
-					<input type="text" id="email" name="Mail" class="form_tape" value="Veuillez inscrire votre Email" placeholder="...@gmail.com">
-				</div>
+					<label for="password"><span class="form_info">Mot de passe :</span></label>
+					<input type="password" id="password" name="motpasse" class="form_tape" value="" placeholder="p&trick59">
+					<div class="button">
+						<input type="submit" name="connexion" class="aside_conexion_button" value="CONNEXION">	
+					</div>
+				</form>
+				
 				<div class="button">
-					<a href="inscription.html"> 
-						<button type="button">INSCRIPTION</button>
-					</a>
-					<a href="Connecter.html"> 
-						<button type="button">CONNEXION</button>
-					</a>	
+					<a href="inscription.html" class="aside_conexion_button"> INSCRIPTION</a>
 				</div>
+					
 			</div>
 
 			<div class="aside_image">
@@ -163,60 +162,77 @@
 			</div>	
 		</aside>
 
-		<form>
+		<article>
 			<h2>Pour nous écrire</h2>
 			<h3>AVEZ VOUS DES QUESTIONS?</h3>
-			<p>Pour toutes demandes d'information et de devis. La Furious équipe  reste à votre disposition​​​​​​​​​​.</p>
-			<label for="firstname"><span class="form_info">Prénom :</span></label>
-			<div class="form_contact_champ">		
-				<input type="text" id="firstname" name="prenom" class="form_tape" value="Veuillez inscrir votre Prénom" placeholder="Kevin">
-			</div>
+			<form class="inscription" method="post" action="traitement.php">
+			<fieldset>
+		       <legend>Pour toutes demandes d'information et de devis. La Furious équipe  reste à votre disposition​​​​​​​​​​.</legend>
+				<label for="firstname"><span class="form_info">Prénom :</span></label>
+				<div class="form_contact_champ">		
+					<input type="text" id="firstname" name="prenom" class="form_tape" value="Veuillez inscrir votre Prénom" placeholder="Kevin">
+				</div>
 
-			<label for="name"><span class="form_info">NOM :</span></label>
-			<div class="form_contact_champ">	
-				<input type="text" id="name" name="nom" class="form_tape" value="Veuillez inscrire votre nom" placeholder="Pascal">
-			</div>	
+				<label for="name"><span class="form_info">NOM :</span></label>
+				<div class="form_contact_champ">	
+					<input type="text" id="name" name="nom" class="form_tape" value="Veuillez inscrire votre nom" placeholder="Pascal">
+				</div>	
 
-			<label for="subject"><span class="form_info"> Sujet :</span> </label>
-			<div class="form_contact_champ">	
-				<select id="subject" class="form_tape" size="1">
-					<option value="jardinerie">JARDINERIE</option>
-					<option value="lombricompost">LOMBRICOMPOST</option>
-					<option value="produits">NOS PRODUITS</option>
-				</select>
-			</div>	
+				<label for="subject"><span class="form_info"> Sujet :</span> </label>
+				<div class="form_contact_champ">	
+					<select id="subject" class="form_tape" size="1">
+						<option value="jardinerie">JARDINERIE</option>
+						<option value="lombricompost">LOMBRICOMPOST</option>
+						<option value="produits">NOS PRODUITS</option>
+					</select>
+				</div>
+			</fieldset>		
 			
-			<label class="contact_label" for="message"><span class="form_info"> Message :</span> </label>
-			<div class="form_contact_champ">	
-				<textarea id="message" name="messager" class="form_tape" ></textarea>
-			</div>
-			<input type="submit" name="Valider" value="Envoyer">	
-		</form>
+			<fieldset>
+				<legend>MESSAGE</legend>	
+				<div class="form_contact_champ">	
+					<textarea id="message" name="messager" class="form_tape" ></textarea>
+				</div>
+			</fieldset>
+			<input type="submit" name="Valider" class="form_buttun" value="Envoyer">	
+			</form>
+		</article>	
 	</main>	
 	<footer>
 		<ul>
 			<li>
-			<p class="aside.info">FuriousCrew company</br>
-			23 avenue de la gare,</br>
-			73012 PARIS</br></p>
-			</li>>
+				<h5>Nous rendre visite</h5>
+				<p class="aside.info">FuriousCrew company</br>
+				23 avenue de la gare,</br>
+				73012 PARIS</br></p>
+			</li>
 
 			<li>
+				<h5>Nous contacter</h5>
 				<p class="aside.info">01.66.66.66.66</br>
 				pas.ke@live.com</p>
 			</li>
-
+	
 			<li>
-				<a href="">twitter</a>
+					<h5>Nous suivre</h5>
+				<ul>
+					<li>
+						<a href="">twitter</a>
+					</li>
+
+					<li>
+						<a href="">Fb</a>
+					</li>
+
+					<li>
+						<a href="">Linkedln</a>
+					</li>
+				</ul>
 			</li>
 
 			<li>
-				<a href="">Facebook</a>
-			</li>
-
-			<li>
-				<a href="">Linkedln</a>
-			</li>
+				<a href="">Mention Légales</a>
+			</li>		
 		</ul>	
 	</footer>
 </body>

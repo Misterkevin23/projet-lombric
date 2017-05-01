@@ -4,7 +4,6 @@
 	<title>PUMP my outdoor aeras</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="stylesheets/normalize.css">
-	<link rel="stylesheet" type="text/css" href="../stylesheets/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
 </head>
 
@@ -18,7 +17,7 @@
 			
 			<div class="titre">
 				<h1> PUMP my outdoor aeras </h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				<p class="slogan">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				</p>
 			</div>
 
@@ -39,7 +38,7 @@
 				</li>
 				
 				<li>
-					<a href="">NOS PRODUITS</a>
+					<a href="Shop.html">NOS PRODUITS</a>
 				</li>
 				
 				<li>
@@ -57,15 +56,15 @@
 					<h3>JARDINERIE</h3>
 				</li>
 
-				<li class="li_border">
+				<li class="section_li_border">
 					<a href="#Subtrat">Subtrat </a>
 				</li>
 
-				<li class="li_border"">
+				<li class="section_li_border"">
 					<a href="#Irrigation">Irrigation </a>
 				</li>
 
-				<li class="li_border"">
+				<li class="section_li_border"">
 					<a href="#Condition">Condition climatique </a>
 				</li>
 			</ul>
@@ -76,19 +75,19 @@
 					<h3>LOMBRI-COMPOST</h3>
 				</li>
 
-				<li class="li_border">
+				<li class="section_li_border">
 					<a href="#lombric">lombric </a>
 				</li >
 
-				<li class="li_border">
+				<li class="section_li_border">
 					<a href="#aliment">Alimentation </a>
 				</li>
 
-				<li class="li_border">
+				<li class="section_li_border">
 					<a href="#tableau">tableaux des aliments </a>
 				</li>
 					<ul>
-						<li class="li_li_border">
+						<li class="section_li_li_border">
 							<a href="#Fruits">Fruits et Légumes </a>
 						</li>
 					</ul>	
@@ -97,26 +96,26 @@
 			
 			<ul class="section_produit">
 				<li>
-					<a href="">NOS PRODUITS</a>
+					<a href="Shop.html"><h3>NOS PRODUITS</h3></a>
 				</li>
 
-				<li class="li_border">
-					<a href="">lombri-</br>composteur </a>
+				<li class="section_li_border">
+					<a href="Shop_lombricomposteur_standard_page_1.html">lombri-</br>composteur </a>
 				</li>
 
-				<li class="li_border">
-					<a href="">jardinière </a>
+				<li class="section_li_border">
+					<a href="Shop_Jardiniere_en_bois_page_1.html">jardinière </a>
 				</li>
 
-				<li class="li_border">
+				<li class="section_li_border">
 					<a href="">terreau </a>
 				</li>
 
-				<li class="li_border">
+				<li class="section_li_border">
 					<a href="">lombricompost </a>
-				</li class="li_border">
+				</li class="section_li_border">
 
-				<li class="li_border">
+				<li class="section_li_border">
 					<a href="">système d'irrigation </a>
 				</li>
 			</ul>
@@ -128,14 +127,17 @@
 				<div class="aside_profil_image">
 					<img src="image/tortue_profil.jpg">
 				</div>
-				<div class="aside_profil_panier">
-					<a href""><span class="aside-info">PANIER</span></a>	
-				</div>
-				<div class="button">
-					<a href="Home.html"> 
-						<button type="button">DECONNEXION</button>
-					</a>
-				</div>		
+				<form method="post" action="traitement.php">
+					<div class="aside_profil_panier">
+						<a href="Panier.html"> 
+							<input type="submit" name="disconect" class="panier_button" value="PANIER">
+						</a>
+					</div>
+				<form method="post" action="traitement.php">>	
+					<div class="button">
+							<input type="submit" name="disconect" class="aside_conexion_button" value="DECONNEXION">
+					</div>
+				</form>			
 			</div>
 
 			<div class="aside_image">
@@ -316,27 +318,38 @@
 	<footer>
 		<ul>
 			<li>
-			<p class="aside.info">FuriousCrew company</br>
-			23 avenue de la gare,</br>
-			73012 PARIS</br></p>
-			</li>>
+				<h5>Nous rendre visite</h5>
+				<p class="aside.info">FuriousCrew company</br>
+				23 avenue de la gare,</br>
+				73012 PARIS</br></p>
+			</li>
 
 			<li>
+				<h5>Nous contacter</h5>
 				<p class="aside.info">01.66.66.66.66</br>
 				pas.ke@live.com</p>
 			</li>
-
+	
 			<li>
-				<a href="">twitter</a>
+					<h5>Nous suivre</h5>
+				<ul>
+					<li>
+						<a href="">twitter</a>
+					</li>
+
+					<li>
+						<a href="">Fb</a>
+					</li>
+
+					<li>
+						<a href="">Linkedln</a>
+					</li>
+				</ul>
 			</li>
 
 			<li>
-				<a href="">Facebook</a>
-			</li>
-
-			<li>
-				<a href="">Linkedln</a>
-			</li>
+				<a href="">Mention Légales</a>
+			</li>		
 		</ul>	
 	</footer>
 </body>

@@ -3,7 +3,8 @@ main{
 }
 section{
 	width: 20%;
-	float: left; 
+	float: left;
+	margin-top: 23px; 
 }
 
 aside{
@@ -28,4 +29,5 @@ aside{
  	width: 20%;
  	float: right;
  	margin-left: 20px;
+ 	margin-top: 23px; 
 }

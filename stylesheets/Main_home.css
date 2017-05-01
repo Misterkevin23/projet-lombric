@@ -1,9 +1,11 @@
+@font-face {
+    font-family: 'salsa';
+    src: url('police/Salsa-Regular.ttf');
+}
+
+
 body{
-	/*max-width: 972px;
-	width: 90%;
-	margin-left:auto;
-	margin-right: auto;
-	font-size:1em;*/
+	word-wrap: break-word;
 }
 
 
@@ -29,10 +31,15 @@ ul{
 	width:19%
  }
 
+footer{
+ 	background:brown;
+ }
+
  footer li{
  	display:inline-block;
 	margin:0px 0px 0px 0px;
 	background:brown;
+	border-radius: 30px;
 	width:18%
  }
 
@@ -42,9 +49,14 @@ ul{
 	background-size: contain;
  }
 
- footer{
- 	background:brown;
+ footer ul ul{
+ 	background:none;
  }
+
+ footer ul ul a::after{
+ 	content:"||";
+  }
+
 
 a {
 	color:black;
@@ -85,6 +97,7 @@ h2{
 }
 
 h3, h4{
+	font-style: oblique;
 	font-size: 1em;
 	color:black;
 	font-family: Verdana, "Courier New", serif;
@@ -93,13 +106,19 @@ h3, h4{
 }
 
 h4{
-	font-size: 1em;
-	color:black;
-	text-align: center;
-	padding:3px;
+	font-weight: bold;
+	font-size: 0.7rem;
+	font-family: "Courier New", Verdana, serif;
+	text-decoration: underline;
+}
+
+h5{
+	font-size: 0.7rem;
+	font-family: "Courier New", Verdana, serif;
 }
 
 p{
+	font-family: salsa, "Comic Sans MS", serif;
 	font-size: 1em;
 	color:black;
 	text-align: center;
@@ -129,12 +148,27 @@ p{
 	width: 70%;
 }
 
-.li_border{
-	background: white;
+.slogan{
+	font-size: 1.5em;
+	font-weight: bolder;
+	font-style: italic;
+	text-shadow: red;
+	text-decoration: overline;
+	text-transform: capitalize;
+	text-shadow: 3px 2px red;
+}
+
+.important{
+ 	text-decoration: overline;
+ 	text-decoration-color: red;
+ }
+ 
+.section_li_border{
+	background: grey;
 	border-radius: 20px;
 }
 
-.li_li_border{
+.section_li_li_border{
 	background: blue;
 	border-radius: 20px;
 }
@@ -189,10 +223,11 @@ p{
 }
 
 .aside-info{
-	font-size: 2rem;
-	color:black;
+	font-size: 1rem;
+	color:red;
 	text-align: center;
 	padding:3px;
+	font-weight: bolder;
 }
 
 .button{
@@ -200,11 +235,41 @@ p{
 	margin-top:7px;
 }
 
+.form_buttun{
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 10px #cb0000;
+    cursor: pointer;
+}
+
+.aside_conexion_button{
+	background-color: #4CAF50;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0px 0px 20px 10px #000000;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bolder;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
 .form_info{
 	font-size: 1.7rem;
 	font-family: Verdana, serif, "Courier New", "Comic Sans MS";
 	font-style: normal;
 	margin-bottom: 7px;
+	font-weight: bold;
 }
 
 .form_tape{
@@ -234,12 +299,4 @@ p{
 
  
 
- .important{
- 	text-shadow: blue;
- 	border: 3px solid red;
- 	border-radius: 20px;
- }
 
- .important::before{
-
- }

@@ -1,9 +1,11 @@
+@font-face {
+    font-family: 'salsa';
+    src: url('police/Salsa-Regular.ttf');
+}
+
+
 body{
-	/*max-width: 972px;
-	width: 90%;
-	margin-left:auto;
-	margin-right: auto;
-	font-size:1em;*/
+	word-wrap: break-word;
 }
 main{
 	overflow:auto;
@@ -31,10 +33,16 @@ nav li{
 	width:19%
  }
 
+footer{
+ 	background:brown;
+ 	margin-top:23px;
+ }
+
 footer li{
  	display:inline-block;
 	margin:0px 0px 0px 0px;
 	background:brown;
+	border-radius: 30px;
 	width:18%
  }
 
@@ -44,13 +52,18 @@ footer ul{
 	background-size: contain;
  }
 
-footer{
- 	background:brown;
+  footer ul ul{
+ 	background:none;
  }
+
+ footer ul ul a::after{
+ 	content:"||";
+  }
 
 a {
 	color:black;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 a:visited{
@@ -76,12 +89,15 @@ section{
 	position:fixed;
 	width: 20%;
 	left:8px;
+	margin-top: 23px; 
 }
 
-article, form{
+article{
 	float: right;
 	width: 50%;
 	margin-right: 83px;
+	box-shadow: 0px 7px 20px 7px #680100;
+	border-radius: 20px;
 	}
 
 aside{
@@ -89,17 +105,21 @@ aside{
 	width: 20%;
 }
 
-input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+fieldset{
+	border:none;
+	box-shadow: 0px 0px 20px 10px #cfcfcf;
 }
 
+legend{
+	font-style: italic;
+	text-align: center;
+	font-size: 1.5em;
+	text-decoration: underline red
+	color: black;
+	font-family: Impact, serif;
+	font-weight: bold;
+	margin-top:23px;
+}
 
 h1{
 	color:blue;
@@ -120,21 +140,28 @@ h2{
 }
 
 h3, h4{
+	font-style: oblique;
 	font-size: 1em;
 	color:black;
-	font-family: Verdana, "Courier New", serif;
+	font-family: salsa, Verdana, "Courier New", serif;
 	text-align: center;
 	padding:3px;
 }
 
 h4{
-	font-size: 1em;
-	color:black;
-	text-align: center;
-	padding:3px;
+	font-weight: bold;
+	font-size: 0.7rem;
+	font-family: salsa, Verdana, "Courier New", serif;
+	text-decoration: underline;
+}
+
+h5{
+	font-size: 0.7rem;
+	font-family: "Courier New", Verdana, serif;
 }
 
 p{
+	font-family: salsa, "Comic Sans MS", serif;
 	font-size: 1em;
 	color:black;
 	text-align: center;
@@ -146,13 +173,23 @@ table{
  	border: 1px solid black;
  	text-align: left;
 	font-family: "Comic Sans MS", "Courier New", Verdana, serif;
+	border-collapse: collapse;
+}
+
+td{
+	border: 1px dotted black;
 }
 
 th{
 	color:black;
  	text-decoration: underline;
 }
-	 
+
+.important{
+ 	text-decoration: underline;
+ 	text-decoration-color: red;
+ }
+
 .full{
 	width: 100%;
 	overflow: auto;
@@ -174,12 +211,22 @@ th{
 	width: 70%;
 }
 
-.li_border{
-	background: white;
+.slogan{
+	font-size: 1.5em;
+	font-weight: bolder;
+	font-style: italic;
+	text-shadow: red;
+	text-decoration: overline;
+	text-transform: capitalize;
+	text-shadow: 3px 2px red;
+}
+
+.section_li_border{
+	background: grey;
 	border-radius: 20px;
 }
 
-.li_li_border{
+.section_li_li_border{
 	background: blue;
 	border-radius: 20px;
 }
@@ -273,15 +320,46 @@ th{
 }
 
 .aside-info{
-	font-size: 2rem;
-	color:black;
+	font-size: 1rem;
+	color:red;
 	text-align: center;
 	padding:3px;
+	font-weight: bolder;
 }
 
 .button{
 	text-align: center;
 	margin-top:7px;
+}
+
+.form_buttun{
+    width: 90%;
+    background-color: #4CAF50;
+    color: white;
+    display: inline-block;
+    padding: 14px 20px;
+    margin: 8px auto;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 10px #cb0000;
+    cursor: pointer;
+}
+
+.aside_conexion_button{
+	background-color: #4CAF50;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0px 0px 20px 10px #000000;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bolder;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 
 .form{
@@ -296,6 +374,7 @@ th{
 	font-family: Verdana, serif, "Courier New", "Comic Sans MS";
 	font-style: normal;
 	margin-bottom: 7px;
+	font-weight: bold;
 }
 
 .form_tape{
@@ -321,17 +400,236 @@ th{
 .form_contact_champ{
 	width:100%;
 	border: 7px black solid;
+	border-radius: 20px;
 }
 
- 
+.shop_navigateur{
+	overflow: auto;
+}
 
- .important{
- 	text-shadow: blue;
- 	border: 3px solid red;
- 	border-radius: 20px;
- }
+.shop_navigateur_list li{
+	display:inline-block;
+	float: left;
+}
 
- .important::before{
+.shop_navigateur_list li ::after{
+	content:" > ";
+}
 
- }
+.shop_navigateur_panier{
+	float: right;
+}
+
+.produit{
+	overflow: auto;
+	margin: 10px auto;
+	box-shadow: 0px 10px 10px 5px #000000;
+	border-radius: 10px;
+	padding:5px;
+}
+
+.produit_button{
+	background-color: black;
+	font-size:0.8em;
+    color: white;
+    display: inline-block;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 10px #cfcfcf;
+    cursor: pointer;
+}
+.produit_photo{
+	width: 32%;
+	float: left;
+	border: 3px solid grey;
+	box-shadow: 10px 10px 5px #656565;
+	margin:5px 3px;
+}
+
+.produit_photo img {
+	max-width:100%;
+	width:100%;
+}
+
+.produit_description{
+	float:left;
+	width: 32%;
+	margin:5px 3px;
+	box-shadow: 10px 10px 5px #656565;
+
+}
+
+.produit_description_text{
+	font-style: italic;
+	opacity:1;
+}
+
+.produit_action{
+	float:left;
+	width: 30%;
+	border:3px solid black;
+	border-radius: 30px;
+	margin: 5px 5px;
+}
+
+.produit_prix{
+	font-size: 2em;
+}
+
+.shop_navigateur li li{
+	display:inline-block;
+}
+
+.shop_navigateur li li h5::after{
+	content:" || ";
+}
+
+.panier_button{
+	background-color: grey;
+    color: black;
+    display: inline-block;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 10px black;
+    cursor: pointer;
+}
+
+.panier_suprim_button{
+	background-color: red;
+	color: black;
+	display: inline-block;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	font-weight: bold;
+	border-radius: 10px;
+	box-shadow: 0px 0px 20px 10px black;
+	cursor: pointer;
+}
+
+.panier_produit{
+	float:left;
+	width: 32%;
+	box-shadow: 0px 5px 10px 5px #32cb00;
+	margin:3px 3px;
+}
+
+.panier_produit_photo{
+	width: 32%;
+	float: left;
+	border: 3px solid grey;
+	margin:0px 3px;
+}
+
+.panier_produit_photo img {
+	max-width:100%;
+	width:100%;
+}
+
+.panier_produit_prix{
+	font-size: 1em;
+}
+
+.page li{
+	display:inline-block;
+	font-style: oblique;
+	border: 3 solid green;
+	border-radius: 20px;
+	background: green;
+	float:right;
+	margin:7px 3px;
+	text-align:center;
+}
+
+.shop_baniere{
+	overflow: auto;
+	border-left: 8px solid red;
+	border-right: 8px solid red;
+	border-top: 3px solid red;
+}
+
+.shop_baniere_photo{
+	width: 31%;
+	float: left;
+	border: 8px solid red;
 	
+}
+
+.shop_baniere_photo img {
+	max-width:100%;
+	width:100%;
+}
+
+.shop_slogan{
+	font-size: 2em;
+	font-style: oblique;
+	text-align: center;
+	font-weight: bolder;
+	border-left: 8px solid brown;
+	border-right: 8px solid brown;
+	border-bottom: 8px solid brown;
+	margin: 0px;
+}
+
+.shop_saison{
+	overflow: auto;
+}
+.shop_produit{
+	width: 40%;
+	float:left;
+	margin:23px 23px 23px 23px;
+	border-bottom: 3px solid red;
+	box-shadow: 0px 5px 10px 10px #00009b;
+}
+
+.shop_produit_photo{
+	width: 100%;
+	border: 3px solid grey;
+	margin:0px 3px;
+}
+
+.shop_produit_photo img {
+	max-width:100%;
+	width:100%;
+}
+
+
+.shop_sold{
+	font-size: 2em;
+	background: red;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.shop_produit_prix{
+	margin-top: 8px;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.shop_livraison{
+	width: 100%;
+	overflow: auto;
+	background: green;
+	margin-bottom: 23px;
+}
+
+.shop_livraison_photo{
+	width: 30%;
+	float:right;
+}
+
+.shop_livraison_chrono{
+	width: 60%;
+	float: right;
+}
+
+.shop_livraison_text{
+	font-size: 2em;
+	font-weight: bold;
+	margin-left: 20px;
+}
