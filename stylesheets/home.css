@@ -2,7 +2,7 @@ main{
 	overflow: auto;
 }
 
-section{
+.home_section{
 	width: 20%;
 	float: left;
 	margin-top: 23px;
@@ -11,14 +11,14 @@ section{
 	background: #680100;
 }
 
-aside{
+.home_aside{
 	width: 50%;
 	float: right;
 	margin: 90px 30px 90px 30px;
 	border-radius: 30px;
 }
 
-.aside{
+.home_aside_aside{
  	background: grey;
  	border:7px black solid;
  	border-radius: 30px;
@@ -26,7 +26,7 @@ aside{
  	box-shadow: 0px 7px 20px 7px #680100;
 }
 
-.aside_image{
+.home_aside_image{
 	background: grey;
  	border:7px black solid;
  	border-radius: 30px;

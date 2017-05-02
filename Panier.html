@@ -144,18 +144,27 @@
 
 		<aside>
 			<div class="aside">
-				<h3 id="conexion">INSCRIPTION/CONNEXION</h3>
+				<h3>INSCRIPTION/CONNEXION</h3>
 				
-				<p>Envie de participer au forum afin de partager vos experiences</p>
-				<form method="post" action="traitement.php">
-					<label for="Nickname"><span class="form_info">Pseudo/Email :</span></label>
-					<input type="text" id="Nickname" name="pseudo" class="form_tape" value="Veuillez inscrir votre pseudo" placeholder="Gwada"></br>
+				<p>Envie  de vous faire livrer vos produit ou de participer au forum afin de partager vos experiences</p><br>
+				<input type="radio" name="compte" value="non" checked="">Vous n'avez pas de compte PUMPCrew<br>
+				<input type="radio" name="compte" value="yes">Vous avez un compte PUMPCrew<br><br>
+				<form>
+					<label for="member"><span class="form_info">Pseudo/Email :</span></label>
+					<input type="text" id="member" name="pseudo" class="form_tape" value="" required="" placeholder="Gwada"></br>
+					<label for="new_member"><span class="form_info">Email :</span></label>
+					<input type="email" id="new_member" name="nouveau_membre" class="form_tape" value="" required=" placeholder="...@gmail"></br>
 					<label for="password"><span class="form_info">Mot de passe :</span></label>
-					<input type="password" id="password" name="motpasse" class="form_tape" value="" placeholder="p&trick59">
+					<input type="password" id="password" name="motpasse" class="form_tape" value="" required="" placeholder="p&trick59">
 					<div class="button">
 						<input type="submit" name="connexion" class="aside_conexion_button" value="CONNEXION">	
 					</div>
-				</form>	
+				</form>
+				
+				<div class="button">
+					<a href="inscription.html" class="aside_conexion_button"> INSCRIPTION</a>
+				</div>
+					
 			</div>
 
 			<div class="aside_image">
@@ -168,37 +177,34 @@
 		</aside>
 
 		<article>
-			<div class="shop_navigateur">
+			<div class="panier_navigation">
 				<ul>
 					<li>
-						<h5>Panier</h5>
-						<ul>
-							<li>
-								<h5><a href="#jardinerie">JARDINIERE</a></h5>
-							</li>
-
-							<li>
-								<h5><a href="#lombricomposteur">LOMBRICOMPOSTEUR</a></h5>
-							</li>
-
-							<li>
-								<h5><a href="#terreaux">TERREAUX</a></h5>
-							</li>
-
-							<li>
-								<h5><a href="#lombricompot"> LOMBRICOMPOST</a></h5>
-							</li>
-
-							<li>
-								<h5><a href="#systeme_irrigation"> STYSTEME IRRIGATION</a></h5>
-							</li>
-						</ul>
-
+						<a href="Panier.html">
+							<h3 class="panier_navigation_color">PANIER</h3>
+						</a>
 					</li>
+
+					<li>
+						<h3>IDENTIFICATION</h3>
+					</li>
+
+					<li>
+						<h3>PAYEMENT</h3>
+					</li>
+
+					<li>
+						<h3>RECAPITULATIF</h3>
+					</li>
+
+					<li>
+						<h3>CONFIRMATION</h3>
+					</li>
+
 				</ul>
 			</div>
 
-			<h2 id="jardinerie"> JARDINIERE</h2>
+			<h2> JARDINIERE</h2>
 			<div class="produit">
 				<div class="panier_produit">	
 					<h3>Jardiniere Nom</h3>
@@ -209,9 +215,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>	
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 				
 				<div class="panier_produit">	
@@ -223,9 +229,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 				
 				<div class="panier_produit">	
@@ -237,9 +243,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -251,9 +257,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -265,9 +271,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -279,9 +285,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -293,13 +299,13 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 			</div>
 
-			<h2 id="lombricomposteur"> LOMBRICOMPOSTEUR</h2>
+			<h2> LOMBRICOMPOSTEUR</h2>
 			<div class="produit">
 				<div class="panier_produit">	
 					<h3>lombricomposteur Nom</h3>
@@ -310,9 +316,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 				
 				<div class="panier_produit">	
@@ -324,9 +330,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 				
 				<div class="panier_produit">	
@@ -338,9 +344,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -352,9 +358,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -366,9 +372,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -380,9 +386,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -394,13 +400,13 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 			</div>
 
-			<h2 id="terreaux"> TERREAUX</h2>
+			<h2> TERREAUX</h2>
 			<div class="produit">
 				<div class="panier_produit">	
 					<h3>terreau Nom</h3>
@@ -411,9 +417,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 				
 				<div class="panier_produit">	
@@ -425,9 +431,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 				
 				<div class="panier_produit">	
@@ -439,9 +445,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -453,9 +459,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -467,9 +473,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -481,9 +487,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -495,13 +501,13 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
 					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 			</div>
 
-			<h2 id="lombricompot"> LOMBRICOMPOST</h2>
+			<h2> LOMBRICOMPOST</h2>
 			<div class="produit">
 				<div class="panier_produit">	
 					<h3>lombricompost Nom</h3>
@@ -512,9 +518,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
-					<input type="number" id="quantite_produit" name="qte_produit" value="4" >
+					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 				
 				<div class="panier_produit">	
@@ -526,9 +532,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
-					<input type="number" id="quantite_produit" name="qte_produit" value="4" >
+					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 				
 				<div class="panier_produit">	
@@ -540,9 +546,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
-					<input type="number" id="quantite_produit" name="qte_produit" value="4" >
+					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -554,9 +560,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
-					<input type="number" id="quantite_produit" name="qte_produit" value="4" >
+					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -568,9 +574,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
-					<input type="number" id="quantite_produit" name="qte_produit" value="4" >
+					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -582,9 +588,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
-					<input type="number" id="quantite_produit" name="qte_produit" value="4" >
+					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -596,13 +602,13 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
-					<input type="number" id="quantite_produit" name="qte_produit" value="4" >
+					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 			</div>
 
-			<h2 id="systeme_irrigation"> STYSTEME IRRIGATION</h2>
+			<h2> STYSTEME IRRIGATION</h2>
 			<div class="produit">
 				<div class="panier_produit">	
 					<h3>systeme irrigation Nom</h3>
@@ -613,9 +619,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
-					<input type="number" id="quantite_produit" name="qte_produit" value="4" >
+					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 				
 				<div class="panier_produit">	
@@ -627,9 +633,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
-					<input type="number" id="quantite_produit" name="qte_produit" value="4" >
+					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 				
 				<div class="panier_produit">	
@@ -641,9 +647,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
-					<input type="number" id="quantite_produit" name="qte_produit" value="4" >
+					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -655,9 +661,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
-					<input type="number" id="quantite_produit" name="qte_produit" value="4" >
+					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -669,9 +675,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
-					<input type="number" id="quantite_produit" name="qte_produit" value="4" >
+					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -683,9 +689,9 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
-					<input type="number" id="quantite_produit" name="qte_produit" value="4" >
+					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 
 				<div class="panier_produit">	
@@ -697,16 +703,48 @@
 						<a href="" class="produit_button"> Voir le produit </a></br>
 						<input type="submit" name="suprimer" class="panier_suprim_button" value="SUPRIMER"></a></br>
 					</div>
-					<p class="panier_produit_prix">XXXX Euro</p>
 					<label for="quantite_produit"><span class="panier_produit_prix">QUANTITE :</span></label>
-					<input type="number" id="quantite_produit" name="qte_produit" value="4" >
+					<input type="number" id="quantite_produit" name="qte_produit" value="5" >
+					<p class="panier_produit_prix">XXXX Euro</p>
 				</div>
 			</div>
-
+			<h2> S&ECUTELECTIONN&ECUTE votre mode de livraison</h2>
+			<form>
+				<fieldset>
+			       	<div class="panier_livraison">
+		       		<label for="collissimo"><span class="form_info">COLLISSIMO :</span></label>
+					<input type="radio" id="collissimo" name="livraison" class="form_tape" value="poste" >
+						<div class="panier_livraison_contenu">
+							<div class="panier_livraison_contenu_mode">
+								<p class="panier_produit_prix">XXXX Euro</p>
+							</div>
+							<div class="panier_livraison_contenu_mode">
+								<p class="panier_livraison_contenu_detail">Delai moyen de livraison : <br> 4 jours ouvrés</p>
+							</div>
+						</div>
+					</div>
+					<div class="panier_livraison">
+		       		<label for="express"><span class="form_info">Express :</span></label>
+					<input type="radio" id="express" name="livraison" class="form_tape" value="poste" >
+						<div class="panier_livraison_contenu">
+							<div class="panier_livraison_contenu_mode">
+								<p class="panier_produit_prix">XXXX Euro</p>
+							</div>
+							<div class="panier_livraison_contenu_mode">
+								<p class="panier_livraison_contenu_detail">Delai moyen de livraison : <br> 1 jours ouvrés</p>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</form>			
 			<h2> TOTAL</h2>
-			<p class="panier_total">NOMBRE D'ARTICLE : XXXXX<br>
-				Total à payer: XXXX euro</p>
-			<input type="submit" name="payer" class="form_buttun" value="PAYER">	
+			<p class="panier_total">NOMBRE D'ARTICLE : XXXXX</p>
+			<p class="panier_total">Total de vos articles hors frais de livraison: XXXX euro</p>
+			<p class="panier_total">Total de vos frais de livraison: XXXX euro</p>
+			<p class="panier_total">Total de votre commande: XXXX euro</p>
+			<div class="button">
+					<a href="paiement_identification.html" class="aside_conexion_button"> S'identifier et payer</a>
+				</div>	
 		</article>
 	</main>
 	<footer>

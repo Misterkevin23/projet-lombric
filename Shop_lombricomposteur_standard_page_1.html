@@ -144,18 +144,27 @@
 
 		<aside>
 			<div class="aside">
-				<h3 id="conexion">INSCRIPTION/CONNEXION</h3>
+				<h3>INSCRIPTION/CONNEXION</h3>
 				
-				<p>Envie de participer au forum afin de partager vos experiences</p>
-				<form method="post" action="traitement.php">
-					<label for="Nickname"><span class="form_info">Pseudo/Email :</span></label>
-					<input type="text" id="Nickname" name="pseudo" class="form_tape" value="Veuillez inscrir votre pseudo" placeholder="Gwada"></br>
+				<p>Envie  de vous faire livrer vos produit ou de participer au forum afin de partager vos experiences</p><br>
+				<input type="radio" name="compte" value="non" checked="">Vous n'avez pas de compte PUMPCrew<br>
+				<input type="radio" name="compte" value="yes">Vous avez un compte PUMPCrew<br><br>
+				<form>
+					<label for="member"><span class="form_info">Pseudo/Email :</span></label>
+					<input type="text" id="member" name="pseudo" class="form_tape" value="" required="" placeholder="Gwada"></br>
+					<label for="new_member"><span class="form_info">Email :</span></label>
+					<input type="email" id="new_member" name="nouveau_membre" class="form_tape" value="" required=" placeholder="...@gmail"></br>
 					<label for="password"><span class="form_info">Mot de passe :</span></label>
-					<input type="password" id="password" name="motpasse" class="form_tape" value="" placeholder="p&trick59">
+					<input type="password" id="password" name="motpasse" class="form_tape" value="" required="" placeholder="p&trick59">
 					<div class="button">
 						<input type="submit" name="connexion" class="aside_conexion_button" value="CONNEXION">	
 					</div>
-				</form>	
+				</form>
+				
+				<div class="button">
+					<a href="inscription.html" class="aside_conexion_button"> INSCRIPTION</a>
+				</div>
+					
 			</div>
 
 			<div class="aside_image">
@@ -172,19 +181,18 @@
 				<div class="shop_navigateur_list">
 					<ul>
 						<li>
-							<h5>Magasin</h5>
+							<h3>Magasin</h3>
 						</li>
 
 						<li>
-							<h5>lombricomposteur</h5>
+							<h3>jardinière</h3>
 						</li>
 
 						<li>
-							<h5>standard</h5>
+							<h3>BOIS</h3>
 						</li>
-					</ul>
+					</ul>	
 				</div>
-
 				<div class="shop_navigateur_panier">
 					<ul>
 						<li>
@@ -196,7 +204,7 @@
 						</li>
 					</ul>			
 				</div>
-			</div>	
+			</div>
 
 			<h2> LOMBRICOMPOSTEUR </h2>
 			<div class="produit">
@@ -214,11 +222,11 @@
 				<div class="produit_action">
 					<h4>En stock</h4>
 					<div class="button">
-						<form method="post" action="traitement.php">
+						<form>
 							<input type="submit" name="ajout_panier" class="panier_button" value="Ajouter au panier"></a></br>
 						</form>	
 						<a href="" class="produit_button"> Voir le produit </a></br>
-						<form method="post" action="traitement.php">
+						<form>
 							<input type="submit" name="Achat" class="form_buttun" value="Achat direct"></br>
 						</form>	
 					</div>
@@ -240,11 +248,11 @@
 				<div class="produit_action">
 					<h4>En stock</h4>
 					<div class="button">
-						<form method="post" action="traitement.php">
+						<form>
 							<input type="submit" name="ajout_panier" class="panier_button" value="Ajouter au panier"></a></br>
 						</form>	
 						<a href="" class="produit_button"> Voir le produit </a></br>
-						<form method="post" action="traitement.php">
+						<form>
 							<input type="submit" name="Achat" class="form_buttun" value="Achat direct"></br>
 						</form>	
 					</div>
@@ -266,11 +274,11 @@
 				<div class="produit_action">
 					<h4>En stock</h4>
 					<div class="button">
-						<form method="post" action="traitement.php">
+						<form>
 							<input type="submit" name="ajout_panier" class="panier_button" value="Ajouter au panier"></a></br>
 						</form>	
 						<a href="" class="produit_button"> Voir le produit </a></br>
-						<form method="post" action="traitement.php">
+						<form>
 							<input type="submit" name="Achat" class="form_buttun" value="Achat direct"></br>
 						</form>	
 					</div>
@@ -292,11 +300,11 @@
 				<div class="produit_action">
 					<h4>En stock</h4>
 					<div class="button">
-						<form method="post" action="traitement.php">
+						<form>
 							<input type="submit" name="ajout_panier" class="panier_button" value="Ajouter au panier"></a></br>
 						</form>	
 						<a href="" class="produit_button"> Voir le produit </a></br>
-						<form method="post" action="traitement.php">
+						<form>
 							<input type="submit" name="Achat" class="form_buttun" value="Achat direct"></br>
 						</form>	
 					</div>
