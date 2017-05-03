@@ -143,23 +143,22 @@
 		</section>
 
 		<aside>
-			<div class="aside">
-				<h3>INSCRIPTION/CONNEXION</h3>
-				
-				<p>Envie de participer au forum afin de partager vos experiences</p>
-				<form>
-					<label for="Nickname"><span class="form_info">Pseudo/Email :</span></label>
-					<input type="text" id="Nickname" name="pseudo" class="form_tape" value="Veuillez inscrir votre pseudo" placeholder="Gwada"></br>
-					<label for="password"><span class="form_info">Mot de passe :</span></label>
-					<input type="password" id="password" name="motpasse" class="form_tape" value="" placeholder="p&trick59">
-					<div class="button">
-						<input type="submit" name="connexion" class="aside_conexion_button" value="CONNEXION">	
-					</div>
-				</form>	
-
-				<div class="button">
-					<a href="inscription.html" class="aside_conexion_button"> INSCRIPTION</a>
+			<div class="aside_image">
+				<h3>GWADA</h3>
+				<div class="aside_profil_image">
+					<img src="image/tortue_profil.jpg">
 				</div>
+				<form>
+					<div class="aside_profil_panier">
+						<a href="Panier.html"> 
+							<input type="submit" name="disconect" class="panier_button" value="PANIER">
+						</a>
+					</div>
+				<form>	
+					<div class="button">
+							<a href="Home.html"><h3 class="aside_conexion_button">DECONNEXION</h3>
+					</div>
+				</form>			
 			</div>
 
 			<div class="aside_image">
@@ -168,38 +167,166 @@
 						<img src="image/Composteur_type.png">
 					</div>	
 				<p class="aside-info"> Lombricomposteur utile et pratique pour célibataire ou famille </p>
-			</div>
+			</div>	
 		</aside>
 
 		<article>
-			<div class="shop_navigateur">
+			<div class="panier_navigation">
 				<ul>
 					<li>
-						<h5>Panier</h5>
-						<ul>
-							<li>
-								<h5><a href="#jardinerie">JARDINIERE</a></h5>
-							</li>
-
-							<li>
-								<h5><a href="#lombricomposteur">LOMBRICOMPOSTEUR</a></h5>
-							</li>
-
-							<li>
-								<h5><a href="#terreaux">TERREAUX</a></h5>
-							</li>
-
-							<li>
-								<h5><a href="#lombricompot"> LOMBRICOMPOST</a></h5>
-							</li>
-
-							<li>
-								<h5><a href="#systeme_irrigation"> STYSTEME IRRIGATION</a></h5>
-							</li>
-						</ul>
-
+						<a href="Panier.html">
+							<h3 >PANIER</h3>
+						</a>
 					</li>
+
+					<li>
+						<h3 class="panier_navigation_color">PAYEMENT</h3>
+					</li>
+
+					<li>
+						<h3>CONFIRMATION</h3>
+					</li>
+
 				</ul>
+			</div>
+			<div>
+				<div class="panier_recapitulatif">
+					<fieldset>
+						<legend>Adresse de livraison</legend>
+						<div class="form">
+							<input type="radio" name="jardin" value="jardin" class="form_tape_small" required=""><span class="form_info">Identique à l'adresse de facturation</span><br><br>
+							<label for="numeros"><span class="form_info">N°, voie :</span></label>
+							<input type="number" id="numeros" name="numeros" class="form_tape" value="" required><br><br>
+							<label for="roadname"> <span class="form_info"> Nom de la rue :</span></label>
+							<input type="text" id="roadname" class="form_tape" name="nom_de_rue" required=""><br><br>
+							<label for="appartement"><span class="form_info">étage, appartement :</span></label>
+							<input type="text" id="appartement" name="appartement" class="form_tape" value="" placeholder="étage 7, appartement 23"><br><br>
+							<label for="batiment"><span class="form_info"> Bâtiment :</span></label>
+							<input type="text" id="batiment" class="form_tape_small" name="batiment"><br><br>
+							<label for="lieu_dit"><span class="form_info"> Lieu-dit :</span></label>
+							<input type="text" id="lieu-dit" class="form_tape_small" name="lieu-dit"><br><br>
+							<label for="postcode"><span class="form_info"> Code postal :</span></label>
+							<input type="text" id="postcode" class="form_tape_small" name="Code_postal" required=""><br><br>
+							<label for="ville"> <span class="form_info">Ville :</span></label>
+							<input type="text" id="ville" class="form_tape_small" name="ville" required=""><br><br>
+							<label for="pays"><span class="form_info"> Pays :</span> </label>
+							<select id="pays" size="1" class="form_tape" required>
+								<option value="">	</option>
+								<option value="France">France	</option>
+								<option value="Allemagne">Allemagne	</option>
+								<option value="belgique">belgique	</option>
+								<option value="Espagne">Espagne	</option>
+							</select>
+							<br>
+						</div>
+					</fieldset>
+
+					<fieldset>
+						<legend>Paiement</legend>
+						<div class="form">
+							<label for="carte"> <span class="form_info"> Numéro de carte:</span></label>
+							<input type="text" id="carte" class="form_tape" name="numeros_de_carte" required=""><br><br>
+							<label for="mastercard" for="visa"><span class="form_info">Type de paiement :</span></label><br><br>
+							<input type="radio" id="visa" name="paiement" value="visa" checked=""><span class="form_info">VISA</span>	
+							<input type="radio" id="mastercard" name="paiement" value="mastercard"><span class="form_info">MASTERCARD</span><br><br>
+							<label for="date"> <span class="form_info"> Date d'expiration :</span></label><br><br>
+							<input type="text" id="date" class="form_tape_small" name="date2"><br><br>
+							<label for="crypto"> <span class="form_info"> Cryptogramme visuel :</span></label><br><br>
+							<input type="text" id="crypto" class="form_tape_small" name="cryptogramme"><br>
+						</div>
+					</fieldset>
+					<br>
+					<div class="button">
+						<a href="paiement_identification.html" class="aside_conexion_button"> PAYER</a>
+					</div>
+				</div>
+				
+				<div class="panier_recapitulatif">
+					<table>
+					<thead>
+						<tr>
+							<th colspan="3">Recapitulatif de la commande</th>
+						</tr>
+					</thead>
+					
+					<tbody>	
+						<tr>
+							<td><h3>Jardiniere Nom</h3></td>
+							<td>1</td>
+							<td class="panier_produit_prix">XXXX Euro</td>
+						</tr>
+						<tr>
+							<td><h3>Jardiniere Nom</h3></td>
+							<td>1</td>
+							<td class="panier_produit_prix">XXXX Euro</td>
+						</tr>
+						<tr>
+							<td><h3>Jardiniere Nom</h3></td>
+							<td>1</td>
+							<td class="panier_produit_prix">XXXX Euro</td>
+						</tr>
+						<tr>
+							<td><h3>Jardiniere Nom</h3></td>
+							<td>1</td>
+							<td class="panier_produit_prix">XXXX Euro</td>
+						</tr>
+						<tr>
+							<td><h3>Jardiniere Nom</h3></td>
+							<td>1</td>
+							<td class="panier_produit_prix">XXXX Euro</td>
+						</tr>
+						<tr>
+							<td><h3>Jardiniere Nom</h3></td>
+							<td>1</td>
+							<td class="panier_produit_prix">XXXX Euro</td>
+						</tr>
+						<tr>
+							<td><h3>Jardiniere Nom</h3></td>
+							<td>1</td>
+							<td class="panier_produit_prix">XXXX Euro</td>
+						</tr>
+						<tr>
+							<td><h3>Jardiniere Nom</h3></td>
+							<td>1</td>
+							<td class="panier_produit_prix">XXXX Euro</td>
+						</tr>
+						<tr>
+							<td><h3>Jardiniere Nom</h3></td>
+							<td>1</td>
+							<td class="panier_produit_prix">XXXX Euro</td>
+						</tr>
+						<tr>
+							<td><h3>Jardiniere Nom</h3></td>
+							<td>1</td>
+							<td class="panier_produit_prix">XXXX Euro</td>
+						</tr>
+						<tr>
+							<td><h3>Jardiniere Nom</h3></td>
+							<td>1</td>
+							<td class="panier_produit_prix">XXXX Euro</td>
+						</tr>
+						<tr>
+							<td><h3>Jardiniere Nom</h3></td>
+							<td>1</td>
+							<td class="panier_produit_prix">XXXX Euro</td>
+						</tr>
+					</tbody>
+
+					<tfoot>
+						<tr>
+							<td colspan="2" class="panier_total">Total de vos articles hors frais de livraison:</td>
+							<td class="panier_produit_prix">XXXX Euro</td>
+						</tr>
+						<tr>
+							<td colspan="2" class="panier_total">Total de vos frais de livraison:</td>
+							<td class="panier_produit_prix">XXXX Euro</td>
+						</tr>
+						<tr>
+							<td colspan="2" class="panier_total">Total de votre commande:</td>
+							<td class="panier_produit_prix">XXXX Euro</td>
+						</tr>	
+					</tfoot>	
+				</table>
 			</div>
 		</article>
 	</main>
