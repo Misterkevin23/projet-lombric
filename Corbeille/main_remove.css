@@ -19,55 +19,26 @@ header{
 	background-size: contain;
 }
 
-#menu, #menu ul{
+ul{
 	list-style-type: none;
 	margin: 0px;
 	text-align: center;
-	padding:0px;
-	z-index: 2;
+	padding:3px;
 }
 
-#menu li{
-	float:left;
+nav li{
 	display:inline-block;
 	margin:0px 0px 0px 0px;;
+	background:brown;
 	width:16%
  }
 
- #menu li ul{ 
-    position: absolute; /* Position absolue */
-    width: 16%; /* Largeur des sous-listes */
-    left: -999em;
-} 
-
-#menu li ul ul{
-    margin: -50px 0 0 260px ;
-    border-left: 1px solid black ;
-    width: 50%;     
-}
-
-#menu li ul li{
-	border-top : 1px solid #fff; /* on met une bordure blanche en haut de chaque élément d'une sous liste */
-}
-
-
- #menu li li{
+ nav li li{
 	display:inline-block;
 	margin:3px auto;
+	background:brown;
 	width:100%
  }
-
-
- #menu li:hover ul ul, #menu li.sfhover ul ul /* Sous-sous-listes lorsque la souris passe sur un élément de liste */
-{
-        left: -999em; /* On expédie les sous-sous-listes hors du champ de vision */
-}
-
-#menu li:hover ul, #menu li li:hover ul, #menu li.sfhover ul, #menu li li.sfhover ul  /* Sous-listes lorsque la souris passe sur un élément de liste ET sous-sous-lites lorsque la souris passe sur un élément de sous-liste */
-{
-        left: auto; /* Repositionnement normal */
-        min-height: 0; /* Corrige un bug sous IE */
-}
 
 footer{
  	background:brown;
@@ -78,7 +49,6 @@ footer li{
  	display:inline-block;
 	margin:0px 0px 0px 0px;
 	background:brown;
-	text-align: center;
 	border-radius: 30px;
 	width:23%
  }
@@ -97,11 +67,10 @@ footer ul{
  	content:"||";
   }
 
-#menu a {
+a {
 	color:black;
 	text-decoration: none;
 	cursor: pointer;
-	width : 20%;
 }
 
 a:visited{
@@ -133,11 +102,10 @@ section{
 }
 
 article{
-	float:right;
-	width: 70%;
+	float: right;
+	width: 50%;
 	margin-right: 83px;
 	margin-bottom:23px;
-	margin-top:20px;
 	box-shadow: 0px 7px 20px 7px #680100;
 	border-radius: 20px;
 	}
@@ -227,7 +195,6 @@ th{
  	text-decoration: underline;
 }
 
-
 .home_section{
 	position:relative;
 	width: 20%;
@@ -316,12 +283,8 @@ th{
  	text-decoration-color: red;
  }
 
-.nav_li{
-	background:brown;
-}
-
 .section_li_border{
-	background: aqua;
+	background: grey;
 	border-radius: 20px;
 }
 

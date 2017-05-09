@@ -4,8 +4,10 @@
 	<title>PUMP my outdoor aeras</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css">
-	<link rel="stylesheet" type="text/css" href="main.css">
-	<script type="text/javascript" src="menu.js"></script>
+	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css">
+	<script type="text/javascript" src="../js/menu.js"></script>
+	<script type="text/javascript" src="../js/connexion_form.js"></script>
+	<script type="text/javascript" src="../js/verification_form.js"></script>
 </head>
 
 	
@@ -221,22 +223,36 @@
 				<p>Envie  de vous faire livrer vos produit ou de participer au forum afin de partager vos experiences</p><br>
 				<input type="radio" name="compte" value="non" checked="">Vous n'avez pas de compte PUMPCrew<br>
 				<input type="radio" name="compte" value="yes">Vous avez un compte PUMPCrew<br><br>
-				<form>
-					<label for="member"><span class="form_info">Pseudo/Email :</span></label>
-					<input type="text" id="member" name="pseudo" class="form_tape" value="" required="" placeholder="Gwada"></br>
-					<label for="new_member"><span class="form_info">Email :</span></label>
-					<input type="email" id="new_member" name="nouveau_membre" class="form_tape" value="" required=" placeholder="...@gmail"></br>
-					<label for="password"><span class="form_info">Mot de passe :</span></label>
-					<input type="password" id="password" name="motpasse" class="form_tape" value="" required="" placeholder="p&trick59">
-					<div class="button">
-						<input type="submit" name="connexion" class="aside_conexion_button" value="CONNEXION">	
-					</div>
-				</form>
+				<div>
+					<form method="post" name="connexion" onSubmit="return connexion_form();" action="#">
+						<label for="Nickname"><span class="form_info">Pseudo* :</span></label>
+						<input type="text" id="Nickname" name="pseudo" class="form_tape" value="" placeholder="Gwada" onkeyup="connexion_form"></br>
+						<label for="password"><span class="form_info">Mot de passe* :</span></label>
+						<input type="text" id="password" name="motpasse" class="form_tape" value="" placeholder="p&trick59" onkeyup="connexion_form"><br>
+						<div class="button">
+							<input type="submit" name="connexion" class="aside_conexion_button" value="CONNEXION">	
+						</div>
+
+					</form>
 				
-				<div class="button">
-					<a href="inscription.html" class="aside_conexion_button"> INSCRIPTION</a>
 				</div>
-					
+				
+				<div>
+					<form method="post" name="inscription" onSubmit="return verification_form();" action="#">		
+						<label for="email"><span class="form_info">Email* :</span></label>
+						<input type="text" id="email" name="mail" class="form_tape" value="" placeholder="...@gmail.com" onkeyup="verification_form"></br>
+						<label for="Nickname"><span class="form_info">Pseudo* :</span></label>
+						<input type="text" id="Nickname" name="pseudo" class="form_tape" value="" placeholder="Gwada" onkeyup="verification_form"></br>
+						<label for="password"><span class="form_info">Mot de passe* :</span></label>
+						<input type="text" id="password" name="motpasse" class="form_tape" value="" placeholder="p&trick59" onkeyup="verification_form"><br>
+						<div class="button">
+							<input type="submit" href="inscription.html"  name=inscription class="aside_conexion_button" value="INSCRIPTION">
+						</div>
+
+					</form>
+
+				</div>	
+						
 			</div>
 
 			<div class="aside_image">
@@ -244,18 +260,25 @@
 				<div class="aside_profil_image">
 					<img src="../image/tortue_profil.jpg">
 				</div>
+				
 				<form>
 					<div class="aside_profil_panier">
-						<a href="Panier.html">
+						<a href="Panier.html" type="submit">
 							<h3 class="panier_button"">PANIER</h3>
 						</a>
 					</div>
+
+				</form>
+
 				<form>	
 					<div class="button">
-							<a href="Home.html"><h3 class="aside_conexion_button">DECONNEXION</h3>
+							<a href="Home.html" type="submit">
+							<h3 class="aside_conexion_button">DECONNEXION</h3>
 							</a>
 					</div>
-				</form>			
+
+				</form>
+
 			</div>
 
 			<div class="aside_image">

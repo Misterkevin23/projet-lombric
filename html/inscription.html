@@ -4,8 +4,9 @@
 	<title>PUMP my outdoor aeras</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css">
-	<link rel="stylesheet" type="text/css" href="main.css">
-	<script type="text/javascript" src="menu.js"></script>
+	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css">
+	<script type="text/javascript" src="../js/menu.js"></script>
+	<script type="text/javascript" src="../js/verification_form.js"></script>
 </head>
 
 	
@@ -215,21 +216,6 @@
 
 	<main>
 		<aside>	
-			<div class="aside">
-				<h3>CONNEXION</h3>
-				
-				<p>Envie de participer au forum afin de partager vos experiences</p>
-				<form>
-					<label for="member"><span class="form_info">Pseudo/Email :</span></label>
-					<input type="text" id="member" name="pseudo" class="form_tape" value="" required="" placeholder="Gwada"></br>
-					<label for="password"><span class="form_info">Mot de passe :</span></label>
-					<input type="password" id="password" name="motpasse" class="form_tape" value="" required="" placeholder="p&trick59">
-					<div class="button">
-						<input type="submit" name="connexion" class="aside_conexion_button" value="CONNEXION">	
-					</div>
-				</form>				
-			</div>
-
 			<div class="aside_image">
 				<h3>PRODUITS DE SAISON</h3>
 					<div class="aside_saison_image">
@@ -240,59 +226,59 @@
 		</aside>
 
 		<article>
-			<form>
+			<form method="post" name="inscription" onSubmit="return verification_form();" action="#">
 			<fieldset>
 				<legend>Mon identifiant et mon mot de passe</legend>
 				<div class="form">
-				<label for="email"><span class="form_info">Email :</span></label>
-				<input type="text" id="email" name="Mail" class="form_tape" value="" placeholder="...@gmail.com" required="">
-				<label for="email-check"><span class="form_info">Confirmation de l'e-mail :</span></label>
-				<input type="text" id="email" name="mail-verif" class="form_tape" value="" placeholder="...@gmail.com" required="">
+				<label for="email"><span class="form_info">Email* :</span></label>
+				<input type="text" id="email" name="mail" class="form_tape" value="" placeholder="...@gmail.com" onkeyup="verification_form">
+				<label for="email_check"><span class="form_info">Confirmation de l'e-mail* :</span></label>
+				<input type="text" id="email_check" name="mail-verif" class="form_tape" value="" placeholder="...@gmail.com" onkeyup="verification_form">
 				</div>
 
 				<div class="form">
-					<label for="Nickname"><span class="form_info">Pseudo :</span></label>
-					<input type="text" id="Nickname" name="pseudo" class="form_tape" value="" placeholder="Gwada" required="">
+					<label for="Nickname"><span class="form_info">Pseudo* :</span></label>
+					<input type="text" id="Nickname" name="pseudo" class="form_tape" value="" placeholder="Gwada" onkeyup="verification_form">
 				</div>
 				
 				<div class="form">
-					<label for="password"><span class="form_info">Mot de passe :</span></label>
-					<input type="password" id="password" name="motpasse" class="form_tape" value="" placeholder="p&trick59" required="">
-					<label for="passwordcheck"><span class="form_info">Vérification :</span></label>
-					<input type="password" id="passwordcheck" name="motpassecheck" class="form_tape" value="" placeholder="p&trick59" required="">		
+					<label for="password"><span class="form_info">Mot de passe* :</span></label>
+					<input type="text" id="password" name="motpasse" class="form_tape" value="" placeholder="p&trick59" onkeyup="verification_form">
+					<label for="passwordcheck"><span class="form_info">Vérification* :</span></label>
+					<input type="text" id="passwordcheck" name="motpassecheck" class="form_tape" value="" placeholder="p&trick59" onkeyup="verification_form">		
 				</div>
 			</fieldset>
 			<fieldset>
 		       <legend>Mon adresse de facturation</legend>
 				<div class="form">
-					<label for="Civilite1" for="Civilite2"><span class="form_info">Civilité :</span></label>
-					<input type="radio" id="Civilite1" name="Sex" value="Mle" checked=""><span class="form_info">Mlle.</span>	
-					<input type="radio" id="Civilite2" name="Sex" value="Mme"><span class="form_info">Mme.</span>
-					<input type="radio" id="Civilite3" name="Sex" value="M"><span class="form_info">M.</span>
-					<input type="radio" id="Civilite4" name="Sex" value="societe"><span class="form_info">Société</span><br><br>	
-					<label for="firstname"><span class="form_info">Prénom :</span></label>
-					<input type="text" id="firstname" name="prenom" class="form_tape" value="" placeholder="Kevin" autofocus="" required=""><br>
-					<label for="name"><span class="form_info">NOM :</span></label>
-					<input type="text" id="name" name="nom" class="form_tape" value="" placeholder="Pascal" required="">		
+					<label for="Mlle" for="Mme" for="M" for="societe"><span class="form_info">Civilité* :</span></label>
+					<input type="radio" id="Mlle" name="Sex" value="Mlle" onkeyup="verification_form"><span class="form_info">Mlle.</span>	
+					<input type="radio" id="Mme" name="Sex" value="Mme" onkeyup="verification_form"><span class="form_info">Mme.</span>
+					<input type="radio" id="M" name="Sex" value="M" onkeyup="verification_form"><span class="form_info">M.</span>
+					<input type="radio" id="societe" name="Sex" value="societe" onkeyup="verification_form"><span class="form_info">Société</span><br><br>	
+					<label for="firstname"><span class="form_info" >Prénom* :</span></label>
+					<input type="text" id="firstname" name="prenom" class="form_tape" value="" placeholder="Kevin" onkeyup="verification_form"><br>
+					<label for="lastname"><span class="form_info">NOM* :</span></label>
+					<input type="text" id="lastname" name="nom" class="form_tape" value="" placeholder="Pascal" onkeyup="verification_form">		
 				</div>
 
 				<div class="form">
-				<label for="numeros"><span class="form_info">N°, voie :</span></label>
-				<input type="number" id="numeros" name="numeros" value="" required><br><br>
-				<label for="roadname"> <span class="form_info"> Nom de la rue :</span></label>
-				<input type="text" id="roadname" class="form_tape" name="nom_de_rue" required=""><br><br>
+				<label for="numeros"><span class="form_info">N°, voie* :</span></label>
+				<input type="text" id="numeros" name="numeros" value="" onkeyup="verification_form"><br><br>
+				<label for="roadname"> <span class="form_info"> Nom de la rue* :</span></label>
+				<input type="text" id="roadname" class="form_tape" name="nom_de_rue" onkeyup="verification_form"><br><br>
 				<label for="appartement"><span class="form_info">étage, appartement :</span></label>
 				<input type="text" id="appartement" name="appartement" class="form_tape" value="" placeholder="étage 7, appartement 23"><br>
 				<label for="batiment"><span class="form_info"> Bâtiment :</span></label>
 				<input type="text" id="batiment" class="form_tape_small" name="batiment">
 				<label for="lieu_dit"><span class="form_info"> Lieu-dit :</span></label>
 				<input type="text" id="lieu-dit" class="form_tape_small" name="lieu-dit"><br><br>
-				<label for="postcode"><span class="form_info"> Code postal :</span></label>
-				<input type="text" id="postcode" class="form_tape_small" name="Code_postal" required="">
-				<label for="ville"> <span class="form_info">Ville :</span></label>
-				<input type="text" id="ville" class="form_tape_small" name="ville" required=""><br><br>
-				<label for="pays"><span class="form_info"> Pays :</span> </label>
-				<select id="pays" size="1" required>
+				<label for="postcode"><span class="form_info"> Code postal* :</span></label>
+				<input type="text" id="postcode" class="form_tape_small" name="Code_postal" onkeyup="verification_form">
+				<label for="ville"> <span class="form_info">Ville* :</span></label>
+				<input type="text" id="ville" class="form_tape_small" name="ville" onkeyup="verification_form"><br><br>
+				<label for="pays"><span class="form_info"> Pays* :</span> </label>
+				<select id="pays" size="1" onkeyup="verification_form">
 					<option value="">	</option>
 					<option value="France">France	</option>
 					<option value="Allemagne">Allemagne	</option>
@@ -303,8 +289,8 @@
 				</div>
 
 				<div class="form">
-				<label for="phone_portable"><span class="form_info">Telephone1 :</span></label>
-				<input type="tel" id="phone_portable" name="portable" class="form_tape" value="" placeholder="0654254568" required="">
+				<label for="phone_portable"><span class="form_info">Telephone1* :</span></label>
+				<input type="tel" id="phone_portable" name="portable" class="form_tape" value="" placeholder="0654254568" onkeyup="verification_form">
 				<label for="phone_fixe"><span class="form_info">Telephone2 :</span></label>
 				<input type="tel" id="phone_fixe" name="fixe" class="form_tape" value="" placeholder="0134568712">
 				</div>
@@ -318,12 +304,12 @@
 			       <input type="radio" name="age" value="medium15-25" id="medium15-25" class="form_tape_small"><span class="form_info">15-25 ans</span><br>
 			       <input type="radio" name="age" value="medium25-40" id="medium25-40" class="form_tape_small"><span class="form_info">25-40 ans</span><br>
 			       <input type="radio" name="age" value="plus40" id="plus40" class="form_tape_small"><span class="form_info">Plus de 40 ans</span><br>
-			       <label><span class="form_info">ètes_vous :</span></label><br>
-			       <input type="radio" name="proprietaire" value="proprietaire" class="form_tape_small" required=""><span class="form_info">Propriétaire</span><br>
-			       <input type="radio" name="proprietaire" value="locataire" class="form_tape_small"><span class="form_info">locataire</span><br>
-			       <label><span class="form_info">Avez_vous:</span></label><br>
-			       <input type="radio" name="jardin" value="jardin" class="form_tape_small" required=""><span class="form_info">Jardin</span><br>
-			       <input type="radio" name="terrasse" value="terrasse" class="form_tape_small"><span class="form_info">Terrasse</span><br><br>
+			       <label><span class="form_info">ètes_vous* :</span></label><br>
+			       <input type="radio" id="proprietaire" name="proprietaire" value="proprietaire" class="form_tape_small" onkeyup="verification_form"><span class="form_info">Propriétaire</span><br>
+			       <input type="radio" id="locataire" name="locataire" value="locataire" class="form_tape_small" onkeyup="verification_form"><span class="form_info">locataire</span><br>
+			       <label><span class="form_info">Avez_vous*:</span></label><br>
+			       <input type="radio" id="jardin" name="jardin" value="jardin" class="form_tape_small" onkeyup="verification_form"><span class="form_info">Jardin</span><br>
+			       <input type="radio" id="terrasse" name="terrasse" value="terrasse" class="form_tape_small" onkeyup="verification_form"><span class="form_info">Terrasse</span><br><br>
 			       <label><span class="form_info">Nombre de personnes dans le foyer:</span></label><br>
 			       <input type="radio" name="habitant" value="" class="form_tape_small"><span class="form_info">1</span><br>
 			       <input type="radio" name="habitant" value="" class="form_tape_small"><span class="form_info">2</span><br>
