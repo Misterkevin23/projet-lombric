@@ -16,15 +16,37 @@ function connexion_form(){
 	}
 }
 
-
-$(document).ready(function() {
-		$(".non-inscrit").click(function(){
-			$(".inscription_cadre").show();
-			$(".connexion_cadre").hide();
-
-		});
-		$(".inscrit").click(function(){
-			$(".connexion_cadre").show();
-			$(".inscription_cadre").hide();
-		});	
+				
+$(":input").ready(function(){
+	$(".inscription_cadre").hide();
+	$(".connexion_cadre").show();
+	$(".inscrit").click(function(){
+		$(".inscription_cadre").hide();
+		$(".connexion_cadre").show();
 	})
+	$(".non-inscrit").click(function(){
+		$(".inscription_cadre").show();
+		$(".connexion_cadre").hide();
+	})
+
+	$(".panier_ajout").click(function(){
+		parseFloat($(".nbre_article").text())+1;
+
+	// if($(".panier_ajout").attr("value")=="Ajouter au panier"){
+	// 	$(".panier_ajout").attr("value","Annuler");
+	// 	}
+	})	
+
+
+	// $(".panier_ajout").click(function(){	
+	// 	if($(".panier_ajout").attr("value")=="Annuler"){
+	// 		$(".panier_ajout").attr("value","Ajouter au panier");
+	// 	}
+	// })	
+})
+
+
+
+
+
+	

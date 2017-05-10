@@ -114,6 +114,7 @@ a:active{
 
 a:hover{
 	background: black;
+	z-index: 3;
 }
 
 
@@ -122,20 +123,10 @@ main{
 	position:relative;
 }
 
-section{
-	position:fixed;
-	width: 20%;
-	left:8px;
-	margin-top: 23px;
-	box-shadow: 0px 7px 20px 7px #680100;
-	background: #680100;
-	border-radius: 30px;
-}
-
 article{
 	float:right;
 	width: 70%;
-	margin-right: 83px;
+	margin-right: 80px;
 	margin-bottom:23px;
 	margin-top:20px;
 	box-shadow: 0px 7px 20px 7px #680100;
@@ -303,12 +294,14 @@ th{
 
 .puce_deroulante::before{
 	content:"+";
-	font-size: 0.7em;
+	font-size: 1em;
 	border:1px black solid;
 	background: white;
-	border-radius: 30px;
+	border-radius: 23px;
 	font-weight: bolder;
 	cursor: pointer;
+	padding:auto;
+	text-align: center;
 }
 
 .important{
@@ -320,27 +313,27 @@ th{
 	background:brown;
 }
 
-.section_li_border{
+.nav_6{
 	background: aqua;
 	border-radius: 20px;
 }
 
-.section_li_li_border{
+.nav_nav_1{
 	background: blue;
 	border-radius: 20px;
 }
 
-.section_inscrit{
+.nav_4{
 	background: blue;
 	border-radius: 10px;
 }
 
-.section_conect{
+.nav_5{
 	background: aqua;
 	border-radius: 10px;
 }
 
-.section_jardin{
+.nav_1{
 	background: green;
 	/*border-left: 3px solid green;
 	border-right: 3px solid green;
@@ -348,7 +341,7 @@ th{
 	border-radius: 10px;
 }
 
-.section_vers{
+.nav_2{
 	background: yellow;
 	/*border-left: 3px solid yellow;
 	border-right: 3px solid yellow;
@@ -356,7 +349,7 @@ th{
 	border-radius: 10px;
 }
 
-.section_produit{
+.nav_3{
 	background: red;
 	/*border-left: 3px solid red;
 	border-right: 3px solid red;
