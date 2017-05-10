@@ -221,10 +221,10 @@
 				<h3>INSCRIPTION/CONNEXION</h3>
 				
 				<p>Envie  de vous faire livrer vos produit ou de participer au forum afin de partager vos experiences</p><br>
-				<input type="radio" name="compte" value="non" checked="">Vous n'avez pas de compte PUMPCrew<br>
-				<input type="radio" name="compte" value="yes">Vous avez un compte PUMPCrew<br><br>
+				<input type="radio" name="compte" value="non" class="non-inscrit"> Vous n'avez pas de compte PUMPCrew<br>
+				<input type="radio" name="compte" value="yes" class="inscrit">Vous avez un compte PUMPCrew<br><br>
 				<div>
-					<form method="post" name="connexion" onSubmit="return connexion_form();" action="#">
+					<form method="post" name="connexion" onSubmit="return connexion_form();" action="#" class="connexion_cadre">
 						<label for="Nickname"><span class="form_info">Pseudo* :</span></label>
 						<input type="text" id="Nickname" name="pseudo" class="form_tape" value="" placeholder="Gwada" onkeyup="connexion_form"></br>
 						<label for="password"><span class="form_info">Mot de passe* :</span></label>
@@ -238,7 +238,7 @@
 				</div>
 				
 				<div>
-					<form method="post" name="inscription" onSubmit="return verification_form();" action="#">		
+					<form method="post" name="inscription" onSubmit="return verification_form();" action="#" class="inscription_cadre">		
 						<label for="email"><span class="form_info">Email* :</span></label>
 						<input type="text" id="email" name="mail" class="form_tape" value="" placeholder="...@gmail.com" onkeyup="verification_form"></br>
 						<label for="Nickname"><span class="form_info">Pseudo* :</span></label>

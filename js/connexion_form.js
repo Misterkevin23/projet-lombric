@@ -15,3 +15,16 @@ function connexion_form(){
 		return false;
 	}
 }
+
+
+$(document).ready(function() {
+		$(".non-inscrit").click(function(){
+			$(".inscription_cadre").show();
+			$(".connexion_cadre").hide();
+
+		});
+		$(".inscrit").click(function(){
+			$(".connexion_cadre").show();
+			$(".inscription_cadre").hide();
+		});	
+	})
