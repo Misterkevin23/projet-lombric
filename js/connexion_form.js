@@ -36,7 +36,9 @@ $(":input").ready(function(){
 	// 	$(".panier_ajout").attr("value","Annuler");
 	// 	}
 	})	
-
+	// $("main").mousemove(function(){
+	// 	(100*parseFloat($("article").css("margin-right")))/$("main").width();
+	// })
 
 	// $(".panier_ajout").click(function(){	
 	// 	if($(".panier_ajout").attr("value")=="Annuler"){

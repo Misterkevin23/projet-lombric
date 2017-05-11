@@ -121,6 +121,7 @@ a:hover{
 main{
 	width: 100%;
 	position:relative;
+	overflow: auto;
 }
 
 article{
@@ -671,6 +672,7 @@ th{
 
 .panier_produit_prix{
 	font-size: 1em;
+	width: 50%;
 }
 
 .panier_livraison{
