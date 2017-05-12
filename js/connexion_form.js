@@ -78,22 +78,38 @@ $("body").mousemove(function(){
 	$(".shopBanierePhoto").css("margin-left", shopBaniereMargin);
 	$(".shopBanierePhoto").css("margin-right", shopBaniereMargin);
 
-	var shoplivraisonMargin= ($(".shopLivraison").width()-($(".shopLivraisonPhoto").width()+$(".shopLivraisonChrono").width()))/4;
-	shoplivraisonMargin= shoplivraisonMargin + "px";	
-	$(".shopLivraisonPhoto").css("margin-left", shoplivraisonMargin);
-	$(".shopLivraisonPhoto").css("margin-right", shoplivraisonMargin);
-	$(".shopLivraisonChrono").css("margin-left", shoplivraisonMargin);
-	$(".shopLivraisonChrono").css("margin-right", shoplivraisonMargin);
+	// var shoplivraisonMargin= ($(".shopLivraison").width()-($(".shopLivraisonPhoto").width()+$(".shopLivraisonChrono").width()))/4;
+	// shoplivraisonMargin= shoplivraisonMargin + "px";	
+	// $(".shopLivraisonPhoto").css("margin-left", shoplivraisonMargin);
+	// $(".shopLivraisonPhoto").css("margin-right", shoplivraisonMargin);
+	// $(".shopLivraisonChrono").css("margin-left", shoplivraisonMargin);
+	// $(".shopLivraisonChrono").css("margin-right", shoplivraisonMargin);
 
-	var shoplivraisonTextMargin= ($(".shopLivraison").height()-$(".shopLivraisonText").height())/2;
-	shoplivraisonTextMargin= shoplivraisonTextMargin + "px";	
-	$(".shopLivraisonText").css("margin-top", shoplivraisonTextMargin);
-	$(".shopLivraisonText").css("margin-bottum", shoplivraisonTextMargin);
+	// var livraisonPhoto = $(".shopLivraisonPhoto").height()
+	// $(".shopLivraison").css("height", livraisonPhoto )
+
+	// var shoplivraisonTextMargin= ($(".shopLivraisonChrono").height()-$(".shopLivraisonText").height())/2;
+	// shoplivraisonTextMargin= shoplivraisonTextMargin + "px";	
+	// $(".shopLivraisonText").css("margin-top", shoplivraisonTextMargin);
+	// $(".shopLivraisonText").css("margin-bottom", shoplivraisonTextMargin);
+
+	
+	 $(".footerContner").each(function(){ 
+		var footerContnerMargin= ($(".footerContner").height()-$(".footerText").height())/2;
+		footerContnerMargin= footerContnerMargin + "px";	
+		$(".footerText").css("margin-top", footerContnerMargin);
+		$(".footerText").css("margin-bottom", footerContnerMargin);
+	})	
 
 	$(".shopSold").fadeOut(3000).fadeIn(300).delay(3000);
 	$(".shopSold p").fadeOut(3000).fadeIn(600).delay(3000);	 
 })
 
+$("i.fa fa-minus-square-o").hide();
+// $("#menu li").mouseover(function(){
+// 	$(".fa fa-minus-square-o").show();
+// 	$(".fa fa-plus-square-o").hide();
+// })
 
 
 	// $("body").mousemove(function(){
