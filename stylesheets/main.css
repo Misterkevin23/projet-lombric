@@ -13,6 +13,7 @@ main{
 
 header{
 	position:relative;
+	overflow:auto;
 	height :0;
 	z-index: 1;
 }
@@ -20,7 +21,7 @@ header{
 section{
 	position:fixed;
 	width:100%;
-	background-image: url(../image/gazon.jpg);
+	background-image: url(../image/gazon2.jpg);
 	background-repeat: repeat;
 	background-size: contain;
 	z-index: 2;
@@ -106,13 +107,14 @@ footer li{
  }
 
 footer ul{
- 	background-image: url(../image/vers_compost.gif);
+ 	background-image: url(../image/gazon.jpg);
 	background-repeat: repeat;
 	background-size: contain;
  }
 
-  footer ul ul{
+footer ul ul{
  	background:none;
+ 	text-align: center;
  }
 
 a:visited{
@@ -124,7 +126,7 @@ a:active{
 }
 
 a:hover{
-	background: black;
+	background: pink;
 	z-index: 3;
 }
 
@@ -231,7 +233,7 @@ th{
 }
 
 
-.home_section{
+/*.home_section{
 	position:relative;
 	width: 20%;
 	float: left;
@@ -239,24 +241,25 @@ th{
 	box-shadow: 0px 7px 20px 7px #680100;
 	border-radius: 30px;
 	background: #680100;
-}
+}*/
 
-.home_aside{
-	width: 50%;
+.homeAside{
+	width: 70%;
 	float: right;
-	margin: 90px 30px 90px 30px;
 	border-radius: 30px;
+	background: grey;
+
 }
 
-.home_aside_aside{
+/*.home_aside_aside{
  	background: grey;
  	border:7px black solid;
  	border-radius: 30px;
  	padding:7px;
  	box-shadow: 0px 7px 20px 7px #680100;
-}
+}*/
 
-.home_aside_image{
+.homeAsideImage{
 	background: grey;
  	border:7px black solid;
  	border-radius: 30px;
@@ -305,50 +308,46 @@ th{
 	text-shadow: 3px 2px red;
 }
 
-.puceDeroulante{
-	text-align: center;
-}
-
 .important{
  	text-decoration: overline;
  	text-decoration-color: red;
  }
 
-.nav_li{
+.navLi{
 	background:brown;
 }
 
-.nav_6{
+.nav6{
 	background: aqua;
 	border-radius: 20px;
 }
 
-.nav_nav_1{
+.navNav1{
 	background: blue;
 	border-radius: 20px;
 }
 
-.nav_4{
+.nav4{
 	background: blue;
 	border-radius: 10px;
 }
 
-.nav_5{
+.nav5{
 	background: aqua;
 	border-radius: 10px;
 }
 
-.nav_1{
+.nav1{
 	background: green;
 	border-radius: 10px;
 }
 
-.nav_2{
+.nav2{
 	background: yellow;
 	border-radius: 10px;
 }
 
-.nav_3{
+.nav3{
 	background: red;
 	border-radius: 10px;
 }
@@ -365,15 +364,15 @@ th{
 	font-size:2em;
 }
 
-.table_yes{
+.tableYes{
  	color:green;
  }
 
- .table_no{
+ .tableNo{
  	color:red;
  }
 
-.aside_image{
+.asideImage{
 	overflow: hidden;
 	background: grey;
  	border:7px black solid;
@@ -385,27 +384,27 @@ th{
 	margin-right: auto;
 }
 
-.aside_saison_image{
+.asideSaisonImage{
 	width: 90%;
 	margin: 0 auto;
 }
 
-.aside_saison_image img {
+.asideSaisonImage img {
 	max-width:100%;
 	width:100%;
 }
 
-.aside_profil_image{
+.asideProfilImage{
 	width: 90%;
 	margin: 0 auto;
 }
 
-.aside_profil_image img {
+.asideProfilImage img {
 	max-width:100%;
 	width:100%;
 }
 
-.aside_profil_panier{
+.asideProfilPanier{
 	margin:23px auto;
 	text-align: center
 }
@@ -417,11 +416,10 @@ th{
  	border-radius: 30px;
  	padding:7px;
  	margin-top:23px;
- 	margin-left: auto;
-	margin-right: auto;
+ 	margin:0 auto;
 }
 
-.aside-info{
+.asideInfo{
 	font-size: 1rem;
 	color:red;
 	text-align: center;
@@ -434,7 +432,7 @@ th{
 	margin-top:7px;
 }
 
-.form_buttun{
+.formButtun{
     width: 90%;
     background-color: #4CAF50;
     color: white;
@@ -447,7 +445,7 @@ th{
     cursor: pointer;
 }
 
-.aside_conexion_button{
+.asideConexionButton{
 	background-color: #4CAF50;
     border: none;
     border-radius: 30px;
@@ -464,24 +462,24 @@ th{
     cursor: pointer;
 }
 
-.forum_message{
+.forumMessage{
 	box-shadow: 0px 10px 10px 5px #000000;
 	border-radius: 30px;
 	margin: 23px;
 }
 
-.forum_image{
+.forumImage{
 	width: 20%;
 	margin: 3px;
 	display: inline-block;
 }
 
-.forum_image img {
+.forumImage img {
 	max-width:100%;
 	width:100%;
 }
 
-.forum_text{
+.forumText{
 	text-align:left;
 	width: 70%;
 	display: inline-block;
@@ -494,7 +492,7 @@ th{
 	padding:7px;
 }
 
-.form_info{
+.formInfo{
 	font-size: 1.3rem;
 	font-family: Verdana, serif, "Courier New", "Comic Sans MS";
 	font-style: normal;
@@ -502,7 +500,7 @@ th{
 	font-weight: bold;
 }
 
-.form_tape{
+.formTape{
 	width: 100%;
     padding: 12px 20px;
     margin:0px;
@@ -512,7 +510,7 @@ th{
     box-sizing: border-box;
 }
 
-.form_tape_small{
+.formTapeSmall{
 	width: 30%;
     padding: 12px 20px;
     margin:0px;
@@ -522,13 +520,13 @@ th{
     box-sizing: border-box;
 }
 
-.form_contact_champ{
+.formContactChamp{
 	width:100%;
 	border: 7px black solid;
 	border-radius: 20px;
 }
 
-.shop_navigateur{
+.shopNavigateur{
 	overflow: auto;
 	margin: 0px auto;
 	box-shadow: 0px 10px 10px 5px #000000;
@@ -536,11 +534,7 @@ th{
 	padding:5px;
 }
 
-.shop_navigateur_list{
-	
-}
-
-.shop_navigateur_list li{
+.shopNavigateurList li{
 	display:inline-block;
 	border: 2px black solid;
 	width:25%;
@@ -549,11 +543,11 @@ th{
 	float: left;
 }
 
-.shop_navigateur_list li ::after{
+.shopNavigateurList li ::after{
 	content:" > ";
 }
 
-.shop_navigateur_panier{
+.shopNavigateurPanier{
 	float: right;
 }
 
@@ -565,7 +559,7 @@ th{
 	padding:5px;
 }
 
-.produit_button{
+.produitButton{
 	background-color: black;
 	font-size:0.8em;
     color: white;
@@ -577,33 +571,33 @@ th{
     box-shadow: 0px 0px 20px 10px #cfcfcf;
     cursor: pointer;
 }
-.produit_photo{
-	width: 32%;
+.produitPhoto{
+	width: 30%;
 	float: left;
 	border: 3px solid grey;
 	box-shadow: 10px 10px 5px #656565;
 	margin:5px 3px;
 }
 
-.produit_photo img {
+.produitPhoto img {
 	max-width:100%;
 	width:100%;
 }
 
-.produit_description{
+.produitDescription{
 	float:left;
-	width: 32%;
+	width: 30%;
 	margin:5px 3px;
 	box-shadow: 10px 10px 5px #656565;
 
 }
 
-.produit_description_text{
+.produitDescriptionText{
 	font-style: italic;
 	opacity:1;
 }
 
-.produit_action{
+.produitAction{
 	float:left;
 	width: 30%;
 	border:3px solid black;
@@ -611,17 +605,17 @@ th{
 	margin: 5px 5px;
 }
 
-.produit_prix{
+.produitPrix{
 	font-size: 2em;
 }
 
 
-.panier_navigation{
+.panierNavigation{
 	margin: 0px auto;
 	width: 100%	
 }
 
-.panier_navigation li{
+.panierNavigation li{
 	display:inline-block;
 	border: 2px blue solid;
 	width: 17%;
@@ -629,11 +623,11 @@ th{
 	border-radius: 30px;
 	padding:5px;
 }
-.panier_navigation_color{
+.panierNavigationColor{
 	background: green;
 }
 
-.panier_button{
+.panierButton{
 	background-color: grey;
     color: black;
     display: inline-block;
@@ -645,7 +639,7 @@ th{
     cursor: pointer;
 }
 
-.panier_suprim_button{
+.panierSuprimButton{
 	background-color: red;
 	color: black;
 	display: inline-block;
@@ -658,31 +652,31 @@ th{
 	cursor: pointer;
 }
 
-.panier_produit{
+.panierProduit{
 	float:left;
 	width: 32%;
 	box-shadow: 0px 5px 10px 5px #32cb00;
 	margin:3px 3px;
 }
 
-.panier_produit_photo{
+.panierProduitPhoto{
 	width: 32%;
 	float: left;
 	border: 3px solid grey;
 	margin:0px 3px;
 }
 
-.panier_produit_photo img {
+.panierProduitPhoto img {
 	max-width:100%;
 	width:100%;
 }
 
-.panier_produit_prix{
+.panierProduitPrix{
 	font-size: 1em;
 	width: 50%;
 }
 
-.panier_livraison{
+.panierLivraison{
 	width: 45%;
 	display: inline-block;
 	text-align: center;
@@ -690,30 +684,30 @@ th{
 	margin-left:13px;
 }
 
-.panier_livraison_contenu{
+.panierLivraisonContenu{
 	width: 100%;
 	border:1px green solid;
 }
 
-.panier_livraison_contenu_mode{
+.panierLivraisonContenuMode{
 	width: 100%;
 	text-align: center;
 }
 
-.panier_livraison_contenu_detail{
+.panierLivraisonContenuDetail{
 	width: 100%;
 	font-style:italic;
 	font-size: 0.7em;
 	text-align: center;
 }
 
-.panier_total{
+.panierTotal{
 	font-weight: bold;
 	font-size: 1.2em;
 	margin-bottom:23px;
 }
 
-.panier_recapitulatif{
+.panierRecapitulatif{
 	width: 46%;
 	float: left;
 	margin:15px;
@@ -722,7 +716,7 @@ th{
 
 .page li{
 	display:inline-block;
-	font-style: oblique;
+	font-style:NIER8 oblique;
 	border: 3 solid green;
 	border-radius: 20px;
 	background: green;

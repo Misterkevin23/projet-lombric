@@ -17,13 +17,13 @@ function verification_form(){
 
 	if (document.getElementById("email_check").value != document.getElementById("email").value ) {
 		alert("Attention ! \n L'adresse saisie n'est pas identique." )
-		document.inscription.email_check.focus();
-		document.inscription.email_check.style.backgroundColor = "red";
+		document.inscription.emailCheck.focus();
+		document.inscription.emailCheck.style.backgroundColor = "red";
 
 		return false;
 	}
 
-	if ( document.getElementById("Nickname").value=="") {
+	if ( document.getElementById("nickName").value=="") {
 		alert("Attention ! \n Veuillez saisir un pseudo " )
 		document.inscription.Nickname.focus();
 		document.inscription.Nickname.style.backgroundColor = "red";
@@ -39,10 +39,10 @@ function verification_form(){
 		return false;
 	}
 
-	if (document.getElementById("passwordcheck").value != document.getElementById("password").value ) {
+	if (document.getElementById("passwordCheck").value != document.getElementById("password").value ) {
 		alert("Attention ! \n Le mot de passe saisie n'est pas identique." )
-		document.inscription.passwordcheck.focus();
-		document.inscription.passwordcheck.style.backgroundColor = "red";
+		document.inscription.passwordCheck.focus();
+		document.inscription.passwordCheck.style.backgroundColor = "red";
 
 		return false;
 	}
@@ -60,7 +60,7 @@ function verification_form(){
 		return false;
 	}
 
-	var prenom = document.getElementById("firstname").value;
+	var prenom = document.getElementById("firstName").value;
 	if (prenom =="") {
 		alert("Attention! \n Veuillez entrer votre prénom" )
 		document.inscription.firstname.focus();
@@ -69,7 +69,7 @@ function verification_form(){
 		return false;
 	}
 
-	if (document.getElementById("lastname").value =="") {
+	if (document.getElementById("lastName").value =="") {
 		alert("Attention! \n Veuillez entrer votre nom " )
 		document.inscription.lastname.focus();
 		document.inscription.lastname.style.backgroundColor = "red";
@@ -85,10 +85,10 @@ function verification_form(){
 		return false;
 	}
 
-	if (document.getElementById("roadname").value =="") {
+	if (document.getElementById("roadName").value =="") {
 		alert("Attention! \n Veuillez entrer le nom de la rue" )
-		document.inscription.roadname.focus();
-		document.inscription.roadname.style.backgroundColor = "red";
+		document.inscription.roadName.focus();
+		document.inscription.roadName.style.backgroundColor = "red";
 
 		return false;
 	}
@@ -118,7 +118,7 @@ function verification_form(){
 	}	
 
 	var mobile = /^(01|02|03|04|05|06|07|08|09|0033|\+33)[0-9]{8}/;
-	if (mobile.test(document.getElementById("phone_portable").value)){
+	if (mobile.test(document.getElementById("phonePortable").value)){
 		return true;
 	}
 
