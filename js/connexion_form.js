@@ -17,7 +17,7 @@ function connexion_form(){
 }
 
 				
-	var inscrptionConnexionFade = function(){	
+var inscrptionConnexionFade = function(){	
 		$(".inscriptionCadre").hide();
 		$(".connexionCadre").show();
 		$(".inscrit").click(function(){
@@ -101,12 +101,12 @@ var marginStart= function(){
 // Recherche en cour--effet puce navigateur
 	// Fonction initial spécifique -- A atendre a toute les puce
 var puce= function(){
-		$( "#menu .navLi:eq(4)" ).hover(
+		$( "#menu .navLi:eq(3)" ).hover(
 		function() {
-		$("#menu .navLi:eq(4) h3 i").removeClass( "fa fa-plus-square-o" )
-		$( "#menu .navLi:eq(4) h3 i").addClass( "fa fa-minus-square-o");
+		$("#menu .navLi:eq(3) h3 i").removeClass( "fa fa-plus-square-o" )
+		$( "#menu .navLi:eq(3) h3 i").addClass( "fa fa-minus-square-o");
 		// console.log("11111111")
-		$("#menu .navLi:eq(4) .nav3").hover(
+		$("#menu .navLi:eq(3) .nav3").hover(
 			function(){
 				$("#menu .nav3 h4 i").removeClass( "fa fa-plus-square-o" )
 				$( "#menu .nav3 h4 i").addClass( "fa fa-minus-square-o");
@@ -119,8 +119,8 @@ var puce= function(){
 		);
 		// console.log("sdg")
 		},function(){
-		$( "#menu .navLi:eq(4) h3 i").removeClass( "fa fa-minus-square-o")
-		$( "#menu .navLi:eq(4) h3 i").addClass( "fa fa-plus-square-o" );
+		$( "#menu .navLi:eq(3) h3 i").removeClass( "fa fa-minus-square-o")
+		$( "#menu .navLi:eq(3) h3 i").addClass( "fa fa-plus-square-o" );
 		// console.log("44444444")
 		}
 	);
