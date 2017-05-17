@@ -93,14 +93,14 @@ section{
 }
 
 footer{
- 	background:brown;
+ 	background:#78975E;
  	margin:0px;
  }
 
 footer li{
  	display:inline-block;
 	margin:0px 0px 0px 0px;
-	background:brown;
+	background:#78975E;
 	text-align: center;
 	border-radius: 30px;
 	width:23%
@@ -143,7 +143,7 @@ article{
 	margin-right: 80px;
 	margin-bottom:23px;
 	margin-top:20px;
-	box-shadow: 0px 7px 20px 7px #680100;
+	box-shadow: 0px 7px 20px 7px #8E5660;
 	border-radius: 20px;
 	}
 
@@ -314,41 +314,41 @@ th{
  }
 
 .navLi{
-	background:brown;
+	background:#F0F2DD;
 }
 
-.nav6{
+/*.nav6{
 	background: aqua;
 	border-radius: 20px;
-}
+}*/
 
 .navNav1{
-	background: blue;
+	background: #78975E;
 	border-radius: 20px;
 }
 
 .nav4{
-	background: blue;
+	background: #C49CD0;
 	border-radius: 10px;
 }
 
 .nav5{
-	background: aqua;
+	background: #D7E4B0;
 	border-radius: 10px;
 }
 
 .nav1{
-	background: green;
+	background: #FEDD77;
 	border-radius: 10px;
 }
 
 .nav2{
-	background: yellow;
+	background: #FEA25D;
 	border-radius: 10px;
 }
 
 .nav3{
-	background: red;
+	background: #4E2C66;
 	border-radius: 10px;
 }
 
@@ -374,9 +374,9 @@ th{
 
 .asideImage{
 	overflow: hidden;
-	background: grey;
+	background: #819694;
  	border:7px black solid;
- 	box-shadow: 0px 7px 20px 7px #680100;
+ 	box-shadow: 0px 7px 20px 7px #C8DBB7;
  	border-radius: 30px;
  	padding:7px;
  	margin-top:23px;
@@ -410,9 +410,9 @@ th{
 }
 .aside{
 	overflow: auto;
- 	background: grey;
+ 	background: #C2CDCE;
  	border:7px black solid;
- 	box-shadow: 0px 7px 20px 7px #680100;
+ 	box-shadow: 0px 7px 20px 7px #C8DBB7;
  	border-radius: 30px;
  	padding:7px;
  	margin-top:23px;
@@ -727,10 +727,10 @@ th{
 
 .shopBaniere{
 	overflow: auto;
-	border-left: 8px solid red;
-	border-right: 8px solid red;
-	border-top: 3px solid red;
-	background: green;
+	border-left: 8px solid #DF9DB4;
+	border-right: 8px solid #DF9DB4;
+	border-top: 3px solid #DF9DB4;
+	background: #E4BCCD;
 }
 
 .shopBanierePhoto{
@@ -748,11 +748,11 @@ th{
 	font-style: oblique;
 	text-align: center;
 	font-weight: bolder;
-	border-left: 8px solid brown;
-	border-right: 8px solid brown;
-	border-bottom: 8px solid brown;
+	border-left: 8px solid #8E5660;
+	border-right: 8px solid #8E5660;
+	border-bottom: 8px solid #8E5660;
 	margin: 0px;
-	background:brown;
+	background:#8E5660;
 }
 
 .shopSaison{
@@ -794,7 +794,7 @@ th{
 
 .shopLivraison{
 	overflow: auto;
-	background: green;
+	background: #615A5E;
 	text-align: center;
 }
 

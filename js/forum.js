@@ -1,14 +1,18 @@
 $(function(){
 	var $message, $newMessage;
-  $message = $('ul');
+  $message = $('#comment');
   $newMessage = $('#newMessage');
 
-  $newMessage.on('submit', function(e) {
-    e.preventDefault();
+  $newMessage.on('submit', function(event){
+    event.preventDefault();
     var text = $("#yourself").val();
-    $message.html("<ul class="forum_message"><div class="forum_image"><img src="../image/tortue_profil.jpg"><p>GWADA</p></div><li class="forum_text">");
-    $message.append("<p>" + text + "</p>");
-    $message.append("</li>");
-    $("yourself").val('');
+    $message
+      .append('<div class="forumImage"><img src="../image/tortue_profil.jpg"/><p>GWADA</p></div><li class="forumText"><p>' + text + '</p></li>')
+      .appendTo("#comment");
+    $("#yourself").val('');
+  });
+  $message.on('click', 'div', function() {
+    var $this = $(this);
+    $this.remove();
   });
 }) 
