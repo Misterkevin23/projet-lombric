@@ -4,15 +4,15 @@ var homeMargin=function(){
 		$(".homeAside").css("margin-right", margin);
 	}	
 
-$("document").ready(function(){
+$(document).ready(function(){
 	$(".homeAsideImage").hide();
 	$(".homeAside").hide();
 	$(".homeAside p").hide();
-	$("form").hide();
+	$(".homeAside form").hide();
 	$(".homeAsideImage").show(2000);
 	$(".homeAside").show(2000);
 	$(".homeAside p").show(3000);
-	$("form").show(3500);
+	$(".homeAside form").show(3500);
 	homeMargin();
 })	
 

@@ -142,9 +142,9 @@ $(document).ready(function(){
 		div3Elt.appendChild(prixElt);
 		divElt.appendChild(div3Elt);
 
-		var article=document.querySelector("article");
-		article.insertBefore(divElt, article.childNodes[7]);
-		
+		var modeleBois=document.getElementById("modeleBois");
+		modeleBois.insertBefore(divElt, modeleBois.childNodes[5]);
+		$(".produit").hide("show");
 	})	
 $(".produit").show(5000);
 })
