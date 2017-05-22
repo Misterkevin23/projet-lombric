@@ -218,9 +218,11 @@ p{
 
 table{
  	border: 1px solid black;
- 	text-align: left;
+ 	text-align: center;
+ 	width:80%;
 	font-family: "Comic Sans MS", "Courier New", Verdana, serif;
 	border-collapse: collapse;
+	margin:0px auto;
 }
 
 td{
@@ -275,6 +277,37 @@ th{
  	margin-left: 20px;
  	margin-top: 7px;
  	box-shadow: 0px 7px 20px 7px #680100; 
+}
+
+.articleBox{
+	overflow:auto;
+}
+
+.articleBoxImageL{
+	width: 20%;
+	float:left;
+	margin-left:23px;
+}
+
+.articleBoxImageL img{
+	max-width:100%;
+	width:100%;
+}
+
+.articleBoxImageR{
+	width: 20%;
+	float:right;
+	margin-right:23px;
+}
+
+.articleBoxImageR img{
+	max-width:100%;
+	width:100%;
+}
+
+.articleText{
+	width: 50%;
+	float:left;
 }
 
 .important{
@@ -449,6 +482,7 @@ th{
     border-radius: 10px;
     box-shadow: 0px 0px 20px 10px #cb0000;
     cursor: pointer;
+    text-align: center;
 }
 
 .asideConexionButton{
@@ -667,7 +701,7 @@ th{
 }
 
 .panierProduitPhoto{
-	width: 32%;
+	width: 40%;
 	float: left;
 	border: 3px solid grey;
 	margin:0px 3px;
@@ -679,8 +713,9 @@ th{
 }
 
 .panierProduitPrix{
-	font-size: 1em;
-	width: 50%;
+	font-size: 1.3em;
+	color:red;
+	text-align: center;
 }
 
 .panierLivraison{

@@ -49,110 +49,21 @@
 		</div>
 
 		<h2> LOMBRICOMPOSTEUR </h2>
-		<div class="produit">
-			<div class="produitPhoto">
-				<img src="../image/shop/lombricomposteur1.jpg">
-			</div>
-			
-			<div class="produitDescription">
-				<h3>Lombricompost NOM</h3>
-				<p class="produitDescriptionText"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-			</div>
-			
-			<div class="produitAction">
-				<h4>En stock</h4>
-				<div class="button">
-					<form>
-						<input type="submit" name="ajoutPanier" class="panierButton" value="Ajouter au panier"></a></br>
-					</form>	
-					<a href="" class="produitButton"> Voir le produit </a></br>
-					<form>
-						<input type="submit" name="Achat" class="formButtun" value="Achat direct"></br>
-					</form>	
-				</div>
-				<p class="produitPrix">XXXX Euro</p>		
-			</div>
-		</div>
-		<div class="produit">
-			<div class="produitPhoto">
-				<img src="../image/shop/lombricomposteur2.jpg">
-			</div>
-			
-			<div class="produitDescription">
-				<h3>Lombricompost NOM</h3>
-				<p class="produitDescriptionText"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-			</div>
-			
-			<div class="produitAction">
-				<h4>En stock</h4>
-				<div class="button">
-					<form>
-						<input type="submit" name="ajoutPanier" class="panierButton" value="Ajouter au panier"></a></br>
-					</form>	
-					<a href="" class="produitButton"> Voir le produit </a></br>
-					<form>
-						<input type="submit" name="Achat" class="formButtun" value="Achat direct"></br>
-					</form>	
-				</div>
-				<p class="produitPrix">XXXX Euro</p>		
-			</div>
-		</div>	
-		<div class="produit">
-			<div class="produitPhoto">
-				<img src="../image/shop/lombricomposteur3.jpg">
-			</div>
-			
-			<div class="produitDescription">
-				<h3>Lombricompost NOM</h3>
-				<p class="produitDescriptionText"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-			</div>
-			
-			<div class="produitAction">
-				<h4>En stock</h4>
-				<div class="button">
-					<form>
-						<input type="submit" name="ajoutPanier" class="panierButton" value="Ajouter au panier"></a></br>
-					</form>	
-					<a href="" class="produitButton"> Voir le produit </a></br>
-					<form>
-						<input type="submit" name="Achat" class="formButtun" value="Achat direct"></br>
-					</form>	
-				</div>
-				<p class="produitPrix">XXXX Euro</p>		
-			</div>
-		</div>	
-		<div class="produit">
-			<div class="produitPhoto">
-				<img src="../image/shop/fibre_de_chanvre_litière.jpg">
-			</div>
-			
-			<div class="produitDescription">
-				<h3>Lombricompost NOM</h3>
-				<p class="produitDescriptionText"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-			</div>
-			
-			<div class="produitAction">
-				<h4>En stock</h4>
-				<div class="button">
-					<form>
-						<input type="submit" name="ajoutPanier" class="panierButton" value="Ajouter au panier"></a></br>
-					</form>	
-					<a href="" class="produitButton"> Voir le produit </a></br>
-					<form>
-						<input type="submit" name="Achat" class="formButtun" value="Achat direct"></br>
-					</form>	
-				</div>
-				<p class="produitPrix">XXXX Euro</p>		
-			</div>
-		</div>	
+		<?php
+			include '../includes/util.inc.php';
+			include '../includes/shopFunction.php';
+
+			$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
+
+			$query = $db->prepare('SELECT * FROM produitLombricomposteur');
+
+			$query->execute();
+
+			$lombricomposteur= $query ->fetchAll();
+
+			shopProduit($lombricomposteur);
+
+		?>	
 		<div class="page">
 			<ul>
 				<li>

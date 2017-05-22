@@ -36,37 +36,204 @@
 
 			<h2> JARDINIERE</h2>
 			<div class="produit">
-				<?php	
-					include '../includes/util.inc.php';
-					include '../includes/shopFunction.php';
+				<div class="panierProduit">	
+					<h3>Jardiniere Nom</h3>
+					<div class="panierProduitPhoto">
+						<img src="../image/shop/jardiniere1.jpg">
+					</div>
+					<div class="button">
+						<a href="" class="produitButton"> Voir le produit </a></br>
+						<input type="submit" name="supPrimer" class="panierSuprimButton" value="SUPPRIMER"></a></br>
+					</div>	
+					<label><span class="panierProduitPrix">QUANTITE :</span></label>
+					<input type="number" name="qteProduit" value="5" >
+					<p class="panierProduitPrix">XXXX Euro</p>
+				</div>
+				
+				<div class="panierProduit">	
+					<h3>Jardiniere Nom</h3>
+					<div class="panierProduitPhoto">
+						<img src="../image/shop/jardiniere2.jpg">
+					</div>
+					<div class="button">
+						<a href="" class="produitButton"> Voir le produit </a></br>
+						<input type="submit" name="supPrimer" class="panierSuprimButton" value="SUPPRIMER"></a></br>
+					</div>
+					<label><span class="panierProduitPrix">QUANTITE :</span></label>
+					<input type="number" name="qteProduit" value="5" >
+					<p class="panierProduitPrix">XXXX Euro</p>
+				</div>
+				
+				<div class="panierProduit">	
+					<h3>Jardiniere Nom</h3>
+					<div class="panierProduitPhoto">
+						<img src="../image/shop/jardiniere3.jpg">
+					</div>
+					<div class="button">
+						<a href="" class="produitButton"> Voir le produit </a></br>
+						<input type="submit" name="supPrimer" class="panierSuprimButton" value="SUPPRIMER"></a></br>
+					</div>
+					<label><span class="panierProduitPrix">QUANTITE :</span></label>
+					<input type="number" name="qteProduit" value="5" >
+					<p class="panierProduitPrix">XXXX Euro</p>
+				</div>
 
-					$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
+				<div class="panierProduit">	
+					<h3>Jardiniere Nom</h3>
+					<div class="panierProduitPhoto">
+						<img src="../image/shop/jardiniere4.jpg">
+					</div>
+					<div class="button">
+						<a href="" class="produitButton"> Voir le produit </a></br>
+						<input type="submit" name="supPrimer" class="panierSuprimButton" value="SUPPRIMER"></a></br>
+					</div>
+					<label><span class="panierProduitPrix">QUANTITE :</span></label>
+					<input type="number" name="qteProduit" value="5" >
+					<p class="panierProduitPrix">XXXX Euro</p>
+				</div>
 
-					$query = $db->prepare('SELECT * FROM produitjardinerie');
+				<div class="panierProduit">	
+					<h3>Jardiniere Nom</h3>
+					<div class="panierProduitPhoto">
+						<img src="../image/shop/jardiniere5.jpg">
+					</div>
+					<div class="button">
+						<a href="" class="produitButton"> Voir le produit </a></br>
+						<input type="submit" name="supPrimer" class="panierSuprimButton" value="SUPPRIMER"></a></br>
+					</div>
+					<label><span class="panierProduitPrix">QUANTITE :</span></label>
+					<input type="number" name="qteProduit" value="5" >
+					<p class="panierProduitPrix">XXXX Euro</p>
+				</div>
 
-					$query->execute();
+				<div class="panierProduit">	
+					<h3>Jardiniere Nom</h3>
+					<div class="panierProduitPhoto">
+						<img src="../image/shop/jardiniere6.jpg">
+					</div>
+					<div class="button">
+						<a href="" class="produitButton"> Voir le produit </a></br>
+						<input type="submit" name="supPrimer" class="panierSuprimButton" value="SUPPRIMER"></a></br>
+					</div>
+					<label><span class="panierProduitPrix">QUANTITE :</span></label>
+					<input type="number" name="qteProduit" value="5" >
+					<p class="panierProduitPrix">XXXX Euro</p>
+				</div>
 
-					$panier= $query ->fetchAll();
-
-					panierClient($panier);
-				?>
-
-			</div>	
+				<div class="panierProduit">	
+					<h3>Jardiniere Nom</h3>
+					<div class="panierProduitPhoto">
+						<img src="../image/shop/jardiniere7.jpg">
+					</div>
+					<div class="button">
+						<a href="" class="produitButton"> Voir le produit </a></br>
+						<input type="submit" name="supPrimer" class="panierSuprimButton" value="SUPPRIMER"></a></br>
+					</div>
+					<label><span class="panierProduitPrix">QUANTITE :</span></label>
+					<input type="number" name="qteProduit" value="5" >
+					<p class="panierProduitPrix">XXXX Euro</p>
+				</div>
+			</div>
 
 			<h2> LOMBRICOMPOSTEUR</h2>
 			<div class="produit">
-				<?php	
+				<div class="panierProduit">	
+					<h3>lombricomposteur Nom</h3>
+					<div class="panierProduitPhoto">
+						<img src="../image/shop/lombricomposteur1.jpg">
+					</div>
+					<div class="button">
+						<a href="" class="produitButton"> Voir le produit </a></br>
+						<input type="submit" name="supPrimer" class="panierSuprimButton" value="SUPPRIMER"></a></br>
+					</div>
+					<label><span class="panierProduitPrix">QUANTITE :</span></label>
+					<input type="number" name="qteProduit" value="5" >
+					<p class="panierProduitPrix">XXXX Euro</p>
+				</div>
+				
+				<div class="panierProduit">	
+					<h3>lombricomposteur Nom</h3>
+					<div class="panierProduitPhoto">
+						<img src="../image/shop/lombricomposteur2.jpg">
+					</div>
+					<div class="button">
+						<a href="" class="produitButton"> Voir le produit </a></br>
+						<input type="submit" name="supPrimer" class="panierSuprimButton" value="SUPPRIMER"></a></br>
+					</div>
+					<label><span class="panierProduitPrix">QUANTITE :</span></label>
+					<input type="number" name="qteProduit" value="5" >
+					<p class="panierProduitPrix">XXXX Euro</p>
+				</div>
+				
+				<div class="panierProduit">	
+					<h3>lombricomposteur Nom</h3>
+					<div class="panierProduitPhoto">
+						<img src="../image/shop/lombricomposteur3.jpg">
+					</div>
+					<div class="button">
+						<a href="" class="produitButton"> Voir le produit </a></br>
+						<input type="submit" name="supPrimer" class="panierSuprimButton" value="SUPPRIMER"></a></br>
+					</div>
+					<label><span class="panierProduitPrix">QUANTITE :</span></label>
+					<input type="number" name="qteProduit" value="5" >
+					<p class="panierProduitPrix">XXXX Euro</p>
+				</div>
 
-					$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
+				<div class="panierProduit">	
+					<h3>lombricomposteur Nom</h3>
+					<div class="panierProduitPhoto">
+						<img src="../image/shop/lombricomposteur1.jpg">
+					</div>
+					<div class="button">
+						<a href="" class="produitButton"> Voir le produit </a></br>
+						<input type="submit" name="supPrimer" class="panierSuprimButton" value="SUPPRIMER"></a></br>
+					</div>
+					<label><span class="panierProduitPrix">QUANTITE :</span></label>
+					<input type="number" name="qteProduit" value="5" >
+					<p class="panierProduitPrix">XXXX Euro</p>
+				</div>
 
-					$query = $db->prepare('SELECT * FROM produitlombricomposteur');
+				<div class="panierProduit">	
+					<h3>lombricomposteur Nom</h3>
+					<div class="panierProduitPhoto">
+						<img src="../image/shop/lombricomposteur2.jpg">
+					</div>
+					<div class="button">
+						<a href="" class="produitButton"> Voir le produit </a></br>
+						<input type="submit" name="supPrimer" class="panierSuprimButton" value="SUPPRIMER"></a></br>
+					</div>
+					<label><span class="panierProduitPrix">QUANTITE :</span></label>
+					<input type="number" name="qteProduit" value="5" >
+					<p class="panierProduitPrix">XXXX Euro</p>
+				</div>
 
-					$query->execute();
+				<div class="panierProduit">	
+					<h3>lombricomposteur Nom</h3>
+					<div class="panierProduitPhoto">
+						<img src="../image/shop/lombricomposteur3.jpg">
+					</div>
+					<div class="button">
+						<a href="" class="produitButton"> Voir le produit </a></br>
+						<input type="submit" name="supPrimer" class="panierSuprimButton" value="SUPPRIMER"></a></br>
+					</div>
+					<label><span class="panierProduitPrix">QUANTITE :</span></label>
+					<input type="number" name="qteProduit" value="5" >
+					<p class="panierProduitPrix">XXXX Euro</p>
+				</div>
 
-					$panier= $query ->fetchAll();
-
-					panierClient($panier);
-				?>
+				<div class="panierProduit">	
+					<h3>lombricomposteur Nom</h3>
+					<div class="panierProduitPhoto">
+						<img src="../image/shop/lombricomposteur1.jpg">
+					</div>
+					<div class="button">
+						<a href="" class="produitButton"> Voir le produit </a></br>
+						<input type="submit" name="supPrimer" class="panierSuprimButton" value="SUPPRIMER"></a></br>
+					</div>
+					<label><span class="panierProduitPrix">QUANTITE :</span></label>
+					<input type="number" name="qteProduit" value="5" >
+					<p class="panierProduitPrix">XXXX Euro</p>
+				</div>
 			</div>
 
 			<h2> TERREAUX</h2>

@@ -61,8 +61,6 @@ $(document).ready(function(){
 
 	listeProduits.forEach(function(element){	
 
-		$(".produit").hide("fast");
-
 		var divElt = document.createElement("div");
 		divElt.classList.add("produit");
 
@@ -144,7 +142,9 @@ $(document).ready(function(){
 
 		var modeleBois=document.getElementById("modeleBois");
 		modeleBois.insertBefore(divElt, modeleBois.childNodes[5]);
-		$(".produit").hide("show");
+		
 	})	
-$(".produit").show(5000);
+$(".produit").hide("fast");
+ $('.produit').show(3000);
+
 })

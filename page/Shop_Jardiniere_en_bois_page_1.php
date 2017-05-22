@@ -44,11 +44,27 @@
 					echo '<div class="shopNavigateurPanier">';
 					include '../includes/panierButtun.php';
 					echo'</div>';
-				}
+				}	
 			?>			
 		</div>
 
 		<h2> JARDINIERE BOIS</h2>
+			<?php	
+				include '../includes/util.inc.php';
+				include '../includes/shopFunction.php';
+
+				$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
+
+				$query = $db->prepare('SELECT * FROM produitlombricomposteur');
+
+				$query->execute();
+
+				$jardinerie= $query ->fetchAll();
+
+				shopProduit($jardinerie);
+			?>
+
+
 		
 		<div class="page">
 			<ul>
