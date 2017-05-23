@@ -1,6 +1,16 @@
 <?php 
 	include '../includes/header.php';
-	$connected=false;
+	
+	if(isset($_POST["inscription"])){
+		$email=$_POST["email"];
+		$pseudo=$_POST["pseudo"];
+		$motDePasse=$_POST["motDePasse"];
+	}
+	else{
+		$email="";
+		$pseudo="";
+		$motDePasse="";
+	}
 ?>
 
 <main>
@@ -16,19 +26,19 @@
 			<legend>Mon identifiant et mon mot de passe</legend>
 			<div class="form">
 			<label for="email"><span class="formInfo">Email* :</span></label>
-			<input type="email" id="email" name="email" class="formTape" value="" placeholder="...@gmail.com" onkeyup="verification_form">
+			<input type="email" id="email" name="email" class="formTape" value="<?php echo $email; ?>" placeholder="...@gmail.com" onkeyup="verification_form">
 			<label for="emailCheck"><span class="formInfo">Confirmation de l'e-mail* :</span></label>
 			<input type="email" id="emailCheck" name="emailCheck" class="formTape" value="" placeholder="...@gmail.com" onkeyup="verification_form">
 			</div>
 
 			<div class="form">
 				<label for="nickName"><span class="formInfo">Pseudo* :</span></label>
-				<input type="text" id="nickName" name="pseudo" class="formTape" value="" placeholder="Gwada" onkeyup="verification_form">
+				<input type="text" id="nickName" name="pseudo" class="formTape" value="<?php echo $pseudo; ?>" placeholder="Gwada" onkeyup="verification_form">
 			</div>
 			
 			<div class="form">
 				<label for="password"><span class="formInfo">Mot de passe* :</span></label>
-				<input type="password" id="password" name="motDePasse" class="formTape" value="" placeholder="p&trick59" onkeyup="verification_form">
+				<input type="password" id="password" name="motDePasse" class="formTape" value="<?php echo $motDePasse; ?>" placeholder="p&trick59" onkeyup="verification_form">
 				<label for="passwordCheck"><span class="formInfo">Vérification* :</span></label>
 				<input type="password" id="passwordCheck" name="motpassecheck" class="formTape" value="" placeholder="p&trick59" onkeyup="verification_form">		
 			</div>

@@ -1,5 +1,7 @@
+
+
 <div class="asideImage">
-	<h3>GWADA</h3>
+	<h3><?php echo $pseudo ?></h3>
 	<div class="asideProfilImage">
 		<img src="../image/tortue_profil.jpg">
 	</div>

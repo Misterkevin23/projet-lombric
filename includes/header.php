@@ -3,6 +3,7 @@
 <head>
 	<title>PUMP my outdoor aeras</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css">
 	<link rel="stylesheet" type="text/css"	href="../stylesheets/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css">
@@ -16,7 +17,21 @@
 	<script type="text/javascript" src="../js/connexion_form.js"></script>
 	<script type="text/javascript" src="../js/verification_form.js"></script>
 </head>
+<?php
+$statue="visit";
+$connected=FALSE;
+$id=FALSE;
+$pseudo="";
+// elseif($_GET["connected"]==TRUE && $_GET["statue"]=="admin" ){
+if(isset($_GET['id'])){
+	$id=$_GET['id'];
+	$connected=$_GET['connected'];
+	$statue=$_GET['statue'];
+	$pseudo=$_GET['pseudo'];
 
+}
+
+?>
 	
 	
 <body>
@@ -37,42 +52,42 @@
 				<ul id="menu">
 					
 					<li class="navLi">
-						<a href="Accueil.php#accueil"><h3>ACCUEIL</h3></a>
+						<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#accueil"><h3>ACCUEIL</h3></a>
 					</li><!-- 
 
 				--><li class="navLi">
-						<a href="Accueil.php#jardinerie"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	JARDINERIE</h3></a>
+						<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#jardinerie"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	JARDINERIE</h3></a>
 						<ul>
 							<li class="nav1">
-								<a href="Accueil.php#Subtrat"><h4>Subtrat</h4> </a>
+								<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#Subtrat"><h4>Subtrat</h4> </a>
 							</li><!-- 
 
 						 --><li class="nav2">
-								<a href="Accueil.php#Irrigation"><h4>Irrigation</h4></a>
+								<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#Irrigation"><h4>Irrigation</h4></a>
 							</li><!--
 
 						--><li class="nav3">
-								<a href="Accueil.php#Condition"><h4>Condition climatique</h4></a>
+								<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#Condition"><h4>Condition climatique</h4></a>
 							</li>
 						</ul>
 					</li><!-- 
 
 				 --><li class="navLi">
-						<a href="Accueil.php#lombricompost"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	LOMBRI-COMPOST</h3></a>
+						<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#lombricompost"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	LOMBRI-COMPOST</h3></a>
 						<ul>
 							<li class="nav1">
-								<a href="Accueil.php#lombric"><h4>lombric</h4></a>
+								<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#lombric"><h4>lombric</h4></a>
 							</li><!--
 
 						 --><li class="nav2">
-								<a href="Accueil.php#aliment""><h4>Alimentation</h4></a>
+								<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#aliment""><h4>Alimentation</h4></a>
 							</li><!--
 
 						--><li class="nav3">
-								<a href="Accueil.php#tableau"><h4><i class="fa fa-plus-square-o" aria-hidden="true"></i>	tableaux des aliments</h4></a>
+								<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#tableau"><h4><i class="fa fa-plus-square-o" aria-hidden="true"></i>	tableaux des aliments</h4></a>
 								<ul>
 									<li class="navNav1">
-										<a href="Accueil.php#Fruits">Fruits et Légumes</a>
+										<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#Fruits">Fruits et Légumes</a>
 									</li>
 								</ul>
 							</li>		
@@ -80,13 +95,13 @@
 					</li><!-- 
 					
 				 --><li class="navLi">
-						<a href="Shop.php"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	NOS PRODUITS</h3></a>
+						<a href="Shop.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	NOS PRODUITS</h3></a>
 						<ul>
 							<li class="nav1">
 								<h4><i class="fa fa-plus-square-o" aria-hidden="true"></i>	JARDINERIE</h4>
 								<ul>
 									<li class="navNav1">
-										<a href="Shop_Jardiniere_en_bois_page_1.php">BOIS </a>
+										<a href="Shop_Jardiniere_en_bois_page_1.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>">BOIS </a>
 									</li><!--
 
 								--><li class="navNav1"">
@@ -103,7 +118,7 @@
 								<h4><i class="fa fa-plus-square-o" aria-hidden="true"></i>	LOMBRI-COMPOSTEUR</h4>
 								<ul>
 									<li class="navNav1">
-										<a href="Shop_lombricomposteur_standard_page_1.php">STANDARD </a>
+										<a href="Shop_lombricomposteur_standard_page_1.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>">STANDARD </a>
 									</li ><!-- 
 
 								 --><li class="navNav1">
@@ -172,7 +187,7 @@
 					</li><!-- 
 
 				 --><li class="navLi">
-						<a href="forum.php"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	FORUM</h3></a>
+						<a href="forum.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	FORUM</h3></a>
 						<ul>
 							<li class="nav1">
 								<a href=""><h4><i class="fa fa-plus-square-o" aria-hidden="true"></i>	JARDINERIE</h4></a>
