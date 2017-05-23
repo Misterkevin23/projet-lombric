@@ -3,7 +3,7 @@
 <head>
 	<title>PUMP my outdoor aeras</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css">
 	<link rel="stylesheet" type="text/css"	href="../stylesheets/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css">
