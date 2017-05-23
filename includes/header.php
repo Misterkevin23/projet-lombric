@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css">
 	<link rel="stylesheet" type="text/css"	href="../stylesheets/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../stylesheets/bootstrapAlleg.css">
 	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css">
 	<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="../js/menu.js"></script>
