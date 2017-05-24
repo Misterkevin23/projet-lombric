@@ -14,8 +14,8 @@
 <h3>INSCRIPTION/ CONNEXION</h3>
 
 <p>Envie  de vous faire livrer vos produit ou de participer au forum afin de partager vos experiences</p><br>
-<input type="radio" name="compte" value="non" class="nonInscrit"> Vous n'avez pas de compte PUMPCrew<br>
-<input type="radio" name="compte" value="yes" class="inscrit" checked="checked">Vous avez un compte PUMPCrew<br><br>
+<p><input type="radio" name="compte" value="non" class="nonInscrit">Vous n'avez pas de compte PUMPCrew</p><br>
+<p><input type="radio" name="compte" value="yes" class="inscrit" checked="checked">Vous avez un compte PUMPCrew</p><br><br>
 <div>
 	<form method="post" name="connexion" onSubmit="return connexion_form();" action="connexion.php" class="connexionCadre">
 		<label for="nickName"><span class="formInfo">Pseudo* :</span></label>

@@ -1,3 +1,7 @@
+html{
+	font-size:62.5%;
+}
+
 @font-face {
     font-family: 'salsa';
     src: url('../police/Salsa-Regular.ttf');
@@ -160,64 +164,72 @@ fieldset{
 legend{
 	font-style: italic;
 	text-align: center;
-	font-size: 1.5em;
+	font-size: 2.5rem;
 	text-decoration: underline red
 	color: black;
 	font-family: Impact, serif;
 	font-weight: bold;
-	margin-top:23px;
+	margin-top:2.3rem;
 }
 
 h1{
 	color:blue;
-	font-size: 2em;
+	font-size: 6rem;
 	text-align: center;
 	font-family: "Comic Sans MS", "Courier New", Verdana, serif;
-	padding: 7px;
+	padding: 0.7rem;
 	margin:0 23 auto;
 }
 
 h2{
-	font-size: 1.7em;
+	font-size: 3rem;
 	color:red;
 	font-family: Impact, "Courier New", Verdana, serif;
-	border-bottom: 7px green solid;
+	border-bottom: 0.7rem green solid;
 	text-align: center;
-	padding: 3px;
+	padding: 0.7rem;
 }
 
 h3, h4{
 	font-style: oblique;
-	font-size: 1em;
+	font-size: 2rem;
 	color:black;
 	font-family: salsa, Verdana, "Courier New", serif;
 	text-align: center;
-	padding:3px;
+	padding:0.3rem;
 }
 
 h4{
 	font-weight: bold;
-	font-size: 0.7rem;
+	font-size: 2rem;
 	font-family: salsa, Verdana, "Courier New", serif;
 	text-decoration: underline;
 }
 
 h5{
-	font-size: 1rem;
+	font-size: 2rem;
 	font-family: "Courier New", Verdana, serif;
 }
 
 p{
 	font-family: salsa, "Comic Sans MS", serif;
-	font-size: 1em;
+	font-size: 1.7rem;
 	color:black;
 	text-align: center;
-	padding:3px;
-	margin: 3px 3px auto; 
+	padding:0.3rem;
+	margin: 0.3rem 0.3rem auto; 
+}
+
+li{
+	font-size: 1.7rem;
+}
+
+input{
+	font-size:1.7rem;
 }
 
 table{
- 	border: 1px solid black;
+ 	border: 0.3rem solid black;
  	text-align: center;
  	width:80%;
 	font-family: "Comic Sans MS", "Courier New", Verdana, serif;
@@ -226,7 +238,7 @@ table{
 }
 
 td{
-	border: 1px dotted black;
+	border: 0.1rem dotted black;
 }
 
 th{
@@ -254,7 +266,7 @@ th{
 .homeAside{
 	width: 70%;
 	float: right;
-	border-radius: 30px;
+	border-radius: 3rem;
 	background: grey;
 
 }
@@ -338,7 +350,7 @@ th{
 }
 
 .slogan{
-	font-size: 1.5em;
+	font-size: 2.3rem;
 	font-weight: bolder;
 	font-style: italic;
 	text-shadow: red;
@@ -400,7 +412,7 @@ th{
 }
 
 .footerIcon{
-	font-size:2em;
+	font-size:2rem;
 }
 
 .tableYes{
@@ -459,7 +471,7 @@ th{
 }
 
 .asideInfo{
-	font-size: 1rem;
+	font-size: 1.7rem;
 	color:red;
 	text-align: center;
 	padding:3px;
@@ -533,17 +545,19 @@ th{
 }
 
 .formInfo{
-	font-size: 1.3rem;
+	font-size: 2rem;
 	font-family: Verdana, serif, "Courier New", "Comic Sans MS";
 	font-style: normal;
-	margin-bottom: 7px;
+	margin-bottom: 1rem;
+	margin-top: 3rem;
 	font-weight: bold;
 }
 
 .formTape{
 	width: 100%;
-    padding: 12px 20px;
-    margin:0px;
+    padding: 1.2rem 2rem;
+    margin-top:1.3rem;
+    margin-bottom:1.3rem;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -553,7 +567,8 @@ th{
 .formTapeSmall{
 	width: 30%;
     padding: 12px 20px;
-    margin:0px;
+    margin-top:1.3rem;
+    margin-bottom:1.3rem;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -563,7 +578,9 @@ th{
 .formContactChamp{
 	width:100%;
 	border: 7px black solid;
-	border-radius: 20px;
+	margin-top:1.3rem;
+    margin-bottom:1.3rem;
+	border-radius: 2rem;
 }
 
 .shopNavigateur{
@@ -601,7 +618,7 @@ th{
 
 .produitButton{
 	background-color: black;
-	font-size:0.8em;
+	font-size:1.7rem;
     color: white;
     display: inline-block;
     padding: 14px 20px;

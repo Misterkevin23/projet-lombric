@@ -46,10 +46,10 @@
 		<fieldset>
 	       <legend>Mon adresse de facturation</legend>
 			<div class="form">
-				<label for="Mlle" for="Mme" for="M" for="societe"><span class="formInfo">Civilité* :</span></label>
-				<input type="radio" id="Mlle" name="Sex" value="mlle" onkeyup="verification_form"><span class="formInfo">Mlle.</span>	
-				<input type="radio" id="Mme" name="Sex" value="mme" onkeyup="verification_form"><span class="formInfo">Mme.</span>
-				<input type="radio" id="M" name="Sex" value="m" onkeyup="verification_form"><span class="formInfo">M.</span>
+				<span class="formInfo"><label for="Mlle" for="Mme" for="M" for="societe">Civilité* :</span></label>
+				<span class="formInfo"><input type="radio" id="Mlle" name="Sex" value="mlle" onkeyup="verification_form">Mlle.</span>	
+				<span class="formInfo"><input type="radio" id="Mme" name="Sex" value="mme" onkeyup="verification_form">Mme.</span>
+				<span class="formInfo"><input type="radio" id="M" name="Sex" value="m" onkeyup="verification_form">M.</span>
 				<input type="radio" id="societe" name="Sex" value="societe" onkeyup="verification_form"><span class="formInfo">Société</span><br><br>	
 				<label for="firstName"><span class="formInfo" >Prénom* :</span></label>
 				<input type="text" id="firstName" name="prenom" class="formTape" value="" placeholder="Kevin" onkeyup="verification_form"><br>
@@ -84,9 +84,9 @@
 			</div>
 
 			<div class="form">
-			<label for="phonePortable"><span class="formInfo">Telephone1* :</span></label>
+			<label for="phonePortable"><span class="formInfo">Numeros Principal* :</span></label>
 			<input type="tel" id="phonePortable" name="tel1" class="formTape" value="" placeholder="0654254568" onkeyup="verification_form">
-			<label for="phoneFixe"><span class="formInfo">Telephone2 :</span></label>
+			<label for="phoneFixe"><span class="formInfo">Secondaire :</span></label>
 			<input type="tel" id="phoneFixe" name="tel2" class="formTape" value="" placeholder="0134568712">
 			</div>
 		</fieldset>
@@ -95,23 +95,23 @@
 			<legend>Mieux vous connaître</legend>
 			<div class="form">
 		       <label for="Age"><span class="formInfo">Tranche d'age :</span></label><br>
-		       <input type="radio" name="age" value="moins15" id="moins15" class="formTapeSmall"><span class="formInfo">Moins de 15 ans</span><br>
-		       <input type="radio" name="age" value="medium15-25" id="medium15-25" class="formTapeSmall"><span class="formInfo">15-25 ans</span><br>
-		       <input type="radio" name="age" value="medium25-40" id="medium25-40" class="formTapeSmall"><span class="formInfo">25-40 ans</span><br>
-		       <input type="radio" name="age" value="plus40" id="plus40" class="formTapeSmall"><span class="formInfo">Plus de 40 ans</span><br>
+		       <span class="formInfo"><input type="radio" name="age" value="<15" id="moins15" class="formTapeSmall">Moins de 15 ans</span><br>
+		       <span class="formInfo"><input type="radio" name="age" value="medium15-25" id="15-25" class="formTapeSmall">15-25 ans</span><br>
+		       <span class="formInfo"><input type="radio" name="age" value="25-40" id="medium25-40" class="formTapeSmall">25-40 ans</span><br>
+		       <span class="formInfo"><input type="radio" name="age" value="40" id="plus40" class="formTapeSmall">Plus de 40 ans</span><br>
 		       <label><span class="formInfo">ètes_vous* :</span></label><br>
-		       <input type="radio" id="proprietaire" name="situation" value="proprietaire" class="formTapeSmall" onkeyup="verification_form"><span class="formInfo">Propriétaire</span><br>
-		       <input type="radio" id="locataire" name="situation" value="locataire" class="formTapeSmall" onkeyup="verification_form"><span class="formInfo">locataire</span><br>
+		       <span class="formInfo"><input type="radio" id="proprietaire" name="situation" value="proprietaire" class="formTapeSmall" onkeyup="verification_form">Propriétaire</span><br>
+		       <span class="formInfo"><input type="radio" id="locataire" name="situation" value="locataire" class="formTapeSmall" onkeyup="verification_form">locataire</span><br>
 		       <label><span class="formInfo">Avez_vous*:</span></label><br>
-		       <input type="radio" id="jardin" name="exterieur" value="jardin" class="formTapeSmall" onkeyup="verification_form"><span class="formInfo">Jardin</span><br>
-		       <input type="radio" id="terrasse" name="exterieur" value="terrasse" class="formTapeSmall" onkeyup="verification_form"><span class="formInfo">Terrasse</span><br><br>
-		       <input type="radio" id="terrasse" name="exterieur" value="les deux" class="formTapeSmall" onkeyup="verification_form"><span class="formInfo">Les deux</span><br><br>
+		       <span class="formInfo"><input type="radio" id="jardin" name="exterieur" value="jardin" class="formTapeSmall" onkeyup="verification_form">Jardin</span><br>
+		       <span class="formInfo"><input type="radio" id="terrasse" name="exterieur" value="terrasse" class="formTapeSmall" onkeyup="verification_form">Terrasse</span><br><br>
+		       <span class="formInfo"><input type="radio" id="terrasse" name="exterieur" value="les deux" class="formTapeSmall" onkeyup="verification_form">Les deux</span><br><br>
 		       <label><span class="formInfo">Nombre de personnes dans le foyer:</span></label><br>
-		       <input type="radio" name="habitant" value="1" class="formTapeSmall"><span class="formInfo">1</span><br>
-		       <input type="radio" name="habitant" value="2" class="formTapeSmall"><span class="formInfo">2</span><br>
-		       <input type="radio" name="habitant" value="3" class="formTapeSmall"><span class="formInfo">3</span><br>
-		       <input type="radio" name="habitant" value="4" class="formTapeSmall"><span class="formInfo">4</span><br>
-		       <input type="radio" name="habitant" value="plus" class="formTapeSmall"><span class="formInfo">plus</span><br>
+		       <span class="formInfo"><input type="radio" name="habitant" value="1" class="formTapeSmall">1</span><br>
+		       <span class="formInfo"><input type="radio" name="habitant" value="2" class="formTapeSmall">2</span><br>
+		       <span class="formInfo"><input type="radio" name="habitant" value="3" class="formTapeSmall">3</span><br>
+		       <span class="formInfo"><input type="radio" name="habitant" value="4" class="formTapeSmall">4</span><br>
+		       <span class="formInfo"><input type="radio" name="habitant" value="plus" class="formTapeSmall">plus</span><br>
 		    </div>
 		</fieldset>
 
