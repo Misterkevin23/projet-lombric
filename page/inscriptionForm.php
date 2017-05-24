@@ -28,7 +28,7 @@
 			<label for="email"><span class="formInfo">Email* :</span></label>
 			<input type="email" id="email" name="email" class="formTape" value="<?php echo $email; ?>" placeholder="...@gmail.com" onkeyup="verification_form">
 			<label for="emailCheck"><span class="formInfo">Confirmation de l'e-mail* :</span></label>
-			<input type="email" id="emailCheck" name="emailCheck" class="formTape" value="" placeholder="...@gmail.com" onkeyup="verification_form">
+			<input type="email" id="emailCheck" name="emailCheck" class="formTape" placeholder="...@gmail.com" onkeyup="verification_form">
 			</div>
 
 			<div class="form">

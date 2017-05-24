@@ -3,26 +3,13 @@
 	include '../includes/util.inc.php';
 	include '../includes/connexionDb.php';
 
-	var_dump($_GET);
 if(isset($_GET["id"])){
-	echo 'hello';
-	if($_GET["id"]!=FALSE && $_GET["statue"]=="admin" && $_GET["connected"]==TRUE){
+	if($_GET["id"]!=FALSE && $_GET["statue"]!="visit" && $_GET["connected"]==TRUE){
 		
-		$db= connectUser();
+		$admins= connectUser();
 		
-		$query= $db-> prepare('SELECT * FROM preinscription');
-
-		$query->execute();
-
-		$admins= $query ->fetchAll();
-		var_dump($admins);
-		echo'$admins["pseudo"]';
-		$connected=$_GET["connected"];
-	}
-}	
 		foreach ($admins as $admin) {
-			
-			// if($admin["pseudo"]==$pseudo AND $admin["motDePasse"]==$motDePasse AND $admin["id"] ==$id ){
+			if($_GET["id"]==$admin["id"] && $_GET["statue"]==$admin["nom"] 				&& $_GET["connected"]==TRUE && $_GET["pseudo"]==$admin["pseudo"]){	
 				$pseudo=$admin["pseudo"];
 				$email=$admin["email"];
 				$Sex=$admin["Sex"];
@@ -43,23 +30,17 @@ if(isset($_GET["id"])){
 				$exterieur=$admin["exterieur"];
 				$habitant=$admin["habitant"];
 				$id=$admin["id"];
-				$description=$admin["description"]; 
-			}		
-
+				$description=$admin["description"];
+				$connected=$_GET["connected"];
+			}
+		}	
+	}			
+}
 ?>
 <main>
 
 	<aside>
-		<?php 
-			if($connected){
-				include '../includes/userConnect.php';
-			}
-			else{
-				echo '<div class="aside">';
-				include '../includes/inscription.php';
-				echo '</div>';
-			}
-		?>
+		<?php include '../includes/userConnect.php';?>
 
 		<div class="asideImage">
 			<?php include '../includes/pub.php'; ?>
@@ -94,12 +75,13 @@ if(isset($_GET["id"])){
 			 echoP("toto","$numeros");
 			 echoP("toto","$email");
 			 echo '</div>';
-			 $type='Fière d\'etre'.$situation.'. Je possede un(e) :'.$exterieur;
+			 $type='Fière d\'etre '.$situation.'. Je possede un(e) :'.$exterieur;
 			 echoP("toto","$type");
-			 $capacite= 'Il y a :'.$habitant.' personne(s) dans ce fière foyer';
+			 $capacite= 'Il y a '.$habitant.' personne(s) dans ce fière foyer';
 			 echoP("toto","$capacite"); 
 			 echo '</div>';
 			 echo '<div>';
+			 echo '<h3>A PROPOS DE VOUS</h3>';
 			 echoP("toto","$description");
 			 echo'</div>';
 			 ?>

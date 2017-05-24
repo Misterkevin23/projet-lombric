@@ -4,16 +4,7 @@
 
 <main>
 	<aside>
-		<?php 
-			if($connected){
-				include '../includes/userConnect.php';
-			}
-			else{
-				echo '<div class="aside">';
-				include '../includes/inscription.php';
-				echo '</div>';
-			}
-		?>
+		<?php include '../includes/userOrVisited.php';?>
 
 		<div class="asideImage">
 			<?php include '../includes/pub.php'; ?>

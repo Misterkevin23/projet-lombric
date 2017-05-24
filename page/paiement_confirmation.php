@@ -4,7 +4,7 @@
 
 <main>
 	<aside>
-		<?php include '../includes/userConnect.php'; ?>
+		<?php include '../includes/userOrVisited.php';?>
 
 		<div class="asideImage">
 			<?php include '../includes/pub.php'; ?>

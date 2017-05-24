@@ -20,17 +20,14 @@
 <?php
 $statue="visit";
 $connected=FALSE;
-$id=FALSE;
-$pseudo="";
-// elseif($_GET["connected"]==TRUE && $_GET["statue"]=="admin" ){
-if(isset($_GET['id'])){
-	$id=$_GET['id'];
-	$connected=$_GET['connected'];
-	$statue=$_GET['statue'];
-	$pseudo=$_GET['pseudo'];
-
+$id=NULL;
+$pseudo=NULL;
+if(isset($_GET["statue"])){
+$statue=$_GET["statue"];
+$connected=$_GET["connected"];
+$id=$_GET["id"];
+$pseudo=$_GET["pseudo"];
 }
-
 ?>
 	
 	
@@ -52,42 +49,42 @@ if(isset($_GET['id'])){
 				<ul id="menu">
 					
 					<li class="navLi">
-						<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#accueil"><h3>ACCUEIL</h3></a>
+						<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&connected='.$connected.'&id='.$id.'&statue='.$statue;?>#accueil"><h3>ACCUEIL</h3></a>
 					</li><!-- 
 
 				--><li class="navLi">
-						<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#jardinerie"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	JARDINERIE</h3></a>
+						<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&connected='.$connected.'&id='.$id.'&statue='.$statue;?>#jardinerie"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	JARDINERIE</h3></a>
 						<ul>
 							<li class="nav1">
-								<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#Subtrat"><h4>Subtrat</h4> </a>
+								<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&connected='.$connected.'&id='.$id.'&statue='.$statue;?>#Subtrat"><h4>Subtrat</h4> </a>
 							</li><!-- 
 
 						 --><li class="nav2">
-								<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#Irrigation"><h4>Irrigation</h4></a>
+								<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&connected='.$connected.'&id='.$id.'&statue='.$statue;?>#Irrigation"><h4>Irrigation</h4></a>
 							</li><!--
 
 						--><li class="nav3">
-								<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#Condition"><h4>Condition climatique</h4></a>
+								<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&connected='.$connected.'&id='.$id.'&statue='.$statue;?>#Condition"><h4>Condition climatique</h4></a>
 							</li>
 						</ul>
 					</li><!-- 
 
 				 --><li class="navLi">
-						<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#lombricompost"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	LOMBRI-COMPOST</h3></a>
+						<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&connected='.$connected.'&id='.$id.'&statue='.$statue;?>#lombricompost"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	LOMBRI-COMPOST</h3></a>
 						<ul>
 							<li class="nav1">
-								<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#lombric"><h4>lombric</h4></a>
+								<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&connected='.$connected.'&id='.$id.'&statue='.$statue;?>#lombric"><h4>lombric</h4></a>
 							</li><!--
 
 						 --><li class="nav2">
-								<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#aliment""><h4>Alimentation</h4></a>
+								<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&connected='.$connected.'&id='.$id.'&statue='.$statue;?>#aliment""><h4>Alimentation</h4></a>
 							</li><!--
 
 						--><li class="nav3">
-								<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#tableau"><h4><i class="fa fa-plus-square-o" aria-hidden="true"></i>	tableaux des aliments</h4></a>
+								<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&connected='.$connected.'&id='.$id.'&statue='.$statue;?>#tableau"><h4><i class="fa fa-plus-square-o" aria-hidden="true"></i>	tableaux des aliments</h4></a>
 								<ul>
 									<li class="navNav1">
-										<a href="Accueil.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>#Fruits">Fruits et Légumes</a>
+										<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&connected='.$connected.'&id='.$id.'&statue='.$statue;?>#Fruits">Fruits et Légumes</a>
 									</li>
 								</ul>
 							</li>		
@@ -95,13 +92,13 @@ if(isset($_GET['id'])){
 					</li><!-- 
 					
 				 --><li class="navLi">
-						<a href="Shop.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	NOS PRODUITS</h3></a>
+						<a href="Shop.php?<?php echo 'pseudo='.$pseudo.'&connected='.$connected.'&id='.$id.'&statue='.$statue;?>"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	NOS PRODUITS</h3></a>
 						<ul>
 							<li class="nav1">
 								<h4><i class="fa fa-plus-square-o" aria-hidden="true"></i>	JARDINERIE</h4>
 								<ul>
 									<li class="navNav1">
-										<a href="Shop_Jardiniere_en_bois_page_1.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>">BOIS </a>
+										<a href="Shop_Jardiniere_en_bois_page_1.php?<?php echo 'pseudo='.$pseudo.'&connected='.$connected.'&id='.$id.'&statue='.$statue;?>">BOIS </a>
 									</li><!--
 
 								--><li class="navNav1"">
@@ -118,7 +115,7 @@ if(isset($_GET['id'])){
 								<h4><i class="fa fa-plus-square-o" aria-hidden="true"></i>	LOMBRI-COMPOSTEUR</h4>
 								<ul>
 									<li class="navNav1">
-										<a href="Shop_lombricomposteur_standard_page_1.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>">STANDARD </a>
+										<a href="Shop_lombricomposteur_standard_page_1.php?<?php echo 'pseudo='.$pseudo.'&connected='.$connected.'&id='.$id.'&statue='.$statue;?>">STANDARD </a>
 									</li ><!-- 
 
 								 --><li class="navNav1">
@@ -187,7 +184,7 @@ if(isset($_GET['id'])){
 					</li><!-- 
 
 				 --><li class="navLi">
-						<a href="forum.php?<?php echo 'id='.$id;?><?php echo '&connected='.$connected.'&statue='.$statue.'&pseudo='.$pseudo;?>"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	FORUM</h3></a>
+						<a href="forum.php?<?php echo 'pseudo='.$pseudo.'&connected='.$connected.'&id='.$id.'&statue='.$statue;?>"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	FORUM</h3></a>
 						<ul>
 							<li class="nav1">
 								<a href=""><h4><i class="fa fa-plus-square-o" aria-hidden="true"></i>	JARDINERIE</h4></a>
@@ -232,7 +229,7 @@ if(isset($_GET['id'])){
 					</li><!-- 
 					
 				 --><li class="navLi">
-						<a href="contact.php"><h3>NOUS CONTACTER</h3></a>
+						<a href="contact.php?<?php echo 'pseudo='.$pseudo.'&connected='.$connected.'&id='.$id.'&statue='.$statue;?>"><h3>NOUS CONTACTER</h3></a>
 					</li>
 				</ul>
 			</nav>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 21 Mai 2017 à 20:43
+-- Généré le :  Mer 24 Mai 2017 à 01:14
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -101,34 +101,36 @@ INSERT INTO `lombricompost` (`id`, `titre`, `paragraphe1`, `paragraphe2`, `date`
 
 CREATE TABLE `preinscription` (
   `id` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `pseudo` varchar(255) NOT NULL,
-  `motDePasse` varchar(255) NOT NULL,
-  `Sex` varchar(255) NOT NULL,
-  `prenom` varchar(255) NOT NULL,
-  `nom` varchar(255) NOT NULL,
+  `email` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `pseudo` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `motDePasse` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `Sex` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `prenom` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `nom` varchar(255) CHARACTER SET latin1 NOT NULL,
   `numeros` int(11) NOT NULL,
-  `nomDeRue` varchar(255) NOT NULL,
-  `appartement` varchar(255) NOT NULL,
-  `batiment` varchar(255) NOT NULL,
-  `lieuDit` varchar(255) NOT NULL,
+  `nomDeRue` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `appartement` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `batiment` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `lieuDit` varchar(255) CHARACTER SET latin1 NOT NULL,
   `CodePostal` int(11) NOT NULL,
-  `ville` varchar(255) NOT NULL,
-  `pays` varchar(255) NOT NULL,
+  `ville` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `pays` varchar(255) CHARACTER SET latin1 NOT NULL,
   `tel1` int(11) NOT NULL,
   `tel2` int(11) NOT NULL,
-  `age` varchar(255) NOT NULL,
-  `situation` varchar(255) NOT NULL,
-  `exterieur` varchar(255) NOT NULL,
-  `habitant` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `age` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `situation` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `exterieur` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `habitant` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `description` text CHARACTER SET latin1 NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Contenu de la table `preinscription`
 --
 
-INSERT INTO `preinscription` (`id`, `email`, `pseudo`, `motDePasse`, `Sex`, `prenom`, `nom`, `numeros`, `nomDeRue`, `appartement`, `batiment`, `lieuDit`, `CodePostal`, `ville`, `pays`, `tel1`, `tel2`, `age`, `situation`, `exterieur`, `habitant`) VALUES
-(1, 'sh@gmail.com', 'gwada', '', 'm', 'Kevin', 'PASCAL', 4, 'rue de montmo', 'appartement A', 'batiment 4', 'tigro', 95560, 'Montsoult', 'France', 673772112, 134697755, 'medium25-40', 'proprietaire', 'terrasse', '3');
+INSERT INTO `preinscription` (`id`, `email`, `pseudo`, `motDePasse`, `Sex`, `prenom`, `nom`, `numeros`, `nomDeRue`, `appartement`, `batiment`, `lieuDit`, `CodePostal`, `ville`, `pays`, `tel1`, `tel2`, `age`, `situation`, `exterieur`, `habitant`, `description`) VALUES
+(1, 'sh@gmail.com', 'gwada', '1234', 'm', 'Kevin', 'PASCAL', 4, 'rue de montmo', 'appartement A', 'batiment 4', 'tigro', 95560, 'Montsoult', 'France', 673772112, 134697755, 'medium25-40', 'proprietaire', 'terrasse', '3', ''),
+(5, 'afd@gmail.com', 'madinina', '972', 'mme', 'MAdi', 'Nina', 65, 'rue de la libertÃ©', 'ND', 'ND', 'ND', 97, 'FORT DE FRANCE', 'Allemagne', 955664422, 522114477, 'ND', 'locataire', 'les deux', 'un nombre incertain', '  sdqijqpbgdsjigbq jpisdqbj^qb^^psqdb^bq^^bqsd^gsqjd^gb^q ^jsdbg^jqsdgbq^db jsd^bgs^qdb^jdsqb jsd^sqdbsd^sb j^sdbg^sqjdbsdj^sd ^jsdb^jsdb ^jbqsd^fsqfo^sdqnb ^nsdqo^bnso^d bo^nbo^s no^nosd^n o^sdn Ã´sn o^sqdn o^nfosnd oqsdn^sdqn sl no^gno^sdqngÃ´sdqn s^q nsq^ns^nsd^ns^ksdnÃ´sqdn o^sqn sdokn o^s n^sdn osqn on do^sngsÃ´d n^sqdg no^sdgn so^gn sod^fg no^f no^g nqÃ´gnfdqso^gnsdo^g nsdo^g ndso^no no^gnsog ^sn o^no^gnsqdo^no^g nsqÃ´gnsogndgksnglknl s^k');
 
 -- --------------------------------------------------------
 
@@ -287,7 +289,7 @@ ALTER TABLE `lombricompost`
 -- AUTO_INCREMENT pour la table `preinscription`
 --
 ALTER TABLE `preinscription`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `produitjardinerie`
 --

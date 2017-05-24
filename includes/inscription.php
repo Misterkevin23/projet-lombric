@@ -19,7 +19,7 @@
 <div>
 	<form method="post" name="connexion" onSubmit="return connexion_form();" action="connexion.php" class="connexionCadre">
 		<label for="nickName"><span class="formInfo">Pseudo* :</span></label>
-		<input type="text" id="nickName" name="pseudo" class="formTape" value="<?php echo $pseudo;?>"placeholder="Gwada" onkeyup="connexion_form"></br>
+		<input type="text" id="nickName" name="pseudo" class="formTape" value="<?php echo $pseudo;?>" placeholder="Gwada" onkeyup="connexion_form"></br>
 		<label for="password"><span class="formInfo">Mot de passe* :</span></label>
 		<input type="password" id="password" name="motDePasse" class="formTape" placeholder="p&trick59" onkeyup="connexion_form"><br>
 		<div class="button">
