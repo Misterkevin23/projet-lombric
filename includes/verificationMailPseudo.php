@@ -1,19 +1,11 @@
 <?php
-function VerifMailPseudo($email, $pseudo, $location){
+function VerifMailPseudo($email, $pseudo){
 	var_dump($_POST);
-	$admins=connectUser();
-	$visits=connectVisiter();
-	foreach($admins as $admin){
-		if($email==$admin['email'] OR $pseudo==$admin['pseudo']){
+	$users=connectUser();
+	foreach($users as $user){
+		if($email==$user['email'] OR $pseudo==$user['pseudo']){
 			echo '142552';
-			header('location:$location');
-			break;
-		}
-	}
-	foreach($visits as $visit){
-		if($email==$visit['email']){
-			echo 'AZSDDDSD';
-			header('location:$location');
+			header('location:inscriptionForm.php');
 			break;
 		}
 	}

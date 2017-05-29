@@ -4,12 +4,12 @@ $db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
 function connectUser(){
 	$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
 	
-	$query= $db-> prepare('SELECT * FROM preinscription');
+	$query= $db-> prepare('SELECT * FROM users');
 
 	$query->execute();
 
-	$admins= $query ->fetchAll();
-	return $admins;
+	$users= $query ->fetchAll();
+	return $users;
 }
 
 function connectVisiter(){
@@ -22,5 +22,7 @@ function connectVisiter(){
 	$visits= $query ->fetchAll();
 	return $visits;
 }
+
+
 
 ?>

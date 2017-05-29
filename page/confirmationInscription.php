@@ -1,45 +1,29 @@
 <?php
 	include '../includes/connexionDb.php';
+	include '../includes/panierCreateTable.php';
+	include '../includes/panierDb.php';
+	
 
-	var_dump($_POST['email']==$_POST['emailCheck']);
-	var_dump($_POST['motDePasse']==$_POST['motpassecheck']);
-	var_dump(strlen('CodePostal')<100);
-	var_dump(strlen('numeros')<11);
-	var_dump($_POST);
+	
+
+	$condition2= $_POST['email']==$_POST['emailCheck']						AND $_POST['motDePasse']==$_POST['motpassecheck']		 			AND strlen('CodePostal')<100 AND strlen('numeros')<11;
+
+	$condition3= isset($_POST['Sex'])	AND $_POST['prenom']!=NULL 			AND $_POST['nom']!=NULL AND $_POST['nomDeRue']!=NULL 				AND $_POST['ville']!=NULL AND $_POST['pays']!=NULL 					AND $_POST['tel1']!=NULL AND isset($_POST['situation']) 			AND isset($_POST['exterieur']);
+
 	if(isset($_POST) && isset($_POST['id'])){
 		echo '547';
-		if($_POST['email']!=NULL AND $_POST['pseudo']!=NULL 				AND $_POST['motDePasse']!=NULL									AND $_POST['motpassecheck']!=NULL AND $_POST['emailCheck']!=NULL AND $_POST['CodePostal']!=NULL AND $_POST['numeros']!=NULL)
+		$condition1= $_POST['email']!=NULL AND $_POST['pseudo']!=NULL 		AND $_POST['motDePasse']!=NULL AND $_POST['motpassecheck']!=NULL AND $_POST['emailCheck']!=NULL AND $_POST['CodePostal']!=NULL 	AND $_POST['numeros']!=NULL;
+
+		if($condition1)
 		{
-			// include '../includes/verificationMailPseudo.php';
-			// VerifMailPseudo($_POST['email'], $_POST['pseudo'], "inscriptionForm.php");
-			if( $_POST['email']==$_POST['emailCheck'] 						AND $_POST['motDePasse']==$_POST['motpassecheck'] 			AND strlen('CodePostal')<100 AND strlen('numeros')<11)
+			if($condition2)
 			{
-				if( isset($_POST['Sex'])									AND $_POST['prenom']!=NULL AND $_POST['nom']!=NULL 		AND $_POST['nomDeRue']!=NULL 							AND $_POST['ville']!=NULL 								AND $_POST['pays']!=NULL 								AND $_POST['tel1']!=NULL 								AND isset($_POST['situation']) 							AND isset($_POST['exterieur']))
+				if($condition3)
 				{
-		 			if($_POST['appartement']==NULL)
-		 			{
-		 				$_POST['appartement']="ND";
-		 				echo 'ok4';
-		 			}
-		 			if($_POST['batiment']==NULL)
-		 			{
-		 				$_POST['batiment']="ND";
-		 				echo 'ok5';
-		 			}
-		 			if($_POST['lieuDit']==NULL)
-		 			{
-		 				$_POST['lieuDit']="ND";
-		 				echo 'ok6';
-		 			}
-		 			if($_POST['tel2']==NULL)
-		 			{
-		 				$_POST['tel2']="ND";
-		 				echo 'ok7';
-		 			}
 		 			if(!isset($_POST['age']))
 		 			{
-		 				$_POST['age']="ND";
-		 				echo 'ok8';
+		 				$_POST['age']="d'un certain age";
+		 				echo 'ok9';
 		 			}
 		 			if(!isset($_POST['habitant']))
 		 			{
@@ -52,8 +36,10 @@
 		 				echo 'ok10';
 		 			}
 
+		 			$statue='admin';
+
 					$query = $db->prepare(
-						'INSERT INTO preinscription (email, pseudo, motDePasse, Sex, prenom, nom, numeros, nomDeRue, appartement, batiment, lieuDit, CodePostal, ville, pays, tel1, tel2, age, situation, exterieur, habitant, description) 			VALUES (:email, :pseudo, :motDePasse, :Sex, :prenom, :nom, :numeros, :nomDeRue, :appartement, :batiment, :lieuDit, :CodePostal, :ville, :pays, :tel1, :tel2, :age, :situation, :exterieur, :habitant, :description)'
+						'INSERT INTO users (email, pseudo, motDePasse, Sex, prenom, nom, numeros, nomDeRue, appartement, batiment, lieuDit, CodePostal, ville, pays, tel1, tel2, age, situation, exterieur, habitant, description, statue) 									VALUES (:email, :pseudo, :motDePasse, :Sex, :prenom, :nom, :numeros, :nomDeRue, :appartement, :batiment, :lieuDit, :CodePostal, :ville, :pays, :tel1, :tel2, :age, :situation, :exterieur, :habitant, :description, :statue)'
 					);
 					echo 'ok11';
 
@@ -78,38 +64,33 @@
 						':situation'	=>$_POST['situation'],
 						':exterieur'	=>$_POST['exterieur'],
 						':habitant'		=>$_POST['habitant'],
-						':description'	=>$_POST['description']
+						':description'	=>$_POST['description'],
+						':statue'		=>$statue
 					));
 					
 					echo 'ok';
-
-					include '../includes/panierCreateTable.php';
-						$visits=connectVisiter();
-						
-					foreach($admins as $admin)
+					$users=connectUser();
+					foreach($users as $user)
 					{
-						if($admin['email']===$_POST['email'] 				&& $admin['pseudo']===$_POST['pseudo'])
+						if($user['email']===$_POST['email'] 				&& $user['pseudo']===$_POST['pseudo'])
 						{
 							$query=$db->prepare(
 							'INSERT INTO panier (idadmin)
 							VALUES (:idadmin)'
 							);
-
+					
 							$query->execute(array(
-							':idadmin'	=>$admin['id']
+							':idadmin'	=>$user['id']
 							));
-
-							include '../includes/panierDb.php';
 							$paniers=panierUser();
-
 							foreach ($paniers as $panier){
-								if($panier['idadmin']==$admin['id'])
+								if($panier['idadmin']==$user['id'])
 								{
-									$query=$db->prepare('					UPDATE preinscription SET idpanier= :idpanier WHERE id = :id');
-
+									$query=$db->prepare('					UPDATE users SET idpanier= :idpanier WHERE id = :id');
+					echo '99999';
 									$query->execute(array(
 									':idpanier'		=>$panier['id'],
-									':id'			=>$admin['id']
+									':id'			=>$user['id']
 									));
 								break;	
 								}
@@ -131,23 +112,29 @@
 			echo 'abscence mot de passe ou pseudo ou code postal ou numeros de rue';	
 		}
 	}
-	elseif(isset($_POST) && isset($_POST['visit']))
+	elseif(isset($_POST) && isset($_POST['client']))
 	{
 		echo 'aaa';
-		$pseudo='visiteur';
-		if($_POST['email']!=NULL AND $_POST['motDePasse']!=NULL 			AND $_POST['motpassecheck']!=NULL 								AND $_POST['emailCheck']!=NULL AND $_POST['CodePostal']!=NULL 		AND $_POST['numeros']!=NULL)
-			{
-				echo 'bbb';
+		$pseudo='client';
+		$condition4= $_POST['email']!=NULL AND $_POST['motDePasse']!=NULL 	AND $_POST['motpassecheck']!=NULL AND $_POST['emailCheck']!=NULL AND $_POST['CodePostal']!=NULL AND $_POST['numeros']!=NULL;
+
+		$condition5= isset($_POST['Sex']) AND $_POST['prenom']!=NULL 		AND $_POST['nom']!=NULL AND $_POST['nomDeRue']!=NULL 			AND $_POST['ville']!=NULL AND $_POST['pays']!=NULL 				AND $_POST['tel1']!=NULL;
+
+		if($condition4)
+		{
+			echo 'bbb';
 			// include '../includes/verificationMailPseudo.php';
 			// VerifMailPseudo($_POST['email'], $pseudo, "paiement_identification.php");
-			if( $_POST['email']==$_POST['emailCheck'] 						AND $_POST['motDePasse']==$_POST['motpassecheck'] 			AND strlen('CodePostal')<100 AND strlen('numeros')<11)
+			if( $condition2)
 			{
 				echo 'ccc';
-				if( isset($_POST['Sex'])									AND $_POST['prenom']!=NULL AND $_POST['nom']!=NULL 		AND $_POST['nomDeRue']!=NULL 							AND $_POST['ville']!=NULL 								AND $_POST['pays']!=NULL 								AND $_POST['tel1']!=NULL)
+				if($condition5)
 				{
 					echo 'ddd';
+					$statue='client';
+
 		 			$query = $db->prepare(
-						'INSERT INTO visiteur (email, motDePasse, Sex, prenom, nom, numeros, nomDeRue, appartement, batiment, lieuDit, CodePostal, ville, pays, tel1)VALUES (:email, :motDePasse, :Sex, :prenom, :nom, :numeros, :nomDeRue, :appartement, :batiment, :lieuDit, :CodePostal, :ville, :pays, :tel1)'
+						'INSERT INTO users (email, motDePasse, Sex, prenom, nom, numeros, nomDeRue, appartement, batiment, lieuDit, CodePostal, ville, pays, tel1, statue, pseudo)	VALUES (:email, :motDePasse, :Sex, :prenom, :nom, :numeros, :nomDeRue, :appartement, :batiment, :lieuDit, :CodePostal, :ville, :pays, :tel1, :statue, :pseudo)'
 					);
 		 			echo 'eee';
 					$query->execute(array(
@@ -164,39 +151,41 @@
 						':CodePostal'	=>$_POST['CodePostal'],
 						':ville'		=>$_POST['ville'],
 						':pays'			=>$_POST['pays'],
-						':tel1'			=>$_POST['tel1']
+						':tel1'			=>$_POST['tel1'],
+						':statue'		=>$statue
+						':pseudo'		=>$_POST['nom'],
 					));
 					
 					echo 'fff';
-					include '../includes/panierCreateTable.php';
+					
 
-						$visits=connectVisiter();
 					echo 'ggg';	
-					foreach($visits as $visit)
-					{
-						if($visit['email']===$_POST['email'])
+
+					$users=connectUser();
+					foreach($users as $user)
+					{echo 'roro';
+						if($user['email']===$_POST['email'])
 						{
 
 							$query=$db->prepare(
-							'INSERT INTO panier (idvisit)
-							VALUES (:idvisit)'
+							'INSERT INTO panier (idclient)
+							VALUES (:idclient)'
 							);
-
+						echo $user['id'];
 							$query->execute(array(
-							':idvisit'	=>$visit['id']
+							':idclient'	=>$user['id']
 							));
-
-							include '../includes/panierDb.php';
+							
 							$paniers=panierUser();
-
+							var_dump($paniers);
 							foreach ($paniers as $panier){
-								if($panier['idvisit']==$visit['id'])
+								if($panier['idclient']==$user['id'])
 								{
-									$query=$db->prepare('					UPDATE visiteur SET idpanier= :idpanier WHERE id = :id');
-
+									$query=$db->prepare('					UPDATE users SET idpanier= :idpanier WHERE id = :id');
+						echo '77777777';
 									$query->execute(array(
 									':idpanier'		=>$panier['id'],
-									':id'			=>$visit['id']
+									':id'			=>$user['id']
 									));
 								break;	
 								}
@@ -204,18 +193,20 @@
 						break;
 						}
 					}
-				header('location:shop.php');	
+				// header('location:shop.php');	
 				}		
 				else
 				{
 					echo 'champ obligatoire non remplie';
 				}
 			}	
-			else{
+			else
+			{
 				echo 'pb mot de passe ou pseudo ou code postal ou nb rue';
 			}
 		}
-		else{
+		else
+		{
 			echo 'abscence mot de passe ou pseudo ou code postal ou numeros de rue';	
 		}
 	}

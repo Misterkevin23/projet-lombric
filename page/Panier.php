@@ -30,7 +30,7 @@
 				$prixTotal=0;
 				$nbreProduits=0;
 			?>
-			<!-- <form method=POST action=<?php echo ''.$soumission.''?> > -->
+			<form method=POST action=<?php echo ''.$soumission.''?> >
 				<h2> JARDINIERE</h2>
 				<div class="produit">
 				<?php	
@@ -123,7 +123,7 @@
 					include '../includes/panierPayeButtun.php';
 				?>
 
-			<!-- </form> -->
+			</form>
 	
 		</article>
 	</main>

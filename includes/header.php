@@ -33,28 +33,26 @@ if( isset($_GET["pseudo"]) && isset($_GET["id"]))
 
 		$id=$_GET["id"];
 		$pseudo=$_GET["pseudo"];
-		$admins= connectUser();
+		$users= connectUser();
 
-		foreach ($admins as $admin)
+		foreach ($users as $user)
 		{
-			if($pseudo==$admin["pseudo"] && $id==$admin["id"])
+			if($id==$user["id"])
 			{
-				$connected=TRUE;
-				$panierConnected=TRUE;
-			break;	
-			}	
-		}
-				
-		$visits= connectVisiter();
-		foreach ($visits as $visit)
-		{
-			if($pseudo==$visit["nom"] && $id==$visit["id"])
-			{
-				$connected=FALSE;
-				$panierConnected=TRUE;
-			break;		
+				if($user['statue']=='admin' && $pseudo==$user["pseudo"])
+				{	
+					$connected=TRUE;
+					$panierConnected=TRUE;
+				break;	
+				}
+				elseif($user['statue']=='client' && $pseudo==$user["nom"])
+				{
+					$connected=FALSE;
+					$panierConnected=TRUE;
+				break;		
+				}	
 			}
-		}
+		}	
 	}
 	else
 	{

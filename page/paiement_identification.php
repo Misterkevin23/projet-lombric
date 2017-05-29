@@ -82,7 +82,7 @@
 					</div>
 				</fieldset>
 
-				<input type="hidden" name="visit">		
+				<input type="hidden" name="client">		
 				<input type="submit" name="Valider" class="formButtun" value="Envoyer">	
 					
 			</form>

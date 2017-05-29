@@ -1,92 +1,65 @@
 <?php
 include '../includes/connexionDb.php';
 
-if(isset($_POST["connexion"])){
-	if($_POST["pseudo"]!=NULL AND $_POST["motDePasse"]!=NULL){
+if(isset($_POST["connexion"]) 													or isset($_POST["panier"]) or isset($_POST["email"]))
+
+{
+
+	if($_POST["pseudo"]!=NULL or $_POST["motDePasse"]!=NULL 					or $_POST["email"]!=NULL )
+	{	
 		$motDePasse=$_POST["motDePasse"];
 		$id=NULL;
 		$pseudo=$_POST["pseudo"];
 		$connected=FALSE;
 		$panier=FALSE;
 		
-		$admins= connectUser();
+		$users= connectUser();
 				
-		foreach ($admins as $admin) {
-			if($admin["pseudo"]==$pseudo AND $admin["motDePasse"]==$motDePasse){
-				$id= $admin["id"];
-				$pseudo= $admin["pseudo"];
+		foreach ($users as $user)
+		{
+			if($user["pseudo"]==$pseudo && $user["motDePasse"]==$motDePasse 	&& $user["statue"]=='admin')
+			{
+				$id= $user["id"];
+				$pseudo= $user["pseudo"];
 				$connected=TRUE;
-				$panier=TRUE;
-
+				$panierConnected=TRUE;
+			break;
 			}
+			elseif($motDePasse=$_POST["motDePasse"] AND $user["email"]==$_POST["email"] && $user["statue"]=='client')
+			{
+				$id= $user["id"];
+				$pseudo= $user["nom"];
+				$panierConnected=TRUE;
+				$connected=FALSE;
+			break;		
+			}
+
 		}
-		if($connected){
-			
+		if($connected==TRUE && $panierConnected==TRUE)
+		{
 			header('location:UserProfil.php?id='.$id.'&pseudo='.$pseudo);
 		}
-		else{
-
+		elseif($connected==FALSE && $panierConnected==TRUE)
+		{
+			header('location:Shop.php?pseudo='.$pseudo.'&id='.$id);
+		}	
+		else
+		{
+			$pseudo=$_POST['pseudo'];
+			$id=2;
+			$connected=FALSE;
+			$panier=FALSE;
 			header('location:Home.php?pseudo='.$pseudo.'&id='.$id);
 		}	
 	}
-	else{
-		$pseudo=$_POST['pseudo'];
-		$id=2;
-		$connected=FALSE;
-		$panier=FALSE;
-		
-		header('location:Home.php?pseudo='.$pseudo.'&id='.$id);
+	else
+	{
+	header('location:Home.php');
 	}
 }
-elseif(isset($_POST["panier"])){
-	var_dump($_POST);
-	if($_POST["email"]!=NULL AND $_POST["motDePasse"]!=NULL){
-		$motDePasse=$_POST["motDePasse"];
-		$id=NULL;
-		$pseudo=NULL;
-		$email=$_POST["email"];
-		$connected=FALSE;
-		$panier=FALSE;
-		echo '111';
-		$visits= connectVisiter();
-				
-		foreach ($visits as $visit) {
-			echo '222';
-			if($visit["email"]==$email AND $visit["motDePasse"]==$motDePasse){
-				$id= $visit["id"];
-				$pseudo= $visit["nom"];
-				$panier=TRUE;
-				$connected=FALSE;
-				echo '333';
-			break;	
-			}
-		}
-		if($panier){
-			
-			header('location:Shop.php?id='.$id.'&pseudo='.$pseudo);
-		}
-		else{
-
-			header('location:Home.php?pseudo='.$pseudo.'&id='.$id);
-		}	
-	}
-	else{
-		$email=$_POST['email'];
-		$id=2;
-		$connected=FALSE;
-		$panier=FALSE;
-		
-		header('location:Home.php?pseudo='.$pseudo.'&id='.$id);
-	}
-}
-else{
-	$pseudo=NULL;
-	$id=3;
-	$connected=FALSE;
-	
-	
-	header('location:Home.php?pseudo='.$pseudo.'&id='.$id);
-}
-
+else
+{
+header('location:Home.php');	
+}	
 
 ?>

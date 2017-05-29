@@ -4,55 +4,50 @@ if(isset($connected) && isset($panierConnected))
 {
 	include '../includes/panierDb.php';
 
-	if($connected==TRUE && $panierConnected==TRUE)
+	if($panierConnected==TRUE)
 	{
-		$admins= connectUser();
 
-		foreach ($admins as $admin)
+		foreach ($users as $user)
 		{
-			if($pseudo==$admin["pseudo"] && $id==$admin["id"])
+			$condition1= $connected==TRUE && $pseudo==$user["pseudo"] 			&& $id==$user["id"]	&& $user["statue"]=='admin';
+
+			$condition2= $connected==FALSE && $pseudo==$user["nom"] && $id==$user["id"]	&& $user["statue"]=='client';
+
+			if($condition1)
 			{
-				$idAdmin=$admin["id"];
-				$idPanier=$admin["idpanier"];
-				$nom=$admin["nom"];
-				$numeros=$admin["numeros"];
-				$nomDeRue=$admin["nomDeRue"];
-				$appartement=$admin["appartement"];
-				$batiment=$admin["batiment"];
-				$lieuDit=$admin["lieuDit"];
-				$CodePostal=$admin["CodePostal"];
-				$ville=$admin["ville"];
-				$pays=$admin["pays"];
+				$idAdmin=$user["id"];
+				$idPanier=$user["idpanier"];
+				$nom=$user["nom"];
+				$numeros=$user["numeros"];
+				$nomDeRue=$user["nomDeRue"];
+				$appartement=$user["appartement"];
+				$batiment=$user["batiment"];
+				$lieuDit=$user["lieuDit"];
+				$CodePostal=$user["CodePostal"];
+				$ville=$user["ville"];
+				$pays=$user["pays"];
 
 				$panier=panierSelected($idPanier);
 				$statuePanier='idadmin';
 				include '../includes/userConnect.php';
 			break;	
 			}
-		}
-	}
-	elseif($connected==FALSE && $panierConnected==TRUE)
-	{
-		$visits= connectVisiter();
-
-		foreach ($visits as $visit)
-		{
-			if($pseudo==$visit["nom"] && $id==$visit["id"])
+			elseif($condition2)
 			{
-				$idAdmin=$visit["id"];
-				$idPanier=$visit["idpanier"];
-				$nom=$visit["nom"];
-				$numeros=$visit["numeros"];
-				$nomDeRue=$visit["nomDeRue"];
-				$appartement=$visit["appartement"];
-				$batiment=$visit["batiment"];
-				$lieuDit=$visit["lieuDit"];
-				$CodePostal=$visit["CodePostal"];
-				$ville=$visit["ville"];
-				$pays=$visit["pays"];
+				$idAdmin=$user["id"];
+				$idPanier=$user["idpanier"];
+				$nom=$user["nom"];
+				$numeros=$user["numeros"];
+				$nomDeRue=$user["nomDeRue"];
+				$appartement=$user["appartement"];
+				$batiment=$user["batiment"];
+				$lieuDit=$user["lieuDit"];
+				$CodePostal=$user["CodePostal"];
+				$ville=$user["ville"];
+				$pays=$user["pays"];
 
 				$panier=panierSelected($idPanier);
-				$statuePanier='idvisit';
+				$statuePanier='idclient';
 				echo '<div class="aside">';
 				include '../includes/userVisit.php';
 				echo '</div>';

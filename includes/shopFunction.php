@@ -51,11 +51,11 @@ function panier($nom, $lien, $prix, $id, $abrev, $idPanier, $envoi){
 	echo '<h3>'.$nom.'</h3>';
 	imageMode("panierProduitPhoto","$lien");
 	echo '<a href="" name= "'.$id.'" class="produitButton"> Voir le produit </a><br><br><br><br>';
-	echo '<form method=POST action="'.$envoi.'">';
+	// echo '<form method=POST action="'.$envoi.'">';
 	echo '<input type="hidden" name="'.$abrev.'" value="NULL"><input type="submit" name="'.$idPanier.'" class="panierSuprimButton" value="Supprimer"><i class="fa fa-times" aria-hidden="true"></i><br><br><br>';
 	echo '<label class="panierProduitPrix">QUANTITE :</label>';
 	echo '<input type="number" name="qte_'.$abrev.'" value="<?php echo $panierQte; ?>" ><input type="submit" name="'.$idPanier.'" class="" value="Ajouter">';
-	echo '</form>';
+	// echo '</form>';
 	echo '<p class="panierProduitPrix">'.$prix.'<i class="fa fa-eur" aria-hidden="true"></i></p>';
 	echo '</div>';
 
