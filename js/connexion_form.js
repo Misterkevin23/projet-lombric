@@ -1,31 +1,39 @@
 function connexion_form(){
-	if ( document.getElementById("nickName").value=="") {
-		alert("Attention ! \n Veuillez saisir un pseudo " )
-		document.connexion.Nickname.focus();
-		document.connexion.Nickname.style.backgroundColor = "red";
+	// if ( document.getElementById("nickName").value=="") {
+	// 	alert("Attention ! \n Veuillez saisir un pseudo " )
+	// 	document.connexion.Nickname.focus();
+	// 	document.connexion.Nickname.style.backgroundColor = "red";
 
-		return false;
-	}
+	// 	return false;
+	// }
 
-	if (document.getElementById("password").value =="") {
-		alert("Attention ! \n Veuillez entrer un mot de passe " )
-		document.connexion.password.focus();
-		document.connexion.password.style.backgroundColor = "red";
+	// if (document.getElementById("password").value =="") {
+	// 	alert("Attention ! \n Veuillez entrer un mot de passe " )
+	// 	document.connexion.password.focus();
+	// 	document.connexion.password.style.backgroundColor = "red";
 
-		return false;
-	}
+	// 	return false;
+	// }
 }
 
 				
 var inscrptionConnexionFade = function(){	
 		$(".inscriptionCadre").hide();
+		$(".connexionPanierCadre").hide();
 		$(".connexionCadre").show();
 		$(".inscrit").click(function(){
 			$(".inscriptionCadre").hide("slow");
 			$(".connexionCadre").show("slow");
+			$(".connexionPanierCadre").hide();
 		})
 		$(".nonInscrit").click(function(){
 			$(".inscriptionCadre").show("slow");
+			$(".connexionCadre").hide("slow");
+			$(".connexionPanierCadre").hide();
+		})
+		$(".inscritPanier").click(function(){
+			$(".connexionPanierCadre").show("slow");
+			$(".inscriptionCadre").hide("slow");
 			$(".connexionCadre").hide("slow");
 		})
 	}	
@@ -52,10 +60,14 @@ var marginStart= function(){
 			var subSubTitleMarginLeft= $("#menu ul").width();
 			subSubTitleMarginLeft = subSubTitleMarginLeft + "px"
 		$("#menu li ul ul").css("margin-left", subSubTitleMarginLeft);
+
 		if($("aside").css("float")==="right"){
-			var articleMarginRight= ($("main").width()-($("article").width()+$("aside").width()))/2;
-			articleMarginRight= articleMarginRight + "px";	
-			$("article").css("margin-right", articleMarginRight);
+			var mainMargin= ($("main").width()-($("article").width()+$("aside").width()))/5; 
+			marginExterne=(mainMargin*2) + "px";
+			marginInterne= mainMargin + "px";	
+			$("article").css("margin-left", marginExterne);
+			$("aside").css("margin-right", marginExterne);
+			$("article").css("margin-right", marginInterne);
 		}
 
 		

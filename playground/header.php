@@ -21,47 +21,29 @@
 </head>
 <?php
 
-$id=NULL;
+$id=0;
 $pseudo=NULL;
 $connected=FALSE;
-$panierConnected=FALSE;
-if( isset($_GET["pseudo"]) && isset($_GET["id"]))
-{
-	if($_GET["id"]!=NULL && $_GET["pseudo"]!=NULL)
-	{
-		include '../includes/connexionDb.php';
+$panier=FALSE;
+if( isset($_GET["pseudo"]) && isset($_GET["id"])){
+	if($_GET["id"]!=NULL && $_GET["pseudo"]!=NULL){
+				include '../includes/connexionDb.php';
 
-		$id=$_GET["id"];
-		$pseudo=$_GET["pseudo"];
-		$admins= connectUser();
-
-		foreach ($admins as $admin)
-		{
-			if($pseudo==$admin["pseudo"] && $id==$admin["id"])
-			{
+				$id=$_GET["id"];
+				$pseudo=$_GET["pseudo"];
+				$admins= connectUser(); 
+		foreach ($admins as $admin) {
+		if($pseudo==$admin["pseudo"] && $id==$admin["id"]){
 				$connected=TRUE;
-				$panierConnected=TRUE;
-			break;	
-			}	
-		}
-				
-		$visits= connectVisiter();
-		foreach ($visits as $visit)
-		{
-			if($pseudo==$visit["nom"] && $id==$visit["id"])
-			{
-				$connected=FALSE;
-				$panierConnected=TRUE;
-			break;		
+				$panier=TRUE;
 			}
 		}
 	}
-	else
-	{
-		$id=$_GET["id"];
-		$pseudo=$_GET["pseudo"];
-		$connected=FALSE;
-		$panierConnected=FALSE;
+else{
+	$id=$_GET["id"];
+	$pseudo=$_GET["pseudo"];
+	$connected=FALSE;
+	$panier=FALSE;
 	}
 }	
 

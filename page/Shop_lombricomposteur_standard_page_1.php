@@ -27,31 +27,25 @@
 					<li>
 						<h3>BOIS</h3>
 					</li>
-				</ul>	
-			</div>
-			<?php 
-			if(!$connected){
-					echo '<div class="shopNavigateurPanier">';
-					include '../includes/panierButtun.php';
-					echo'</div>';
-				}
-			?>
+					<?php 
+						if(!$connected AND !$panierConnected)
+						{
+							include '../includes/panierButtunActivator.php';
+						}	
+					?>
+			</div>			
 		</div>
 
 		<h2> LOMBRICOMPOSTEUR </h2>
 		<?php
 			include '../includes/util.inc.php';
+			include '../includes/produitDb.php';
 			include '../includes/shopFunction.php';
+			include '../includes/shopAction.php';
+			
+			$lombricomposteur= produitLombricomposteur();
 
-			$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
-
-			$query = $db->prepare('SELECT * FROM produitLombricomposteur');
-
-			$query->execute();
-
-			$lombricomposteur= $query ->fetchAll();
-
-			shopProduit($lombricomposteur);
+			shopProduit($lombricomposteur,"pspl",'"Shop_lombricomposteur_standard_page_1.php?pseudo='.$pseudo.'&id='.$id.'"', "produitlombricomposteur", $statuePanier);
 
 		?>	
 		<div class="page">

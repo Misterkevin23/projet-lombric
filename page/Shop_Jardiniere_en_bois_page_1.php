@@ -27,31 +27,26 @@
 					<li>
 						<h3>BOIS</h3>
 					</li>
-				</ul>	
-			</div>
-			<?php 
-				if(!$connected){
-					echo '<div class="shopNavigateurPanier">';
-					include '../includes/panierButtun.php';
-					echo'</div>';
-				}	
-			?>			
+
+					<?php 
+						if(!$connected AND !$panierConnected)
+						{
+							include '../includes/panierButtunActivator.php';
+						}	
+					?>
+			</div>			
 		</div>
 
 		<h2> JARDINIERE BOIS</h2>
 			<?php	
+				include '../includes/shopAction.php';
 				include '../includes/util.inc.php';
 				include '../includes/shopFunction.php';
+				include '../includes/produitDb.php';
 
-				$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
-
-				$query = $db->prepare('SELECT * FROM produitlombricomposteur');
-
-				$query->execute();
-
-				$jardinerie= $query ->fetchAll();
-
-				shopProduit($jardinerie);
+				$jardinerie= produitJardinerie();
+				// var_dump($jardinerie);
+				shopProduit($jardinerie,"pspj",'"Shop_jardinere_en_bois_page_1.php?pseudo='.$pseudo.'&id='.$id.'"',"produitjardinerie", $statuePanier);
 			?>
 
 

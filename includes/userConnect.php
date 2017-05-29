@@ -8,10 +8,15 @@
 	
 	<form>
 		<div class="asideProfilPanier">
-			<?php include '../includes/panierButtun.php'; ?>
+			<?php include '../includes/panierButtunActived.php'; ?>
 		</div>
 
 	</form>
+	<ul>
+		<li>
+			<a href="UserProfil.php?<?php echo 'id='.$id.'&pseudo='.$pseudo;?>">Mon profil</a>
+		</li>
+	</ul>
 
 	<form>	
 		<div class="button">

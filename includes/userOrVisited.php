@@ -1,35 +1,81 @@
 <?php 
-include '../includes/connexionDb.php';
 
-if($connected){
+if(isset($connected) && isset($panierConnected))
+{
+	include '../includes/panierDb.php';
 
-	$admins= connectUser();
+	if($connected==TRUE && $panierConnected==TRUE)
+	{
+		$admins= connectUser();
 
-	foreach ($admins as $admin) {
-		if($statue==$admin["nom"] AND $pseudo==$admin["pseudo"] && $id==$admin["id"]){
-			$id= $admin["id"];
-			$pseudo= $admin["pseudo"];
-			$connected=TRUE;
-			$statue="admin";
+		foreach ($admins as $admin)
+		{
+			if($pseudo==$admin["pseudo"] && $id==$admin["id"])
+			{
+				$idAdmin=$admin["id"];
+				$idPanier=$admin["idpanier"];
+				$nom=$admin["nom"];
+				$numeros=$admin["numeros"];
+				$nomDeRue=$admin["nomDeRue"];
+				$appartement=$admin["appartement"];
+				$batiment=$admin["batiment"];
+				$lieuDit=$admin["lieuDit"];
+				$CodePostal=$admin["CodePostal"];
+				$ville=$admin["ville"];
+				$pays=$admin["pays"];
+
+				$panier=panierSelected($idPanier);
+				$statuePanier='idadmin';
+				include '../includes/userConnect.php';
+			break;	
+			}
 		}
 	}
-	if($connected==TRUE && $statue=="admin"){
-		include '../includes/userConnect.php';
+	elseif($connected==FALSE && $panierConnected==TRUE)
+	{
+		$visits= connectVisiter();
+
+		foreach ($visits as $visit)
+		{
+			if($pseudo==$visit["nom"] && $id==$visit["id"])
+			{
+				$idAdmin=$visit["id"];
+				$idPanier=$visit["idpanier"];
+				$nom=$visit["nom"];
+				$numeros=$visit["numeros"];
+				$nomDeRue=$visit["nomDeRue"];
+				$appartement=$visit["appartement"];
+				$batiment=$visit["batiment"];
+				$lieuDit=$visit["lieuDit"];
+				$CodePostal=$visit["CodePostal"];
+				$ville=$visit["ville"];
+				$pays=$visit["pays"];
+
+				$panier=panierSelected($idPanier);
+				$statuePanier='idvisit';
+				echo '<div class="aside">';
+				include '../includes/userVisit.php';
+				echo '</div>';
+			break;	
+			}
+		}
 	}
-	else{
-		echo '<div class="aside">';
-		include '../includes/inscription.php';
-		echo '</div>';
-	}
-}	
-else{
-	$pseudo=NULL;
-	$id=NULL;
-	$statue="visit";
-	$connected=FALSE;
+	else
+	{
 	echo '<div class="aside">';
 	include '../includes/inscription.php';
 	echo '</div>';
+	$statuePanier='visit';
+	$panier=0;
+	}
+}		
+else
+{
+	echo '<div class="aside">';
+	include '../includes/inscription.php';
+	echo '</div>';
+	$statuePanier='visit';
+	$panier=0;
 }
 
 ?>

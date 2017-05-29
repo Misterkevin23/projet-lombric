@@ -26,42 +26,42 @@
 			<legend>Mon identifiant et mon mot de passe</legend>
 			<div class="form">
 			<label for="email"><span class="formInfo">Email* :</span></label>
-			<input type="email" id="email" name="email" class="formTape" value="<?php echo $email; ?>" placeholder="...@gmail.com" onkeyup="verification_form">
+			<input type="email" id="email" name="email" class="formTape" value="<?php echo $email; ?>" placeholder="...@gmail.com" >
 			<label for="emailCheck"><span class="formInfo">Confirmation de l'e-mail* :</span></label>
-			<input type="email" id="emailCheck" name="emailCheck" class="formTape" placeholder="...@gmail.com" onkeyup="verification_form">
+			<input type="email" id="emailCheck" name="emailCheck" class="formTape" placeholder="...@gmail.com" >
 			</div>
 
 			<div class="form">
 				<label for="nickName"><span class="formInfo">Pseudo* :</span></label>
-				<input type="text" id="nickName" name="pseudo" class="formTape" value="<?php echo $pseudo; ?>" placeholder="Gwada" onkeyup="verification_form">
+				<input type="text" id="nickName" name="pseudo" class="formTape" value="<?php echo $pseudo; ?>" placeholder="Gwada" >
 			</div>
 			
 			<div class="form">
 				<label for="password"><span class="formInfo">Mot de passe* :</span></label>
-				<input type="password" id="password" name="motDePasse" class="formTape" value="<?php echo $motDePasse; ?>" placeholder="p&trick59" onkeyup="verification_form">
+				<input type="password" id="password" name="motDePasse" class="formTape" value="<?php echo $motDePasse; ?>" placeholder="p&trick59" >
 				<label for="passwordCheck"><span class="formInfo">Vérification* :</span></label>
-				<input type="password" id="passwordCheck" name="motpassecheck" class="formTape" value="" placeholder="p&trick59" onkeyup="verification_form">		
+				<input type="password" id="passwordCheck" name="motpassecheck" class="formTape" value="" placeholder="p&trick59" >		
 			</div>
 		</fieldset>
 		<fieldset>
 	       <legend>Mon adresse de facturation</legend>
 			<div class="form">
 				<span class="formInfo"><label for="Mlle" for="Mme" for="M" for="societe">Civilité* :</span></label>
-				<span class="formInfo"><input type="radio" id="Mlle" name="Sex" value="mlle" onkeyup="verification_form">Mlle.</span>	
-				<span class="formInfo"><input type="radio" id="Mme" name="Sex" value="mme" onkeyup="verification_form">Mme.</span>
-				<span class="formInfo"><input type="radio" id="M" name="Sex" value="m" onkeyup="verification_form">M.</span>
-				<input type="radio" id="societe" name="Sex" value="societe" onkeyup="verification_form"><span class="formInfo">Société</span><br><br>	
+				<span class="formInfo"><input type="radio" id="Mlle" name="Sex" value="mlle" >Mlle.</span>	
+				<span class="formInfo"><input type="radio" id="Mme" name="Sex" value="mme" >Mme.</span>
+				<span class="formInfo"><input type="radio" id="M" name="Sex" value="m" >M.</span>
+				<input type="radio" id="societe" name="Sex" value="societe" ><span class="formInfo">Société</span><br><br>	
 				<label for="firstName"><span class="formInfo" >Prénom* :</span></label>
-				<input type="text" id="firstName" name="prenom" class="formTape" value="" placeholder="Kevin" onkeyup="verification_form"><br>
+				<input type="text" id="firstName" name="prenom" class="formTape" value="" placeholder="Kevin" ><br>
 				<label for="lastName"><span class="formInfo">NOM* :</span></label>
-				<input type="text" id="lastName" name="nom" class="formTape" value="" placeholder="Pascal" onkeyup="verification_form">		
+				<input type="text" id="lastName" name="nom" class="formTape" value="" placeholder="Pascal" >		
 			</div>
 
 			<div class="form">
 			<label for="numeros"><span class="formInfo">N°, voie* :</span></label>
-			<input type="text" id="numeros" name="numeros" value="" onkeyup="verification_form"><br><br>
+			<input type="text" id="numeros" name="numeros" value="" ><br><br>
 			<label for="roadName"> <span class="formInfo"> Nom de la rue* :</span></label>
-			<input type="text" id="roadName" class="formTape" name="nomDeRue" onkeyup="verification_form"><br><br>
+			<input type="text" id="roadName" class="formTape" name="nomDeRue" ><br><br>
 			<label for="appartement"><span class="formInfo">étage, appartement :</span></label>
 			<input type="text" id="appartement" name="appartement" class="formTape" value="" placeholder="étage 7, appartement 23"><br>
 			<label for="batiment"><span class="formInfo"> Bâtiment :</span></label>
@@ -69,11 +69,11 @@
 			<label for="lieuDit"><span class="formInfo"> Lieu-dit :</span></label>
 			<input type="text" id="lieuDit" class="formTapeSmall" name="lieuDit"><br><br>
 			<label for="postcode"><span class="formInfo"> Code postal* :</span></label>
-			<input type="text" id="postcode" class="formTapeSmall" name="CodePostal" onkeyup="verification_form">
+			<input type="text" id="postcode" class="formTapeSmall" name="CodePostal" >
 			<label for="ville"> <span class="formInfo">Ville* :</span></label>
-			<input type="text" id="ville" class="formTapeSmall" name="ville" onkeyup="verification_form"><br><br>
+			<input type="text" id="ville" class="formTapeSmall" name="ville" ><br><br>
 			<label for="pays"><span class="formInfo"> Pays* :</span> </label>
-			<select id="pays" name="pays" size="1" onkeyup="verification_form">
+			<select id="pays" name="pays" size="1" >
 				<option value="">	</option>
 				<option value="France">France	</option>
 				<option value="Allemagne">Allemagne	</option>
@@ -85,7 +85,7 @@
 
 			<div class="form">
 			<label for="phonePortable"><span class="formInfo">Numeros Principal* :</span></label>
-			<input type="tel" id="phonePortable" name="tel1" class="formTape" value="" placeholder="0654254568" onkeyup="verification_form">
+			<input type="tel" id="phonePortable" name="tel1" class="formTape" value="" placeholder="0654254568" onkeyup="">
 			<label for="phoneFixe"><span class="formInfo">Secondaire :</span></label>
 			<input type="tel" id="phoneFixe" name="tel2" class="formTape" value="" placeholder="0134568712">
 			</div>
@@ -100,12 +100,12 @@
 		       <span class="formInfo"><input type="radio" name="age" value="25-40" id="medium25-40" class="formTapeSmall">25-40 ans</span><br>
 		       <span class="formInfo"><input type="radio" name="age" value="40" id="plus40" class="formTapeSmall">Plus de 40 ans</span><br>
 		       <label><span class="formInfo">ètes_vous* :</span></label><br>
-		       <span class="formInfo"><input type="radio" id="proprietaire" name="situation" value="proprietaire" class="formTapeSmall" onkeyup="verification_form">Propriétaire</span><br>
-		       <span class="formInfo"><input type="radio" id="locataire" name="situation" value="locataire" class="formTapeSmall" onkeyup="verification_form">locataire</span><br>
+		       <span class="formInfo"><input type="radio" id="proprietaire" name="situation" value="proprietaire" class="formTapeSmall" onkeyup="">Propriétaire</span><br>
+		       <span class="formInfo"><input type="radio" id="locataire" name="situation" value="locataire" class="formTapeSmall" onkeyup="">locataire</span><br>
 		       <label><span class="formInfo">Avez_vous*:</span></label><br>
-		       <span class="formInfo"><input type="radio" id="jardin" name="exterieur" value="jardin" class="formTapeSmall" onkeyup="verification_form">Jardin</span><br>
-		       <span class="formInfo"><input type="radio" id="terrasse" name="exterieur" value="terrasse" class="formTapeSmall" onkeyup="verification_form">Terrasse</span><br><br>
-		       <span class="formInfo"><input type="radio" id="terrasse" name="exterieur" value="les deux" class="formTapeSmall" onkeyup="verification_form">Les deux</span><br><br>
+		       <span class="formInfo"><input type="radio" id="jardin" name="exterieur" value="jardin" class="formTapeSmall" onkeyup="">Jardin</span><br>
+		       <span class="formInfo"><input type="radio" id="terrasse" name="exterieur" value="terrasse" class="formTapeSmall" onkeyup="">Terrasse</span><br><br>
+		       <span class="formInfo"><input type="radio" id="terrasse" name="exterieur" value="les deux" class="formTapeSmall" onkeyup="">Les deux</span><br><br>
 		       <label><span class="formInfo">Nombre de personnes dans le foyer:</span></label><br>
 		       <span class="formInfo"><input type="radio" name="habitant" value="1" class="formTapeSmall">1</span><br>
 		       <span class="formInfo"><input type="radio" name="habitant" value="2" class="formTapeSmall">2</span><br>
@@ -122,7 +122,7 @@
 			<textarea id="yourself" name="description" class="formTape" rows="10" cols="50" >  </textarea> <br>
 		</div>
 		</fieldset>
-					
+		<input type="hidden" name="id">		
 		<input type="submit" name="Valider" class="formButtun" value="Envoyer">	
 			
 		</form>

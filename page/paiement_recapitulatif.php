@@ -1,5 +1,6 @@
 <?php 
 	include '../includes/header.php';
+	var_dump($_POST);
 ?>
 
 <main>
@@ -13,51 +14,39 @@
 	</aside>
 
 	<article>
-		<div class="panierNavigation">
-			<ol>
-				<li>
-					<a href="Panier.html">
-						<h3 >PANIER</h3>
-					</a>
-				</li>
+		<?php 
+			include '../includes/panierNavigatorInvit.php';
+		
+			include '../includes/produitDb.php';
+			
+			include '../includes/panierAction.php';
 
-				<li>
-					<h3>IDENTIFICATION</h3>
-				</li>
-
-				<li>
-					<h3 class="panierNavigationColor">PAYEMENT</h3>	
-				</li>
-
-				<li>
-					<h3>CONFIRMATION</h3>
-				</li>
-
-			</ol>
-		</div>
+			include '../includes/shopFunction.php';
+			
+		?>
 
 		<div>
 			<div class="panierRecapitulatif">
 				<fieldset>
 					<legend>Adresse de livraison</legend>
 					<div class="form">
-						<input type="radio" name="jardin" value="jardin" class="formTapeSmall" required=""><span class="formInfo">Identique à l'adresse de facturation</span><br><br>
+						<input type="radio" name="jardin" value="jardin" class="formTapeSmall" selected required=""><span class="formInfo">Identique à l'adresse de facturation</span><br><br>
 						<label for="numeros"><span class="formInfo">N°, voie :</span></label>
-						<input type="number" id="numeros" name="numeros" class="formTape" value="" required><br><br>
+						<input type="number" id="numeros" name="numeros" class="formTape" value="<?php echo $numeros ?>" required><br><br>
 						<label for="roadname"> <span class="formInfo"> Nom de la rue :</span></label>
-						<input type="text" id="roadname" class="formTape" name="nomDeRue" required=""><br><br>
+						<input type="text" id="roadname" class="formTape" name="nomDeRue" value="<?php echo $nomDeRue ?>" required=""><br><br>
 						<label for="appartement"><span class="formInfo">étage, appartement :</span></label>
-						<input type="text" id="appartement" name="appartement" class="formTape" value="" placeholder="étage 7, appartement 23"><br><br>
+						<input type="text" id="appartement" name="appartement" class="formTape" value="<?php echo $appartement ?>" placeholder="étage 7, appartement 23"><br><br>
 						<label for="batiment"><span class="formInfo"> Bâtiment :</span></label>
-						<input type="text" id="batiment" class="formTapeSmall" name="batiment"><br><br>
+						<input type="text" id="batiment" class="formTapeSmall" name="batiment" value="<?php echo $batiment ?>"><br><br>
 						<label for="lieuDit"><span class="formInfo"> Lieu-dit :</span></label>
-						<input type="text" id="lieuDit" class="formTapeSmall" name="lieuDit"><br><br>
+						<input type="text" id="lieuDit" class="formTapeSmall" name="lieuDit" value="<?php echo $lieuDit ?>"><br><br>
 						<label for="postcode"><span class="formInfo"> Code postal :</span></label>
-						<input type="text" id="postcode" class="formTapeSmall" name="CodePostal" required=""><br><br>
+						<input type="text" id="postcode" class="formTapeSmall" name="CodePostal" value="<?php echo $CodePostal ?>" required=""><br><br>
 						<label for="ville"> <span class="formInfo">Ville :</span></label>
-						<input type="text" id="ville" class="formTapeSmall" name="ville" required=""><br><br>
+						<input type="text" id="ville" class="formTapeSmall" name="ville" value="<?php echo $ville ?>" required=""><br><br>
 						<label for="pays"><span class="formInfo"> Pays :</span> </label>
-						<select id="pays" size="1" class="formTape" required>
+						<select id="pays" size="1" class="formTape" required="<?php echo $pays ?>">
 							<option value="">	</option>
 							<option value="France">France	</option>
 							<option value="Allemagne">Allemagne	</option>
@@ -89,97 +78,19 @@
 			</div>
 			
 			<div class="panierRecapitulatif">
-				<table>
-				<thead>
-					<tr>
-						<th colspan="3">Recapitulatif de la commande</th>
-					</tr>
-					<tr>
-						<th>PRODUIT</th>
-						<th>QUANTITE</th>
-						<th>PRIX</th>
-					</tr>
-					
-				</thead>
-				
-				<tbody>	
-					<tr>
-						<td><h3>Jardiniere Nom</h3></td>
-						<td><input type"text" class="panierProduitPrix" disabled></td>
-						<td><input type"text" class="panierProduitPrix" disabled>EUR</td>
-					</tr>
-					<tr>
-						<td><h3>Jardiniere Nom</h3></td>
-						<td><input type"text" class="panierProduitPrix" disabled></td>
-						<td><input type"text" class="panierProduitPrix" disabled>EUR</td>
-					</tr>
-					<tr>
-						<td><h3>Jardiniere Nom</h3></td>
-						<td><input type"text" class="panierProduitPrix" disabled></td>
-						<td><input type"text" class="panierProduitPrix" disabled>EUR</td>
-					</tr>
-					<tr>
-						<td><h3>Jardiniere Nom</h3></td>
-						<td><input type"text" class="panierProduitPrix" disabled></td>
-						<td><input type"text" class="panierProduitPrix" disabled>EUR</td>
-					</tr>
-					<tr>
-						<td><h3>Jardiniere Nom</h3></td>
-						<td><input type"text" class="panierProduitPrix" disabled></td>
-						<td><input type"text" class="panierProduitPrix" disabled>EUR</td>
-					</tr>
-					<tr>
-						<td><h3>Jardiniere Nom</h3></td>
-						<td><input type"text" class="panierProduitPrix" disabled></td>
-						<td><input type"text" class="panierProduitPrix" disabled>EUR</td>
-					</tr>
-					<tr>
-						<td><h3>Jardiniere Nom</h3></td>
-						<td><input type"text" class="panierProduitPrix" disabled></td>
-						<td><input type"text" class="panierProduitPrix" disabled>EUR</td>
-					</tr>
-					<tr>
-						<td><h3>Jardiniere Nom</h3></td>
-						<td><input type"text" class="panierProduitPrix" disabled></td>
-						<td><input type"text" class="panierProduitPrix" disabled>EUR</td>
-					</tr>
-					<tr>
-						<td><h3>Jardiniere Nom</h3></td>
-						<td><input type"text" class="panierProduitPrix" disabled></td>
-						<td><input type"text" class="panierProduitPrix" disabled>EUR</td>
-					</tr>
-					<tr>
-						<td><h3>Jardiniere Nom</h3></td>
-						<td><input type"text" class="panierProduitPrix" disabled></td>
-						<td><input type"text" class="panierProduitPrix" disabled>EUR</td>
-					</tr>
-					<tr>
-						<td><h3>Jardiniere Nom</h3></td>
-						<td><input type"text" class="panierProduitPrix" disabled></td>
-						<td><input type"text" class="panierProduitPrix" disabled>EUR</td>
-					</tr>
-					<tr>
-						<td><h3>Jardiniere Nom</h3></td>
-						<td><input type"text" class="panierProduitPrix" disabled></td>
-						<td><input type"text" class="panierProduitPrix" disabled>EUR</td>
-					</tr>
-				</tbody>
+				<?php
 
-				<tfoot>
-					<tr>
-						<td colspan="2" class="panierTotal">Total de vos articles hors frais de livraison:</td>
-						<td><input type"text" class="panierProduitPrix" disabled>EUR</td>
-					</tr>
-					<tr>
-						<td colspan="2" class="panierTotal">Total de vos frais de livraison:</td>
-						<td><input type"text" class="panierProduitPrix" disabled>EUR</td>
-					</tr>
-					<tr>
-						<td colspan="2" class="panierTotal">Total de votre commande:</td>
-						<td><input type"text" class="panierProduitPrix" disabled>EUR</td>
-					</tr>	
-				</tfoot>	
-			</table>
+
+					$jardinerie= produitJardinerie();
+
+					$lombricomposteur= produitLombricomposteur();
+
+					$prixTTC= $_POST['prixTTC'];
+
+					$prixLivraison= $_POST['livraison'];
+
+					echo panierTableRecapitulatif($panier, $idPanier, $jardinerie, $lombricomposteur, $prixTTC, $prixLivraison);
+				?>
 		</div>
 	</article>
 </main>

@@ -15,37 +15,15 @@
 
 	<?php
 
-		$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
+		include '../includes/mainArticle.php';
 
-		$query = $db->prepare('SELECT * FROM jardinerie');
+		$jardinerie= jardinerieArticle();
 
-		$query->execute();
+		$accueil= accueilArticle();
 
-		$jardinerie= $query ->fetchAll();
+		$lombricompost= lombricompostArticle();
 
-		$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
-
-		$query = $db->prepare('SELECT * FROM accueil');
-
-		$query->execute();
-
-		$accueil= $query ->fetchAll();
-
-		$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
-
-		$query = $db->prepare('SELECT * FROM lombricompost');
-
-		$query->execute();
-
-		$lombricompost= $query ->fetchAll();
-
-		$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
-
-		$query = $db->prepare('SELECT * FROM tableauFruit');
-
-		$query->execute();
-
-		$fruits= $query ->fetchAll();
+		$fruits= fruitArticle();
 
 	?>
 
