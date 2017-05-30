@@ -1,6 +1,6 @@
 <?php
 
-function produits($nom, $resume, $prix, $statue, $lien, $id, $getId,$abrev,$envoi, $produitTable, $statuePanier){			
+function produits($nom, $resume, $prix, $statue, $lien, $id, $idAdmin,$abrev,$envoi, $produitTable, $statuePanier){			
 	echo '<div class="produit">';
 	imageMode("produitPhoto","$lien");
 	echo '<div class="produitDescription">';
@@ -13,7 +13,7 @@ function produits($nom, $resume, $prix, $statue, $lien, $id, $getId,$abrev,$envo
 	echo '<form method= POST action="'.$envoi.'">';
 	$panierName=$abrev.$id;
 	$panierQte= 'qte_'.$panierName;
-	echo '<input type="checkbox" name="'.$panierName.'" value="TRUE"><input type="submit" id="panier" class="panierButton" value="Ajouter au panier"><input type="hidden" id="panier" name="'.$panierQte.'" class="panierButton" value="1"><input type="hidden" id="panier" name="'.$statuePanier.'" class="panierButton" value="'.$getId.'"></br>';
+	echo '<input type="checkbox" name="'.$panierName.'" value="TRUE"><input type="submit" id="panier" class="panierButton" value="Ajouter au panier"><input type="hidden" id="panier" name="'.$panierQte.'" class="panierButton" value="1"><input type="hidden" id="panier" name="'.$statuePanier.'" class="panierButton" value="'.$idAdmin.'"></br>';
 	echo '</form>';
 	echo '<form>';
 	echo '<a href="" name="'.$id.'" class="produitButton"> Voir le produit </a></br>';
@@ -38,20 +38,20 @@ function produits($nom, $resume, $prix, $statue, $lien, $id, $getId,$abrev,$envo
 
 }
 
-function shopProduit($produits, $abrev,$envoi,$produitTable, $statuePanier){
+function shopProduit($produits, $abrev,$envoi,$produitTable, $statuePanier, $idAdmin){
 	foreach($produits as $produit){
 		if($produit["nom"]!=NULL AND $produit["resume"]!=NULL AND $produit["prix"]!=NULL AND $produit["statue"]!=NULL AND $produit["lien"]!=NULL AND $produit["id"]!=NULL){
-			produits($produit["nom"], $produit["resume"], $produit["prix"], $produit["statue"], $produit["lien"], $produit["id"], $_GET['id'],$abrev,$envoi,$produitTable, $statuePanier);
+			produits($produit["nom"], $produit["resume"], $produit["prix"], $produit["statue"], $produit["lien"], $produit["id"], $idAdmin,$abrev,$envoi,$produitTable, $statuePanier);
 		}
 	}
 }
 
-function panier($nom, $lien, $prix, $id, $abrev, $idPanier, $envoi){
+function panier($nom, $lien, $prix, $id, $abrev, $idPanier){
 	echo '<div class="panierProduit">';
 	echo '<h3>'.$nom.'</h3>';
 	imageMode("panierProduitPhoto","$lien");
 	echo '<a href="" name= "'.$id.'" class="produitButton"> Voir le produit </a><br><br><br><br>';
-	// echo '<form method=POST action="'.$envoi.'">';
+	// echo '<form method=POST action="panierAction.php">';
 	echo '<input type="hidden" name="'.$abrev.'" value="NULL"><input type="submit" name="'.$idPanier.'" class="panierSuprimButton" value="Supprimer"><i class="fa fa-times" aria-hidden="true"></i><br><br><br>';
 	echo '<label class="panierProduitPrix">QUANTITE :</label>';
 	echo '<input type="number" name="qte_'.$abrev.'" value="<?php echo $panierQte; ?>" ><input type="submit" name="'.$idPanier.'" class="" value="Ajouter">';
@@ -61,12 +61,12 @@ function panier($nom, $lien, $prix, $id, $abrev, $idPanier, $envoi){
 
 }
 
-function panierClient($panier, $produits, $idPanier, $envoi){
+function panierClient($panier, $produits, $idPanier){
 	
 	$nbreProduits=0;
 	foreach ($produits as $produit){
 		if($panier[$produit["abreviation"]]=="TRUE"){
-		panier($produit["nom"], $produit["lien"], $produit["prix"], 			$produit["id"],$produit["abreviation"], $idPanier, $envoi);
+		panier($produit["nom"], $produit["lien"], $produit["prix"], 			$produit["id"],$produit["abreviation"], $idPanier);
 		}
 	}
 }

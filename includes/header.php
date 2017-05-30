@@ -21,47 +21,8 @@
 </head>
 <?php
 
-$id=NULL;
-$pseudo=NULL;
-$connected=FALSE;
-$panierConnected=FALSE;
-if( isset($_GET["pseudo"]) && isset($_GET["id"]))
-{
-	if($_GET["id"]!=NULL && $_GET["pseudo"]!=NULL)
-	{
-		include '../includes/connexionDb.php';
-
-		$id=$_GET["id"];
-		$pseudo=$_GET["pseudo"];
-		$users= connectUser();
-
-		foreach ($users as $user)
-		{
-			if($id==$user["id"])
-			{
-				if($user['statue']=='admin' && $pseudo==$user["pseudo"])
-				{	
-					$connected=TRUE;
-					$panierConnected=TRUE;
-				break;	
-				}
-				elseif($user['statue']=='client' && $pseudo==$user["nom"])
-				{
-					$connected=FALSE;
-					$panierConnected=TRUE;
-				break;		
-				}	
-			}
-		}	
-	}
-	else
-	{
-		$id=$_GET["id"];
-		$pseudo=$_GET["pseudo"];
-		$connected=FALSE;
-		$panierConnected=FALSE;
-	}
-}	
+include '../includes/mainConnexionChooseSession.php';
+include '../includes/connexionDb.php';
 
 ?>
 	
@@ -84,42 +45,42 @@ if( isset($_GET["pseudo"]) && isset($_GET["id"]))
 				<ul id="menu">
 					
 					<li class="navLi">
-						<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&id='.$id;?>#accueil"><h3>ACCUEIL</h3></a>
+						<a href="Accueil.php?#accueil"><h3>ACCUEIL</h3></a>
 					</li><!-- 
 
 				--><li class="navLi">
-						<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&id='.$id;?>#jardinerie"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	JARDINERIE</h3></a>
+						<a href="Accueil.php?#jardinerie"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	JARDINERIE</h3></a>
 						<ul>
 							<li class="nav1">
-								<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&id='.$id;?>#Subtrat"><h4>Subtrat</h4> </a>
+								<a href="Accueil.php?#Subtrat"><h4>Subtrat</h4> </a>
 							</li><!-- 
 
 						 --><li class="nav2">
-								<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&id='.$id;?>#Irrigation"><h4>Irrigation</h4></a>
+								<a href="Accueil.php?#Irrigation"><h4>Irrigation</h4></a>
 							</li><!--
 
 						--><li class="nav3">
-								<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&id='.$id;?>#Condition"><h4>Condition climatique</h4></a>
+								<a href="Accueil.php?#Condition"><h4>Condition climatique</h4></a>
 							</li>
 						</ul>
 					</li><!-- 
 
 				 --><li class="navLi">
-						<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&id='.$id;?>#lombricompost"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	LOMBRI-COMPOST</h3></a>
+						<a href="Accueil.php?#lombricompost"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	LOMBRI-COMPOST</h3></a>
 						<ul>
 							<li class="nav1">
-								<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&id='.$id;?>#lombric"><h4>lombric</h4></a>
+								<a href="Accueil.php?#lombric"><h4>lombric</h4></a>
 							</li><!--
 
 						 --><li class="nav2">
-								<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&id='.$id;?>#aliment""><h4>Alimentation</h4></a>
+								<a href="Accueil.php?#aliment""><h4>Alimentation</h4></a>
 							</li><!--
 
 						--><li class="nav3">
-								<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&id='.$id;?>#tableau"><h4><i class="fa fa-plus-square-o" aria-hidden="true"></i>	tableaux des aliments</h4></a>
+								<a href="Accueil.php?#tableau"><h4><i class="fa fa-plus-square-o" aria-hidden="true"></i>	tableaux des aliments</h4></a>
 								<ul>
 									<li class="navNav1">
-										<a href="Accueil.php?<?php echo 'pseudo='.$pseudo.'&id='.$id;?>#Fruits">Fruits et Légumes</a>
+										<a href="Accueil.php?#Fruits">Fruits et Légumes</a>
 									</li>
 								</ul>
 							</li>		
@@ -127,13 +88,13 @@ if( isset($_GET["pseudo"]) && isset($_GET["id"]))
 					</li><!-- 
 					
 				 --><li class="navLi">
-						<a href="Shop.php?<?php echo 'pseudo='.$pseudo.'&id='.$id;?>"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	NOS PRODUITS</h3></a>
+						<a href="Shop.php?"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	NOS PRODUITS</h3></a>
 						<ul>
 							<li class="nav1">
 								<h4><i class="fa fa-plus-square-o" aria-hidden="true"></i>	JARDINERIE</h4>
 								<ul>
 									<li class="navNav1">
-										<a href="Shop_Jardiniere_en_bois_page_1.php?<?php echo 'pseudo='.$pseudo.'&id='.$id;?>">BOIS </a>
+										<a href="Shop_Jardiniere_en_bois_page_1.php?">BOIS </a>
 									</li><!--
 
 								--><li class="navNav1"">
@@ -150,7 +111,7 @@ if( isset($_GET["pseudo"]) && isset($_GET["id"]))
 								<h4><i class="fa fa-plus-square-o" aria-hidden="true"></i>	LOMBRI-COMPOSTEUR</h4>
 								<ul>
 									<li class="navNav1">
-										<a href="Shop_lombricomposteur_standard_page_1.php?<?php echo 'pseudo='.$pseudo.'&id='.$id;?>">STANDARD </a>
+										<a href="Shop_lombricomposteur_standard_page_1.php?">STANDARD </a>
 									</li ><!-- 
 
 								 --><li class="navNav1">
@@ -219,7 +180,7 @@ if( isset($_GET["pseudo"]) && isset($_GET["id"]))
 					</li><!-- 
 
 				 --><li class="navLi">
-						<a href="forum.php?<?php echo 'pseudo='.$pseudo.'&id='.$id;?>"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	FORUM</h3></a>
+						<a href="forum.php?"><h3><i class="fa fa-plus-square-o" aria-hidden="true"></i>	FORUM</h3></a>
 						<ul>
 							<li class="nav1">
 								<a href=""><h4><i class="fa fa-plus-square-o" aria-hidden="true"></i>	JARDINERIE</h4></a>
@@ -264,7 +225,7 @@ if( isset($_GET["pseudo"]) && isset($_GET["id"]))
 					</li><!-- 
 					
 				 --><li class="navLi">
-						<a href="contact.php?<?php echo 'pseudo='.$pseudo.'&id='.$id;?>"><h3>NOUS CONTACTER</h3></a>
+						<a href="contact.php?"><h3>NOUS CONTACTER</h3></a>
 					</li>
 				</ul>
 			</nav>

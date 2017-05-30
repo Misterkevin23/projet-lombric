@@ -16,12 +16,9 @@
 		<article>
 			<?php 
 		
-				include '../includes/panierNavigatorUsers.php';
-				$soumission='"'.'paiement_recapitulatif.php?pseudo='.$pseudo.'&id='.$id.'"';	
+				include '../includes/panierNavigatorUsers.php';	
 
 				include '../includes/produitDb.php';
-				
-				include '../includes/panierAction.php';
 
 				include '../includes/util.inc.php';
 
@@ -30,7 +27,7 @@
 				$prixTotal=0;
 				$nbreProduits=0;
 			?>
-			<form method=POST action=<?php echo ''.$soumission.''?> >
+			<form method=POST action="paiement_recapitulatif.php">
 				<h2> JARDINIERE</h2>
 				<div class="produit">
 				<?php	

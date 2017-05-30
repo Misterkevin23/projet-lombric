@@ -39,14 +39,14 @@
 
 		<h2> JARDINIERE BOIS</h2>
 			<?php	
-				include '../includes/shopAction.php';
+		
 				include '../includes/util.inc.php';
 				include '../includes/shopFunction.php';
 				include '../includes/produitDb.php';
 
 				$jardinerie= produitJardinerie();
 				// var_dump($jardinerie);
-				shopProduit($jardinerie,"pspj",'"Shop_jardinere_en_bois_page_1.php?pseudo='.$pseudo.'&id='.$id.'"',"produitjardinerie", $statuePanier);
+				shopProduit($jardinerie,"pspj","shopAction.php","produitjardinerie", $statuePanier, $idAdmin);
 			?>
 
 

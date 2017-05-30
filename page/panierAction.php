@@ -1,4 +1,6 @@
 <?php
+include '../includes/mainConnexionChooseSession.php';
+
 $panierQte=1;
 
 if($_POST!=NULL)
@@ -17,6 +19,8 @@ if($_POST!=NULL)
 		{
 			if($_POST[$panierSupprimer]=='Supprimer'						 && $_POST[$panierProduit]=='NULL')
 			{	
+				$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
+
 				$query=$db->prepare(
 					'UPDATE panier SET '.$panierProduit.'= :panierProduit WHERE id = :id'
 				);
@@ -45,7 +49,8 @@ if($_POST!=NULL)
 					':id'					=>$panierAjouter
 				));
 			}
-		}					
+		}
+	header('location:Panier.php');						
 	}
 }		
 

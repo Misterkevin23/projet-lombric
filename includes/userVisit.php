@@ -10,7 +10,7 @@
 
 <form>	
 	<div class="button">
-			<a href="Home.php" type="submit">
+			<a href="../includes/logout.php" type="submit">
 			<h3 class="asideConexionButton">DECONNEXION</h3>
 			</a>
 	</div>

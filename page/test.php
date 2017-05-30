@@ -1,16 +1,17 @@
 <?php
 
-$shopProduit= array_search('TRUE', $_POST);
-		$produitQte= 'qte_'.$shopProduit;
+// $shopProduit= array_search('TRUE', $_POST);
+// 		$produitQte= 'qte_'.$shopProduit;
 
-var_dump($_POST);
-		echo $shopProduit;
-		echo $produitQte;
-		echo $_POST[$shopProduit];
-		echo $_POST[$produitQte];
-		echo $_POST[''.$statuePanier.''];
-
-
+// var_dump($_POST);
+// 		echo $shopProduit;
+// 		echo $produitQte;
+// 		echo $_POST[$shopProduit];
+// 		echo $_POST[$produitQte];
+// 		echo $_POST[''.$statuePanier.''];
+$str='pjre12';
+$key=substr($str, 0, 4);
+echo $key;
 
 // $db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
 

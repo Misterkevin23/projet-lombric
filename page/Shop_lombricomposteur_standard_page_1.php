@@ -41,11 +41,10 @@
 			include '../includes/util.inc.php';
 			include '../includes/produitDb.php';
 			include '../includes/shopFunction.php';
-			include '../includes/shopAction.php';
 			
 			$lombricomposteur= produitLombricomposteur();
 
-			shopProduit($lombricomposteur,"pspl",'"Shop_lombricomposteur_standard_page_1.php?pseudo='.$pseudo.'&id='.$id.'"', "produitlombricomposteur", $statuePanier);
+			shopProduit($lombricomposteur,"pspl","shopAction.php", "produitlombricomposteur", $statuePanier, $idAdmin);
 
 		?>	
 		<div class="page">

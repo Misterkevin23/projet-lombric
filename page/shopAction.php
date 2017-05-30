@@ -1,12 +1,14 @@
 <?php
 
+include '../includes/mainConnexionChooseSession.php';
+
 if(isset($_POST))
 {
 	if($_POST!=NULL && isset($idAdmin))
 	{
 		$shopProduit= array_search('TRUE', $_POST);
 		$produitQte= 'qte_'.$shopProduit;
-		
+		$key=substr($shopProduit, 0, 4);
 		
 		var_dump($_POST);
 		echo $shopProduit;
@@ -14,6 +16,8 @@ if(isset($_POST))
 		echo $_POST[$shopProduit];
 		echo $_POST[$produitQte];
 		echo $_POST[''.$statuePanier.''];
+
+		$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
 
 		$query=$db->prepare('UPDATE panier SET '.$shopProduit.'= :shopProduit, '.$produitQte.'= :produitQte WHERE '.$statuePanier.' = :idpanier');
 
@@ -36,8 +40,16 @@ if(isset($_POST))
 					$panierNumber++;
 				}
 			}	
-		}			
-	}
+		}
+		if($key=='pspj')
+		{	
+		header('location:Shop_Jardiniere_en_bois_page_1.php');
+		}
+		elseif($key=='pspl')
+		{
+			header('location:Shop_lombricomposteur_standard_page_1');
+		}
+	}					
 	else
 	{
 		echo "Panier non activé!";

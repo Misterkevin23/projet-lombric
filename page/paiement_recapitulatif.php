@@ -1,6 +1,5 @@
 <?php 
 	include '../includes/header.php';
-	var_dump($_POST);
 ?>
 
 <main>
@@ -18,8 +17,6 @@
 			include '../includes/panierNavigatorInvit.php';
 		
 			include '../includes/produitDb.php';
-			
-			include '../includes/panierAction.php';
 
 			include '../includes/shopFunction.php';
 			
