@@ -152,8 +152,8 @@
 						':ville'		=>$_POST['ville'],
 						':pays'			=>$_POST['pays'],
 						':tel1'			=>$_POST['tel1'],
-						':statue'		=>$statue
-						':pseudo'		=>$_POST['nom'],
+						':statue'		=>$statue,
+						':pseudo'		=>$_POST['nom']
 					));
 					
 					echo 'fff';

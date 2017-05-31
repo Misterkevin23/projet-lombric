@@ -10,26 +10,24 @@
 <p><input type="radio" name="compte" value="non" class="inscritPanier">Acceder à votre panier</p><br>
 <div>
 	<form method="post" name="connexion" onSubmit="return connexion_form();" action="connexion.php" class="connexionCadre">
-		<label for="nickName"><span class="formInfo">Pseudo* :</span></label>
-		<input type="text" id="nickName" name="pseudo" class="formTape" value="<?php echo $pseudo;?>" placeholder="Gwada" onkeyup="connexion_form"></br>
-		<label for="password"><span class="formInfo">Mot de passe* :</span></label>
-		<input type="password" id="password" name="motDePasse" class="formTape" placeholder="p&trick59" onkeyup="connexion_form"><br>
+		<?php
+			include '../includes/form/pseudoForm.php';
+			include '../includes/form/motDePasseForm.php';
+		?>	
 		<div class="button">
 			<input type="submit" name="connexion" class="asideConexionButton" value="CONNEXION">	
 		</div>
-
 	</form>
 
 </div>
 
 <div>
-	<form method="post" name="inscription" onSubmit="return verification_form();" action="inscriptionForm.php" class="inscriptionCadre">		
-		<label for="email"><span class="formInfo">Email* :</span></label>
-		<input type="email" id="email" name="email" class="formTape" placeholder="...@gmail.com" onkeyup=""></br>
-		<label for="nickName"><span class="formInfo">Pseudo* :</span></label>
-		<input type="text" id="nickName" name="pseudo" class="formTape" placeholder="Gwada" onkeyup=""></br>
-		<label for="password"><span class="formInfo">Mot de passe* :</span></label>
-		<input type="password" id="password" name="motDePasse" class="formTape" placeholder="p&trick59" onkeyup="connexion_form"><br>
+	<form method="post" name="inscription" onSubmit="return verification_form();" action="inscriptionForm.php" 						class="inscriptionCadre">		
+		<?php
+			include '../includes/form/emailForm.php';
+			include '../includes/form/pseudoForm.php';
+			include '../includes/form/motDePasseForm.php';
+		?>
 		<div class="button">
 			<input type="submit" href="inscription.php"  name="inscription" class="asideConexionButton" value="INSCRIPTION">
 		</div>
@@ -38,11 +36,12 @@
 
 </div>
 
-<form method="post" name="connexion" onSubmit="return connexion_form();" action="connexion.php" class="connexionPanierCadre">
-		<label for="email"><span class="formInfo">Email* :</span></label>
-		<input type="email" id="email" name="email" class="formTape" placeholder="...@gmail.com" onkeyup=""></br>
-		<label for="password"><span class="formInfo">Mot de passe* :</span></label>
-		<input type="password" id="password" name="motDePasse" class="formTape" placeholder="p&trick59" onkeyup=""><br>
+<div>
+	<form method="post" name="connexion" onSubmit="return connexion_form();" action="connexion.php" class="connexionPanierCadre">
+		<?php
+			include '../includes/form/emailForm.php';
+			include '../includes/form/motDePasseForm.php';
+		?>
 		<div class="button">
 			<input type="submit" name="panier" class="asideConexionButton" value="PANIER">	
 		</div>

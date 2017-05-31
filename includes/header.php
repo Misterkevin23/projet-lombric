@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="../stylesheets/bootstrapAlleg.css">
 	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css">
 	<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../js/ajax.js"></script>
 	<script type="text/javascript" src="../js/menu.js"></script>
 	<script type="text/javascript" src="../js/skel.min.js"></script>
 	<script type="text/javascript" src="../js/accueil.js"></script>
@@ -17,12 +18,13 @@
 	<script type="text/javascript" src="../js/shop.js"></script>
 	<!-- <script type="text/javascript" src="../js/produit.js"></script> -->
 	<script type="text/javascript" src="../js/connexion_form.js"></script>
+
 	<script type="text/javascript" src="../js/verification_form.js"></script>
 </head>
 <?php
-
-include '../includes/mainConnexionChooseSession.php';
 include '../includes/connexionDb.php';
+include '../includes/mainConnexionChooseSession.php';
+
 
 ?>
 	

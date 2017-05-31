@@ -4,7 +4,7 @@
 			<?php
 				if($connected==TRUE OR $panierConnected==TRUE)
 				{
-					echo '<a href="Panier.php?pseudo='.$pseudo.'&id='.$id.'">';
+					echo '<a href="Panier.php";'
 					echo '<h3>PANIER</h3>';
 					echo '</a>';
 				}
@@ -16,7 +16,7 @@
 		</li>
 
 		<li>
-			<a href="paiement_recapitulatif.php?<?php echo 'pseudo='.$pseudo.'&id='.$id?>">
+			<a href="paiement_recapitulatif.php">
 			<h3 class="panierNavigationColor">PAYEMENT</h3>
 			</a>
 		</li>

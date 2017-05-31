@@ -14,7 +14,7 @@
 	</form>
 	<ul>
 		<li>
-			<a href="UserProfil.php?<?php echo 'id='.$id.'&pseudo='.$pseudo;?>">Mon profil</a>
+			<a href="UserProfil.php">Mon profil</a>
 		</li>
 	</ul>
 

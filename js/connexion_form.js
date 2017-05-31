@@ -1,4 +1,5 @@
-function connexion_form(){
+function connexion_form()
+{
 	// if ( document.getElementById("nickName").value=="") {
 	// 	alert("Attention ! \n Veuillez saisir un pseudo " )
 	// 	document.connexion.Nickname.focus();
@@ -156,72 +157,3 @@ $("body").mousemove(function(){
 	$(".shopSold p").fadeOut(3000).fadeIn(600).delay(3000);	 
 })
 
-
-
-	
-// $("body").ready(function(){	
-// 	$(".navLi").mouseover(function(){
-// 		$("#menu .navLi h3 i").removeClass( "fa fa-plus-square-o" )
-// 		$( "#menu .navLi h3 i").addClass( "fa fa-minus-square-o");
-// 		console.log("11111111")
-// 	})
-
-// 	$("li.navLi").mouseout(function(){
-// 		$( "#menu .navLi h3 i").removeClass( "fa fa-minus-square-o")
-// 		$( "#menu .navLi h3 i").addClass( "fa fa-plus-square-o" );
-// 		console.log("44444444")
-// 	})
-
-// 	$("li.navLi").mouseover(function(){
-// 		$("#menu li li h4 i").removeClass( "fa fa-plus-square-o" )
-// 		$( "#menu li li h4 i").addClass( "fa fa-minus-square-o");
-// 		console.log("222222")
-// 	})
-
-// 	$("li.navLi").mouseout(function(){
-// 		$( "#menu li li h4 i").removeClass( "fa fa-minus-square-o")
-// 		$( "#menu li li h4 i").addClass( "fa fa-plus-square-o" );
-// 		console.log("3333333")
-// 	})
-// })			
-
-	// $("body").mousemove(function(){
-	// 	(100*parseFloat($("article").css("margin-right")))/$("main").width();
-	// 	var margin = (100*parseFloat($("#menu li ul ul").css("margin")))/$("main").width();
-	// 	$("#menu li ul ul").css("margin","margin")
-	// })
-
-	
-
-
-
-
-	// $(".panier_ajout").click(function(){	
-	// 	if($(".panier_ajout").attr("value")=="Annuler"){
-	// 		$(".panier_ajout").attr("value","Ajouter au panier");
-	// 	}
-	// })
-// $(document).ready(function(){
-
-// 		$("#menu ul li").hide()
-// 		$("#menu ul ul").hide()
-// 		$("#menu ul li").height("60px")
-// 		$("#menu ul ul").css({"left": "188px", "top" : "-50px"})
-		
-// 		$("#menu li").mousemove(function(){
-// 			$("#menu ul li").show()
-// 		})
-// 		$("#menu li").mouseout(function(){
-// 			$("#menu ul li").hide()
-// 		})
-// 		$("#menu ul li").mousemove(function(){
-// 			$("#menu ul ul").show()
-// 		})
-// 		$("#menu ul li").mouseout(function(){
-// 			$("#menu ul ul").hide()
-// 		})
-// })
-		
-		// $("#main li").mousemove(function(){
-		// 	$("#menu ul li").show()
-		// })
