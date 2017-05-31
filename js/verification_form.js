@@ -13,15 +13,26 @@
 
 	// 	return false;
 	// }
-function emailCheck(){
-	if (document.getElementById("emailCheck").value 
-		!= document.getElementById("email").value )
-	{
-		document.inscription.emailCheck.focus();
-		document.inscription.emailCheck.style.backgroundColor = "red";
-		document.getElementById("inscription").setAttribute('type','hidden');
-	}
-}	
+
+$('body').ready(function(){
+	$("#emailCheck").keyup(function(){
+		if (document.getElementById("emailCheck").value 
+			!= document.getElementById("email").value )
+		{
+			document.inscription.emailCheck.focus();
+			document.inscription.emailCheck.style.backgroundColor = "red";
+			document.getElementById("inscription").setAttribute('disabled','""');
+			document.forms["inscription"].action="#";
+			console.log("ertg");
+		}
+		else{
+			document.getElementById("emailCheck").style.backgroundColor = "green";
+			document.getElementById("inscription").removeAttribute('disabled');
+			document.forms["inscription"].action="confirmationInscription.php";
+			console.log('Requête ajax5');
+		}
+	})
+})
 
 	// if ( document.getElementById("nickName").value=="")
 	// {

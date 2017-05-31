@@ -18,7 +18,6 @@
 	<script type="text/javascript" src="../js/shop.js"></script>
 	<!-- <script type="text/javascript" src="../js/produit.js"></script> -->
 	<script type="text/javascript" src="../js/connexion_form.js"></script>
-
 	<script type="text/javascript" src="../js/verification_form.js"></script>
 </head>
 <?php
