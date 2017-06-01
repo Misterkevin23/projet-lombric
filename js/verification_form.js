@@ -55,79 +55,79 @@ function emailSyntax(){
 	});	
 }
 
-var male = document.getElementById("M");
-var female = document.getElementById("Mlle");
-var woman = document.getElementById("Mme");
-var societe = document.getElementById("societe");
-var prenom = document.getElementById("firstName");
-var nom= document.getElementById("lastName");
-var numeros = document.getElementById("numeros");
-var nomDeRue= document.getElementById("roadName");
-var codePostal= document.getElementById("postcode");
-var ville = document.getElementById("ville");
-var pays = document.getElementById("pays");
-var locataire = document.getElementById("locataire");
-var proprietaire = document.getElementById("proprietaire");
-var jardin = document.getElementById("jardin");
-var terrasse = document.getElementById("terrasse");
-var deux = document.getElementById("deux");
-var aucun = document.getElementById("aucun");
 
-var elementManquant="";
-console.log=('sdqgg');
-function champManquant(){
+// var prenom = document.getElementById("firstName");
+// var nom= document.getElementById("lastName");
+// var numeros = document.getElementById("numeros");
+// var nomDeRue= document.getElementById("roadName");
+// var codePostal= document.getElementById("postcode");
+// var ville = document.getElementById("ville");
+// var pays = document.getElementById("pays");
+// var locataire = document.getElementById("locataire");
+// var proprietaire = document.getElementById("proprietaire");
+// var jardin = document.getElementById("jardin");
+// var terrasse = document.getElementById("terrasse");
+// var deux = document.getElementById("deux");
+// var aucun = document.getElementById("aucun");
+
+// var elementManquant="";
+
+// var male = document.getElementById("M").val();
+// var female = document.getElementById("Mlle").val();
+// var woman = document.getElementById("Mme").val();
+// var societe = document.getElementById("societe").val();
 	
-	if (!male && !female && !woman && !societe)
-	{
-		elementManquant+="-votre civilité\n";
-		document.getElementById("inscription").setAttribute('disabled','""');
-	}
-	if (prenom.value =="")
-	{
-		elementManquant+="-votre prénom\n";
-		document.getElementById("inscription").setAttribute('disabled','""');
-	}
-	if ( nom.value =="")
-	{
-		elementManquant+="-votre nom\n ";
-		document.getElementById("inscription").setAttribute('disabled','""');
-	}
-	if ( numeros.value =="")
-	{
-		elementManquant+="-votre numéros de rue\n";
-		document.getElementById("inscription").setAttribute('disabled','""');
-	}
-	if ( nomDeRue.value=="")
-	{
-		elementManquant+="-le nom de la rue\n";
-		document.getElementById("inscription").setAttribute('disabled','""');
-	}
-	if (codePostal.value =="")
-	{
-		elementManquant+="-votre code postal\n";
-		document.getElementById("inscription").setAttribute('disabled','""');
-	}
-	if (ville.value =="")
-	{
-		elementManquant+="-Le nom de votre ville\n";
-		document.getElementById("inscription").setAttribute('disabled','""');
-	}
-	if (pays.value =="")
-	{
-		elementManquant+="-votre pays\n";
-		document.getElementById("inscription").setAttribute('disabled','""');
-	}
-	if (!locataire && !proprietaire)
-	{
-		elementManquant+="-votre situation d'hebergement\n";
-		document.getElementById("inscription").setAttribute('disabled','""');
-	}
-	if (!jardin && !terrasse && !deux && !aucun)
-	{
-		elementManquant+="-votre situation urbaine\n";
-		document.getElementById("inscription").setAttribute('disabled','""');
-	}
-}
+// 	if (!male && !female && !woman && !societe)
+// 	{
+// 		elementManquant+="-votre civilité\n";
+// 		document.getElementById("inscription").setAttribute('disabled','""');
+// 	}
+// 	if (prenom.value =="")
+// 	{
+// 		elementManquant+="-votre prénom\n";
+// 		document.getElementById("inscription").setAttribute('disabled','""');
+// 	}
+// 	if ( nom.value =="")
+// 	{
+// 		elementManquant+="-votre nom\n ";
+// 		document.getElementById("inscription").setAttribute('disabled','""');
+// 	}
+// 	if ( numeros.value =="")
+// 	{
+// 		elementManquant+="-votre numéros de rue\n";
+// 		document.getElementById("inscription").setAttribute('disabled','""');
+// 	}
+// 	if ( nomDeRue.value=="")
+// 	{
+// 		elementManquant+="-le nom de la rue\n";
+// 		document.getElementById("inscription").setAttribute('disabled','""');
+// 	}
+// 	if (codePostal.value =="")
+// 	{
+// 		elementManquant+="-votre code postal\n";
+// 		document.getElementById("inscription").setAttribute('disabled','""');
+// 	}
+// 	if (ville.value =="")
+// 	{
+// 		elementManquant+="-Le nom de votre ville\n";
+// 		document.getElementById("inscription").setAttribute('disabled','""');
+// 	}
+// 	if (pays.value =="")
+// 	{
+// 		elementManquant+="-votre pays\n";
+// 		document.getElementById("inscription").setAttribute('disabled','""');
+// 	}
+// 	if (!locataire && !proprietaire)
+// 	{
+// 		elementManquant+="-votre situation d'hebergement\n";
+// 		document.getElementById("inscription").setAttribute('disabled','""');
+// 	}
+// 	if (!jardin && !terrasse && !deux && !aucun)
+// 	{
+// 		elementManquant+="-votre situation urbaine\n";
+// 		document.getElementById("inscription").setAttribute('disabled','""');
+// 	}
+
 
 // function nickName(){
 // 	function nickNameCheck(){
@@ -151,23 +151,23 @@ $('body').ready(function(){
 	passewordCheck();
 	emailSyntax();
 
-	$("#inscription").mousemove(function(){
-		if(!male || !female || !woman || !societe 
-			|| prenom =="" || nom=="" || numeros=="" 
-			|| codePostal =="" || ville =="" || pays =="" 
-			|| !locataire || !proprietaire 
-			|| !jardin || !terrasse || !deux || !aucun)
-		{
-		elementManquant="Les champ suivant ne sont pas rempli\n";
-		champManquant();
-		alert(elementManquant);
-		elementManquant="";	
-		}
-		else
-		{
-			document.getElementById("inscription").removeAttribute('disabled');	
-		}
-	})
+	// $("#inscription").mousemove(function(){
+	// 	if(!male || !female || !woman || !societe 
+	// 		|| prenom =="" || nom=="" || numeros=="" 
+	// 		|| codePostal =="" || ville =="" || pays =="" 
+	// 		|| !locataire || !proprietaire 
+	// 		|| !jardin || !terrasse || !deux || !aucun)
+	// 	{
+	// 	elementManquant="Les champ suivant ne sont pas rempli\n";
+	// 	champManquant();
+	// 	alert(elementManquant);
+	// 	elementManquant="";	
+	// 	}
+	// 	else
+	// 	{
+	// 		document.getElementById("inscription").removeAttribute('disabled');	
+	// 	}
+	// })
 })
 
 	// if ( document.getElementById("nickName").value=="")

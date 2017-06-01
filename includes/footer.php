@@ -1,4 +1,5 @@
 	<footer>
+	<script type="text/javascript" src="../js/shop.js"></script>
 		<ul>
 			<li>
 				<h5>Nous rendre visite</h5>

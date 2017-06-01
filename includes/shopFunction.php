@@ -9,19 +9,26 @@ function produits($nom, $resume, $prix, $statue, $lien, $id, $idAdmin,$abrev,$en
 	echo '</div>';
 	echo '<div class="produitAction">';
 	echo '<h4>'.$statue.'</h4>';
-	echo '<div class="button">';
+	echo '<div class="button'.$id.'">';
 	// echo '<form method= POST action="'.$envoi.'">';
 	$panierName=$abrev.$id;
 	$panierQte= 'qte_'.$panierName;
-	echo '<input type="checkbox" name="'.$panierName.'" value="TRUE"><input type="submit" id="panier" class="panierButton" value="Ajouter au panier"><input type="hidden" name="'.$panierQte.'" class="panierButton" value="1"><input type="hidden" name="'.$statuePanier.'" class="panierButton" value="'.$idAdmin.'"></br>';
-	// echo '</form>';
+	echo '<input type="hidden" name="'.$panierName.'" value="TRUE">';
+	echo '<input type="submit" id="panier" class="panierButton" value="Ajouter au panier">';
+	// echo '<input type="hidden" name="'.$panierQte.'" class="panierButton" value="1">';
+	echo '<input type="hidden" name="'.$statuePanier.'" class="panierButton" value="'.$idAdmin.'"></br>';
+	echo '</div>';
+	echo '<select name="'.$panierQte.'">';
+			for($i=1; $i<50; $i++){
+				echo '<option>'.$i.'</option>';
+			}
+	echo '</select>';
 	echo '<form>';
 	echo '<a href="" name="'.$id.'" class="produitButton"> Voir le produit </a></br>';
 	echo '</form>';
 	echo '<form>';
 	echo '<input type="checkbox" name="'.$id.'"><input type="submit" class="formButtun" value="Achat direct"></br>';
 	echo '</form>';
-	echo '</div>';
 	echo '<p class="produitPrix">'.$prix.'<i class="fa fa-eur" aria-hidden="true"></i></p>';
 	echo '</div></div>';
 	$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
@@ -46,15 +53,22 @@ function shopProduit($produits, $abrev,$envoi,$produitTable, $statuePanier, $idA
 	}
 }
 
-function panier($nom, $lien, $prix, $id, $abrev, $idPanier){
+function panier($nom, $lien, $prix, $id, $abrev, $idPanier,$nbreProduits){
 	echo '<div class="panierProduit">';
 	echo '<h3>'.$nom.'</h3>';
 	imageMode("panierProduitPhoto","$lien");
 	echo '<a href="" name= "'.$id.'" class="produitButton"> Voir le produit </a><br><br><br><br>';
-	// echo '<form method=POST action="panierAction.php">';
-	echo '<input type="hidden" name="'.$abrev.'" value="NULL"><input type="submit" name="'.$idPanier.'" class="panierSuprimButton" value="Supprimer"><i class="fa fa-times" aria-hidden="true"></i><br><br><br>';
+	echo '<div class="panierNB'.$nbreProduits.'">';
+	echo '<input type="hidden" name="'.$abrev.'" value="NULL">';
+	echo '<input type="submit" name="'.$idPanier.'" class="panierSuprimButton" value="Supprimer"><i class="fa fa-times" aria-hidden="true"></i><br><br><br>';
+	echo '</div>';
 	echo '<label class="panierProduitPrix">QUANTITE :</label>';
-	echo '<input type="number" name="qte_'.$abrev.'" value="<?php echo $panierQte; ?>" ><input type="submit" name="'.$idPanier.'" class="" value="Ajouter">';
+	echo '<select name="qte_'.$abrev.'" value="<?php echo $panierQte; ?>">';
+			for($i=1; $i<50; $i++){
+				echo '<option>'.$i.'</option>';
+			}
+	echo '</select>';
+	echo '<input type="hidden" name="'.$idPanier.'" class="" value="Ajouter">';
 	// echo '</form>';
 	echo '<p class="panierProduitPrix">'.$prix.'<i class="fa fa-eur" aria-hidden="true"></i></p>';
 	echo '</div>';
@@ -66,7 +80,8 @@ function panierClient($panier, $produits, $idPanier){
 	$nbreProduits=0;
 	foreach ($produits as $produit){
 		if($panier[$produit["abreviation"]]=="TRUE"){
-		panier($produit["nom"], $produit["lien"], $produit["prix"], 			$produit["id"],$produit["abreviation"], $idPanier);
+		$nbreProduits++;
+		panier($produit["nom"], $produit["lien"], $produit["prix"], 			$produit["id"],$produit["abreviation"], $idPanier,$nbreProduits);
 		}
 	}
 }

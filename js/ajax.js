@@ -15,19 +15,19 @@ function getData(){
 }
 getData();
 
-function getPanier(){
-	// console.log('Requête ajax');
-	var url = 'http://localhost/projet_lombric/page/ajaxPanier.php';
-	var req = new XMLHttpRequest(); 
-	req.open('GET', url, false);
-	req.send(null);
+// function getPanier(){
+// 	// console.log('Requête ajax');
+// 	var url = 'http://localhost/projet_lombric/page/ajaxPanier.php';
+// 	var req = new XMLHttpRequest(); 
+// 	req.open('GET', url, false);
+// 	req.send(null);
 
-	if (req.status==200){
-		var panierUser = req.responseText;
-		panierUserArray= JSON.parse(panierUser);
-	}
-}
-getPanier();
+// 	if (req.status==200){
+// 		var panierUser = req.responseText;
+// 		panierUserArray= JSON.parse(panierUser);
+// 	}
+// }
+// getPanier();
 
 function pseudoVerif(){
 	
@@ -90,29 +90,29 @@ function emailVerif(){
 		});
 	});
 }
-console.log(panierUserArray);
+// console.log(panierUserArray);
 //code bouton ajout panier a tester quand PHP fais!!!
-$(document).ready(function(){
-	$("#panier").click(function(){
+// $(document).ready(function(){
+// 	$("#panier").click(function(){
 	
-		if($("#panier").val()=="Annuler")	
-		{
-			$("#panier").attr("value","Ajouter au panier");
-			var panierNbre=
-				parseFloat(document.getElementById("nbreArticle")
-					.innerHTML)-1;
-			document.getElementById("nbreArticle").textContent=panierNbre;
-		}
-		if($("#panier").val()=="Ajouter au panier")
-		{
-		$("#panier").attr("value" ,"Annuler"); 
-		var panierNbre=
-			parseFloat(document.getElementById("nbreArticle")
-				.innerHTML)+1;
-		document.getElementById("nbreArticle").textContent=panierNbre;
-		}
-	});
-});			
+// 		if($("#panier").val()=="Annuler")	
+// 		{
+// 			$("#panier").attr("value","Ajouter au panier");
+// 			var panierNbre=
+// 				parseFloat(document.getElementById("nbreArticle")
+// 					.innerHTML)-1;
+// 			document.getElementById("nbreArticle").textContent=panierNbre;
+// 		}
+// 		if($("#panier").val()=="Ajouter au panier")
+// 		{
+// 		$("#panier").attr("value" ,"Annuler"); 
+// 		var panierNbre=
+// 			parseFloat(document.getElementById("nbreArticle")
+// 				.innerHTML)+1;
+// 		document.getElementById("nbreArticle").textContent=panierNbre;
+// 		}
+// 	});
+// });			
 
 $('body').ready(function(){
 	pseudoVerif();
