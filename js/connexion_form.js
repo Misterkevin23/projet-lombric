@@ -18,7 +18,7 @@ function connexion_form()
 }
 
 				
-var inscrptionConnexionFade = function(){	
+var inscriptionConnexionFade = function(){	
 		$(".inscriptionCadre").hide();
 		$(".connexionPanierCadre").hide();
 		$(".connexionCadre").show();
@@ -26,90 +26,81 @@ var inscrptionConnexionFade = function(){
 			$(".inscriptionCadre").hide("slow");
 			$(".connexionCadre").show("slow");
 			$(".connexionPanierCadre").hide();
+			$(".inscrit").attr('checked','checked');
+			$(".nonInscrit").removeAttr('checked');
+			$(".inscritPanier").removeAttr('checked');
 		})
 		$(".nonInscrit").click(function(){
 			$(".inscriptionCadre").show("slow");
 			$(".connexionCadre").hide("slow");
 			$(".connexionPanierCadre").hide();
+			$(".nonInscrit").attr('checked','checked');
+			$(".inscrit").removeAttr('checked');
+			$(".inscritPanier").removeAttr('checked');
 		})
 		$(".inscritPanier").click(function(){
 			$(".connexionPanierCadre").show("slow");
 			$(".inscriptionCadre").hide("slow");
 			$(".connexionCadre").hide("slow");
+			$(".inscritPanier").attr('checked','checked');
+			$(".inscrit").removeAttr('checked');
+			$(".nonInscrit").removeAttr('checked');
 		})
 	}	
 
-
-//code bouton ajout panier a tester quand PHP fais!!!
-// $(document).ready(function(){
-// 	$(".panier_ajout").click(function(){
-		
-// 		$(".panier_ajout").attr("value" ,"Annuler");
-// 		if($(".panier_ajout").val()=="Ajouter au panier"){ 
-// 		parseFloat($(".nbre_article").text())+1;
-
-// 		}
-			
-// 		else{
-// 			$(".panier_ajout").attr("value","Ajouter au panier");
-// 			parseFloat($(".nbre_article").text())-1;
-// 		}
-// 	})
-// })
-
 var marginStart= function(){
-			var subSubTitleMarginLeft= $("#menu ul").width();
-			subSubTitleMarginLeft = subSubTitleMarginLeft + "px"
-		$("#menu li ul ul").css("margin-left", subSubTitleMarginLeft);
+	var subSubTitleMarginLeft= $("#menu ul").width();
+	subSubTitleMarginLeft = subSubTitleMarginLeft + "px"
+	$("#menu li ul ul").css("margin-left", subSubTitleMarginLeft);
 
-		if($("aside").css("float")==="right"){
-			var mainMargin= ($("main").width()-($("article").width()+$("aside").width()))/5; 
-			marginExterne=(mainMargin*2) + "px";
-			marginInterne= mainMargin + "px";	
-			$("article").css("margin-left", marginExterne);
-			$("aside").css("margin-right", marginExterne);
-			$("article").css("margin-right", marginInterne);
-		}
+	if($("aside").css("float")==="right")
+	{
+		var mainMargin= ($("main").width()-($("article").width()+$("aside").width()))/5; 
+		marginExterne=(mainMargin*2) + "px";
+		marginInterne= mainMargin + "px";	
+		$("article").css("margin-left", marginExterne);
+		$("aside").css("margin-right", marginExterne);
+		$("article").css("margin-right", marginInterne);
+	}
 
 		
-		var headerHeight= $("section").height();
-		headerHeight= headerHeight + "px";	
-		$("header").css("height", headerHeight);
+	var headerHeight= $("section").height();
+	headerHeight= headerHeight + "px";	
+	$("header").css("height", headerHeight);
 
-		var sectionTitreMargin= ($(".full").width()-($(".titre").width()+$(".logo1").width()))/4;
-		sectionTitreMargin= sectionTitreMargin + "px";	
-		$(".titre").css("margin-left", sectionTitreMargin);
-		$(".titre").css("margin-right", sectionTitreMargin);
-		$(".logo1").css("margin-left", sectionTitreMargin);
-		$(".logo1").css("margin-right", sectionTitreMargin);
+	var sectionTitreMargin= ($(".full").width()-($(".titre").width()+$(".logo1").width()))/4;
+	sectionTitreMargin= sectionTitreMargin + "px";	
+	$(".titre").css("margin-left", sectionTitreMargin);
+	$(".titre").css("margin-right", sectionTitreMargin);
+	$(".logo1").css("margin-left", sectionTitreMargin);
+	$(".logo1").css("margin-right", sectionTitreMargin);
 
-		var shopProduitMargin= ($(".shopSaison").width()-($(".shopProduit").width()*2))/4;
-		shopProduitMargin= shopProduitMargin + "px";	
-		$(".shopProduit").css("margin-left", shopProduitMargin);
-		$(".shopProduit").css("margin-right", shopProduitMargin);
+	var shopProduitMargin= ($(".shopSaison").width()-($(".shopProduit").width()*2))/4;
+	shopProduitMargin= shopProduitMargin + "px";	
+	$(".shopProduit").css("margin-left", shopProduitMargin);
+	$(".shopProduit").css("margin-right", shopProduitMargin);
 
-		var shopBaniereMargin= ($(".shopBaniere").width()-($(".shopBanierePhoto").width()*3))/6;
-		shopBaniereMargin= shopBaniereMargin + "px";	
-		$(".shopBanierePhoto").css("margin-left", shopBaniereMargin);
-		$(".shopBanierePhoto").css("margin-right", shopBaniereMargin);
+	var shopBaniereMargin= ($(".shopBaniere").width()-($(".shopBanierePhoto").width()*3))/6;
+	shopBaniereMargin= shopBaniereMargin + "px";	
+	$(".shopBanierePhoto").css("margin-left", shopBaniereMargin);
+	$(".shopBanierePhoto").css("margin-right", shopBaniereMargin);
 
-		$(".footerContner").each(function(){ 
-			var footerContnerMargin= ($(".footerContner").height()-$(".footerText").height())/2;
-			footerContnerMargin= footerContnerMargin + "px";	
-			$(".footerText").css("margin-top", footerContnerMargin);
-			$(".footerText").css("margin-bottom", footerContnerMargin);
-		})
+	$(".footerContner").each(function(){ 
+	var footerContnerMargin= ($(".footerContner").height()-$(".footerText").height())/2;
+	footerContnerMargin= footerContnerMargin + "px";	
+	$(".footerText").css("margin-top", footerContnerMargin);
+	$(".footerText").css("margin-bottom", footerContnerMargin);
+	})
 
-		var produitPresentationMargin= ($(".produit").width()-($(".produitPhoto").width()+$(".produitDescription").width()+$(".produitAction").width()+20))/6;
-		produitPresentationMargin= produitPresentationMargin + "px";	
-		$(".produitPhoto").css("margin-left", produitPresentationMargin);
-		$(".produitPhoto").css("margin-right", produitPresentationMargin);
-		$(".produitDescription").css("margin-left", produitPresentationMargin);
-		$(".produitDescription").css("margin-right", produitPresentationMargin);	
-		$(".produitAction").css("margin-left", produitPresentationMargin);
-		$(".produitAction").css("margin-right", produitPresentationMargin);
-
-	}
+	var produitPresentationMargin= ($(".produit").width()-($(".produitPhoto").width()+$(".produitDescription").width()+$(".produitAction").width()+20))/6;
+	produitPresentationMargin= produitPresentationMargin + "px";	
+	$(".produitPhoto").css("margin-left", produitPresentationMargin);
+	$(".produitPhoto").css("margin-right", produitPresentationMargin);
+	$(".produitDescription").css("margin-left", produitPresentationMargin);
+	$(".produitDescription").css("margin-right", produitPresentationMargin);	
+	$(".produitAction").css("margin-left", produitPresentationMargin);
+	$(".produitAction").css("margin-right", produitPresentationMargin);
+}
 
 // Recherche en cour--effet puce navigateur
 	// Fonction initial spécifique -- A atendre a toute les puce
@@ -147,7 +138,7 @@ var puce= function(){
 $("document").ready(function(){
 	marginStart();
     puce();
-    inscrptionConnexionFade()
+    inscriptionConnexionFade()
 
 })
 

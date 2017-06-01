@@ -18,6 +18,6 @@
 <ul>
 	<li>
 		<h3><a href="Panier.php?<?php echo 'pseudo='.$pseudo.'&id='.$id;?>" class="panierButton"> PANIER</a></h3>
-		<p><span id="nbreArticle"><?php echo $panierNumber.' '.'article(s)' ?></span></p>
+		<p><span id="nbreArticle"><?php echo $panierNumber.'</span>'.' '.'article(s)' ?></p>
 	</li>
 </ul>

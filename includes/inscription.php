@@ -22,7 +22,7 @@
 </div>
 
 <div>
-	<form method="post" name="inscription" onSubmit="return verification_form();" action="inscriptionForm.php" 						class="inscriptionCadre">		
+	<form method="post" name="preinscription" onSubmit="return verification_form();" action="inscriptionForm.php" 						class="inscriptionCadre">		
 		<?php
 			include '../includes/form/emailForm.php';
 			include '../includes/form/pseudoForm.php';

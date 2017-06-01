@@ -10,11 +10,11 @@ function produits($nom, $resume, $prix, $statue, $lien, $id, $idAdmin,$abrev,$en
 	echo '<div class="produitAction">';
 	echo '<h4>'.$statue.'</h4>';
 	echo '<div class="button">';
-	echo '<form method= POST action="'.$envoi.'">';
+	// echo '<form method= POST action="'.$envoi.'">';
 	$panierName=$abrev.$id;
 	$panierQte= 'qte_'.$panierName;
-	echo '<input type="checkbox" name="'.$panierName.'" value="TRUE"><input type="submit" id="panier" class="panierButton" value="Ajouter au panier"><input type="hidden" id="panier" name="'.$panierQte.'" class="panierButton" value="1"><input type="hidden" id="panier" name="'.$statuePanier.'" class="panierButton" value="'.$idAdmin.'"></br>';
-	echo '</form>';
+	echo '<input type="checkbox" name="'.$panierName.'" value="TRUE"><input type="submit" id="panier" class="panierButton" value="Ajouter au panier"><input type="hidden" name="'.$panierQte.'" class="panierButton" value="1"><input type="hidden" name="'.$statuePanier.'" class="panierButton" value="'.$idAdmin.'"></br>';
+	// echo '</form>';
 	echo '<form>';
 	echo '<a href="" name="'.$id.'" class="produitButton"> Voir le produit </a></br>';
 	echo '</form>';

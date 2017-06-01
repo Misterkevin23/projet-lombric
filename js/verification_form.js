@@ -1,20 +1,4 @@
-	// 	email = document.getElementById("email").value;
-	// var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,3})/;
-	// if (regex.test(email)){
-	// 	return true;
-	// }
-
-	// else{
-	// 	alert("Attention!\n Veuillez entrer un e-mail valide !!" )
-	// 	document.inscription.email.focus();
-	// 	document.inscription.email.style.backgroundColor = "red";
-	// 	console.log(document.getElementById("Nickname").value);
-
-
-	// 	return false;
-	// }
-
-$('body').ready(function(){
+function emailCheck(){	
 	$("#emailCheck").keyup(function(){
 		if (document.getElementById("emailCheck").value 
 			!= document.getElementById("email").value )
@@ -30,6 +14,158 @@ $('body').ready(function(){
 			document.getElementById("inscription").removeAttribute('disabled');
 			document.forms["inscription"].action="confirmationInscription.php";
 			console.log('Requête ajax5');
+		}
+	})
+}
+
+function passewordCheck(){
+	if (document.getElementById("passwordCheck").value 
+		!= document.getElementById("password").value )
+	{
+		document.inscription.passwordCheck.focus();
+		document.getElementById("inscription").setAttribute('disabled','""');
+		document.inscription.passwordCheck.style.backgroundColor = "red";
+		document.forms["inscription"].action="#";
+	}
+	else
+	{
+		document.getElementById("passwordCheck").style.backgroundColor = "green";
+		document.getElementById("inscription").removeAttribute('disabled');
+		document.forms["inscription"].action="confirmationInscription.php";
+	}
+}			
+
+function emailSyntax(){
+	$("#email").keyup(function(){
+		email = document.getElementById("email").value;
+		var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,3})/;
+		if (regex.test(email)){
+			document.getElementById("email").style.backgroundColor = "green";
+			document.getElementById("inscription").removeAttribute('disabled');
+			document.forms["inscription"].action="confirmationInscription.php";
+		}
+
+		else{
+			alert("Attention!\n Veuillez entrer un e-mail valide !!" )
+			document.inscription.email.focus();
+			document.inscription.email.style.backgroundColor = "orange";
+			document.getElementById("inscription").setAttribute('disabled','""');
+			document.forms["inscription"].action="#";
+		}
+	});	
+}
+
+var male = document.getElementById("M");
+var female = document.getElementById("Mlle");
+var woman = document.getElementById("Mme");
+var societe = document.getElementById("societe");
+var prenom = document.getElementById("firstName");
+var nom= document.getElementById("lastName");
+var numeros = document.getElementById("numeros");
+var nomDeRue= document.getElementById("roadName");
+var codePostal= document.getElementById("postcode");
+var ville = document.getElementById("ville");
+var pays = document.getElementById("pays");
+var locataire = document.getElementById("locataire");
+var proprietaire = document.getElementById("proprietaire");
+var jardin = document.getElementById("jardin");
+var terrasse = document.getElementById("terrasse");
+var deux = document.getElementById("deux");
+var aucun = document.getElementById("aucun");
+
+var elementManquant="";
+console.log=('sdqgg');
+function champManquant(){
+	
+	if (!male && !female && !woman && !societe)
+	{
+		elementManquant+="-votre civilité\n";
+		document.getElementById("inscription").setAttribute('disabled','""');
+	}
+	if (prenom.value =="")
+	{
+		elementManquant+="-votre prénom\n";
+		document.getElementById("inscription").setAttribute('disabled','""');
+	}
+	if ( nom.value =="")
+	{
+		elementManquant+="-votre nom\n ";
+		document.getElementById("inscription").setAttribute('disabled','""');
+	}
+	if ( numeros.value =="")
+	{
+		elementManquant+="-votre numéros de rue\n";
+		document.getElementById("inscription").setAttribute('disabled','""');
+	}
+	if ( nomDeRue.value=="")
+	{
+		elementManquant+="-le nom de la rue\n";
+		document.getElementById("inscription").setAttribute('disabled','""');
+	}
+	if (codePostal.value =="")
+	{
+		elementManquant+="-votre code postal\n";
+		document.getElementById("inscription").setAttribute('disabled','""');
+	}
+	if (ville.value =="")
+	{
+		elementManquant+="-Le nom de votre ville\n";
+		document.getElementById("inscription").setAttribute('disabled','""');
+	}
+	if (pays.value =="")
+	{
+		elementManquant+="-votre pays\n";
+		document.getElementById("inscription").setAttribute('disabled','""');
+	}
+	if (!locataire && !proprietaire)
+	{
+		elementManquant+="-votre situation d'hebergement\n";
+		document.getElementById("inscription").setAttribute('disabled','""');
+	}
+	if (!jardin && !terrasse && !deux && !aucun)
+	{
+		elementManquant+="-votre situation urbaine\n";
+		document.getElementById("inscription").setAttribute('disabled','""');
+	}
+}
+
+// function nickName(){
+// 	function nickNameCheck(){
+// 		var checkedI=document.getElementsByClassName("inscrit").getAttribut('checked');
+// 		var checkedN=document.getElementsByClassName("nonInscrit").getAttribut('checked');
+// 		if(checkedN!=null || checkedN!="" || checkedI!=null || checkedI!="" || document.forms["inscription"]==true )
+// 		{
+// 			console.log('sdss');
+// 			if ( document.getElementById("nickName").value=="")
+// 		 	{
+// 		 	document.getElementById("nickName").style.backgroundColor = "red";
+// 			document.getElementById("inscription").setAttribute('disabled','""');
+// 			document.forms["inscription"].action="#";
+// 			}
+// 		}	
+// 	}	
+// }
+
+$('body').ready(function(){
+	emailCheck();
+	passewordCheck();
+	emailSyntax();
+
+	$("#inscription").mousemove(function(){
+		if(!male || !female || !woman || !societe 
+			|| prenom =="" || nom=="" || numeros=="" 
+			|| codePostal =="" || ville =="" || pays =="" 
+			|| !locataire || !proprietaire 
+			|| !jardin || !terrasse || !deux || !aucun)
+		{
+		elementManquant="Les champ suivant ne sont pas rempli\n";
+		champManquant();
+		alert(elementManquant);
+		elementManquant="";	
+		}
+		else
+		{
+			document.getElementById("inscription").removeAttribute('disabled');	
 		}
 	})
 })
@@ -52,93 +188,8 @@ $('body').ready(function(){
 	// 	return false;
 	// }
 
-	// if (document.getElementById("passwordCheck").value 
-	// 	!= document.getElementById("password").value )
-	// {
-	// 	alert("Attention ! \n Le mot de passe saisie n'est pas identique.");
-	// 	document.inscription.passwordCheck.focus();
-	// 	document.inscription.passwordCheck.style.backgroundColor = "red";
 
-	// 	return false;
-	// }
-
-
-	// var male = document.getElementById("M").checked;
-	// var female = document.getElementById("Mlle").checked;
-	// var woman = document.getElementById("Mme").checked;
-	// var societe = document.getElementById("societe").checked;
-	// if (!male && !female && !woman && !societe)
-	// {
-	// 	alert("Attention! \n Veuillez entrer votre civilité ");
-	// 	document.inscription.M.focus();
-	// 	document.inscription.M.style.backgroundColor = "red";
-
-	// 	return false;
-	// }
-
-	// var prenom = document.getElementById("firstName").value;
-	// if (prenom =="")
-	// {
-	// 	alert("Attention! \n Veuillez entrer votre prénom");
-	// 	document.inscription.firstname.focus();
-	// 	document.inscription.firstname.style.backgroundColor = "red";
-
-	// 	return false;
-	// }
-
-	// if (document.getElementById("lastName").value =="")
-	// {
-	// 	alert("Attention! \n Veuillez entrer votre nom ");
-	// 	document.inscription.lastname.focus();
-	// 	document.inscription.lastname.style.backgroundColor = "red";
-
-	// 	return false;
-	// }
-
-	// if (document.getElementById("numeros").value =="")
-	// {
-	// 	alert("Attention! \n Veuillez entrer votre numéros de rue");
-	// 	document.inscription.numeros.focus();
-	// 	document.inscription.numeros.style.backgroundColor = "red";
-
-	// 	return false;
-	// }
-
-	// if (document.getElementById("roadName").value =="")
-	// {
-	// 	alert("Attention! \n Veuillez entrer le nom de la rue");
-	// 	document.inscription.roadName.focus();
-	// 	document.inscription.roadName.style.backgroundColor = "red";
-
-	// 	return false;
-	// }
-
-	// if (document.getElementById("postcode").value =="")
-	// {
-	// 	alert("Attention! \n Veuillez entrer votre code postal");
-	// 	document.inscription.postcode.focus();
-	// 	document.inscription.postcode.style.backgroundColor = "red";
-
-	// 	return false;
-	// }
-
-	// if (document.getElementById("ville").value =="")
-	// {
-	// 	alert("Attention! \n Veuillez entrer Le nom de votre ville");
-	// 	document.inscription.ville.focus();
-	// 	document.inscription.ville.style.backgroundColor = "red";
-
-	// 	return false;
-	// }
-
-	// if (document.getElementById("pays").value =="")
-	// {
-	// 	alert("Attention! \n Veuillez entrer votre pays ");
-	// 	document.inscription.pays.focus();
-	// 	document.inscription.pays.style.backgroundColor = "red";
-
-	// 	return false;
-	// }	
+		
 
 	// var mobile = /^(01|02|03|04|05|06|07|08|09|0033|\+33)[0-9]{8}/;
 	// if (mobile.test(document.getElementById("phonePortable").value)){
@@ -153,26 +204,4 @@ $('body').ready(function(){
 	// 	return false;
 	// }
 
-	// var locataire = document.getElementById("locataire").checked;
-	// var proprietaire = document.getElementById("proprietaire").checked;
-	// if (!locataire && !proprietaire)
-	// {
-	// 	alert("Attention! \n Veuillez entrer votre situation d'hebergement ");
-	// 	document.inscription.M.focus();
-	// 	document.inscription.M.style.backgroundColor = "red";
-
-	// 	return false;
-	// }
-
-	// var jardin = document.getElementById("jardin").checked;
-	// var terrasse = document.getElementById("terrasse").checked;
-	// var deux = document.getElementById("deux").checked;
-	// var aucun = document.getElementById("aucun").checked;
-	// if (!jardin && !terrasse && !deux && !aucun)
-	// {
-	// 	alert("Attention! \n Veuillez entrer votre situation d'hebergement ");
-	// 	document.inscription.M.focus();
-	// 	document.inscription.M.style.backgroundColor = "red";
-
-	// 	return false;
-	// }
+	
