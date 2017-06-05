@@ -1,5 +1,5 @@
 var usersArray=null;
-var panierUserArray=null;
+
 
 function getData(){
 	// console.log('Requête ajax');
@@ -14,20 +14,6 @@ function getData(){
 	}
 }
 getData();
-
-// function getPanier(){
-// 	// console.log('Requête ajax');
-// 	var url = 'http://localhost/projet_lombric/page/ajaxPanier.php';
-// 	var req = new XMLHttpRequest(); 
-// 	req.open('GET', url, false);
-// 	req.send(null);
-
-// 	if (req.status==200){
-// 		var panierUser = req.responseText;
-// 		panierUserArray= JSON.parse(panierUser);
-// 	}
-// }
-// getPanier();
 
 function pseudoVerif(){
 	

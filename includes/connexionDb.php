@@ -1,6 +1,8 @@
 <?php
 $db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
 
+//fonction de connexion a la base de donne contenant
+//toute les informations des utilisateur sans filtre
 function connectUser(){
 	$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
 	
@@ -11,18 +13,6 @@ function connectUser(){
 	$users= $query ->fetchAll();
 	return $users;
 }
-
-function connectVisiter(){
-	$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
-	
-	$query= $db-> prepare('SELECT * FROM visiteur');
-
-	$query->execute();
-
-	$visits= $query ->fetchAll();
-	return $visits;
-}
-
 
 
 ?>

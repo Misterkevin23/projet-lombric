@@ -22,62 +22,30 @@
 			
 		?>
 
-		<div>
-			<div class="panierRecapitulatif">
-				<fieldset>
-					<legend>Adresse de livraison</legend>
-					<div class="form">
-						<input type="radio" name="jardin" value="jardin" class="formTapeSmall" selected required=""><span class="formInfo">Identique à l'adresse de facturation</span><br><br>
-						<label for="numeros"><span class="formInfo">N°, voie :</span></label>
-						<input type="number" id="numeros" name="numeros" class="formTape" value="<?php echo $numeros ?>" required><br><br>
-						<label for="roadname"> <span class="formInfo"> Nom de la rue :</span></label>
-						<input type="text" id="roadname" class="formTape" name="nomDeRue" value="<?php echo $nomDeRue ?>" required=""><br><br>
-						<label for="appartement"><span class="formInfo">étage, appartement :</span></label>
-						<input type="text" id="appartement" name="appartement" class="formTape" value="<?php echo $appartement ?>" placeholder="étage 7, appartement 23"><br><br>
-						<label for="batiment"><span class="formInfo"> Bâtiment :</span></label>
-						<input type="text" id="batiment" class="formTapeSmall" name="batiment" value="<?php echo $batiment ?>"><br><br>
-						<label for="lieuDit"><span class="formInfo"> Lieu-dit :</span></label>
-						<input type="text" id="lieuDit" class="formTapeSmall" name="lieuDit" value="<?php echo $lieuDit ?>"><br><br>
-						<label for="postcode"><span class="formInfo"> Code postal :</span></label>
-						<input type="text" id="postcode" class="formTapeSmall" name="CodePostal" value="<?php echo $CodePostal ?>" required=""><br><br>
-						<label for="ville"> <span class="formInfo">Ville :</span></label>
-						<input type="text" id="ville" class="formTapeSmall" name="ville" value="<?php echo $ville ?>" required=""><br><br>
-						<label for="pays"><span class="formInfo"> Pays :</span> </label>
-						<select id="pays" size="1" class="formTape" required="<?php echo $pays ?>">
-							<option value="">	</option>
-							<option value="France">France	</option>
-							<option value="Allemagne">Allemagne	</option>
-							<option value="belgique">belgique	</option>
-							<option value="Espagne">Espagne	</option>
-						</select>
-						<br>
-					</div>
-				</fieldset>
-
-				<fieldset>
-					<legend>Paiement</legend>
-					<div class="form">
-						<label for="carte"> <span class="formInfo"> Numéro de carte:</span></label>
-						<input type="text" id="carte" class="formTape" name="numerosDeCarte" required=""><br><br>
-						<label for="mastercard" for="visa"><span class="formInfo">Type de paiement :</span></label><br><br>
-						<input type="radio" id="visa" name="paiement" value="visa" checked=""><span class="formInfo"><i class="fa fa-cc-visa" aria-hidden="true"></i></span>	
-						<input type="radio" id="mastercard" name="paiement" value="mastercard"><span class="formInfo"><i class="fa fa-cc-mastercard" aria-hidden="true"></i></span><br><br>
-						<label for="date"> <span class="formInfo"> Date d'expiration :</span></label><br><br>
-						<input type="text" id="date" class="formTapeSmall" name="date2"><br><br>
-						<label for="crypto"> <span class="formInfo"> Cryptogramme visuel :</span></label><br><br>
-						<input type="text" id="crypto" class="formTapeSmall" name="cryptogramme"><br>
-					</div>
-				</fieldset>
-				<br>
-				<div class="button">
-					<a href="paiement_identification.html" class="asideConexionButton"> PAYER</a>
-				</div>
-			</div>
-			
-			<div class="panierRecapitulatif">
+	
+		<div class="panierRecapitulatif">
+			<fieldset>
+				<legend>Adresse de livraison</legend>
+				<div class="form">
 				<?php
+					include '../includes/form/numerosForm.php';
+					include '../includes/form/nomDeRueForm.php';
+					include '../includes/form/appartementForm.php';
+					include '../includes/form/batimentForm.php';
+					include '../includes/form/lieuDitForm.php';
+					include '../includes/form/CodePostalForm.php';
+					include '../includes/form/villeForm.php';
+					include '../includes/form/paysForm.php';
+				?>	
+				</div>
+			</fieldset>
+		</div>
 
+		<div class="panierRecapitulatif">
+			<?php
 
+				if($panierConnected==TRUE && isset($_POST))
+				{
 					$jardinerie= produitJardinerie();
 
 					$lombricomposteur= produitLombricomposteur();
@@ -87,8 +55,36 @@
 					$prixLivraison= $_POST['livraison'];
 
 					echo panierTableRecapitulatif($panier, $idPanier, $jardinerie, $lombricomposteur, $prixTTC, $prixLivraison);
-				?>
+				}
+				else
+				{
+					
+				}
+			?>
 		</div>
+
+		<div class="panierRecapitulatif">
+			<fieldset>
+				<legend>Paiement</legend>
+				<div class="form">
+					<label for="carte"> <span class="formInfo"> Numéro de carte:</span></label>
+					<input type="text" id="carte" class="formTape" name="numerosDeCarte" required=""><br><br>
+					<label for="mastercard" for="visa"><span class="formInfo">Type de paiement :</span></label><br><br>
+					<input type="radio" id="visa" name="paiement" value="visa" checked=""><span class="formInfo"><i class="fa fa-cc-visa" aria-hidden="true"></i></span>	
+					<input type="radio" id="mastercard" name="paiement" value="mastercard"><span class="formInfo"><i class="fa fa-cc-mastercard" aria-hidden="true"></i></span><br><br>
+					<label for="date"> <span class="formInfo"> Date d'expiration :</span></label><br><br>
+					<input type="text" id="date" class="formTapeSmall" name="date2"><br><br>
+					<label for="crypto"> <span class="formInfo"> Cryptogramme visuel :</span></label><br><br>
+					<input type="text" id="crypto" class="formTapeSmall" name="cryptogramme"><br>
+				</div>
+			</fieldset>
+			<br>
+			<div class="button">
+				<a href="paiement_identification.html" class="asideConexionButton"> PAYER</a>
+			</div>
+		</div>
+				
 	</article>
+	
 </main>
 <?php include '../includes/footer.php'; ?>

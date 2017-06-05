@@ -29,13 +29,13 @@
 			?>
 			<form method=POST action="paiement_recapitulatif.php">
 				<h2> JARDINIERE</h2>
-				<div class="produit">
+				<div id="theme1" class="produit">
 				<?php	
 					
 					$jardinerie= produitJardinerie();
 
 					
-					panierClient($panier,$jardinerie, $idPanier, '"Panier.php?pseudo='.$pseudo.'&id='.$id.'"', $prixTotal, $nbreProduits);
+					panierClient($panier,$jardinerie, $idAdmin,$statuePanier);
 				
 				?>
 
@@ -48,20 +48,20 @@
 
 					$nbreProduitJardiniere= nbreProduitPanierByPart($jardinerie, $idPanier);
 
-					echoP("toto",'Nombre de produit: '.$nbreProduitJardiniere);
-					echoP("toto",'Sous total: '.$prixTotalJardiniere.'<i class="fa fa-eur" aria-hidden="true"></i>');
+					echo '<p>Nombre de produit:<span id="nombre1"> '.$nbreProduitJardiniere.'<span></p>';
+					echo '<p>Sous total:<span id="sousTotal1"> '.$prixTotalJardiniere.'</span><i class="fa fa-eur" aria-hidden="true"></i></p>';
 				
 				?>
 
 				</div>	
 
 				<h2> LOMBRICOMPOSTEUR</h2>
-				<div class="produit">
+				<div id="theme2" class="produit">
 				<?php	
 
 					$lombricomposteur= produitLombricomposteur();
 
-					panierClient($panier,$lombricomposteur, $idPanier,'"Panier.php?pseudo='.$pseudo.'&id='.$id.'"', $prixTotal, $nbreProduits);
+					panierClient($panier,$lombricomposteur, $idAdmin, $statuePanier);
 				?>
 				</div>
 
@@ -72,8 +72,8 @@
 
 					$nbreProduitLombricomposteur= nbreProduitPanierByPart($lombricomposteur, $idPanier);
 
-					echoP("toto",'Nombre de produit: '.$nbreProduitLombricomposteur);
-					echoP("toto",'Sous total: '.$prixTotalLombricomposteur.'<i class="fa fa-eur" aria-hidden="true"></i>');
+					echo '<p>Nombre de produit:<span id="nombre2"> '.$nbreProduitLombricomposteur.'<span></p>';
+					echo '<p>Sous total:<span id="sousTotal2"> '.$prixTotalLombricomposteur.'</span><i class="fa fa-eur" aria-hidden="true"></i></p>';
 				
 				?>
 

@@ -4,7 +4,7 @@
 			<?php
 				if($connected==TRUE OR $panierConnected==TRUE)
 				{
-					echo '<a href="Panier.php";'
+					echo '<a href="Panier.php"';
 					echo '<h3>PANIER</h3>';
 					echo '</a>';
 				}

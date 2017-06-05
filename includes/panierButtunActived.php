@@ -2,22 +2,28 @@
 
 	$panierNumber=0;
 	$count="";
+	$key=array_keys($panier);
+	$key_value=array_keys($panier, "TRUE");
 	$lenght= count($panier);
-
-	for($count=0; $count < $lenght; $count++ )
+	$lenghtKey= count($key_value);
+	
+	for($count=0; $count <= $lenghtKey; $count++ )
 	{
-		if (isset($panier[$count]))
+		if (isset($key_value[$count]))
 		{	
-			if($panier[$count]=="TRUE")
+			if(!is_int($key_value[$count]) &&
+				$panier[$key_value[$count]]=="TRUE")
 			{
-				$panierNumber++;
+				$number= intval($panier['qte_'.$key_value[$count]]);
+				$panierNumber+=$number;
 			}
 		}	
 	}
+
 ?>
 <ul>
 	<li>
-		<h3><a href="Panier.php?<?php echo 'pseudo='.$pseudo.'&id='.$id;?>" class="panierButton"> PANIER</a></h3>
+		<h3><a href="Panier.php" class="panierButton"> PANIER</a></h3>
 		<p><span id="nbreArticle"><?php echo $panierNumber.'</span>'.' '.'article(s)' ?></p>
 	</li>
 </ul>

@@ -60,14 +60,30 @@
 		}
 		else
 		{
+			$connected=FALSE;
+			$panierConnected=FALSE;
 			$statuePanier='visit';
-			$panier=0;
+			$idAdmin='visit';
+			$panier=FALSE;
+			$pseudo='';
 		}		
 	}
 	else
 	{
+		$connected=FALSE;
+		$panierConnected=FALSE;
 		$statuePanier='visit';
+		$idAdmin='visit';
 		$panier=0;
-		$pseudo="";
+		$pseudo='';
+		$nom="";
+		$numeros="";
+		$nomDeRue="";
+		$appartement="";
+		$batiment="";
+		$lieuDit="";
+		$CodePostal="";
+		$ville="";
+		$pays="";
 	}
 ?>	

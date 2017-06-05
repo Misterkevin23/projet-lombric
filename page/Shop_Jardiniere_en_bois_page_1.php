@@ -46,7 +46,7 @@
 
 				$jardinerie= produitJardinerie();
 				// var_dump($jardinerie);
-				shopProduit($jardinerie,"pspj","shopAction.php","produitjardinerie", $statuePanier, $idAdmin);
+				shopProduit($jardinerie,"pspj","produitjardinerie", $statuePanier, $idAdmin, $panier);
 			?>
 
 

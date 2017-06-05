@@ -46,4 +46,5 @@
 			<input type="submit" name="panier" class="asideConexionButton" value="PANIER">	
 		</div>
 
-	</form>			
+	</form>	
+</div>		

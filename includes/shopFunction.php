@@ -1,6 +1,10 @@
 <?php
-
-function produits($nom, $resume, $prix, $statue, $lien, $id, $idAdmin,$abrev,$envoi, $produitTable, $statuePanier){			
+//fonction créant le modèle de la présentation d'un produit
+//on utilise les informations contenu dans la table produit
+//ainsi que des information des utilisateurs pour lier la requeté a l'utilisateur donnée par la SESSION($statuePanier, $IdAdmin)
+//Une connexion a la base de donnée sera faite afin de crée une colonne correspondant  à l'abreviation ($panierName) et la quantité ($panierQte) du produit. 
+//Une connexion a la base de donnée sera faite afin d'y affilier l'abreviation spécifique au produit.
+function produits($nom, $resume, $prix, $statue, $lien, $id, $idAdmin,$abrev, $produitTable, $statuePanier,$quantite, $exist){			
 	echo '<div class="produit">';
 	imageMode("produitPhoto","$lien");
 	echo '<div class="produitDescription">';
@@ -9,83 +13,137 @@ function produits($nom, $resume, $prix, $statue, $lien, $id, $idAdmin,$abrev,$en
 	echo '</div>';
 	echo '<div class="produitAction">';
 	echo '<h4>'.$statue.'</h4>';
+	echo '<div>';
 	echo '<div class="button'.$id.'">';
-	// echo '<form method= POST action="'.$envoi.'">';
 	$panierName=$abrev.$id;
 	$panierQte= 'qte_'.$panierName;
 	echo '<input type="hidden" name="'.$panierName.'" value="TRUE">';
 	echo '<input type="submit" id="panier" class="panierButton" value="Ajouter au panier">';
-	// echo '<input type="hidden" name="'.$panierQte.'" class="panierButton" value="1">';
-	echo '<input type="hidden" name="'.$statuePanier.'" class="panierButton" value="'.$idAdmin.'"></br>';
+	echo '<input type="hidden" name="'.$statuePanier.'" value="'.$idAdmin.'"></br>';
 	echo '</div>';
-	echo '<select name="'.$panierQte.'">';
-			for($i=1; $i<50; $i++){
-				echo '<option>'.$i.'</option>';
-			}
+	echo '<select style="width:70%" name="'.$panierQte.'" value="1">';
+	for($i=1; $i<50; $i++)
+	{
+		if($i==$quantite)
+		{
+			echo '<option selected>'.$i.'</option>';
+		}
+		else
+		{
+			echo '<option>'.$i.'</option>';
+		}
+	}
 	echo '</select>';
+	echo '</div>';
 	echo '<form>';
 	echo '<a href="" name="'.$id.'" class="produitButton"> Voir le produit </a></br>';
 	echo '</form>';
-	echo '<form>';
+	echo '<form method=POST action="paiement_recapitulatif.php">';
 	echo '<input type="checkbox" name="'.$id.'"><input type="submit" class="formButtun" value="Achat direct"></br>';
 	echo '</form>';
 	echo '<p class="produitPrix">'.$prix.'<i class="fa fa-eur" aria-hidden="true"></i></p>';
 	echo '</div></div>';
-	$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
-	$query = $db->prepare("ALTER TABLE panier ADD $panierName VARCHAR(99) NULL");
-	$query->execute();
-	$query = $db->prepare("ALTER TABLE panier ADD $panierQte VARCHAR(99) NULL");
-	$query->execute();
-	$query=$db->prepare('UPDATE '.$produitTable.' SET abreviation= :abreviation WHERE id = :id');
+	if($exist==FALSE)
+	{
+		$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
+		$query = $db->prepare("ALTER TABLE panier ADD $panierName VARCHAR(99) NULL");
+		$query->execute();
+		$query = $db->prepare("ALTER TABLE panier ADD $panierQte VARCHAR(99) NULL");
+		$query->execute();
+		$query=$db->prepare('UPDATE '.$produitTable.' SET abreviation= :abreviation WHERE id = :id');
 
-	$query->execute(array(
-			':abreviation'		=>$panierName,
-			':id'				=>$id
-		)); 
-
+		$query->execute(array(
+				':abreviation'		=>$panierName,
+				':id'				=>$id
+			));
+	}	 
 }
 
-function shopProduit($produits, $abrev,$envoi,$produitTable, $statuePanier, $idAdmin){
+//fonction générant les div produit en fonction de la table produit choisie
+//$abrev sera defini lors de l'appelle de cette fonction afin de permetre une discrimination du produit.
+//l'existance de l'article dans le panier engendrera sa création ou non
+//PAS de panier, PAS de creation
+function shopProduit($produits, $abrev,$produitTable, $statuePanier, $idAdmin, $panier){
 	foreach($produits as $produit){
-		if($produit["nom"]!=NULL AND $produit["resume"]!=NULL AND $produit["prix"]!=NULL AND $produit["statue"]!=NULL AND $produit["lien"]!=NULL AND $produit["id"]!=NULL){
-			produits($produit["nom"], $produit["resume"], $produit["prix"], $produit["statue"], $produit["lien"], $produit["id"], $idAdmin,$abrev,$envoi,$produitTable, $statuePanier);
+		if($produit["nom"]!=NULL AND $produit["resume"]!=NULL AND $produit["prix"]!=NULL AND $produit["statue"]!=NULL AND $produit["lien"]!=NULL AND $produit["id"]!=NULL AND isset($panier))
+		{
+			echo '0000';
+			if(isset($panier[$produit["abreviation"]]))
+			{	
+				$exist=TRUE;
+				if($panier['qte_'.$produit["abreviation"]]!=NULL)
+				{
+					$quantite= $panier['qte_'.$produit["abreviation"]];
+				}
+				else
+				{
+					$quantite="1";
+				}
+			}
+			else
+			{
+			$quantite="1";	
+			$exist=FALSE;	
+			}
 		}
+		elseif($produit["nom"]!=NULL AND $produit["resume"]!=NULL AND $produit["prix"]!=NULL AND $produit["statue"]!=NULL AND $produit["lien"]!=NULL AND $produit["id"]!=NULL)
+		{
+			$quantite="0";
+			$exist=TRUE;
+		}	
+		produits($produit["nom"], $produit["resume"], $produit["prix"], $produit["statue"], $produit["lien"], $produit["id"], $idAdmin,$abrev,$produitTable, $statuePanier, $quantite, $exist);
 	}
 }
 
-function panier($nom, $lien, $prix, $id, $abrev, $idPanier,$nbreProduits){
-	echo '<div class="panierProduit">';
+//fonction créant le modèle de la présentation d'un des produit present
+//dans le panier
+//on utilise les informations contenu dans la table produit
+//ainsi que des information des utilisateurs pour lier la requeté a l'utilisateur
+//$abrev est déjà defini dans la base de donnée à cette étape
+//$nbreProduits permet de discriminer chaque produit du panier.
+function panier($nom, $lien, $prix, $id, $abrev, $idAdmin,$nbreProduits,$statuePanier, $quantite){
+	echo '<div id="panier'.$nbreProduits.'" class="panierProduit">';
 	echo '<h3>'.$nom.'</h3>';
 	imageMode("panierProduitPhoto","$lien");
 	echo '<a href="" name= "'.$id.'" class="produitButton"> Voir le produit </a><br><br><br><br>';
-	echo '<div class="panierNB'.$nbreProduits.'">';
-	echo '<input type="hidden" name="'.$abrev.'" value="NULL">';
-	echo '<input type="submit" name="'.$idPanier.'" class="panierSuprimButton" value="Supprimer"><i class="fa fa-times" aria-hidden="true"></i><br><br><br>';
+	echo '<div class="supprimer'.$nbreProduits.'">';
+	$panierName=$abrev;
+	$panierQte= 'qte_'.$panierName;
+	echo '<input type="hidden" name="'.$panierName.'" value="NULL">';
+	echo '<input type="text" id="panier" class="panierSuprimButton" value="Supprimer"><i class="fa fa-times" aria-hidden="true"></i><br><br><br>';
+	echo '<input type="hidden" name="'.$statuePanier.'" value="'.$idAdmin.'"></br>';
+	echo '<label class="panierProduitPrix" name="addQuantite">QUANTITE :</label>';
 	echo '</div>';
-	echo '<label class="panierProduitPrix">QUANTITE :</label>';
-	echo '<select name="qte_'.$abrev.'" value="<?php echo $panierQte; ?>">';
-			for($i=1; $i<50; $i++){
-				echo '<option>'.$i.'</option>';
-			}
+	echo '<select name="'.$panierQte.'" value="'.$quantite.'">';
+	for($i=1; $i<50; $i++)
+	{
+		if($i==$quantite)
+		{
+			echo '<option selected>'.$i.'</option>';
+		}
+		else
+		{
+			echo '<option>'.$i.'</option>';
+		}
+	}	
 	echo '</select>';
-	echo '<input type="hidden" name="'.$idPanier.'" class="" value="Ajouter">';
-	// echo '</form>';
 	echo '<p class="panierProduitPrix">'.$prix.'<i class="fa fa-eur" aria-hidden="true"></i></p>';
 	echo '</div>';
-
 }
 
-function panierClient($panier, $produits, $idPanier){
-	
+//fonction générant les div produit en fonction de la table panier spécifique à l'utilisateur identifié
+function panierClient($panier, $produits, $idAdmin, $statuePanier){
 	$nbreProduits=0;
 	foreach ($produits as $produit){
-		if($panier[$produit["abreviation"]]=="TRUE"){
+		if($panier[$produit["abreviation"]]=="TRUE")
+		{
 		$nbreProduits++;
-		panier($produit["nom"], $produit["lien"], $produit["prix"], 			$produit["id"],$produit["abreviation"], $idPanier,$nbreProduits);
+		panier($produit["nom"], $produit["lien"], $produit["prix"], 			$produit["id"],$produit["abreviation"], $idAdmin, $nbreProduits, $statuePanier, $panier['qte_'.$produit["abreviation"]] );
 		}
 	}
 }
 
+//fonction calculant le prix des sous partie du panier grace au discriminant abréviation et TRUE indiquant que l'utilisateur a choisie ce produit
 function prixPanierbyPart($produits, $idpanier){
 	$prixTotal=0;
 	$panier=panierSelected($idpanier);
@@ -97,16 +155,20 @@ function prixPanierbyPart($produits, $idpanier){
 	return $prixTotal;	
 }
 
+//fonction calculant le nombre de produit présend dans les sous partie du panier grace au discriminant abréviation et TRUE indiquant que l'utilisateur a choisie ce produit
 function nbreProduitPanierByPart($produits, $idpanier){
 	$nbreProduits=0;
 	$panier=panierSelected($idpanier);
 	foreach ($produits as $produit){
 		if($panier[$produit["abreviation"]]=="TRUE"){
-			$nbreProduits++;	
+			$nbreProduits+= $panier['qte_'.$produit["abreviation"]];	
 		}
 	}
 	return $nbreProduits;	
 }
+
+//fonction créant le modèle de la présentation du choix de livraison
+//on utilise les informations contenu dans la table livraison
 
 function livraison($nom, $prix, $delai){
 	$output="";
@@ -122,6 +184,8 @@ function livraison($nom, $prix, $delai){
 	echo $output;
 }
 
+
+//fonction générant les div livraison en fonction de la table livraison
 function panierLivraison($livraisons){
 	foreach($livraisons as $livraison){
 		if($livraison['nom']!=NULL && $livraison['prix']!=NULL && $livraison['delai']!=NULL){
@@ -130,6 +194,7 @@ function panierLivraison($livraisons){
 	}
 }
 
+//fonction calculant le nombre de produit total ainsi que les differant prix du panier de l'utilisateur
 function panierTotal($sousTotalNumber1, $sousTotalNumber2, $sousPrix1, $sousPrix2){
 	$nbreProduitsTotal= $sousTotalNumber1+$sousTotalNumber2;
 	$prixTotalHT= $sousPrix1 + $sousPrix2;
@@ -143,6 +208,7 @@ function panierTotal($sousTotalNumber1, $sousTotalNumber2, $sousPrix1, $sousPrix
 	return $output;
 }
 
+//fonction générant un tableau récapitulatif du contenu du panier de l'utilisateur(devis)
 function panierTableRecapitulatif($panier, $idpanier, $produits1, $produits2, $prixTTC, $prixLivraison){
 	$output='<table><thead><tr><th colspan="3">Recapitulatif de la commande</th></tr>';
 	$output .='<tr><th>PRODUIT</th><th>QUANTITE</th><th>PRIX</th></tr>';

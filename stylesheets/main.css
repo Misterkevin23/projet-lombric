@@ -626,6 +626,10 @@ th{
 	float: right;
 }
 
+.shopAction{
+
+}
+
 .produit{
 	overflow: auto;
 	margin: 10px auto;
@@ -637,6 +641,7 @@ th{
 .produitButton{
 	background-color: black;
 	font-size:1.7rem;
+	width: 100%;
     color: white;
     display: inline-block;
     padding: 14px 20px;
@@ -705,9 +710,11 @@ th{
 .panierButton{
 	background-color: grey;
     color: black;
+    width: 100%;
+    text-align: center;
     display: inline-block;
-    padding: 14px 20px;
-    margin: 8px 0;
+    padding: 23px;
+    margin: 8px auto;
     border: none;
     border-radius: 10px;
     box-shadow: 0px 0px 20px 10px black;
@@ -716,6 +723,7 @@ th{
 }
 
 .panierSuprimButton{
+	width: 65%;
 	background-color: red;
 	color: black;
 	display: inline-block;

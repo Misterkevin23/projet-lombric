@@ -44,7 +44,7 @@
 			
 			$lombricomposteur= produitLombricomposteur();
 
-			shopProduit($lombricomposteur,"pspl","shopAction.php", "produitlombricomposteur", $statuePanier, $idAdmin);
+			shopProduit($lombricomposteur,"pspl", "produitlombricomposteur", $statuePanier, $idAdmin, $panier);
 
 		?>	
 		<div class="page">
