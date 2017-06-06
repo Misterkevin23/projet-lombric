@@ -685,6 +685,20 @@ th{
 	margin: 5px 5px;
 }
 
+.produitPanier{
+	overflow: auto;
+}
+
+.produitPanierAdd{
+ width:60%;
+ float:left;
+}
+.produitPanierQuantiteAdd{
+	width:35%;
+ 	float:left;
+ 	margin:3rem 0;
+}
+
 .produitPrix{
 	font-size: 2em;
 }

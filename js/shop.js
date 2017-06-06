@@ -12,6 +12,10 @@ var theme2='#theme2 .supprimer';
 var id2Ni= $("#nombre2");
 var id2Pi= $("#sousTotal2");
 var activation=null;
+var express= $('.panierLivraison').eq(1).children('input');
+var expressPrice=parseInt(express.attr('value'));
+var colissimo= $('.panierLivraison').eq(0).children('input');
+var colissimoPrice= parseInt(colissimo.attr('value'));
 
 //***************************************************************************
 //-->FONCTION
@@ -35,6 +39,8 @@ function updatePanierButton(buttonTarget){
 		{
 			buttonTarget.children('input')
 				.eq(0).attr('value','NULL');
+			buttonTarget.children('p')
+				.text('Activer le panier');	
 			buttonTarget.children('input')
 				.eq(1).attr('value','Activer le panier');
 			select.eq(0).hide('slow');
@@ -51,6 +57,8 @@ function updatePanierButton(buttonTarget){
 				{
 					buttonTarget.children('input')
 						.eq(0).attr('value','NULL');
+					buttonTarget.children('p')
+						.text('Annuler');
 					buttonTarget.children('input')
 						.eq(1).attr('value','Annuler');
 					select.eq(0).hide('slow');
@@ -62,6 +70,8 @@ function updatePanierButton(buttonTarget){
 				{
 					buttonTarget.children('input')
 						.eq(0).attr('value','TRUE');
+					buttonTarget.children('p')
+						.text('Ajouter au panier');	
 					buttonTarget.children('input')
 						.eq(1).attr('value','Ajouter au panier');
 					select.eq(0).show('slow');	
@@ -86,7 +96,6 @@ function getPanier(buttonTarget){
 	if (req.status==200){
 		var panierUser = req.responseText;
 		panierUserArray= JSON.parse(panierUser);
-		console.log(panierUserArray);
 		updatePanierButton(buttonTarget);
 	}
 }
@@ -99,8 +108,7 @@ function actionPanier(buttonTarget){
 	var action=
 		buttonTarget.children('input').eq(1).val();
 	
-	var selected= buttonTarget.next().eq(0).val();
-	console.log(selected);		
+	var selected= buttonTarget.next().eq(0).val();	
 	var nombre= parseFloat($('#nbreArticle').text());
 	var nombreI= parseFloat(buttonTarget.next().eq(0).val());
 	if(etat =='NULL' && action == 'Annuler')
@@ -108,7 +116,9 @@ function actionPanier(buttonTarget){
 		buttonTarget.children('input')
 			.eq(0).attr('value','TRUE');
 		buttonTarget.children('input')
-			.eq(1).attr('value','Ajouter au panier');	
+			.eq(1).attr('value','Ajouter au panier');
+		buttonTarget.children('p')
+				.text('Ajouter au panier');		
 		var panierNbre = nombre-nombreI;
 		buttonTarget.next().eq(0).attr('value', selected); 
 		buttonTarget.next().eq(0).show('slow');
@@ -117,6 +127,8 @@ function actionPanier(buttonTarget){
 	{
 		buttonTarget.children('input')
 			.eq(0).attr('value','NULL');
+		buttonTarget.children('p')
+				.text('Annuler');	
 		buttonTarget.children('input')
 			.eq(1).attr('value','Annuler');
 		var panierNbre = nombre+nombreI;
@@ -163,8 +175,6 @@ function processPanier(button){
 function processPanierAction(buttonTarget){
 	if(activation==true)
 	{
-		console.log('111');
-		console.log(panierUserArray[produitList]);
 		if(panierUserArray[produitList]!=false)
 		{
 			buttonTarget.click(function(){
@@ -231,42 +241,81 @@ function updataPanierNumberPrice(buttonTarget, idNi, idPi){
 	});
 }
 
-function DataTotalPanier(buttonTarget){
-	buttonTarget.click(function(){
-		console.log($('#nombre1').text());
-		var nombre1=parseInt($('#nombre1').text());
-		var nombre2=parseInt($('#nombre2').text());
-		var prix1= parseInt($("#sousTotal1").text());
-		var prix2= parseInt($("#sousTotal2").text());
+//Fonction de mise a jour du total global du panier
+function dataTotalCalcul(express, colissimo){
+	var nombre1=parseInt($('#nombre1').text());
+	var nombre2=parseInt($('#nombre2').text());
+	var prix1= parseInt($("#sousTotal1").text());
+	var prix2= parseInt($("#sousTotal2").text());
+	var frais = parseInt($('#fraisLivraison').text())
+	var livraison=0;
 
-		var nombreTotal=nombre1+nombre2;
-		var prixTotal=prix1+prix2;
-		var prixTTC=(prixTotal*19.6)/100;
-		console.log(nombreTotal);
-		$('.panierTotal')
-			.eq(0).text('NOMBRE D\'ARTICLE : '+ nombreTotal);
-		$('.panierTotal')
-			.eq(1).html('<p class="panierTotal">Total de vos articles hors frais de livraison: '+prixTotal+' <i class="fa fa-eur" aria-hidden="true"></i></p>');
-		$('.panierTotal')
-			.eq(4).html('<p class="panierTotal">Total de votre commande: '+prixTTC+ '<i class="fa fa-eur" aria-hidden="true"></i></p>');
+	var nombreTotal=nombre1+nombre2;
+	var prixTotal=prix1+prix2;
+
+	if(colissimo.attr('checked')=='checked'
+		|| express.attr('checked')=='checked')
+	{
+		livraison=frais;
+	}
+	
+	console.log(livraison);
+	var prixTTC=((prixTotal*19.6)/100)+livraison+prixTotal;
+	console.log(nombreTotal);
+	$('.panierTotal')
+		.eq(0).text('NOMBRE D\'ARTICLE : '+ nombreTotal);
+	$('.panierTotal')
+		.eq(1).html('Total de vos articles hors frais de livraison: '+prixTotal+' <i class="fa fa-eur" aria-hidden="true"></i>');
+	$('.panierTotal')
+		.eq(3).html('Total de votre commande: '+prixTTC+ '<i class="fa fa-eur" aria-hidden="true"></i>');
+}		
+
+//fonction du choix de mode de livraison avec
+//Fonction de mise a jour du total global du panier
+function selectLivraison(buttonTarget, price, express, colissimo){
+	buttonTarget.on('click', function(){
+		$('.panierLivraison').children('input').removeAttr('checked');
+		buttonTarget.attr('checked','');
+		$('form .button input').removeAttr('disabled');
+		$('form .button input').attr('value','Payer');
+		$('#fraisLivraison').text(price);
+		$('form').attr('action','paiement_recapitulatif.php');
+		dataTotalCalcul(express, colissimo);
+	});	
+}
+
+//fonction gerant l'activation ou non du formulaire dependant
+//du choix de livraison
+function livraisonPrice(express, colissimo){
+	
+	$('form .button input').attr('disabled','');
+	$('form .button input').attr('value','Veuillez choisir votre mode de livraison');
+	$('form').attr('action','#');
+	selectLivraison(express, expressPrice, express, colissimo);
+	selectLivraison(colissimo, colissimoPrice, express, colissimo);
+}
+
+//Fonction de mise a jour du total global du panier
+function DataTotalPanier(buttonTarget, express, colissimo){
+	
+	buttonTarget.click(function(){
+		dataTotalCalcul(express, colissimo)
 	});	
 }
 
 //Fonction gerant les animation panier 
 //( ajout/suppresion de produit --> sous total et zone users)
 //(supression de la div produit lors du click supprimer)
-function updatePanier(target, theme, idNi, idPi){
+function updatePanier(target, theme, idNi, idPi, express, colissimo){
 	for(var i=1; i<= target.length; i++)
 	{
 		button= $(theme+i);
 		processPanierAction(button);
 		removePanier(button);
 		updataPanierNumberPrice(button, idNi, idPi);
-		DataTotalPanier(button);
+		DataTotalPanier(button, express, colissimo);
 	}
 }
-
-
 
 
 // function processPanierQuantiteAction(buttonTarget){
@@ -314,16 +363,18 @@ for(var i=1; i<= $('.produit').length; i++)
 	var quantiteName = button.next().eq(0).attr('name');
 
 	processPanierAction(button);
-
 }
 
-updatePanier(target1, theme1, id1Ni, id1Pi);
-updatePanier(target2, theme2, id2Ni, id2Pi);
+livraisonPrice(express, colissimo);
 
-$('form').on('change', function(){
-console.log('1111');
-DataTotalPanier();
-});
+
+updatePanier(target1, theme1, id1Ni, id1Pi, express, colissimo);
+updatePanier(target2, theme2, id2Ni, id2Pi, express, colissimo);
+
+
+
+	
+
 
 // id2Ni.on('change', function(){
 // console.log('2222');

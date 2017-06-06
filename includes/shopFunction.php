@@ -13,15 +13,16 @@ function produits($nom, $resume, $prix, $statue, $lien, $id, $idAdmin,$abrev, $p
 	echo '</div>';
 	echo '<div class="produitAction">';
 	echo '<h4>'.$statue.'</h4>';
-	echo '<div>';
-	echo '<div class="button'.$id.'">';
+	echo '<div class="produitPanier">';
+	echo '<div class="produitPanierAdd button'.$id.'">';
 	$panierName=$abrev.$id;
 	$panierQte= 'qte_'.$panierName;
 	echo '<input type="hidden" name="'.$panierName.'" value="TRUE">';
-	echo '<input type="submit" id="panier" class="panierButton" value="Ajouter au panier">';
+	echoP("panierButton","Ajouter au panier");
+	echo '<input type="hidden" id="panier" value="Ajouter au panier">';
 	echo '<input type="hidden" name="'.$statuePanier.'" value="'.$idAdmin.'"></br>';
 	echo '</div>';
-	echo '<select style="width:70%" name="'.$panierQte.'" value="1">';
+	echo '<select class="produitPanierQuantiteAdd" name="'.$panierQte.'" value="1">';
 	for($i=1; $i<50; $i++)
 	{
 		if($i==$quantite)
@@ -202,8 +203,8 @@ function panierTotal($sousTotalNumber1, $sousTotalNumber2, $sousPrix1, $sousPrix
 	$output="";
 	$output.= '<p class="panierTotal">NOMBRE D\'ARTICLE :'. $nbreProduitsTotal. '</p>';
 	$output.= '<p class="panierTotal">Total de vos articles hors frais de livraison: '.$prixTotalHT.' <i class="fa fa-eur" aria-hidden="true"></i></p>';
-	$output.= '<p class="panierTotal">Total de vos frais de livraison: XXXX euro</p>';
-	$output.= '<p class="panierTotal">Total de votre commande: '.$prixTotalTTC. '<i class="fa fa-eur" aria-hidden="true"></i></p>';
+	$output.= '<p class="panierTotal">Total de vos frais de livraison: <span id="fraisLivraison"> 0 </span><i class="fa fa-eur" aria-hidden="true"></i></p>';
+	$output.= '<p class="panierTotal">Total de votre commande: <span id="prixTTC">'.$prixTotalTTC. '</span><i class="fa fa-eur" aria-hidden="true"></i></p>';
 
 	return $output;
 }
