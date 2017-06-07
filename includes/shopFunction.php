@@ -1,4 +1,5 @@
 <?php
+
 //fonction créant le modèle de la présentation d'un produit
 //on utilise les informations contenu dans la table produit
 //ainsi que des information des utilisateurs pour lier la requeté a l'utilisateur donnée par la SESSION($statuePanier, $IdAdmin)
@@ -39,9 +40,25 @@ function produits($nom, $resume, $prix, $statue, $lien, $id, $idAdmin,$abrev, $p
 	echo '<form>';
 	echo '<a href="" name="'.$id.'" class="produitButton"> Voir le produit </a></br>';
 	echo '</form>';
-	echo '<form method=POST action="paiement_recapitulatif.php">';
-	echo '<input type="checkbox" name="'.$id.'"><input type="submit" class="formButtun" value="Achat direct"></br>';
-	echo '</form>';
+	echo '<form method="post" action="paiement_recapitulatif.php">';
+	echo '<div class="produitPanierForm">';
+	echo '<input type="submit" class="produitPanierDirectButton" name="'.$statuePanier.'" value="Achat direct">';
+	echo '<input type="hidden" class="produitPanierDirectButton" name="prix" value="'.$prix.'">';
+	echo '<input type="hidden" class="produitPanierDirectButton" name="'.$panierName.'" value="'.$statuePanier.'">';
+	echo '<select class="produitPanierQuantiteAdd" name="qte" value="1">';
+	for($i=1; $i<50; $i++)
+	{
+		if($i==$quantite)
+		{
+			echo '<option selected>'.$i.'</option>';
+		}
+		else
+		{
+			echo '<option>'.$i.'</option>';
+		}
+	}
+	echo '</select>';
+	echo '</div></form>';
 	echo '<p class="produitPrix">'.$prix.'<i class="fa fa-eur" aria-hidden="true"></i></p>';
 	echo '</div></div>';
 	if($exist==FALSE)
@@ -170,7 +187,6 @@ function nbreProduitPanierByPart($produits, $idpanier){
 
 //fonction créant le modèle de la présentation du choix de livraison
 //on utilise les informations contenu dans la table livraison
-
 function livraison($nom, $prix, $delai){
 	$output="";
 	$output.= '<div class="panierLivraison">';
@@ -210,32 +226,53 @@ function panierTotal($sousTotalNumber1, $sousTotalNumber2, $sousPrix1, $sousPrix
 }
 
 //fonction générant un tableau récapitulatif du contenu du panier de l'utilisateur(devis)
-function panierTableRecapitulatif($panier, $idpanier, $produits1, $produits2, $prixTTC, $prixLivraison){
-	$output='<table><thead><tr><th colspan="3">Recapitulatif de la commande</th></tr>';
+function panierTableRecapitulatif($post, $statuePanier, $panier, $produits1, $produits2, $prixTTC, $prixLivraison){
+	$output='<br><br><br><table><thead><tr><th colspan="3">Recapitulatif de la commande</th></tr>';
 	$output .='<tr><th>PRODUIT</th><th>QUANTITE</th><th>PRIX</th></tr>';
 	$output.='</thead>';
 	$output.='<tbody>';
-	$panier=panierSelected($idpanier);
 	foreach ($produits1 as $produit){
-		if($panier[$produit["abreviation"]]=="TRUE"){	
+		$nomPanier=$panier[$produit["abreviation"]];
+		$QtePanier=$panier['qte_'.$produit["abreviation"]];
+		$statue="TRUE";
+
+		if($statuePanier=='visit' 
+			&& isset($post) && isset($post[$produit["abreviation"]]) 						&& $post[$statuePanier]=="Achat direct")
+		{
+			$nomPanier=array_search('visit', $post);
+			$QtePanier=$post['qte'];
+			$statue=$produit["abreviation"];
+		}
+		if($nomPanier==$statue){	
 			$output.= '<tr>';
 			$output.='<td><h3>' . $produit["nom"] . ' ' .'</h3></td>';
 			$output.='<td><p class="panierProduitPrix">';
-			$output.= $panier['qte_'.$produit["abreviation"]].'</td>';
+			$output.= $QtePanier.'</td>';
 			$output.='<td class="panierProduitPrix">'.$produit["prix"];
 			$output.='</td>';
 		}
-	}
+	}	
 	foreach ($produits2 as $produit){
-		if($panier[$produit["abreviation"]]=="TRUE"){	
+		$nomPanier=$panier[$produit["abreviation"]];
+		$QtePanier=$panier['qte_'.$produit["abreviation"]];
+		$statue="TRUE";
+		
+		if($statuePanier=='visit' 
+			&& isset($post) && isset($post[$produit["abreviation"]]) 						&& $post[$statuePanier]=="Achat direct")
+		{
+			$nomPanier=array_search('visit', $post);
+			$QtePanier=$post['qte'];
+			$statue=$produit["abreviation"];
+		}
+		if($nomPanier==$statue){	
 			$output.= '<tr>';
 			$output.='<td><h3>' . $produit["nom"] . ' ' .'</h3></td>';
 			$output.='<td><p class="panierProduitPrix">';
-			$output.= $panier['qte_'.$produit["abreviation"]].'</td>';
+			$output.= $QtePanier.'</td>';
 			$output.='<td class="panierProduitPrix">'.$produit["prix"];
 			$output.='</td>';
 		}
-	}
+	}			
 	$output.= '</tr></tbody>';	
 	$output.='<tfoot>';
 	$output.='<tr>';

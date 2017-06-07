@@ -43,8 +43,7 @@
 
 		<div class="panierRecapitulatif">
 			<?php
-
-				if($panierConnected==TRUE && isset($_POST))
+				if($panierConnected==TRUE && isset($_POST) 						&& isset($_POST['idPanier']) && $_POST['idPanier']=='Payer')
 				{
 					$jardinerie= produitJardinerie();
 
@@ -54,11 +53,41 @@
 
 					$prixLivraison= $_POST['livraison'];
 
-					echo panierTableRecapitulatif($panier, $idPanier, $jardinerie, $lombricomposteur, $prixTTC, $prixLivraison);
+					echo panierTableRecapitulatif($_POST, $statuePanier, $panier, $jardinerie, $lombricomposteur, $prixTTC, $prixLivraison);
 				}
-				else
+				elseif($panierConnected==TRUE && isset($_POST) && $_POST[$statuePanier]=="Achat direct")
 				{
-					
+			       	panierLivraison(livraisonMode());
+
+					$jardinerie= produitJardinerie();
+
+					$lombricomposteur= produitLombricomposteur();
+
+					$price= $_POST["prix"]*$_POST["qte"];
+
+					$prixTTC=(($price*19.6)/100)+$price;
+
+					$prixLivraison=0;
+
+					echo panierTableRecapitulatif($_POST, $statuePanier, $panier, $jardinerie, $lombricomposteur, $prixTTC, $prixLivraison);
+					var_dump($_POST);
+				}
+				elseif($panierConnected==FALSE && isset($_POST) && $_POST[$statuePanier]=="Achat direct")
+				{
+			       	panierLivraison(livraisonMode());
+
+					$jardinerie= produitJardinerie();
+
+					$lombricomposteur= produitLombricomposteur();
+
+					$price= $_POST["prix"]*$_POST["qte"];
+
+					$prixTTC=(($price*19.6)/100)+$price;
+
+					$prixLivraison=0;
+
+					echo panierTableRecapitulatif($_POST, $statuePanier, $panier, $jardinerie, $lombricomposteur, $prixTTC, $prixLivraison);
+					var_dump($_POST);
 				}
 			?>
 		</div>

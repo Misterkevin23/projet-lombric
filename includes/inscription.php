@@ -9,7 +9,7 @@
 <p><input type="radio" name="compte" value="yes" class="inscrit" checked="checked">Vous avez un compte PUMPCrew</p><br><br>
 <p><input type="radio" name="compte" value="non" class="inscritPanier">Acceder à votre panier</p><br>
 <div>
-	<form method="post" name="connexion" onSubmit="return connexion_form();" action="connexion.php" class="connexionCadre">
+	<form method="post" name="connexion" action="connexion.php" class="connexionCadre">
 		<?php
 			include '../includes/form/pseudoForm.php';
 			include '../includes/form/motDePasseForm.php';
@@ -22,7 +22,7 @@
 </div>
 
 <div>
-	<form method="post" name="preinscription" onSubmit="return verification_form();" action="inscriptionForm.php" 						class="inscriptionCadre">		
+	<form method="post" name="preinscription" action="inscriptionForm.php" 						class="inscriptionCadre">		
 		<?php
 			include '../includes/form/emailForm.php';
 			include '../includes/form/pseudoForm.php';
@@ -37,7 +37,7 @@
 </div>
 
 <div>
-	<form method="post" name="connexion" onSubmit="return connexion_form();" action="connexion.php" class="connexionPanierCadre">
+	<form method="post" name="connexion" action="connexion.php" class="connexionPanierCadre">
 		<?php
 			include '../includes/form/emailForm.php';
 			include '../includes/form/motDePasseForm.php';

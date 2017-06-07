@@ -85,6 +85,13 @@ function updatePanierButton(buttonTarget){
 	}
 }
 
+function hideButton(j){
+	if(activation==true)
+	{
+	$('.produit').children('.produitAction').children('form').eq(j).hide();
+	}
+}
+
 //requete ajax de recuperation du panier
 function getPanier(buttonTarget){
 	console.log('Requête ajax');
@@ -271,15 +278,15 @@ function dataTotalCalcul(express, colissimo){
 }		
 
 //fonction du choix de mode de livraison avec
-//Fonction de mise a jour du total global du panier
+//appel de la fonction de mise a jour du total global du panier
 function selectLivraison(buttonTarget, price, express, colissimo){
 	buttonTarget.on('click', function(){
 		$('.panierLivraison').children('input').removeAttr('checked');
 		buttonTarget.attr('checked','');
-		$('form .button input').removeAttr('disabled');
-		$('form .button input').attr('value','Payer');
+		$('#panierForm .button input').removeAttr('disabled');
+		$('#panierForm .button input').eq(0).attr('value','Payer');
 		$('#fraisLivraison').text(price);
-		$('form').attr('action','paiement_recapitulatif.php');
+		$('#panierForm').attr('action','paiement_recapitulatif.php');
 		dataTotalCalcul(express, colissimo);
 	});	
 }
@@ -288,9 +295,9 @@ function selectLivraison(buttonTarget, price, express, colissimo){
 //du choix de livraison
 function livraisonPrice(express, colissimo){
 	
-	$('form .button input').attr('disabled','');
-	$('form .button input').attr('value','Veuillez choisir votre mode de livraison');
-	$('form').attr('action','#');
+	$('#panierForm .button input').attr('disabled','');
+	$('#panierForm .button input').eq(0).attr('value','Veuillez choisir votre mode de livraison');
+	$('#panierForm').attr('action','#');
 	selectLivraison(express, expressPrice, express, colissimo);
 	selectLivraison(colissimo, colissimoPrice, express, colissimo);
 }
@@ -349,11 +356,13 @@ function countPanier(){
 //***************************************************************************
 
 //Boucle affectant l'action du bouton ajout/suppression pour chaque article
-
+var j=1
 for(var i=1; i<= $('.produit').length; i++)
 {
 	var button=	$(".button"+i);
-	getPanier(button);	
+	getPanier(button);
+	hideButton(j);
+	j=j+2;
 }
 
 for(var i=1; i<= $('.produit').length; i++)

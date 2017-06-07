@@ -27,7 +27,7 @@
 				$prixTotal=0;
 				$nbreProduits=0;
 			?>
-			<form method=POST action="paiement_recapitulatif.php">
+			<form method=POST id="panierForm" action="paiement_recapitulatif.php">
 				<h2> JARDINIERE</h2>
 				<div id="theme1" class="produit">
 				<?php	
