@@ -108,7 +108,7 @@
 				<!-- </form> -->			
 				<h2> TOTAL</h2>
 				<?php
-
+	
 					echo panierTotal($nbreProduitJardiniere, $nbreProduitLombricomposteur, $prixTotalJardiniere, $prixTotalLombricomposteur);
 
 					$nbreProduitsTotal= $nbreProduitJardiniere+$nbreProduitLombricomposteur;

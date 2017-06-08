@@ -226,12 +226,12 @@ function panierTotal($sousTotalNumber1, $sousTotalNumber2, $sousPrix1, $sousPrix
 }
 
 //fonction générant un tableau récapitulatif du contenu du panier de l'utilisateur(devis)
-function panierTableRecapitulatif($post, $statuePanier, $panier, $produits1, $produits2, $prixTTC, $prixLivraison){
+function panierTableRecapitulatif($post, $statuePanier, $panier, $produits, $prixTTC, $prixLivraison){
 	$output='<br><br><br><table><thead><tr><th colspan="3">Recapitulatif de la commande</th></tr>';
 	$output .='<tr><th>PRODUIT</th><th>QUANTITE</th><th>PRIX</th></tr>';
 	$output.='</thead>';
 	$output.='<tbody>';
-	foreach ($produits1 as $produit){
+	foreach ($produits as $produit){
 		$nomPanier=$panier[$produit["abreviation"]];
 		$QtePanier=$panier['qte_'.$produit["abreviation"]];
 		$statue="TRUE";
@@ -251,28 +251,7 @@ function panierTableRecapitulatif($post, $statuePanier, $panier, $produits1, $pr
 			$output.='<td class="panierProduitPrix">'.$produit["prix"];
 			$output.='</td>';
 		}
-	}	
-	foreach ($produits2 as $produit){
-		$nomPanier=$panier[$produit["abreviation"]];
-		$QtePanier=$panier['qte_'.$produit["abreviation"]];
-		$statue="TRUE";
-		
-		if($statuePanier=='visit' 
-			&& isset($post) && isset($post[$produit["abreviation"]]) 						&& $post[$statuePanier]=="Achat direct")
-		{
-			$nomPanier=array_search('visit', $post);
-			$QtePanier=$post['qte'];
-			$statue=$produit["abreviation"];
-		}
-		if($nomPanier==$statue){	
-			$output.= '<tr>';
-			$output.='<td><h3>' . $produit["nom"] . ' ' .'</h3></td>';
-			$output.='<td><p class="panierProduitPrix">';
-			$output.= $QtePanier.'</td>';
-			$output.='<td class="panierProduitPrix">'.$produit["prix"];
-			$output.='</td>';
-		}
-	}			
+	}				
 	$output.= '</tr></tbody>';	
 	$output.='<tfoot>';
 	$output.='<tr>';

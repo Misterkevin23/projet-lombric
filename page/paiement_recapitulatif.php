@@ -49,29 +49,15 @@
 
 					$lombricomposteur= produitLombricomposteur();
 
+					$produits=array_merge($lombricomposteur, $jardinerie);
+
 					$prixTTC= $_POST['prixTTC'];
 
 					$prixLivraison= $_POST['livraison'];
 
-					echo panierTableRecapitulatif($_POST, $statuePanier, $panier, $jardinerie, $lombricomposteur, $prixTTC, $prixLivraison);
+					echo panierTableRecapitulatif($_POST, $statuePanier, $panier, $produits, $prixTTC, $prixLivraison);
 				}
-				elseif($panierConnected==TRUE && isset($_POST) && $_POST[$statuePanier]=="Achat direct")
-				{
-			       	panierLivraison(livraisonMode());
-
-					$jardinerie= produitJardinerie();
-
-					$lombricomposteur= produitLombricomposteur();
-
-					$price= $_POST["prix"]*$_POST["qte"];
-
-					$prixTTC=(($price*19.6)/100)+$price;
-
-					$prixLivraison=0;
-
-					echo panierTableRecapitulatif($_POST, $statuePanier, $panier, $jardinerie, $lombricomposteur, $prixTTC, $prixLivraison);
-					var_dump($_POST);
-				}
+			
 				elseif($panierConnected==FALSE && isset($_POST) && $_POST[$statuePanier]=="Achat direct")
 				{
 			       	panierLivraison(livraisonMode());
@@ -80,13 +66,15 @@
 
 					$lombricomposteur= produitLombricomposteur();
 
+					$produits=array_merge($lombricomposteur, $jardinerie);
+
 					$price= $_POST["prix"]*$_POST["qte"];
 
 					$prixTTC=(($price*19.6)/100)+$price;
 
 					$prixLivraison=0;
 
-					echo panierTableRecapitulatif($_POST, $statuePanier, $panier, $jardinerie, $lombricomposteur, $prixTTC, $prixLivraison);
+					echo panierTableRecapitulatif($_POST, $statuePanier, $panier, $produits, $prixTTC, $prixLivraison);
 					var_dump($_POST);
 				}
 			?>
