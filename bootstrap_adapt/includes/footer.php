@@ -8,7 +8,7 @@
 						<img src="../icon/email.jpg">
 					</div>
 					<div class="footerText">
-						<p>FuriousCrew company</br>
+						<p><strong>FuriousCrew company</strong></br>
 						23 avenue de la gare,</br>
 						73012 PARIS</br></p>
 					</div>	
@@ -18,7 +18,7 @@
 			<li>
 				<h5>Nous contacter</h5>	
 					<p><i class="fa fa-phone" aria-hidden="true" class="footerIcon"></i>	01.66.66.66.66</p>
-					<p><i class="fa fa-envelope-open-o" aria-hidden="true" class="footerIcon"></i>		pas.ke@live.com</p>
+					<p><i class="fa fa-envelope-open-o" aria-hidden="true" class="footerIcon"></i><a href="mailto:#">pas.ke@live.com</a></p>
 			</li>
 	
 			<li>
