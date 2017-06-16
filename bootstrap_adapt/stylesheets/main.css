@@ -600,7 +600,10 @@ th{
     margin-bottom:1.3rem;
 	border-radius: 2rem;
 }
-
+.annexe{
+	/*position: absolute;
+	left: -999em;*/
+}
 .shopNavigateur{
 	overflow: auto;
 	margin: 0px auto;

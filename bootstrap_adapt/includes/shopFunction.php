@@ -58,7 +58,7 @@ function produitActionDirectButton($statuePanier, $prix, $quantite, $panierName,
 function produits($nom, $resume, $prix, $statue, $lien, $id, $idAdmin,$abrev, $produitTable, $statuePanier,$quantite, $exist){			
 	$panierName=$abrev.$id;
 	$panierQte= 'qte_'.$panierName;
-	echo '<div style="background:#F0F2DD" class="container-fluid produit">';
+	echo '<div style="background:#F0F2DD" class="container-fluid produit annexe annexe'.$id.'">';
 	echo '<div id="MainAnnexe'.$id.'" class="row"><div class="col-lg-6 col-sm-6">';
 	echo produitActionPanierButton($statue, $id, $abrev, $statuePanier, $idAdmin, $quantite, $panierName, $panierQte);
 	echo '</div><div id="returnList'.$id.'" class="col-lg-6 col-sm-6">';
@@ -111,7 +111,6 @@ function shopProduit($produits, $abrev,$produitTable, $statuePanier, $idAdmin, $
 	foreach($produits as $produit){
 		if($produit["nom"]!=NULL AND $produit["resume"]!=NULL AND $produit["prix"]!=NULL AND $produit["statue"]!=NULL AND $produit["lien"]!=NULL AND $produit["id"]!=NULL AND isset($panier))
 		{
-			echo '0000';
 			if(isset($panier[$produit["abreviation"]]))
 			{	
 				$exist=TRUE;

@@ -91,15 +91,6 @@ var marginStart= function(){
 	$(".footerText").css("margin-top", footerContnerMargin);
 	$(".footerText").css("margin-bottom", footerContnerMargin);
 	})
-
-	var produitPresentationMargin= ($(".produit").width()-($(".produitPhoto").width()+$(".produitDescription").width()+$(".produitAction").width()+20))/6;
-	produitPresentationMargin= produitPresentationMargin + "px";	
-	$(".produitPhoto").css("margin-left", produitPresentationMargin);
-	$(".produitPhoto").css("margin-right", produitPresentationMargin);
-	$(".produitDescription").css("margin-left", produitPresentationMargin);
-	$(".produitDescription").css("margin-right", produitPresentationMargin);	
-	$(".produitAction").css("margin-left", produitPresentationMargin);
-	$(".produitAction").css("margin-right", produitPresentationMargin);
 }
 
 // Recherche en cour--effet puce navigateur

@@ -5,7 +5,7 @@
 var urlBase='http://localhost/projet_lombric/bootstrap_adapt/';
 var panierUserArray=null;
 var annexeProduitArray={};
-
+var produitPresentationMargin=0;
 
 
 var target1= $('#theme1 .panierProduit');
@@ -48,7 +48,8 @@ function updatePanierButton(buttonTarget){
 				.text('Activer le panier');	
 			buttonTarget.children('input')
 				.eq(1).attr('value','Activer le panier');
-			select.eq(0).hide('slow');
+			// select.eq(0).hide('slow');
+			buttonTarget.next().hide('slow');
 			activation=false;
 		}
 		else
@@ -339,7 +340,7 @@ function produitMainAnnexe(annexeProduitArray){
 	mainAnnexe+='<img style="width:75px" src="'+annexeProduitArray[0]['lien3']+'">';
 	mainAnnexe+='</div><div class="col-lg-1 col-sm-1">';
 	mainAnnexe+='<img style="width:42px" src="'+annexeProduitArray[0]['lien3']+'">';
-	mainAnnexe+='</div><div class="col-lg-7 col-sm-7"><h3>'+annexeProduitArray[0]['lien3']+'</h3>';
+	mainAnnexe+='</div><div class="col-lg-7 col-sm-7"><h3>'+annexeProduitArray[0]['nom']+'</h3>';
 	mainAnnexe+='<p style="box-shadow: 10px 10px 5px #656565">'+annexeProduitArray[0]['resume']+'</p>';
 	mainAnnexe+='<p class="produitPrix">'+annexeProduitArray[0]['prix']+'<i class="fa fa-eur" aria-hidden="true"></i></p>';
 	mainAnnexe+='</div><div class="col-lg-1 col-sm-1">';
@@ -369,24 +370,90 @@ function produit3Annexe(annexeProduitArray){
 	annexe3+='</div>';
 	return annexe3; 
 }
+//Fonction gérant les marge des produit
+function MarginProduit(produitPresentationMargin){
+	produitPresentationMargin= produitPresentationMargin + "px";	
+	$(".produitPhoto").css("margin-left", produitPresentationMargin);
+	$(".produitPhoto").css("margin-right", produitPresentationMargin);
+	$(".produitDescription").css("margin-left", produitPresentationMargin);
+	$(".produitDescription").css("margin-right", produitPresentationMargin);	
+	$(".produitAction").css("margin-left", produitPresentationMargin);
+	$(".produitAction").css("margin-right", produitPresentationMargin);
+}
 
-//Requete ajax pour obtention des donnée annexe
-function getProduitAnnexe(id){
-	console.log('Requête ajax');
-	var url = urlBase + 'page/ajaxProduit.php?id='+id;
-	var req = new XMLHttpRequest(); 
-	req.open('GET', url, false);
-	req.send(null);
-
-	if (req.status==200){
-		var annexeProduit = req.responseText;
-		annexeProduitArray= JSON.parse(annexeProduit);
-		console.log(annexeProduitArray);
-		console.log(id);
-		$('#MainAnnexe'+annexeProduitArray[0]['id']).prepend(produitMainAnnexe(annexeProduitArray));
-		$('#3annexe'+annexeProduitArray[0]['id']).prepend(produit1Annexe(annexeProduitArray));
-		$('#3annexe'+annexeProduitArray[0]['id']).append(produit3Annexe(annexeProduitArray));
+//fonction de gestion des sous annexe
+function sousAnnexe(id){
+	console.log('ok3');
+	if($('#annexe'+id).hasClass('return'+id)){
+		console.log('ok4');
+		var caracteristique = $('#1annexe'+id).children('ul').children('li').eq(0);
+		var contenu = $('#1annexe'+id).children('ul').children('li').eq(2);
+		var annexe3 =$('#3annexe'+id).children('div').eq(1);
+		var annexe1 = $('#3annexe'+id).children('div').eq(0);
+		annexe3.hide();
+		annexe1.hide();
+		caracteristique.click(function(){
+			console.log('ok');
+			annexe1.show();
+			annexe3.hide();
+		});
+		contenu.click(function(){
+			console.log('ok2');
+			annexe1.hide();
+			annexe3.show();
+		});
 	}
+}
+//Requete ajax pour obtention des donnée annexe
+function getProduitAnnexe(id, buttonTarget){
+		
+	$(document).ready(function(){
+	produitPresentationMargin=(($(".produitPhoto").innerWidth()+$(".produitDescription").innerWidth()+$(".produitAction").innerWidth())-$(".produit").innerWidth())/6;
+
+	MarginProduit(produitPresentationMargin)
+	});
+	$(document).mousemove(function(){
+	produitPresentationMargin=(($(".produitPhoto").innerWidth()+$(".produitDescription").innerWidth()+$(".produitAction").innerWidth())-$(".produit").innerWidth())/6;
+	MarginProduit(produitPresentationMargin)
+	});
+	$('.annexe').hide();
+	
+	buttonTarget.click(function(){
+		$(document).mousemove(function(){
+		produitPresentationMargin=($(".produit").innerWidth()-($(".produitPhoto").innerWidth()+$(".produitDescription").innerWidth()+$(".produitAction").innerWidth()+20))/6;
+		MarginProduit(produitPresentationMargin)
+		})
+		var showAnnexe=$('.annexe'+id);
+		if($('#annexe'+id).text()=='Reduire'){
+			$('#annexe'+id).text('Voir le produit');
+			showAnnexe.hide();
+		}
+		else if($('#annexe'+id).hasClass('return'+id)){
+			showAnnexe.show();
+			$('#annexe'+id).text('Reduire');	
+		}
+		else{		
+			showAnnexe.show();
+			console.log('Requête ajax');
+			var url = urlBase + 'page/ajaxProduit.php?id='+id;
+			var req = new XMLHttpRequest(); 
+			req.open('GET', url, false);
+			req.send(null);
+
+			if (req.status==200){
+				var annexeProduit = req.responseText;
+				annexeProduitArray= JSON.parse(annexeProduit);
+				console.log(annexeProduitArray);
+				console.log(id);
+				$('#MainAnnexe'+annexeProduitArray[0]['id']).prepend(produitMainAnnexe(annexeProduitArray));
+				$('#3annexe'+annexeProduitArray[0]['id']).prepend(produit1Annexe(annexeProduitArray));
+				$('#3annexe'+annexeProduitArray[0]['id']).append(produit3Annexe(annexeProduitArray));
+				buttonTarget.text('masquer');
+				$('#annexe'+id).addClass('return'+id).text('Reduire');
+				sousAnnexe(id);
+			};
+		}	
+	});	
 }
 
 // function processPanierQuantiteAction(buttonTarget){
@@ -420,34 +487,28 @@ function countPanier(){
 //***************************************************************************
 
 //Boucle affectant l'action du bouton ajout/suppression pour chaque article
-var j=0;
-for(var i=1; i<= $('.container-fluid').length; i++)
+var id=[];
+for(var i=0; i<$('.produit .produitAction').length; i++)
 {
-	var button=	$(".button"+i);
+	var strId=$('.produit .produitAction').children('div').children('p').eq(i).attr('value')
+	id[i]=parseInt(strId);
+	console.log(id);
+}
+var j=1;	
+var i=0;
+
+$('.produit .produitAction').each(function(){
+	var button=	$(".button"+id[i]);
+	var button2=$("#annexe"+id[i]);
 	getPanier(button);
-	hideButton(i,j);
-	j++;
-}
-var z =0;
-for(var i=1; i<= $('.container-fluid').length; i++)
-{
-	var button=	$(".button"+i);
-	var nameProduit= button.children('input').eq(0).attr('name');
-	var quantiteName = button.next().eq(0).attr('name');
-	var strId=$('.produit .produitAction').children('div').children('p').eq(z).attr('value')
-	var id=parseInt(strId);
 	processPanierAction(button);
-	
-	var button2=$("#annexe"+id);
-	button2.on('click',function(){
-	getProduitAnnexe(id);
-	console.log(button2);
-	console.log(id);
-	});
-	console.log(button2);
-	console.log(id);
-	z++;
-}
+	getProduitAnnexe(id[i], button2);
+	hideButton(j,i);
+	console.log(id[i]);	
+	i++;
+	j++;
+});
+
 
 livraisonPrice(express, colissimo);
 
