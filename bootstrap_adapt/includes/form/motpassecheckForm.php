@@ -1,2 +1,0 @@
-<label for="passwordCheck"><span class="formInfo">Vérification* :</span></label>
-<input type="password" id="passwordCheck" name="motpassecheck" class="formTape" value="" placeholder="p&trick59" onkeydown="" >

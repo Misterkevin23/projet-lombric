@@ -2,7 +2,7 @@
 	include '../includes/connexionDb.php';
 	include '../includes/mainConnexionChooseSession.php';
 
-	$users = connectUser();
+	$users = connectUsersByMailAndFirstname();
 
 	echo json_encode($users);
 

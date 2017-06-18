@@ -21,7 +21,7 @@
 		</div>
 		
 		<div class="aside">
-			<form method="post" name="inscription" onSubmit="return verification_form();" action="confirmationInscription.php">
+			<form method="post" name="inscription" action="confirmationInscription.php">
 				<fieldset>
 					<legend>Mon identifiant et mon mot de passe</legend>
 					<div class="form">
@@ -66,7 +66,7 @@
 				</fieldset>
 
 				<input type="hidden" name="client">		
-				<input type="submit" name="Valider" class="formButtun" value="Envoyer">	
+				<input type="submit" name="Valider" id="inscription" class="formButtun" value="Envoyer">	
 					
 			</form>
 					

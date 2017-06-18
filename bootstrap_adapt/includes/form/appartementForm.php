@@ -1,2 +1,0 @@
-<label for="appartement"><span class="formInfo">étage, appartement :</span></label>
-<input type="text" id="appartement" name="appartement" class="formTape" value="" placeholder="étage 7, appartement 23" value="<?php echo $appartement ?>" ><br>

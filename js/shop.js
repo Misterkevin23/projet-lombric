@@ -2,7 +2,12 @@
 //VARIABLE
 //***********************************************************************
 
+var urlBase='http://localhost/projet_lombric/';
 var panierUserArray=null;
+var annexeProduitArray={};
+var produitPresentationMargin=0;
+
+
 var target1= $('#theme1 .panierProduit');
 var theme1= '#theme1 .supprimer';
 var id1Ni= $("#nombre1");
@@ -17,9 +22,18 @@ var expressPrice=parseInt(express.attr('value'));
 var colissimo= $('.panierLivraison').eq(0).children('input');
 var colissimoPrice= parseInt(colissimo.attr('value'));
 
+
+
+
 //***************************************************************************
 //-->FONCTION
 //***************************************************************************
+
+
+
+
+
+
 
 //mise a jour des bouton ajouter et annuler
 //à l'initialisation de la page
@@ -43,7 +57,8 @@ function updatePanierButton(buttonTarget){
 				.text('Activer le panier');	
 			buttonTarget.children('input')
 				.eq(1).attr('value','Activer le panier');
-			select.eq(0).hide('slow');
+			// select.eq(0).hide('slow');
+			buttonTarget.next().hide('slow');
 			activation=false;
 		}
 		else
@@ -85,17 +100,18 @@ function updatePanierButton(buttonTarget){
 	}
 }
 
-function hideButton(j){
+function hideButton(j, i){
 	if(activation==true)
 	{
-	$('.produit').children('.produitAction').children('form').eq(j).hide();
+	$('.produit').children('.produitAction').children('form').eq(i).hide();
+	$('#MainAnnexe'+j+' form').hide()
 	}
 }
 
 //requete ajax de recuperation du panier
 function getPanier(buttonTarget){
 	console.log('Requête ajax');
-	var url = 'http://localhost/projet_lombric/page/ajaxPanierUser.php';
+	var url = urlBase + 'page/ajaxPanierUser.php';
 	var req = new XMLHttpRequest(); 
 	req.open('GET', url, false);
 	req.send(null);
@@ -189,7 +205,7 @@ function processPanierAction(buttonTarget){
 
 				var produit = processPanier(button);
 
-				var url = 'http://localhost/projet_lombric/page/ajaxPanierReception.php';
+				var url = urlBase + 'page/ajaxPanierReception.php';
 				$.post(url, produit, function(data){
 					console.log(data);
 
@@ -324,6 +340,150 @@ function updatePanier(target, theme, idNi, idPi, express, colissimo){
 	}
 }
 
+//Fonction contruction annexe produit
+function produitMainAnnexe(annexeProduitArray){
+	var mainAnnexe='';
+	mainAnnexe+='<div class="row"><div class="col-lg-3 col-sm-3">';
+	mainAnnexe+='<img style="border: 3px solid grey; width:100%; max-width:100%" src="'+annexeProduitArray[0]['lien']+'">';
+	mainAnnexe+='<img style="width:75px" src="'+annexeProduitArray[0]['lien2']+'">';
+	mainAnnexe+='<img style="width:75px" src="'+annexeProduitArray[0]['lien3']+'">';
+	mainAnnexe+='</div><div class="col-lg-1 col-sm-1">';
+	mainAnnexe+='<img style="width:42px" src="'+annexeProduitArray[0]['lien3']+'">';
+	mainAnnexe+='</div><div class="col-lg-7 col-sm-7"><h3>'+annexeProduitArray[0]['nom']+'</h3>';
+	mainAnnexe+='<p style="box-shadow: 10px 10px 5px #656565">'+annexeProduitArray[0]['resume']+'</p>';
+	mainAnnexe+='<p class="produitPrix">'+annexeProduitArray[0]['prix']+'<i class="fa fa-eur" aria-hidden="true"></i></p>';
+	mainAnnexe+='</div><div class="col-lg-1 col-sm-1">';
+	mainAnnexe+='<img style="width:42px" src="'+annexeProduitArray[0]['lien2']+'">';
+	return mainAnnexe;
+}
+
+//Fonction contruction annexe produit
+function produit1Annexe(annexeProduitArray){
+	var annexe1='';
+	annexe1+='<div style="border: 3px solid green" class="row">';
+	annexe1+='<ul class="col-lg-11 col-sm-11">';
+	annexe1+='<li class="col-lg-offset-4 col-lg-7 col-sm-offset-4 col-sm-7">Dimension:'+annexeProduitArray[0]['dimension']+'</li>';
+	annexe1+='<li class="col-lg-offset-4 col-lg-7 col-sm-offset-4 col-sm-7">Provenance:'+annexeProduitArray[0]['provenance']+'</li>';
+	annexe1+='<li class="col-lg-offset-4 col-lg-7 col-sm-offset-4 col-sm-7">Cible:'+annexeProduitArray[0]['cible']+'</li>';
+	annexe1+='<li class="col-lg-offset-4 col-lg-7 col-sm-offset-4 col-sm-7">Contenance:'+annexeProduitArray[0]['contenance']+'</li>';
+	annexe1+='<li class="col-lg-offset-4 col-lg-7 col-sm-offset-4 col-sm-7">Materiel:'+annexeProduitArray[0]['materiel']+'</li></ul>';
+	annexe1+='</div><br>';
+	return annexe1;
+}
+
+//Fonction contruction annexe produit
+function produit3Annexe(annexeProduitArray){
+	var annexe3='';
+	annexe3+='<div style="border: 3px solid green" class="row">';
+	annexe3+='<p class="col-lg-11 col-sm-11" style="box-shadow: 10px 10px 5px #656565">'+annexeProduitArray[0]['contenu']+'</p>';
+	annexe3+='</div>';
+	return annexe3; 
+}
+//Fonction gérant les marge des produit
+function MarginProduit(produitPresentationMargin){
+	produitPresentationMargin= produitPresentationMargin + "px";	
+	$(".produitPhoto").css("margin-left", produitPresentationMargin);
+	$(".produitPhoto").css("margin-right", produitPresentationMargin);
+	$(".produitDescription").css("margin-left", produitPresentationMargin);
+	$(".produitDescription").css("margin-right", produitPresentationMargin);	
+	$(".produitAction").css("margin-left", produitPresentationMargin);
+	$(".produitAction").css("margin-right", produitPresentationMargin);
+}
+
+//fonction de gestion des sous annexe
+function sousAnnexe(id){
+	console.log('ok3');
+	if($('#annexe'+id).hasClass('return'+id)){
+		console.log('ok4');
+		var caracteristique = $('#1annexe'+id).children('ul').children('li').eq(0);
+		var contenu = $('#1annexe'+id).children('ul').children('li').eq(2);
+		var annexe3 =$('#3annexe'+id).children('div').eq(1);
+		var annexe1 = $('#3annexe'+id).children('div').eq(0);
+		annexe3.hide();
+		annexe1.hide();
+		caracteristique.click(function(){
+			console.log('ok');
+			annexe1.show();
+			annexe3.hide();
+		});
+		contenu.click(function(){
+			console.log('ok2');
+			annexe1.hide();
+			annexe3.show();
+		});
+	}
+}
+//Requete ajax pour obtention des donnée annexe
+function getProduitAnnexe(id, buttonTarget){
+		
+	$(document).ready(function(){
+	produitPresentationMargin=($(".produit").innerWidth()-($(".produitPhoto").innerWidth()+$(".produitDescription").innerWidth()+$(".produitAction").innerWidth()))/6;
+	MarginProduit(produitPresentationMargin)
+	});
+	$(document).mousemove(function(){
+	produitPresentationMargin=($(".produit").innerWidth()-($(".produitPhoto").innerWidth()+$(".produitDescription").innerWidth()+$(".produitAction").innerWidth()))/6;
+	MarginProduit(produitPresentationMargin)
+	});
+	var showAnnexe=$('.annexe'+id);
+	var showProduit=$('.produit'+id);
+	var buttonProduit=$('#annexe'+id);
+	$('.annexe').hide();
+
+	console.log('cool0');
+	var reduct=$('#returnList'+id).children('p');
+
+	buttonTarget.click(function(){
+		$(document).mousemove(function(){
+		produitPresentationMargin=($(".produit").innerWidth()-($(".produitPhoto").innerWidth()+$(".produitDescription").innerWidth()+$(".produitAction").innerWidth()+20))/6;
+		MarginProduit(produitPresentationMargin)
+		})
+		
+
+		if(buttonProduit.hasClass('return'+id)){
+			console.log('ok0');
+			showProduit.hide('slow');
+			showAnnexe.show('slow');
+		}
+		else{		
+			showAnnexe.show();
+			console.log('Requête ajax');
+			var url = urlBase + 'page/ajaxProduit.php?id='+id;
+			var req = new XMLHttpRequest(); 
+			req.open('GET', url, false);
+			req.send(null);
+
+			if (req.status==200){
+				var annexeProduit = req.responseText;
+				annexeProduitArray= JSON.parse(annexeProduit);
+				console.log(annexeProduitArray);
+				console.log(id);
+				$('#MainAnnexe'+annexeProduitArray[0]['id']).prepend(produitMainAnnexe(annexeProduitArray));
+				$('#3annexe'+annexeProduitArray[0]['id']).prepend(produit1Annexe(annexeProduitArray));
+				$('#3annexe'+annexeProduitArray[0]['id']).append(produit3Annexe(annexeProduitArray));
+				console.log('ok1');
+				buttonTarget.addClass('return'+id).addClass('noAjax'+id).css('display','none');
+				showProduit.hide('slow');
+				sousAnnexe(id);
+			};
+		}	
+	});
+
+	reduct.click(function(){
+		if(buttonProduit.hasClass('return'+id))
+		{
+			console.log('cool1');
+			showProduit.show('slow');
+			showAnnexe.hide('slow');
+			buttonProduit.css('display','');
+		}
+		else
+		{
+			console.log('cool2');
+			showProduit.show('slow');
+			showAnnexe.hide('slow');	
+		}	
+	});	
+}
 
 // function processPanierQuantiteAction(buttonTarget){
 // 	var labels			=buttonTarget.children('label');
@@ -355,24 +515,33 @@ function countPanier(){
 //ACTION
 //***************************************************************************
 
+
+
+
+
 //Boucle affectant l'action du bouton ajout/suppression pour chaque article
-var j=1
-for(var i=1; i<= $('.produit').length; i++)
+var id=[];
+for(var i=0; i<$('.produit .produitAction').length; i++)
 {
-	var button=	$(".button"+i);
+	var strId=$('.produit .produitAction').children('div').children('p').eq(i).attr('value')
+	id[i]=parseInt(strId);
+	console.log(id);
+}
+var j=1;	
+var i=0;
+
+$('.produit .produitAction').each(function(){
+	var button=	$(".button"+id[i]);
+	var button2=$("#annexe"+id[i]);
 	getPanier(button);
-	hideButton(j);
-	j=j+2;
-}
-
-for(var i=1; i<= $('.produit').length; i++)
-{
-	var button=	$(".button"+i);
-	var nameProduit= button.children('input').eq(0).attr('name');
-	var quantiteName = button.next().eq(0).attr('name');
-
 	processPanierAction(button);
-}
+	getProduitAnnexe(id[i], button2);
+	hideButton(j,i);
+	console.log(id[i]);	
+	i++;
+	j++;
+});
+
 
 livraisonPrice(express, colissimo);
 
@@ -380,8 +549,10 @@ livraisonPrice(express, colissimo);
 updatePanier(target1, theme1, id1Ni, id1Pi, express, colissimo);
 updatePanier(target2, theme2, id2Ni, id2Pi, express, colissimo);
 
-
-
+// $('#annexe2').on('click',function(){
+// 	getProduitAnnexe(2);
+	
+// 	});
 	
 
 

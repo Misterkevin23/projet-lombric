@@ -11,7 +11,7 @@
 		$pseudo="";
 		$motDePasse="";
 	}
-var_dump($_POST);	
+// var_dump($_POST);	
 ?>
 
 <main>
@@ -22,7 +22,7 @@ var_dump($_POST);
 	</aside>
 
 	<article>
-		<form method="post" name="inscription" onsubmit="" action="#"><!-- confirmationInscription.php -->
+		<form method="post" name="inscription" onsubmit="" action="#">
 		<fieldset>
 			<legend>Mon identifiant et mon mot de passe</legend>
 			<div class="form">

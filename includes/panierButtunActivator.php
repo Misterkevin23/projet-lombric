@@ -1,4 +1,7 @@
 
 <li>
-	<h3><a href="paiement_identification.php">Activer le panier</a></h3>
+	<form method="post" name="panierActivator" action="paiement_identification.php">
+	<input type='submit' value="Activer le panier">
+	<input type="hidden" name="activator" value="activator">
+	</form>
 </li>

@@ -14,5 +14,16 @@ function connectUser(){
 	return $users;
 }
 
+function connectUsersByMailAndFirstname(){
+	$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
+	
+	$query= $db-> prepare('SELECT email, pseudo FROM users');
+
+	$query->execute();
+
+	$users= $query ->fetchAll();
+	return $users;
+}
+
 
 ?>

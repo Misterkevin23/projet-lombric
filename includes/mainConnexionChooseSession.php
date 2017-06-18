@@ -60,13 +60,51 @@
 		}
 		else
 		{
-			$connected=FALSE;
-			$panierConnected=FALSE;
-			$statuePanier='visit';
-			$idAdmin='visit';
-			$panier=FALSE;
-			$pseudo='';
-		}		
+
+			
+		}			
+	}
+	elseif(isset($_POST) 				 										&& (isset($_POST['inscription'])									 || isset($_POST['activator'])))
+	{
+		if(isset($_POST['email']) && isset($_POST['pseudo'])					&& isset($_POST['motDePasse']) 									&& $_POST['inscription']=='INSCRIPTION')
+		{
+		$connected=FALSE;
+		$panierConnected=FALSE;
+		$statuePanier='transit';
+		$idAdmin='transit';
+		$panier=FALSE;
+		$pseudo=$_POST['pseudo'];
+		$email=$_POST['email'];
+		$motDePasse=$_POST['motDePasse'];
+		$numeros='';
+		$nomDeRue='';
+		$appartement='';
+		$batiment='';
+		$lieuDit='';
+		$CodePostal='';
+		$ville='';
+		$pays='';
+		}
+		elseif($_POST['activator']=='activator')
+		{
+		$connected=FALSE;
+		$panierConnected=FALSE;
+		$statuePanier='transit';
+		$idAdmin='transit';
+		$panier=FALSE;
+		$pseudo='';
+		$email='';
+		$motDePasse='';
+		$numeros='';
+		$nomDeRue='';
+		$appartement='';
+		$batiment='';
+		$lieuDit='';
+		$CodePostal='';
+		$ville='';
+		$pays='';
+		}
+
 	}
 	else
 	{
@@ -85,5 +123,7 @@
 		$CodePostal="";
 		$ville="";
 		$pays="";
+		$email="";
+		$motDePasse="";
 	}
 ?>	
