@@ -9,7 +9,8 @@ var checkmail= $('#emailCheck');
 var mdp= $('.password');
 var checkmdp= $('#passwordCheck');
 var form= $('form').attr('name');
-var urlBase='http://localhost/projet_lombric/';
+var urlBase='http://localhost/projet_lombric/page/ajax.php';
+
 
 
 
@@ -133,7 +134,7 @@ function onChangeCheck(){
 
 function getData(){
 	// console.log('Requête ajax');
-	var url = urlBase+'page/ajax.php';
+	var url = urlBase;
 	var req = new XMLHttpRequest(); 
 	req.open('GET', url, false);
 	req.send(null);

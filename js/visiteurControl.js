@@ -2,7 +2,8 @@
 //VARIABLE
 //***********************************************************************
 
-
+var mobile = /^(01|02|03|04|05|06|07|08|09|0033|\+33)[0-9]{8}/;
+var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,3})/;
 
 var nickName= $(".nickname");
 var email= $(".email");
@@ -45,6 +46,8 @@ var elementManquant11="";
 var elementManquant12="";
 var elementManquant13="";
 var elementManquant14="";
+var elementManquant15="";
+var elementManquant16="";
 
 
 var checkedI=$(".inscrit").attr('checked');
@@ -52,9 +55,9 @@ var checkedN=$(".nonInscrit").attr('checked');
 var checkedP=$(".inscritPanier").attr('checked');
 
 var validInscriptionButtun=$("#inscription");
-var connexionUserButton=$('form').children('div.button').eq(0);
-var connexionInscriptionFormButton=$('form').children('div.button').eq(1);
-var connexionPanierClientButton=$('form').children('div.button').eq(2);
+var connexionUserButton=$('form').children('div.button').eq(0).children('input');
+var connexionInscriptionFormButton=$('form').children('div.button').eq(1).children('input');
+var connexionPanierClientButton=$('form').children('div.button').eq(2).children('input');
 
 
 
@@ -69,57 +72,60 @@ var connexionPanierClientButton=$('form').children('div.button').eq(2);
 
 function inscriptionGood(){
 
-	validInscriptionButtun.removeAttr('disabled');
+	validInscriptionButtun.removeAttr('disabled')
+							.attr('type', 'submit');
 	document.forms["inscription"].action="confirmationInscription.php";
 }
 
 function inscriptionNoGood(){
 
-	validInscriptionButtun.attr('disabled','""');
+	validInscriptionButtun.attr('disabled','""')
+							.attr('type', 'text');
 	document.forms["inscription"].action="#";
 
 }
 
 function connexionGood(){
- connexionUserButton.children('input').removeAttr('disabled');
+ connexionUserButton.attr('type', 'submit')
+ 					.removeAttr('disabled');
  $('.aside form').eq(0).attr('action','connexion.php');	
 }
 
 function connexionNoGood(){
- connexionUserButton.children('input').attr('disabled','""');
+ connexionUserButton.attr('type', 'text')
+ 					.attr('disabled','""');
  $('.aside form').eq(0).attr('action','#1');	
 }
 
 function preInscripionGood(){
- connexionInscriptionFormButton.children('input').removeAttr('disabled');
+ connexionInscriptionFormButton	.removeAttr('disabled')
+ 								.attr('type', 'submit');
  $('.aside form').eq(1).attr('action','inscriptionForm.php');	
 }
 
 function preInscriptionNoGood(){
- connexionInscriptionFormButton.children('input').attr('disabled','""');
+ connexionInscriptionFormButton	.attr('disabled','""')
+ 								.attr('type', 'text');
  $('.aside form').eq(1).attr('action','#2');	
 }
 
 function cliendGood(){
- connexionPanierClientButton.children('input').removeAttr('disabled');
+ connexionPanierClientButton.removeAttr('disabled')
+ 							.attr('type', 'submit');
  $('.aside form').eq(2).attr('action','connexion.php');	
 }
 
 function cliendNoGood(){
 console.log('riri');
- connexionPanierClientButton.children('input').attr('disabled','""');
+ connexionPanierClientButton.attr('disabled','""')
+ 							.attr('type', 'text');
  $('.aside form').eq(2).attr('action','#3');	
 }
 
-
-
-//Fonction gérant les actions a effectuer en cas d'input incorrect********************
-function emailControl(){
-	if (email.val() == '')
-	{
-		console.log('toto0');
-		elementManquant1="-votre email\n";
-		if(checkedN == "checked")
+//fonction de gestion des lien des formulaire
+//en fonction de quel formulaire choisie exept inscriptionForm
+function checkedGestionControlbyMail(){
+	if(checkedN == "checked")
 		{
 			console.log('toto1');
 			preInscriptionNoGood();
@@ -129,11 +135,30 @@ function emailControl(){
 			console.log('toto2');
 			cliendNoGood();
 		}
+		else if (checkedI == "checked")
+		{
+			elementManquant1="";	
+		}	
 		else
 		{
 			console.log('toto3');	
 			inscriptionNoGood();
 		}
+}
+
+//Fonction gérant les actions a effectuer en cas d'input incorrect********************
+function emailControl(){
+	if (email.val() == '')
+	{
+		console.log('toto0');
+		elementManquant1="-votre email\n";
+		checkedGestionControlbyMail();
+	}
+	else if (!regex.test(email.val()))
+	{
+		console.log('toto0');
+		elementManquant16="-votre email n'est pas conforme\n";
+		checkedGestionControlbyMail();
 	}
 	else{elementManquant1="";}
 }
@@ -180,6 +205,10 @@ function nickNameControl(){
 		{
 			connexionNoGood();
 			console.log('cool2');	
+		}
+		else if (checkedP == "checked")
+		{
+			elementManquant3="";
 		}	
 		else
 		{	
@@ -268,6 +297,12 @@ function tel1Check(){
 		elementManquant12="-votre Telephone\n";
 		inscriptionNoGood();
 	}
+	if(!mobile.test(tel1.val()))
+	{
+		elementManquant15="-Numeros de telephone non conforme\n";
+		inscriptionNoGood();
+		console.log('titi');
+	}
 	else{elementManquant12="";}
 }
 
@@ -293,6 +328,7 @@ function exterieurCheck(){
 function alertMessager(){
 	elementManquant="Veuillez Renseigner les champs suivant:\n";
 	elementManquant+=elementManquant1;
+	elementManquant+=elementManquant16;
 	elementManquant+=elementManquant2;
 	elementManquant+=elementManquant3;
 	elementManquant+=elementManquant4;
@@ -304,6 +340,7 @@ function alertMessager(){
 	elementManquant+=elementManquant10;
 	elementManquant+=elementManquant11;
 	elementManquant+=elementManquant12;
+	elementManquant+=elementManquant15;
 	elementManquant+=elementManquant13;
 	elementManquant+=elementManquant14;
 
@@ -312,10 +349,10 @@ function alertMessager(){
 
 //fonction d'affichage du message d'erreur
 function tellAlertMessager(button){
-	if(button.children('input').attr('disabled')=='disabled')
+	if(button.attr('disabled')=='disabled')
 	{
 		console.log('cool555555555555555555555555555');
-		 button.on('hover', function(){
+		 button.click(function(){
 		 	console.log('cool666666666666666666666666');
 			alert(alertMessager());
 		 });
@@ -379,6 +416,7 @@ function verification(){
 	nickName= $(".nickname");
 	email= $(".email");
 	mdp= $('.password');
+	
 	
 	console.log('ok1');
 	if($('form').attr('name')=='inscription')
@@ -448,7 +486,7 @@ function verification(){
 
 
 
-$('form').on('mousemove keyup', function(){
+$('form .button').on('mouseenter keyup', function(){
 	verification();
 });	
 

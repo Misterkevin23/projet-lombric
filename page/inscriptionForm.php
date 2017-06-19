@@ -99,9 +99,10 @@
 		</div>
 
 		</fieldset>
-		
-		<input type="hidden" name="id">		
-		<input type="submit" name="Valider" id="inscription" class="formButtun" value="Envoyer">		
+		<div class="button">
+			<input type="hidden" name="id">		
+			<input type="submit" name="Valider" id="inscription" class="formButtun" value="Envoyer">
+		<div>			
 		</form>
 
 	</article>

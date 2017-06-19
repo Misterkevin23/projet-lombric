@@ -1,6 +1,6 @@
 <?php
 include '../includes/mainConnexionChooseSession.php';
-if($panier!=FALSE)
+if($panier!=FALSE && isset($_GET) && $_GET['action']=='panierUser')
 {
 	$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');
 		

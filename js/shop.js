@@ -2,7 +2,7 @@
 //VARIABLE
 //***********************************************************************
 
-var urlBase='http://localhost/projet_lombric/';
+var urlBase='http://localhost/projet_lombric/page/ajax.php';
 var panierUserArray=null;
 var annexeProduitArray={};
 var produitPresentationMargin=0;
@@ -16,7 +16,7 @@ var target2= $('#theme2 .panierProduit');
 var theme2='#theme2 .supprimer';
 var id2Ni= $("#nombre2");
 var id2Pi= $("#sousTotal2");
-var activation=null;
+var activation=true;
 var express= $('.panierLivraison').eq(1).children('input');
 var expressPrice=parseInt(express.attr('value'));
 var colissimo= $('.panierLivraison').eq(0).children('input');
@@ -111,7 +111,7 @@ function hideButton(j, i){
 //requete ajax de recuperation du panier
 function getPanier(buttonTarget){
 	console.log('Requête ajax');
-	var url = urlBase + 'page/ajaxPanierUser.php';
+	var url =urlBase + '?action=panierUser';
 	var req = new XMLHttpRequest(); 
 	req.open('GET', url, false);
 	req.send(null);
@@ -120,6 +120,7 @@ function getPanier(buttonTarget){
 		var panierUser = req.responseText;
 		panierUserArray= JSON.parse(panierUser);
 		updatePanierButton(buttonTarget);
+		console.log(panierUserArray);
 	}
 }
 
@@ -198,21 +199,18 @@ function processPanier(button){
 function processPanierAction(buttonTarget){
 	if(activation==true)
 	{
-		if(panierUserArray[produitList]!=false)
-		{
-			buttonTarget.click(function(){
-				var button = buttonTarget;
+		buttonTarget.click(function(){
+			var button = buttonTarget;
 
-				var produit = processPanier(button);
+			var produit = processPanier(button);
+			console.log(produit);
+			var url =urlBase;
+			$.post(url, produit, function(data){
+				console.log(data);
 
-				var url = urlBase + 'page/ajaxPanierReception.php';
-				$.post(url, produit, function(data){
-					console.log(data);
-
-				});
-				actionPanier(buttonTarget);
-			})
-		}
+			});
+			actionPanier(buttonTarget);
+		})
 	}		
 }
 
@@ -228,6 +226,7 @@ function removePanier(buttonTarget){
 //fonction gerant la mise a jour fictif des sous class du panier
 //nombre produit et prix
 function updataPanierNumberPrice(buttonTarget, idNi, idPi){
+	console.log(panierUserArray);
 	buttonTarget.click(function(){	
 		var nomProduit=
 			buttonTarget.children('input').eq(0).attr('name');
@@ -282,9 +281,7 @@ function dataTotalCalcul(express, colissimo){
 		livraison=frais;
 	}
 	
-	console.log(livraison);
 	var prixTTC=((prixTotal*19.6)/100)+livraison+prixTotal;
-	console.log(nombreTotal);
 	$('.panierTotal')
 		.eq(0).text('NOMBRE D\'ARTICLE : '+ nombreTotal);
 	$('.panierTotal')
@@ -330,6 +327,7 @@ function DataTotalPanier(buttonTarget, express, colissimo){
 //( ajout/suppresion de produit --> sous total et zone users)
 //(supression de la div produit lors du click supprimer)
 function updatePanier(target, theme, idNi, idPi, express, colissimo){
+	getPanier($('.null'));
 	for(var i=1; i<= target.length; i++)
 	{
 		button= $(theme+i);
@@ -447,7 +445,7 @@ function getProduitAnnexe(id, buttonTarget){
 		else{		
 			showAnnexe.show();
 			console.log('Requête ajax');
-			var url = urlBase + 'page/ajaxProduit.php?id='+id;
+			var url =urlBase + '?action=produit&id='+id;
 			var req = new XMLHttpRequest(); 
 			req.open('GET', url, false);
 			req.send(null);

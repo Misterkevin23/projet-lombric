@@ -2,10 +2,10 @@
 include '../includes/mainConnexionChooseSession.php';
 
 
-
+echo json_encode($_POST);
 if($panier!=FALSE && isset($_POST) && isset($_POST['actionPanier']))
 {
-
+	
 	if($_POST['actionPanier']=='Ajouter au panier' 
 		|| $_POST['actionPanier']=='Annuler' || $_POST['actionPanier']=='Supprimer')
 	{
