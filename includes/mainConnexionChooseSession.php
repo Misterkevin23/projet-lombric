@@ -84,6 +84,10 @@
 		$CodePostal='';
 		$ville='';
 		$pays='';
+		var_dump($panierConnected);
+		var_dump($panier);
+		var_dump($statuePanier);
+		var_dump($idAdmin);
 		}
 		elseif($_POST['activator']=='activator')
 		{

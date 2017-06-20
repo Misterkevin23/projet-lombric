@@ -8,15 +8,12 @@ var annexeProduitArray={};
 var produitPresentationMargin=0;
 
 
-var number=0;
 var target1= $('#theme1 .panierProduit');
 var theme1= '#theme1 .supprimer';
-var theme1A= '#theme1 .select';
 var id1Ni= $("#nombre1");
 var id1Pi= $("#sousTotal1");
 var target2= $('#theme2 .panierProduit');
 var theme2='#theme2 .supprimer';
-var theme2A= '#theme2 .select';
 var id2Ni= $("#nombre2");
 var id2Pi= $("#sousTotal2");
 var activation=true;
@@ -63,12 +60,10 @@ function updatePanierButton(buttonTarget){
 			// select.eq(0).hide('slow');
 			buttonTarget.next().hide('slow');
 			activation=false;
-			number=0;
 		}
 		else
 		{	
 			activation=true;
-			number=1;
 			if(nomProduit== produitList)
 			{
 				console.log(produitList);
@@ -115,20 +110,16 @@ function hideButton(j, i){
 
 //requete ajax de recuperation du panier
 function getPanier(buttonTarget){
+	console.log('Requête ajax');
 	var url =urlBase + '?action=panierUser';
 	var req = new XMLHttpRequest(); 
 	req.open('GET', url, false);
 	req.send(null);
-	if (panierUserArray!=null)
-	{
-		updatePanierButton(buttonTarget);
-		console.log('panier plein');
-	}	
-	else if (req.status==200){
+
+	if (req.status==200){
 		var panierUser = req.responseText;
 		panierUserArray= JSON.parse(panierUser);
 		updatePanierButton(buttonTarget);
-		console.log('Requête ajax');
 		console.log(panierUserArray);
 	}
 }
@@ -175,31 +166,6 @@ function actionPanier(buttonTarget){
 	document.getElementById("nbreArticle").textContent=panierNbre;
 }
 
-// fonction de mise a jour de la quantité
-// dans le panier
-function updateQuantityPanier(button){
-	var inputs 		= button.parent().find('input');
-	var labels 		= button.parent().find('label');
-	
-	var actionPanier	= labels.eq(0).attr('name');
-	var nomIdPanier		= inputs.eq(2).attr('name');
-	var id 				= inputs.eq(2).val();
-
-	var select 			= button;
-	var nomQuantite		= select.eq(0).attr('name');
-	var quantite		= select.eq(0).val();
-
-	values= {
-		actionPanier: 	actionPanier,
-		nomIdPanier: 	nomIdPanier,
-		id: 			id,
-		nomQuantite: 	nomQuantite,
-		quantite: 		quantite
-	};
-
-	return values;
-}
-
 //Fonction de ciblage des donnée a envoyer en requéte ajax pour
 //l'ajout des donnée en MySql par PHP
 function processPanier(button){
@@ -212,8 +178,8 @@ function processPanier(button){
 	var id 				= inputs.eq(2).val();
 
 	var select 			= button.next();
-	var nomQuantite		= select.eq(number).attr('name');
-	var quantite		= select.eq(number).val();
+	var nomQuantite		= select.eq(0).attr('name');
+	var quantite		= select.eq(0).val();
 
 	values= {
 		nomProduit: 	nomProduit,
@@ -226,25 +192,6 @@ function processPanier(button){
 	};
 
 	return values;
-}
-
-//Fonction de ciblage du bouton select panier
-// déclenchant la requete AJAX
-function updateQuantityPanierAction(buttonTarget){
-	if(activation==true)
-	{
-		buttonTarget.on('change', function(){
-			var button = buttonTarget;
-			console.log('okkkkkk');
-			var produit = updateQuantityPanier(button);
-			console.log(produit);
-			var url =urlBase;
-			$.post(url, produit, function(data){
-				console.log(data);
-
-			});
-		})
-	}		
 }
 
 //Fonction de ciblage du bouton ajout ou suppression panier
@@ -278,12 +225,13 @@ function removePanier(buttonTarget){
 
 //fonction gerant la mise a jour fictif des sous class du panier
 //nombre produit et prix
-function updataPanierNumberPrice(buttonTarget, idNi, idPi, witchWay){
+function updataPanierNumberPrice(buttonTarget, idNi, idPi){
+	console.log(panierUserArray);
 	buttonTarget.click(function(){	
 		var nomProduit=
-			witchWay.eq(0).attr('name');
+			buttonTarget.children('input').eq(0).attr('name');
 		var etat=
-			witchWay.eq(0).val();
+			buttonTarget.children('input').eq(0).val();
 		var prix=parseInt(buttonTarget.next().next().text());
 		var nombreI= parseInt(idNi.text());
 		var prixI= parseInt(idPi.text());
@@ -368,36 +316,11 @@ function livraisonPrice(express, colissimo){
 }
 
 //Fonction de mise a jour du total global du panier
-function DataTotalPanierForSelect(buttonTarget, express, colissimo){
-	
-	buttonTarget.on('change', function(){
-		dataTotalCalcul(express, colissimo)
-	});	
-}
-
-//Fonction de mise a jour du total global du panier
 function DataTotalPanier(buttonTarget, express, colissimo){
 	
 	buttonTarget.click(function(){
 		dataTotalCalcul(express, colissimo)
 	});	
-}
-
-// Fonction gerant les animation panier 
-// ( mise a jour de la quantité --> sous total et zone users)
-function updateQuantitePanier(target, theme, express, colissimo){
-	// getPanier($('.null'));
-	for(var i=1; i<= target.length; i++)
-	{
-		button= $(theme+i);
-		var witchWay=button.parent().find('input');
-		console.log(button);
-		console.log(witchWay);
-		console.log('okkkk');
-		updateQuantityPanierAction(button);
-		// updataPanierNumberPrice(button, idNi, idPi, witchWay);
-		DataTotalPanierForSelect(button, express, colissimo);
-	}
 }
 
 //Fonction gerant les animation panier 
@@ -408,10 +331,9 @@ function updatePanier(target, theme, idNi, idPi, express, colissimo){
 	for(var i=1; i<= target.length; i++)
 	{
 		button= $(theme+i);
-		var witchWay=button.children('input');
 		processPanierAction(button);
 		removePanier(button);
-		updataPanierNumberPrice(button, idNi, idPi, witchWay);
+		updataPanierNumberPrice(button, idNi, idPi);
 		DataTotalPanier(button, express, colissimo);
 	}
 }
@@ -624,7 +546,6 @@ livraisonPrice(express, colissimo);
 
 updatePanier(target1, theme1, id1Ni, id1Pi, express, colissimo);
 updatePanier(target2, theme2, id2Ni, id2Pi, express, colissimo);
-updateQuantitePanier(target1, theme1A, express, colissimo);
 
 // $('#annexe2').on('click',function(){
 // 	getProduitAnnexe(2);
@@ -648,4 +569,3 @@ updateQuantitePanier(target1, theme1A, express, colissimo);
 // 	removePanier(button);
 // 	// processPanierQuantiteAction(button);
 // }
-

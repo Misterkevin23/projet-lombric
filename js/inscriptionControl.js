@@ -134,11 +134,11 @@ function onChangeCheck(){
 
 function getData(){
 	// console.log('Requête ajax');
-	var url = urlBase;
+	var url = urlBase + '?action=control';
 	var req = new XMLHttpRequest(); 
 	req.open('GET', url, false);
 	req.send(null);
-
+	console.log(url);
 	if (req.status==200){
 		var users = req.responseText;
 		usersArray= JSON.parse(users);
@@ -160,7 +160,7 @@ function getData(){
 
 if(form == "inscription")
 {	
-	$('body').ready(function(){
+	$(document).ready(function(){
 		getData();
 	});
 }	

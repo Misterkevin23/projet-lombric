@@ -157,7 +157,7 @@ function panier($nom, $lien, $prix, $id, $abrev, $idAdmin,$nbreProduits,$statueP
 	echo '<input type="hidden" name="'.$statuePanier.'" value="'.$idAdmin.'"></br>';
 	echo '<label class="panierProduitPrix" name="addQuantite">QUANTITE :</label>';
 	echo '</div>';
-	echo '<select name="'.$panierQte.'" value="'.$quantite.'">';
+	echo '<select class="select'.$nbreProduits.'" name="'.$panierQte.'" value="'.$quantite.'">';
 	for($i=1; $i<50; $i++)
 	{
 		if($i==$quantite)

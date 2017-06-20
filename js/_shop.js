@@ -119,12 +119,12 @@ function getPanier(buttonTarget){
 	var req = new XMLHttpRequest(); 
 	req.open('GET', url, false);
 	req.send(null);
-	if (panierUserArray!=null)
-	{
-		updatePanierButton(buttonTarget);
-		console.log('panier plein');
-	}	
-	else if (req.status==200){
+	// if (panierUserArray!=null)
+	// {
+	// 	updatePanierButton(buttonTarget);
+	// 	console.log('panier plein');
+	// }	
+	if (req.status==200){
 		var panierUser = req.responseText;
 		panierUserArray= JSON.parse(panierUser);
 		updatePanierButton(buttonTarget);
@@ -233,6 +233,7 @@ function processPanier(button){
 function updateQuantityPanierAction(buttonTarget){
 	if(activation==true)
 	{
+		console.log('KKKKKOOOOOOOO');
 		buttonTarget.on('change', function(){
 			var button = buttonTarget;
 			console.log('okkkkkk');
@@ -278,13 +279,15 @@ function removePanier(buttonTarget){
 
 //fonction gerant la mise a jour fictif des sous class du panier
 //nombre produit et prix
-function updataPanierNumberPrice(buttonTarget, idNi, idPi, witchWay){
-	buttonTarget.click(function(){	
+function updataPanierNumberPrice(buttonTarget, idNi, idPi, witchWay){	
 		var nomProduit=
 			witchWay.eq(0).attr('name');
 		var etat=
 			witchWay.eq(0).val();
-		var prix=parseInt(buttonTarget.next().next().text());
+		var prix=parseInt(buttonTarget.next().text());
+		console.log(buttonTarget.text());
+		console.log(buttonTarget.next().text());
+		console.log(prix);
 		var nombreI= parseInt(idNi.text());
 		var prixI= parseInt(idPi.text());
 		var nombreTotal=0;
@@ -312,7 +315,6 @@ function updataPanierNumberPrice(buttonTarget, idNi, idPi, witchWay){
 
 		idNi.text(nombreRestant);
 		idPi.text(prixRestant);
-	});
 }
 
 //Fonction de mise a jour du total global du panier
@@ -368,35 +370,26 @@ function livraisonPrice(express, colissimo){
 }
 
 //Fonction de mise a jour du total global du panier
-function DataTotalPanierForSelect(buttonTarget, express, colissimo){
-	
-	buttonTarget.on('change', function(){
-		dataTotalCalcul(express, colissimo)
-	});	
-}
-
-//Fonction de mise a jour du total global du panier
-function DataTotalPanier(buttonTarget, express, colissimo){
-	
-	buttonTarget.click(function(){
-		dataTotalCalcul(express, colissimo)
-	});	
+function DataTotalPanier(express, colissimo){
+		dataTotalCalcul(express, colissimo);
 }
 
 // Fonction gerant les animation panier 
 // ( mise a jour de la quantité --> sous total et zone users)
-function updateQuantitePanier(target, theme, express, colissimo){
+function updateQuantitePanier(target, theme, idNi, idPi, express, colissimo, brotherTheme){
 	// getPanier($('.null'));
 	for(var i=1; i<= target.length; i++)
 	{
 		button= $(theme+i);
-		var witchWay=button.parent().find('input');
+		button1=button.next() ;
+		var witchWay=button.parents().find(brotherTheme+i).children('input');
 		console.log(button);
 		console.log(witchWay);
-		console.log('okkkk');
 		updateQuantityPanierAction(button);
-		// updataPanierNumberPrice(button, idNi, idPi, witchWay);
-		DataTotalPanierForSelect(button, express, colissimo);
+		button.on('change', function(){
+			updataPanierNumberPrice(button, idNi, idPi, witchWay);
+			DataTotalPanier(express, colissimo);
+		});	
 	}
 }
 
@@ -411,8 +404,10 @@ function updatePanier(target, theme, idNi, idPi, express, colissimo){
 		var witchWay=button.children('input');
 		processPanierAction(button);
 		removePanier(button);
-		updataPanierNumberPrice(button, idNi, idPi, witchWay);
-		DataTotalPanier(button, express, colissimo);
+		button.click(function(){
+			updataPanierNumberPrice(button, idNi, idPi, witchWay);
+			DataTotalPanier(express, colissimo);
+		});	
 	}
 }
 
@@ -624,7 +619,8 @@ livraisonPrice(express, colissimo);
 
 updatePanier(target1, theme1, id1Ni, id1Pi, express, colissimo);
 updatePanier(target2, theme2, id2Ni, id2Pi, express, colissimo);
-updateQuantitePanier(target1, theme1A, express, colissimo);
+updateQuantitePanier(target1, theme1A, id1Ni, id1Pi, express, colissimo, theme1);
+updateQuantitePanier(target2, theme2A, id2Ni, id2Pi, express, colissimo, theme2);
 
 // $('#annexe2').on('click',function(){
 // 	getProduitAnnexe(2);

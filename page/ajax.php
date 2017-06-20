@@ -11,7 +11,7 @@ if ($req_method == 'GET')
 {
 	//Requete ajax afin d'avoir la liste des mail
 	//et pseudo pour verification
-	if($panier==FALSE && $panierConnected==FALSE && $idAdmin == 'transit' && $statuePanier == 'transit')
+	if(isset($_GET['action']) && $_GET['action']=='control' 		&& $panier==FALSE && $panierConnected==FALSE && $idAdmin == 'transit' && $statuePanier == 'transit')
 	{	
 		$users = connectUsersByMailAndFirstname();
 

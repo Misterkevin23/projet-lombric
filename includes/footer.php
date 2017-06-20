@@ -1,14 +1,14 @@
 	<footer>
 	<script type="text/javascript" src="../js/general.js"></script>
-	<script type="text/javascript" src="../js/shop.js"></script>
+	<script type="text/javascript" src="../js/shopSave.js"></script>
 	<?php
 		if($statuePanier=='transit' && $idAdmin='transit')
 		{	
-			include '../includes/inscriptionControl.php';
+			include 'inscriptionControl.php';
 		}
 		if(!$connected && !$panierConnected)
 		{
-			include '../includes/visiteurControl.php';
+			include 'visiteurControl.php';
 		}	 
 	?>	
 		<ul>
