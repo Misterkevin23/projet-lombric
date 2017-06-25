@@ -265,17 +265,6 @@ th{
 	padding:0;
 }
 
-
-/*.home_section{
-	position:relative;
-	width: 20%;
-	float: left;
-	margin-top: 7px;
-	box-shadow: 0px 7px 20px 7px #680100;
-	border-radius: 30px;
-	background: #680100;
-}*/
-
 .homeAside{
 	width: 70%;
 	float: right;
@@ -283,14 +272,6 @@ th{
 	background: grey;
 
 }
-
-/*.home_aside_aside{
- 	background: grey;
- 	border:7px black solid;
- 	border-radius: 30px;
- 	padding:7px;
- 	box-shadow: 0px 7px 20px 7px #680100;
-}*/
 
 .homeAsideImage{
 	background: grey;
@@ -376,12 +357,6 @@ th{
  	text-decoration: overline;
  	text-decoration-color: red;
  }
-
-
-/*.nav6{
-	background: aqua;
-	border-radius: 20px;
-}*/
 
 .navNav1{
 	background: #78975E;
@@ -607,7 +582,6 @@ th{
 .shopNavigateur{
 	overflow: auto;
 	margin: 0px auto;
-	box-shadow: 0px 10px 10px 5px #000000;
 	border-radius: 30px;
 	padding:5px;
 }
@@ -616,7 +590,7 @@ th{
 	display:inline-block;
 	border: 2px black solid;
 	width:25%;
-	box-shadow: 0px 10px 10px 5px blue;
+	box-shadow: 0px 5px 5px 3px blue;
 	border-radius: 30px;
 	float: left;
 }
@@ -654,11 +628,8 @@ th{
     cursor: pointer;
 }
 .produitPhoto{
-	width: 30%;
-	float: left;
 	border: 3px solid grey;
 	box-shadow: 10px 10px 5px #656565;
-	margin:5px 3px;
 }
 
 .produitPhoto img {
@@ -667,11 +638,7 @@ th{
 }
 
 .produitDescription{
-	float:left;
-	width: 30%;
-	margin:5px 3px;
 	box-shadow: 10px 10px 5px #656565;
-
 }
 
 .produitDescriptionText{
@@ -680,11 +647,8 @@ th{
 }
 
 .produitAction{
-	float:left;
-	width: 30%;
 	border:3px solid black;
 	border-radius: 30px;
-	margin: 5px 5px;
 }
 
 .produitPanier{

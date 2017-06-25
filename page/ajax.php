@@ -19,7 +19,7 @@ if ($req_method == 'GET')
 	}
 
 	//Requete permetant l'affichage des fiche produit dans shop
-	elseif(isset($_GET['action']) && isset($_GET['id'])				 && $_GET['action']=='produit' )
+	elseif(isset($_GET['action']) && isset($_GET['id'])				 && $_GET['action']=='produitLombricomposteur' )
 	{	
 		$annexe=produitLombricomposteurAnnexe($_GET['id']);
 

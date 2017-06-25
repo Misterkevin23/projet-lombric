@@ -28,6 +28,7 @@ function produitActionPanierButton($statue, $id, $abrev, $statuePanier, $idAdmin
 
 //function génératrice du button action achat Direct
 function produitActionDirectButton($statuePanier, $prix, $quantite, $panierName, $panierQte){
+	
 	echo '<form method="post" action="paiement_recapitulatif.php">';
 	echo '<div class="produitPanierForm">';
 	echo '<input type="submit" class="produitPanierDirectButton" name="'.$statuePanier.'" value="Achat direct">';
@@ -58,35 +59,36 @@ function produitActionDirectButton($statuePanier, $prix, $quantite, $panierName,
 function produits($nom, $resume, $prix, $statue, $lien, $id, $idAdmin,$abrev, $produitTable, $statuePanier,$quantite, $exist){			
 	$panierName=$abrev.$id;
 	$panierQte= 'qte_'.$panierName;
-	echo '<div style="background:#F0F2DD" class="container-fluid produit annexe annexe'.$id.' annexe'.$abrev.'">';
-	echo '<div id="MainAnnexe'.$id.'" class="row"><div class="col-lg-6 col-sm-6">';
+	echo '<div style="background:#F0F2DD" class="container-fluid produit annexe annexe'.$id.'">';
+	echo '<div id="MainAnnexe'.$id.'" class="row"><div class="col-md-6 col-lg-6 col-sm-6">';
 	echo produitActionPanierButton($statue, $id, $abrev, $statuePanier, $idAdmin, $quantite, $panierName, $panierQte);
-	echo '</div><div id="returnList'.$id.'" class="col-lg-6 col-sm-6">';
+	echo '</div><div id="returnList'.$id.'" class="col-md-6 col-lg-6 col-sm-6">';
 	echo '<p class="produitButton">Retour aux produits</p>';
-	echo '</div><div class="col-lg-6 col-sm-6">';
+	echo '</div><div class="col-md-6 col-lg-6 col-sm-6">';
 	echo produitActionDirectButton($statuePanier, $prix, $quantite, $panierName, $panierQte);
 	echo '</div></div><br>';
 	echo '<div id="1annexe'.$id.'" style="border: 7px solid red; background:blue" class="row">';
-	echo '<ul class="col-lg-11 col-sm-11" style="display:inline-block"><li class="col-lg-offset-1 col-lg-3 col-sm-offset-1 col-sm-3" style="display:inline-block; border: 3px black solid; background:grey">CARACTERISTIQUE</li>';
+	echo '<ul class="col-lg-11 col-sm-11" style="display:inline-block"><li class="col-md-offset-1 col-md-3 col-lg-offset-1 col-lg-3 col-sm-offset-1 col-sm-3" style="display:inline-block; border: 3px black solid; background:grey">CARACTERISTIQUE</li>';
 	echo '<li class="col-lg-offset-1 col-lg-3 col-sm-offset-1 col-sm-3" style="display:inline-block; border: 3px black solid; background:grey">ACCESSOIRE</li>';
-	echo '<li class="col-lg-offset-1 col-lg-3 col-sm-offset-1 col-sm-3" style="display:inline-block; border: 3px black solid; background:grey">CONTENU DU PAQUET</li></ul>';
+	echo '<li class="col-md-offset-1 col-md-3 col-lg-offset-1 col-lg-3 col-sm-offset-1 col-sm-3" style="display:inline-block; border: 3px black solid; background:grey">CONTENU DU PAQUET</li></ul>';
 	echo '</div><br>';
 	echo '<div id="3annexe'.$id.'" style="border: 3px solid green" class="row">';
 	echo '</div><br>';
-	echo '</div><div class="container-fluid produit produit'.$id.'">';
-	imageMode("col-lg-4 col-xs-4 col-md-4 produitPhoto","$lien");
-	echo '<div class="col-lg-4 col-xs-4 col-md-4 produitDescription">';
+	echo '</div><div class="row produit produit'.$id.'">';
+	imageMode("col-md-4 produitPhoto","$lien");
+	echo '<div class=" col-md-4 produitDescription">';
 	echo '<h3>'.$nom.'</h3>';
 	echoP("produitDescriptionText","$resume");
 	echo '</div>';
-	echo '<div class="col-lg-4 col-xs-4 col-md-4 produitAction">';
+	echo '<div class="col-md-4 produitAction">';
+	echo '<div class="col-md-offset-1 col-md-11">';
 	echo produitActionPanierButton($statue, $id, $abrev, $statuePanier, $idAdmin, $quantite, $panierName, $panierQte);
 	echo '<div>';
 	echo '<p id="annexe'.$id.'" name="id" class="produitButton" value="'.$id.'"> Voir le produit </p></br>';
 	echo '</div>';
 	echo produitActionDirectButton($statuePanier, $prix, $quantite, $panierName, $panierQte);
 	echo '<p class="produitPrix">'.$prix.'<i class="fa fa-eur" aria-hidden="true"></i></p>';
-	echo '</div></div>';
+	echo '</div></div></div>';
 	if($exist==FALSE)
 	{
 		$db = new PDO('mysql:host=localhost;dbname=pump', 'root', '');

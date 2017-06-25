@@ -8,15 +8,12 @@ var annexeProduitArray={};
 var produitPresentationMargin=0;
 
 
-var number=0;
 var target1= $('#theme1 .panierProduit');
 var theme1= '#theme1 .supprimer';
-var theme1A= '#theme1 .select';
 var id1Ni= $("#nombre1");
 var id1Pi= $("#sousTotal1");
 var target2= $('#theme2 .panierProduit');
 var theme2='#theme2 .supprimer';
-var theme2A= '#theme2 .select';
 var id2Ni= $("#nombre2");
 var id2Pi= $("#sousTotal2");
 var activation=true;
@@ -63,16 +60,12 @@ function updatePanierButton(buttonTarget){
 			// select.eq(0).hide('slow');
 			buttonTarget.next().hide('slow');
 			activation=false;
-			number=0;
 		}
 		else
 		{	
 			activation=true;
-			number=1;
 			if(nomProduit== produitList)
 			{
-				console.log(produitList);
-				console.log(panierUserArray[produitList]);
 				if(panierUserArray[produitList] =='TRUE')
 				{
 					buttonTarget.children('input')
@@ -119,17 +112,11 @@ function getPanier(buttonTarget){
 	var req = new XMLHttpRequest(); 
 	req.open('GET', url, false);
 	req.send(null);
-	if (panierUserArray!=null)
-	{
-		updatePanierButton(buttonTarget);
-		console.log('panier plein');
-	}	
-	else if (req.status==200){
+
+	if (req.status==200){
 		var panierUser = req.responseText;
 		panierUserArray= JSON.parse(panierUser);
 		updatePanierButton(buttonTarget);
-		console.log('Requête ajax');
-		console.log(panierUserArray);
 	}
 }
 
@@ -175,31 +162,6 @@ function actionPanier(buttonTarget){
 	document.getElementById("nbreArticle").textContent=panierNbre;
 }
 
-// fonction de mise a jour de la quantité
-// dans le panier
-function updateQuantityPanier(button){
-	var inputs 		= button.parent().find('input');
-	var labels 		= button.parent().find('label');
-	
-	var actionPanier	= labels.eq(0).attr('name');
-	var nomIdPanier		= inputs.eq(2).attr('name');
-	var id 				= inputs.eq(2).val();
-
-	var select 			= button;
-	var nomQuantite		= select.eq(0).attr('name');
-	var quantite		= select.eq(0).val();
-
-	values= {
-		actionPanier: 	actionPanier,
-		nomIdPanier: 	nomIdPanier,
-		id: 			id,
-		nomQuantite: 	nomQuantite,
-		quantite: 		quantite
-	};
-
-	return values;
-}
-
 //Fonction de ciblage des donnée a envoyer en requéte ajax pour
 //l'ajout des donnée en MySql par PHP
 function processPanier(button){
@@ -212,8 +174,8 @@ function processPanier(button){
 	var id 				= inputs.eq(2).val();
 
 	var select 			= button.next();
-	var nomQuantite		= select.eq(number).attr('name');
-	var quantite		= select.eq(number).val();
+	var nomQuantite		= select.eq(0).attr('name');
+	var quantite		= select.eq(0).val();
 
 	values= {
 		nomProduit: 	nomProduit,
@@ -228,25 +190,6 @@ function processPanier(button){
 	return values;
 }
 
-//Fonction de ciblage du bouton select panier
-// déclenchant la requete AJAX
-function updateQuantityPanierAction(buttonTarget){
-	if(activation==true)
-	{
-		buttonTarget.on('change', function(){
-			var button = buttonTarget;
-			console.log('okkkkkk');
-			var produit = updateQuantityPanier(button);
-			console.log(produit);
-			var url =urlBase;
-			$.post(url, produit, function(data){
-				console.log(data);
-
-			});
-		})
-	}		
-}
-
 //Fonction de ciblage du bouton ajout ou suppression panier
 //déclenchant la requete AJAX
 function processPanierAction(buttonTarget){
@@ -256,11 +199,8 @@ function processPanierAction(buttonTarget){
 			var button = buttonTarget;
 
 			var produit = processPanier(button);
-			console.log(produit);
 			var url =urlBase;
 			$.post(url, produit, function(data){
-				console.log(data);
-
 			});
 			actionPanier(buttonTarget);
 		})
@@ -278,12 +218,12 @@ function removePanier(buttonTarget){
 
 //fonction gerant la mise a jour fictif des sous class du panier
 //nombre produit et prix
-function updataPanierNumberPrice(buttonTarget, idNi, idPi, witchWay){
+function updataPanierNumberPrice(buttonTarget, idNi, idPi){
 	buttonTarget.click(function(){	
 		var nomProduit=
-			witchWay.eq(0).attr('name');
+			buttonTarget.children('input').eq(0).attr('name');
 		var etat=
-			witchWay.eq(0).val();
+			buttonTarget.children('input').eq(0).val();
 		var prix=parseInt(buttonTarget.next().next().text());
 		var nombreI= parseInt(idNi.text());
 		var prixI= parseInt(idPi.text());
@@ -368,36 +308,11 @@ function livraisonPrice(express, colissimo){
 }
 
 //Fonction de mise a jour du total global du panier
-function DataTotalPanierForSelect(buttonTarget, express, colissimo){
-	
-	buttonTarget.on('change', function(){
-		dataTotalCalcul(express, colissimo)
-	});	
-}
-
-//Fonction de mise a jour du total global du panier
 function DataTotalPanier(buttonTarget, express, colissimo){
 	
 	buttonTarget.click(function(){
 		dataTotalCalcul(express, colissimo)
 	});	
-}
-
-// Fonction gerant les animation panier 
-// ( mise a jour de la quantité --> sous total et zone users)
-function updateQuantitePanier(target, theme, express, colissimo){
-	// getPanier($('.null'));
-	for(var i=1; i<= target.length; i++)
-	{
-		button= $(theme+i);
-		var witchWay=button.parent().find('input');
-		console.log(button);
-		console.log(witchWay);
-		console.log('okkkk');
-		updateQuantityPanierAction(button);
-		// updataPanierNumberPrice(button, idNi, idPi, witchWay);
-		DataTotalPanierForSelect(button, express, colissimo);
-	}
 }
 
 //Fonction gerant les animation panier 
@@ -408,10 +323,9 @@ function updatePanier(target, theme, idNi, idPi, express, colissimo){
 	for(var i=1; i<= target.length; i++)
 	{
 		button= $(theme+i);
-		var witchWay=button.children('input');
 		processPanierAction(button);
 		removePanier(button);
-		updataPanierNumberPrice(button, idNi, idPi, witchWay);
+		updataPanierNumberPrice(button, idNi, idPi);
 		DataTotalPanier(button, express, colissimo);
 	}
 }
@@ -455,22 +369,10 @@ function produit3Annexe(annexeProduitArray){
 	annexe3+='</div>';
 	return annexe3; 
 }
-//Fonction gérant les marge des produit
-function MarginProduit(produitPresentationMargin){
-	produitPresentationMargin= produitPresentationMargin + "px";	
-	$(".produitPhoto").css("margin-left", produitPresentationMargin);
-	$(".produitPhoto").css("margin-right", produitPresentationMargin);
-	$(".produitDescription").css("margin-left", produitPresentationMargin);
-	$(".produitDescription").css("margin-right", produitPresentationMargin);	
-	$(".produitAction").css("margin-left", produitPresentationMargin);
-	$(".produitAction").css("margin-right", produitPresentationMargin);
-}
 
 //fonction de gestion des sous annexe
 function sousAnnexe(id){
-	console.log('ok3');
 	if($('#annexe'+id).hasClass('return'+id)){
-		console.log('ok4');
 		var caracteristique = $('#1annexe'+id).children('ul').children('li').eq(0);
 		var contenu = $('#1annexe'+id).children('ul').children('li').eq(2);
 		var annexe3 =$('#3annexe'+id).children('div').eq(1);
@@ -478,12 +380,10 @@ function sousAnnexe(id){
 		annexe3.hide();
 		annexe1.hide();
 		caracteristique.click(function(){
-			console.log('ok');
 			annexe1.show();
 			annexe3.hide();
 		});
 		contenu.click(function(){
-			console.log('ok2');
 			annexe1.hide();
 			annexe3.show();
 		});
@@ -492,97 +392,58 @@ function sousAnnexe(id){
 //Requete ajax pour obtention des donnée annexe
 function getProduitAnnexe(id, buttonTarget){
 		
-	$(document).ready(function(){
-	produitPresentationMargin=($(".produit").innerWidth()-($(".produitPhoto").innerWidth()+$(".produitDescription").innerWidth()+$(".produitAction").innerWidth()))/6;
-	MarginProduit(produitPresentationMargin)
-	});
-	$(document).mousemove(function(){
-	produitPresentationMargin=($(".produit").innerWidth()-($(".produitPhoto").innerWidth()+$(".produitDescription").innerWidth()+$(".produitAction").innerWidth()))/6;
-	MarginProduit(produitPresentationMargin)
-	});
 	var showAnnexe=$('.annexe'+id);
 	var showProduit=$('.produit'+id);
 	var buttonProduit=$('#annexe'+id);
 	$('.annexe').hide();
 
-	console.log('cool0');
 	var reduct=$('#returnList'+id).children('p');
 
 	buttonTarget.click(function(){
-		$(document).mousemove(function(){
-		produitPresentationMargin=($(".produit").innerWidth()-($(".produitPhoto").innerWidth()+$(".produitDescription").innerWidth()+$(".produitAction").innerWidth()+20))/6;
-		MarginProduit(produitPresentationMargin)
-		})
-		
 
-		if(buttonProduit.hasClass('return'+id)){
-			console.log('ok0');
-			showProduit.hide('slow');
-			showAnnexe.show('slow');
-		}
-		else{		
-			showAnnexe.show();
-			console.log('Requête ajax');
-			var url =urlBase + '?action=produit&id='+id;
-			var req = new XMLHttpRequest(); 
-			req.open('GET', url, false);
-			req.send(null);
-
-			if (req.status==200){
-				var annexeProduit = req.responseText;
-				annexeProduitArray= JSON.parse(annexeProduit);
-				console.log(annexeProduitArray);
-				console.log(id);
-				$('#MainAnnexe'+annexeProduitArray[0]['id']).prepend(produitMainAnnexe(annexeProduitArray));
-				$('#3annexe'+annexeProduitArray[0]['id']).prepend(produit1Annexe(annexeProduitArray));
-				$('#3annexe'+annexeProduitArray[0]['id']).append(produit3Annexe(annexeProduitArray));
-				console.log('ok1');
-				buttonTarget.addClass('return'+id).addClass('noAjax'+id).css('display','none');
+		if($('.produit').hasClass('annexepspl'))
+		{	
+			if(buttonProduit.hasClass('return'+id))
+			{
 				showProduit.hide('slow');
-				sousAnnexe(id);
-			};
-		}	
+				showAnnexe.show('slow');
+			}
+			else
+			{		
+				showAnnexe.show();
+				var url =urlBase + '?action=produitLombricomposteur&id='+id;
+				var req = new XMLHttpRequest(); 
+				req.open('GET', url, false);
+				req.send(null);
+
+				if (req.status==200){
+					var annexeProduit = req.responseText;
+					annexeProduitArray= JSON.parse(annexeProduit);
+					$('#MainAnnexe'+annexeProduitArray[0]['id']).prepend(produitMainAnnexe(annexeProduitArray));
+					$('#3annexe'+annexeProduitArray[0]['id']).prepend(produit1Annexe(annexeProduitArray));
+					$('#3annexe'+annexeProduitArray[0]['id']).append(produit3Annexe(annexeProduitArray));
+					buttonTarget.addClass('return'+id).addClass('noAjax'+id).css('display','none');
+					showProduit.hide('slow');
+					sousAnnexe(id);
+				};
+			}
+		}		
 	});
 
 	reduct.click(function(){
 		if(buttonProduit.hasClass('return'+id))
 		{
-			console.log('cool1');
 			showProduit.show('slow');
 			showAnnexe.hide('slow');
 			buttonProduit.css('display','');
 		}
 		else
 		{
-			console.log('cool2');
 			showProduit.show('slow');
 			showAnnexe.hide('slow');	
 		}	
 	});	
 }
-
-// function processPanierQuantiteAction(buttonTarget){
-// 	var labels			=buttonTarget.children('label');
-// 	var button2			= labels.eq(0).val();
-// 	button2.on('change', function(){
-// 		var button = buttonTarget;
-
-// 		var produit = processPanierQuantite(button);
-// 		var url = 'http://localhost/projet_lombric/page/ajaxPanierReception.php';
-// 		$.post(url, produit, function(data){
-// 			console.log(data);
-// 		});
-// 		actionPanier(buttonTarget);
-// 	})
-// }
-
-function countPanier(){
-	Object.keys(panierUserArray).length
-}
-
-
-
-
 
 
 
@@ -601,7 +462,6 @@ for(var i=0; i<$('.produit .produitAction').length; i++)
 {
 	var strId=$('.produit .produitAction').children('div').children('p').eq(i).attr('value')
 	id[i]=parseInt(strId);
-	console.log(id);
 }
 var j=1;	
 var i=0;
@@ -612,8 +472,7 @@ $('.produit .produitAction').each(function(){
 	getPanier(button);
 	processPanierAction(button);
 	getProduitAnnexe(id[i], button2);
-	hideButton(j,i);
-	console.log(id[i]);	
+	hideButton(j,i);	
 	i++;
 	j++;
 });
@@ -624,28 +483,4 @@ livraisonPrice(express, colissimo);
 
 updatePanier(target1, theme1, id1Ni, id1Pi, express, colissimo);
 updatePanier(target2, theme2, id2Ni, id2Pi, express, colissimo);
-updateQuantitePanier(target1, theme1A, express, colissimo);
-
-// $('#annexe2').on('click',function(){
-// 	getProduitAnnexe(2);
-	
-// 	});
-	
-
-
-// id2Ni.on('change', function(){
-// console.log('2222');
-// DataTotalPanier();
-// });
-
-// for(var i=1; i<= $('#theme2 .panierProduit').length; i++)
-// {
-// 	var button=	$("#theme2 .supprimer"+i);
-// 	var nameProduit= button.children('input').eq(0).attr('name');
-// 	var quantiteName = button.next().eq(0).attr('name');
-	
-// 	processPanierAction(button);
-// 	removePanier(button);
-// 	// processPanierQuantiteAction(button);
-// }
 

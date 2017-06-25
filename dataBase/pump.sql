@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 24 Mai 2017 à 01:14
+-- Généré le :  Dim 25 Juin 2017 à 20:10
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -72,6 +72,27 @@ INSERT INTO `jardinerie` (`id`, `titre`, `paragraphe1`, `paragraphe2`, `date`, `
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `livraisonmode`
+--
+
+CREATE TABLE `livraisonmode` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `prix` int(11) NOT NULL,
+  `delai` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `livraisonmode`
+--
+
+INSERT INTO `livraisonmode` (`id`, `nom`, `prix`, `delai`) VALUES
+(1, 'COLLISSIMO', 2, 4),
+(2, 'EXPRESS', 5, 2);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `lombricompost`
 --
 
@@ -96,41 +117,55 @@ INSERT INTO `lombricompost` (`id`, `titre`, `paragraphe1`, `paragraphe2`, `date`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `preinscription`
+-- Structure de la table `panier`
 --
 
-CREATE TABLE `preinscription` (
-  `id` int(11) NOT NULL,
-  `email` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `pseudo` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `motDePasse` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `Sex` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `prenom` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `nom` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `numeros` int(11) NOT NULL,
-  `nomDeRue` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `appartement` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `batiment` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `lieuDit` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `CodePostal` int(11) NOT NULL,
-  `ville` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `pays` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `tel1` int(11) NOT NULL,
-  `tel2` int(11) NOT NULL,
-  `age` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `situation` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `exterieur` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `habitant` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `description` text CHARACTER SET latin1 NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE `panier` (
+  `id` int(6) UNSIGNED NOT NULL,
+  `idvisit` varchar(99) DEFAULT NULL,
+  `idclient` varchar(99) DEFAULT NULL,
+  `idadmin` varchar(99) DEFAULT NULL,
+  `pspj1` varchar(99) DEFAULT NULL,
+  `qte_pspj1` varchar(99) DEFAULT NULL,
+  `pspj2` varchar(99) DEFAULT NULL,
+  `qte_pspj2` varchar(99) DEFAULT NULL,
+  `pspj3` varchar(99) DEFAULT NULL,
+  `qte_pspj3` varchar(99) DEFAULT NULL,
+  `pspj4` varchar(99) DEFAULT NULL,
+  `qte_pspj4` varchar(99) DEFAULT NULL,
+  `pspj5` varchar(99) DEFAULT NULL,
+  `qte_pspj5` varchar(99) DEFAULT NULL,
+  `pspj6` varchar(99) DEFAULT NULL,
+  `qte_pspj6` varchar(99) DEFAULT NULL,
+  `pspj7` varchar(99) DEFAULT NULL,
+  `qte_pspj7` varchar(99) DEFAULT NULL,
+  `pspl1` varchar(99) DEFAULT NULL,
+  `qte_pspl1` varchar(99) DEFAULT NULL,
+  `pspl2` varchar(99) DEFAULT NULL,
+  `qte_pspl2` varchar(99) DEFAULT NULL,
+  `pspl3` varchar(99) DEFAULT NULL,
+  `qte_pspl3` varchar(99) DEFAULT NULL,
+  `pspl4` varchar(99) DEFAULT NULL,
+  `qte_pspl4` varchar(99) DEFAULT NULL,
+  `pspl5` varchar(99) DEFAULT NULL,
+  `qte_pspl5` varchar(99) DEFAULT NULL,
+  `pspl6` varchar(99) DEFAULT NULL,
+  `qte_pspl6` varchar(99) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `preinscription`
+-- Contenu de la table `panier`
 --
 
-INSERT INTO `preinscription` (`id`, `email`, `pseudo`, `motDePasse`, `Sex`, `prenom`, `nom`, `numeros`, `nomDeRue`, `appartement`, `batiment`, `lieuDit`, `CodePostal`, `ville`, `pays`, `tel1`, `tel2`, `age`, `situation`, `exterieur`, `habitant`, `description`) VALUES
-(1, 'sh@gmail.com', 'gwada', '1234', 'm', 'Kevin', 'PASCAL', 4, 'rue de montmo', 'appartement A', 'batiment 4', 'tigro', 95560, 'Montsoult', 'France', 673772112, 134697755, 'medium25-40', 'proprietaire', 'terrasse', '3', ''),
-(5, 'afd@gmail.com', 'madinina', '972', 'mme', 'MAdi', 'Nina', 65, 'rue de la libertÃ©', 'ND', 'ND', 'ND', 97, 'FORT DE FRANCE', 'Allemagne', 955664422, 522114477, 'ND', 'locataire', 'les deux', 'un nombre incertain', '  sdqijqpbgdsjigbq jpisdqbj^qb^^psqdb^bq^^bqsd^gsqjd^gb^q ^jsdbg^jqsdgbq^db jsd^bgs^qdb^jdsqb jsd^sqdbsd^sb j^sdbg^sqjdbsdj^sd ^jsdb^jsdb ^jbqsd^fsqfo^sdqnb ^nsdqo^bnso^d bo^nbo^s no^nosd^n o^sdn Ã´sn o^sqdn o^nfosnd oqsdn^sdqn sl no^gno^sdqngÃ´sdqn s^q nsq^ns^nsd^ns^ksdnÃ´sqdn o^sqn sdokn o^s n^sdn osqn on do^sngsÃ´d n^sqdg no^sdgn so^gn sod^fg no^f no^g nqÃ´gnfdqso^gnsdo^g nsdo^g ndso^no no^gnsog ^sn o^no^gnsqdo^no^g nsqÃ´gnsogndgksnglknl s^k');
+INSERT INTO `panier` (`id`, `idvisit`, `idclient`, `idadmin`, `pspj1`, `qte_pspj1`, `pspj2`, `qte_pspj2`, `pspj3`, `qte_pspj3`, `pspj4`, `qte_pspj4`, `pspj5`, `qte_pspj5`, `pspj6`, `qte_pspj6`, `pspj7`, `qte_pspj7`, `pspl1`, `qte_pspl1`, `pspl2`, `qte_pspl2`, `pspl3`, `qte_pspl3`, `pspl4`, `qte_pspl4`, `pspl5`, `qte_pspl5`, `pspl6`, `qte_pspl6`) VALUES
+(13, NULL, NULL, '19', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(12, NULL, NULL, '18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, NULL, NULL, '17', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(10, NULL, NULL, '16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, NULL, '15', NULL, 'NULL', '13', 'NULL', '7', 'NULL', '6', 'NULL', '15', 'NULL', '1', NULL, NULL, NULL, NULL, 'TRUE', '13', 'TRUE', '17', 'TRUE', '1', NULL, NULL, NULL, NULL, NULL, NULL),
+(14, NULL, NULL, '20', 'TRUE', '10', 'NULL', '20', 'NULL', '20', 'NULL', '1', 'NULL', '1', 'NULL', '13', 'NULL', '1', 'TRUE', '20', 'TRUE', '18', 'NULL', '12', 'NULL', '19', 'NULL', '19', 'NULL', '19'),
+(15, NULL, NULL, '20', 'TRUE', '10', 'NULL', '20', 'NULL', '20', 'NULL', '1', 'NULL', '1', 'NULL', '13', 'NULL', '1', 'TRUE', '20', 'TRUE', '18', 'NULL', '12', 'NULL', '19', 'NULL', '19', 'NULL', '19'),
+(16, NULL, NULL, '20', 'TRUE', '10', 'NULL', '20', 'NULL', '20', 'NULL', '1', 'NULL', '1', 'NULL', '13', 'NULL', '1', 'TRUE', '20', 'TRUE', '18', 'NULL', '12', 'NULL', '19', 'NULL', '19', 'NULL', '19');
 
 -- --------------------------------------------------------
 
@@ -141,6 +176,7 @@ INSERT INTO `preinscription` (`id`, `email`, `pseudo`, `motDePasse`, `Sex`, `pre
 CREATE TABLE `produitjardinerie` (
   `id` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
+  `abreviation` varchar(255) DEFAULT NULL,
   `resume` text NOT NULL,
   `prix` int(11) NOT NULL,
   `statue` varchar(255) NOT NULL,
@@ -151,14 +187,46 @@ CREATE TABLE `produitjardinerie` (
 -- Contenu de la table `produitjardinerie`
 --
 
-INSERT INTO `produitjardinerie` (`id`, `nom`, `resume`, `prix`, `statue`, `lien`) VALUES
-(1, 'Jardinière 1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 100, 'En stock', '../image/shop/jardiniere1.jpg'),
-(2, 'Jardinière 2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 200, 'En stock', '../image/shop/jardiniere2.jpg'),
-(3, 'Jardinière 3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 200, 'Rupture', '../image/shop/jardiniere3.jpg'),
-(4, 'Jardinière 4', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 100, 'Rupture', '../image/shop/jardiniere4.jpg'),
-(5, 'Jardinière 5', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 300, 'EN stock', '../image/shop/jardiniere5.jpg'),
-(6, 'Jardinière 6', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 200, 'Rupture', '../image/shop/jardiniere6.jpg'),
-(7, 'Jardinière 7', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 200, 'Rupture', '../image/shop/jardiniere7.jpg');
+INSERT INTO `produitjardinerie` (`id`, `nom`, `abreviation`, `resume`, `prix`, `statue`, `lien`) VALUES
+(1, 'Jardinière 1', 'pspj1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 100, 'En stock', '../image/shop/jardiniere1.jpg'),
+(2, 'Jardinière 2', 'pspj2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 200, 'En stock', '../image/shop/jardiniere2.jpg'),
+(3, 'Jardinière 3', 'pspj3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 200, 'Rupture', '../image/shop/jardiniere3.jpg'),
+(4, 'Jardinière 4', 'pspj4', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 100, 'Rupture', '../image/shop/jardiniere4.jpg'),
+(5, 'Jardinière 5', 'pspj5', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 300, 'EN stock', '../image/shop/jardiniere5.jpg'),
+(6, 'Jardinière 6', 'pspj6', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 200, 'Rupture', '../image/shop/jardiniere6.jpg'),
+(7, 'Jardinière 7', 'pspj7', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 200, 'Rupture', '../image/shop/jardiniere7.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `produitlombricompost`
+--
+
+CREATE TABLE `produitlombricompost` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `abreviation` varchar(255) DEFAULT NULL,
+  `resume` text NOT NULL,
+  `prix` int(11) NOT NULL,
+  `statue` varchar(255) NOT NULL,
+  `lien` varchar(255) NOT NULL,
+  `lien2` varchar(255) DEFAULT NULL,
+  `lien3` varchar(255) DEFAULT NULL,
+  `cible` varchar(255) NOT NULL,
+  `materiel` varchar(255) NOT NULL,
+  `contenu` text NOT NULL,
+  `dimension` varchar(255) NOT NULL,
+  `contenance` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `produitlombricompost`
+--
+
+INSERT INTO `produitlombricompost` (`id`, `nom`, `abreviation`, `resume`, `prix`, `statue`, `lien`, `lien2`, `lien3`, `cible`, `materiel`, `contenu`, `dimension`, `contenance`) VALUES
+(1, 'Lombribox', 'pspj1', 'Ce lombricomposteur permet de recycler ses déchets grâce aux vers de compost. Il vous permet en plus de récupérer un engrais naturel excellent pour vos plantes. Design parfaitement adapté aux espaces réduits tels que les balcons et terrasses.', 109, 'En stock', '../image/shop/lombribox2.jpg', '../image/shop/lombribox1.jpg', NULL, ' Famille de 2/3 personne', 'Plastique 100% recyclé', ' Livré avec 2 plateaux, un toit étanche, un sachet de fibre de coco, un tapis d\'humidité, 4 cornières de soutien, (paille de chanvre) servant de litière aux vers, un filet de sécurité, un guide explicatif, les accessoires de montage et un robinet.', 'Longueur:40cm, Largeur: 40cm, hauteur:60cm', 30),
+(2, 'Ecoworms', 'pspj2', 'EcoWorms, le lombricomposteur en plastique issu du recyclage 100% français ! Nouvelle version 6 roulettes + décanteur Adoptez l\'éco-attitude en recyclant jusqu\'à 30% de vos déchets ménagers grâce aux vers de compostage.\r\n\r\n Vous recyclez jusqu\'à 30% de vos déchets de cuisine, grâce au travail des vers, qui peuvent manger une fois leurs poids, par jour !\r\nBénéfice : vous récoltez gratuitement un compost 100% naturel, riche pour vos plantations et un engrais liquide "Thé à compost" excellent pour vos plantes et fleurs.\r\n Le lombricompostage est beaucoup plus rapide que le compostage traditionnel en jardin et nécessite beaucoup moins de travail : celui-ci est fait par les vers, sans remuer ni arroser.', 200, 'Rupture', '../image/shop/ecoworms-lombricomposteur-beige.jpg', '../image/shop/ecoworms-lombricomposteur-bleu.jpg', '../image/shop/ecoworms-lombricomposteur-fushia.jpg', ' Famille de 2/3 personnes', ' Plastique 100% recyclé', 'Livré avec 3 plateaux, couvercle, bac collecteur, un tapis d\'humidité, une brique de coco, un verre doseur, un guide explicatif, les accessoires de montage et un robinet', ' diametre: 42cm, hauteur: 60cm', 30),
+(3, 'Lombricomposteur Jardinitis', 'pspj3', 'Ce lombricomposteur permet de recycler ses déchets grâce aux vers de compost. Il vous permet en plus de récupérer un engrais naturel excellent pour vos plantes. Design parfaitement adapté aux espaces réduits tels que les balcons et terrasses', 109, 'Rupture', '../image/shop/lombricomposteur_joardinitis_huerto_2_large.jpg', '../image/shop/lombricomposteur_joardinitis_huerto_3_large.jpg', NULL, ' familles citadines', 'Plastique', ' Lombricomposteur en bois 3, 4 ou 5 plateaux.Couverture de fibres de noix de coco qui sert de lit pour l\'initiation de l\'élevage des vers et évite le colmatage des boues de vidange de la sortie. Un robinet de sortie. Un sac de fibre de coco pour démarrer le processus. Manuel de montage et d\'utilisation.', 'Longueur: 40cm, Largueur: 40 cm, Hauteur: 60cm', 75);
 
 -- --------------------------------------------------------
 
@@ -169,6 +237,40 @@ INSERT INTO `produitjardinerie` (`id`, `nom`, `resume`, `prix`, `statue`, `lien`
 CREATE TABLE `produitlombricomposteur` (
   `id` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
+  `abreviation` varchar(255) DEFAULT NULL,
+  `resume` text NOT NULL,
+  `prix` int(11) NOT NULL,
+  `statue` varchar(255) NOT NULL,
+  `lien` varchar(255) NOT NULL,
+  `lien2` varchar(255) DEFAULT NULL,
+  `lien3` varchar(255) DEFAULT NULL,
+  `cible` varchar(255) NOT NULL,
+  `materiel` varchar(255) NOT NULL,
+  `contenu` text NOT NULL,
+  `dimension` varchar(255) NOT NULL,
+  `contenance` int(11) NOT NULL,
+  `provenance` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `produitlombricomposteur`
+--
+
+INSERT INTO `produitlombricomposteur` (`id`, `nom`, `abreviation`, `resume`, `prix`, `statue`, `lien`, `lien2`, `lien3`, `cible`, `materiel`, `contenu`, `dimension`, `contenance`, `provenance`) VALUES
+(1, 'Lombribox', 'pspl1', 'Ce lombricomposteur permet de recycler ses dechets grace aux vers de compost. Il vous permet en plus de recuperer un engrais naturel excellent pour vos plantes. Design parfaitement adapte aux espaces reduits tels que les balcons et terrasses.', 109, 'En stock', '../image/shop/lombribox2.jpg', '../image/shop/lombribox1.jpg', NULL, 'Famille de 2 ou 3 personne', 'Plastique 100% recycle', 'Livre avec 2 plateaux, un toit etanche, un sachet de fibre de coco, un tapis d\'humidite, 4 cornieres de soutien, (paille de chanvre) servant de litiere aux vers, un filet de securite, un guide explicatif, les accessoires de montage et un robinet.', 'Longueur: 40cm, Largeur: 40cm, hauteur: 60cm', 30, 'Chine'),
+(2, 'Ecoworms', 'pspl2', 'EcoWorms, le lombricomposteur en plastique issu du recyclage 100% francais ! Nouvelle version 6 roulettes + decanteur Adoptez l\'eco-attitude en recyclant jusqu\'a 30% de vos dechets menagers grace aux vers de compostage.\r\n\r\n Vous recyclez jusqu\'a 30% de vos dechets de cuisine, grace au travail des vers, qui peuvent manger une fois leurs poids, par jour !\r\nBenefice : vous recoltez gratuitement un compost 100% naturel, riche pour vos plantations et un engrais liquide "The a compost" excellent pour vos plantes et fleurs.\r\n Le lombricompostage est beaucoup plus rapide que le compostage traditionnel en jardin et necessite beaucoup moins de travail : celui-ci est fait par les vers, sans remuer ni arroser.', 200, 'Rupture', '../image/shop/ecoworms-lombricomposteur-beige.jpg', '../image/shop/ecoworms-lombricomposteur-bleu.jpg', '../image/shop/ecoworms-lombricomposteur-fushia.jpg', 'Famille de 2 ou 3 personnes', 'Plastique 100% recycle', 'Livre avec 3 plateaux, couvercle, bac collecteur, un tapis d\'humidite, une brique de coco, un verre doseur, un guide explicatif, les accessoires de montage et un robinet', 'Diametre: 42cm hauteur: 60cm', 30, 'France'),
+(3, 'Lombricomposteur Jardinitis', 'pspl3', 'Ce lombricomposteur permet de recycler ses dechets grace aux vers de compost. Il vous permet en plus de recuperer un engrais naturel excellent pour vos plantes. Design parfaitement adapte aux espaces reduits tels que les balcons et terrasses', 109, 'Rupture', '../image/shop/lombricomposteur_joardinitis_huerto_2_large.jpg', '../image/shop/lombricomposteur_joardinitis_huerto_3_large.jpg', NULL, ' familles citadines', 'Plastique', ' Lombricomposteur en bois 3, 4 ou 5 plateaux, Couverture de fibres de noix de coco qui sert de lit pour l\'initiation de l\'elevage des vers et evite le colmatage des boues de vidange de la sortie. Un robinet de sortie. Un sac de fibre de coco pour demarrer le processus. Manuel de montage et d\'utilisation.', 'Longueur: 40cm, Largueur: 40 cm, Hauteur: 60cm', 75, 'Espagne');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `produitsystemeirrigation`
+--
+
+CREATE TABLE `produitsystemeirrigation` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `abreviation` varchar(255) DEFAULT NULL,
   `resume` text NOT NULL,
   `prix` int(11) NOT NULL,
   `statue` varchar(255) NOT NULL,
@@ -176,16 +278,39 @@ CREATE TABLE `produitlombricomposteur` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `produitlombricomposteur`
+-- Contenu de la table `produitsystemeirrigation`
 --
 
-INSERT INTO `produitlombricomposteur` (`id`, `nom`, `resume`, `prix`, `statue`, `lien`) VALUES
-(1, 'Lombricompost NOM', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 100, 'En stock', '../image/shop/lombricomposteur1.jpg'),
-(2, 'Lombricompost NOM', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 200, 'En stock', '../image/shop/lombricomposteur2.jpg'),
-(3, 'Lombricompost 3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 200, 'Rupture', '../image/shop/lombricomposteur3.jpg'),
-(4, 'fibre de chanvre pour litière', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 100, 'Rupture', '../image/shop/fibre_de_chanvre_litiere.jpg'),
-(5, 'Lombricompost 5', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 300, 'EN stock', '../image/shop/lombricomposteur3.jpg'),
-(6, 'Lombricompost 6', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 200, 'Rupture', '../image/shop/lombricomposteur1.jpg');
+INSERT INTO `produitsystemeirrigation` (`id`, `nom`, `abreviation`, `resume`, `prix`, `statue`, `lien`) VALUES
+(1, 'Systeme irrigation 1', 'pspj1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 100, 'En stock', '../image/shop/systeme_irrigation1.jpg'),
+(2, 'Systeme irrigation 2', 'pspj2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 200, 'En stock', '../image/shop/systeme_irrigation2.jpg'),
+(3, 'Systeme irrigation 3', 'pspj3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 200, 'Rupture', '../image/shop/systeme_irrigation3.jpg'),
+(4, 'Systeme irrigation 4', 'pspj3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 200, 'En stock', '../image/shop/systeme_irrigation4.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `produitterreaux`
+--
+
+CREATE TABLE `produitterreaux` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `abreviation` varchar(255) DEFAULT NULL,
+  `resume` text NOT NULL,
+  `prix` int(11) NOT NULL,
+  `statue` varchar(255) NOT NULL,
+  `lien` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `produitterreaux`
+--
+
+INSERT INTO `produitterreaux` (`id`, `nom`, `abreviation`, `resume`, `prix`, `statue`, `lien`) VALUES
+(1, 'Terreaux 1', 'pspj1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 100, 'En stock', '../image/shop/terreau1.jpg'),
+(2, 'Terreau 2', 'pspj2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 200, 'Rupture', '../image/shop/terreau2.jpg'),
+(3, 'Terreau 3', 'pspj3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 200, 'Rupture', '../image/shop/terreau3.jpg');
 
 -- --------------------------------------------------------
 
@@ -220,6 +345,48 @@ INSERT INTO `tableaufruit` (`id`, `nom`, `description`, `class`) VALUES
 (13, 'Poireau', 'Aucun problème avec ce légume dont on jette souvent les restes.', 'tableYes'),
 (14, 'Pomme de terre', 'On évitera tout simplement les épluchures comme les patates entières qui pourrissent.', 'tableNo');
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(255) NOT NULL,
+  `idpanier` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `statue` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `pseudo` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `motDePasse` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `Sex` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `prenom` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `nom` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `numeros` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
+  `nomDeRue` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `appartement` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `batiment` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `lieuDit` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `CodePostal` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
+  `ville` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `pays` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `tel1` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
+  `tel2` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `age` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `situation` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `exterieur` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `habitant` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `description` text CHARACTER SET latin1
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contenu de la table `users`
+--
+
+INSERT INTO `users` (`id`, `idpanier`, `statue`, `email`, `pseudo`, `motDePasse`, `Sex`, `prenom`, `nom`, `numeros`, `nomDeRue`, `appartement`, `batiment`, `lieuDit`, `CodePostal`, `ville`, `pays`, `tel1`, `tel2`, `age`, `situation`, `exterieur`, `habitant`, `description`) VALUES
+(20, '14', 'admin', 'gwada@gwada.fr', 'gwada', '1234', 'm', 'gwada', 'gwada', '4', 'rue de la libertÃ©', '', '', '', '23237', 'enghien', 'France', '0673772112', '', 'd\'un certain age', 'proprietaire', 'les deux', 'un nombre incertain', '  '),
+(23, NULL, 'admin', 'test@test.fr', 'TOTO', '1234', 'm', 'KEVIN', 'PASCAL', '4', 'rueÂµ', '', '<br /><font size=\'1\'><table class=\'xdebug-error xe-notice\' dir=\'ltr\' border=\'1\' cellspacing=\'0\' cellpadding=\'1\'><tr><th align=\'left\' bgcolor=\'#f57900\' colspan=', '<br /><font size=\'1\'><table class=\'xdebug-error xe-notice\' dir=\'ltr\' border=\'1\' cellspacing=\'0\' cellpadding=\'1\'><tr><th align=\'left\' bgcolor=\'#f57900\' colspan=', '95560', 'Paris', 'belgique', '0655443322', '', 'd\'un certain age', 'proprietaire', 'terrasse', 'un nombre incertain', '  '),
+(15, '9', 'client', 'panier@hotmail.com', 'panier', '1234', 'm', 'mister', 'panier', '4', 'rue de la soif', '', '', '', '23237', 'renaissance', 'Allemagne', '0688554466', NULL, NULL, NULL, NULL, NULL, NULL);
+
 --
 -- Index pour les tables exportées
 --
@@ -237,15 +404,21 @@ ALTER TABLE `jardinerie`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `livraisonmode`
+--
+ALTER TABLE `livraisonmode`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `lombricompost`
 --
 ALTER TABLE `lombricompost`
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- Index pour la table `preinscription`
+-- Index pour la table `panier`
 --
-ALTER TABLE `preinscription`
+ALTER TABLE `panier`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -255,15 +428,39 @@ ALTER TABLE `produitjardinerie`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `produitlombricompost`
+--
+ALTER TABLE `produitlombricompost`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `produitlombricomposteur`
 --
 ALTER TABLE `produitlombricomposteur`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `produitsystemeirrigation`
+--
+ALTER TABLE `produitsystemeirrigation`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `produitterreaux`
+--
+ALTER TABLE `produitterreaux`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `tableaufruit`
 --
 ALTER TABLE `tableaufruit`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -281,30 +478,55 @@ ALTER TABLE `accueil`
 ALTER TABLE `jardinerie`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
+-- AUTO_INCREMENT pour la table `livraisonmode`
+--
+ALTER TABLE `livraisonmode`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT pour la table `lombricompost`
 --
 ALTER TABLE `lombricompost`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT pour la table `preinscription`
+-- AUTO_INCREMENT pour la table `panier`
 --
-ALTER TABLE `preinscription`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `panier`
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT pour la table `produitjardinerie`
 --
 ALTER TABLE `produitjardinerie`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
+-- AUTO_INCREMENT pour la table `produitlombricompost`
+--
+ALTER TABLE `produitlombricompost`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT pour la table `produitlombricomposteur`
 --
 ALTER TABLE `produitlombricomposteur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `produitsystemeirrigation`
+--
+ALTER TABLE `produitsystemeirrigation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT pour la table `produitterreaux`
+--
+ALTER TABLE `produitterreaux`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `tableaufruit`
 --
 ALTER TABLE `tableaufruit`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
